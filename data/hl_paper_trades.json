@@ -85,11 +85,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T10:15:01.494924",
-      "status": "OPEN",
-      "current_price": 0.864,
+      "status": "CLOSED",
+      "current_price": 0.865,
       "price_change_24h": 0,
-      "pnl": -387.85,
-      "pnl_pct": -91.26
+      "pnl": -387.81,
+      "pnl_pct": -91.25,
+      "exit_price": 0.865,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:00.733277"
     },
     {
       "id": "paper_1771760701",
@@ -105,11 +108,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T11:45:01.681613",
-      "status": "OPEN",
-      "current_price": 0.125,
+      "status": "CLOSED",
+      "current_price": 0.1249,
       "price_change_24h": 0,
       "pnl": -419.59,
-      "pnl_pct": -98.73
+      "pnl_pct": -98.73,
+      "exit_price": 0.1249,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:01.015000"
     },
     {
       "id": "paper_1771762501",
@@ -125,11 +131,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.289982",
-      "status": "OPEN",
+      "status": "CLOSED",
       "current_price": 0.907,
       "price_change_24h": 0,
       "pnl": -437.26,
-      "pnl_pct": -90.86
+      "pnl_pct": -90.86,
+      "exit_price": 0.907,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:01.317551"
     },
     {
       "id": "paper_1771762501",
@@ -145,11 +154,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290024",
-      "status": "OPEN",
-      "current_price": 0.2737,
+      "status": "CLOSED",
+      "current_price": 0.2738,
       "price_change_24h": 0,
-      "pnl": -181.39,
-      "pnl_pct": -39.22
+      "pnl": -181.29,
+      "pnl_pct": -39.2,
+      "exit_price": 0.2738,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:01.606321"
     },
     {
       "id": "paper_1771762501",
@@ -165,11 +177,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290046",
-      "status": "OPEN",
+      "status": "CLOSED",
       "current_price": 6.12e-06,
       "price_change_24h": 0,
       "pnl": -462.5,
-      "pnl_pct": -100.0
+      "pnl_pct": -100.0,
+      "exit_price": 6.12e-06,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:01.896474"
     },
     {
       "id": "paper_1771762501",
@@ -185,11 +200,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290070",
-      "status": "OPEN",
+      "status": "CLOSED",
       "current_price": 0.0953,
       "price_change_24h": 0,
       "pnl": -439.55,
-      "pnl_pct": -99.05
+      "pnl_pct": -99.05,
+      "exit_price": 0.0953,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:02.203038"
     },
     {
       "id": "paper_1771762501",
@@ -205,11 +223,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290087",
-      "status": "OPEN",
-      "current_price": 8.74,
+      "status": "CLOSED",
+      "current_price": 8.73,
       "price_change_24h": 0,
-      "pnl": -320.84,
-      "pnl_pct": -75.49
+      "pnl": -320.96,
+      "pnl_pct": -75.52,
+      "exit_price": 8.73,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:02.488445"
     },
     {
       "id": "paper_1771762501",
@@ -225,11 +246,14 @@
       "kelly_fraction": 0.5,
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290132",
-      "status": "OPEN",
-      "current_price": 1.014,
+      "status": "CLOSED",
+      "current_price": 1.015,
       "price_change_24h": 0,
-      "pnl": -364.84,
-      "pnl_pct": -89.81
+      "pnl": -364.8,
+      "pnl_pct": -89.8,
+      "exit_price": 1.015,
+      "close_reason": "STOP_LOSS",
+      "exit_timestamp": "2026-02-23T13:06:02.770554"
     }
   ],
   "summary": {

@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-02-23T15:02:08.755162+00:00",
+  "prices": [
+    {
+      "coin": "BTC",
+      "price": 67632.53,
+      "change_24h_pct": -1.058
+    },
+    {
+      "coin": "ETH",
+      "price": 1952.38,
+      "change_24h_pct": -1.832
+    },
+    {
+      "coin": "SOL",
+      "price": 83.54,
+      "change_24h_pct": -3.153
+    },
+    {
+      "coin": "BNB",
+      "price": 613.83,
+      "change_24h_pct": -1.966
+    },
+    {
+      "coin": "XRP",
+      "price": 1.3929,
+      "change_24h_pct": -3.512
+    },
+    {
+      "coin": "ADA",
+      "price": 0.2712,
+      "change_24h_pct": -3.522
+    },
+    {
+      "coin": "AVAX",
+      "price": 8.88,
+      "change_24h_pct": -3.792
+    },
+    {
+      "coin": "LINK",
+      "price": 8.71,
+      "change_24h_pct": -2.354
+    },
+    {
+      "coin": "DOT",
+      "price": 1.318,
+      "change_24h_pct": -3.302
+    },
+    {
+      "coin": "MATIC",
+      "price": 0.3794,
+      "change_24h_pct": -0.289
+    },
+    {
+      "coin": "NEAR",
+      "price": 2.85,
+      "change_24h": -1.2
+    },
+    {
+      "coin": "APT",
+      "price": 0.84,
+      "change_24h": 0.8
+    },
+    {
+      "coin": "SNX",
+      "price": 0.41,
+      "change_24h": 2.1
+    },
+    {
+      "coin": "INJ",
+      "price": 3.48,
+      "change_24h": -0.5
+    },
+    {
+      "coin": "CRV",
+      "price": 0.227,
+      "change_24h": -1.1
+    },
+    {
+      "coin": "ARB",
+      "price": 0.094,
+      "change_24h": -2.3
+    },
+    {
+      "coin": "OP",
+      "price": 0.123,
+      "change_24h": -1.8
+    },
+    {
+      "coin": "SEI",
+      "price": 0.068,
+      "change_24h": -3.1
+    },
+    {
+      "coin": "STX",
+      "price": 0.239,
+      "change_24h": -0.9
+    },
+    {
+      "coin": "YGG",
+      "price": 0.046,
+      "change_24h": -2.4
+    },
+    {
+      "coin": "APE",
+      "price": 0.105,
+      "change_24h": -1.5
+    }
+  ]
+}
