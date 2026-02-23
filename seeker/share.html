@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Share Card | Solana Seeker</title>
+  <link rel="stylesheet" href="/seeker/styles.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 600px; margin: 0 auto; text-align: center; }
+    h1 { font-size: 1.8rem; margin-bottom: 24px; }
+    .input-group { margin-bottom: 16px; }
+    input, textarea { width: 100%; padding: 12px; background: var(--bg-tertiary); border: none; border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
+    .btn { padding: 12px 24px; background: var(--blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; margin: 4px; }
+    .btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+    #preview { margin: 20px auto; max-width: 320px; }
+    canvas { width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+  </style>
+</head>
+<body>
+  <h1>📤 Share Card Generator</h1>
+  
+  <div class="input-group">
+    <input type="text" id="headline" placeholder="Article headline..." value="Jupiter DEX Volume Hits Record $2.1B">
+  </div>
+  <div class="input-group">
+    <input type="text" id="source" placeholder="Source..." value="CoinDesk">
+  </div>
+  <div class="input-group">
+    <input type="text" id="date" placeholder="Date..." value="Feb 22, 2026">
+  </div>
+  
+  <button class="btn" onclick="generateCard()">🎨 Generate Card</button>
+  
+  <div id="preview">
+    <canvas id="cardCanvas" width="320" height="480"></canvas>
+  </div>
+  
+  <div>
+    <button class="btn btn-secondary" onclick="downloadCard()">⬇ Download</button>
+    <button class="btn" onclick="shareCard()">📤 Share</button>
+  </div>
+  
+  <p style="margin-top: 20px; color: var(--text-tertiary); font-size: 0.85rem;">
+    <a href="/seeker/article.html" style="color: var(--blue);">← Back to Article</a>
+  </p>
+
+  <script>
+    const canvas = document.getElementById('cardCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function generateCard() {
+      const headline = document.getElementById('headline').value;
+      const source = document.getElementById('source').value;
+      const date = document.getElementById('date').value;
+      
+      // Background
+      ctx.fillStyle = '#0A0A0F';
+      ctx.fillRect(0, 0, 320, 480);
+      
+      // Gradient bar at top
+      const gradient = ctx.createLinearGradient(0, 0, 320, 0);
+      gradient.addColorStop(0, '#0A84FF');
+      gradient.addColorStop(1, '#5E5CE6');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, 320, 8);
+      
+      // Headline
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, sans-serif';
+      wrapText(ctx, headline, 20, 80, 280, 28);
+      
+      // Source & Date
+      ctx.fillStyle = '#8E8E93';
+      ctx.font = '14px -apple-system, BlinkMacSystemFont, sans-serif';
+      ctx.fillText(source + ' • ' + date, 20, 300);
+      
+      // Branding
+      ctx.fillStyle = '#5E5CE6';
+      ctx.font = 'bold 16px -apple-system, BlinkMacSystemFont, sans-serif';
+      ctx.fillText('🔮 Solana Seeker', 20, 440);
+    }
+    
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+      const words = text.split(' ');
+      let line = '';
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+          ctx.fillText(line, x, y);
+          line = words[n] + ' ';
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, x, y);
+    }
+    
+    function downloadCard() {
+      const link = document.createElement('a');
+      link.download = 'solana-seeker-share.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+    
+    async function shareCard() {
+      try {
+        const blob = await new Promise(resolve => canvas.toBlob(resolve));
+        const file = new File([blob], 'share-card.png', { type: 'image/png' });
+        if (navigator.share) {
+          await navigator.share({ files: [file], title: 'Solana Seeker' });
+        } else {
+          alert('Sharing not supported. Use Download instead.');
+        }
+      } catch(e) {
+        alert('Share failed. Try Download.');
+      }
+    }
+    
+    // Generate on load
+    generateCard();
+  <script>function toggleTheme(){const isDark=document.body.classList.contains("dark");document.body.classList.toggle("dark");localStorage.setItem("seeker_theme",isDark?"light":"dark");document.querySelector("button[onclick^=toggleTheme]").textContent=isDark?"☀️":"🌙"}if(localStorage.getItem("seeker_theme")==="light"){document.body.classList.remove("dark")}</script>
+</body>
+</html>

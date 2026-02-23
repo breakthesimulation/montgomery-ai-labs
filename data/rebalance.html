@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Rebalancer | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+        .section-title { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; }
+        
+        .allocation-bar { display: flex; height: 24px; border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+        .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-value { font-size: 1.25rem; font-weight: 700; margin-top: 8px; }
+        
+        .table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 12px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        .mono { font-family: 'IBM Plex Mono'; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚖️ Portfolio Rebalancer</h1>
+        </header>
+        
+        <div class="grid">
+            <div class="stat-card">
+                <div class="stat-label">Portfolio Value</div>
+                <div class="stat-value">$27,143.00</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Target</div>
+                <div class="stat-value">BTC 40% / ETH 30%</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">Current Allocation</div>
+            <div class="allocation-bar"><div style="width:7.754300864626192%;background:#9945FF;height:24px" title="SOL: 7.8%"></div><div style="width:18.424638852118104%;background:#2775CA;height:24px" title="USDC: 18.4%"></div><div style="width:37.31901757438285%;background:#F7931A;height:24px" title="BTC: 37.3%"></div><div style="width:18.08108804768699%;background:#627EEA;height:24px" title="ETH: 18.1%"></div></div>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">Target Allocation</div>
+            <div class="allocation-bar"><div style="width:40%;background:#F7931A;height:24px" title="BTC: 40%"></div><div style="width:30%;background:#627EEA;height:24px" title="ETH: 30%"></div><div style="width:20%;background:#9945FF;height:24px" title="SOL: 20%"></div><div style="width:10%;background:#2775CA;height:24px" title="USDC: 10%"></div></div>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">Rebalance Recommendations</div>
+            <table class="table">
+                <thead><tr><th>Coin</th><th>Action</th><th>Current</th><th>Target</th><th>Diff</th><th>Amount</th></tr></thead>
+                <tbody>
+            <tr>
+                <td><strong>BTC</strong></td>
+                <td>🟢 BUY</td>
+                <td class="mono">37.3%</td>
+                <td class="mono">40%</td>
+                <td class="mono">+2.7%</td>
+                <td class="mono">$727.70</td>
+            </tr>
+        
+            <tr>
+                <td><strong>ETH</strong></td>
+                <td>🟢 BUY</td>
+                <td class="mono">18.1%</td>
+                <td class="mono">30%</td>
+                <td class="mono">+11.9%</td>
+                <td class="mono">$3,235.15</td>
+            </tr>
+        
+            <tr>
+                <td><strong>SOL</strong></td>
+                <td>🟢 BUY</td>
+                <td class="mono">7.8%</td>
+                <td class="mono">20%</td>
+                <td class="mono">+12.2%</td>
+                <td class="mono">$3,323.85</td>
+            </tr>
+        
+            <tr>
+                <td><strong>USDC</strong></td>
+                <td>🔴 SELL</td>
+                <td class="mono">18.4%</td>
+                <td class="mono">10%</td>
+                <td class="mono">-8.4%</td>
+                <td class="mono">$2,286.70</td>
+            </tr>
+        </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

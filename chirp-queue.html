@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chirp Queue | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 700px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 16px; }
+    .btn { padding: 10px 20px; background: var(--blue); color: white; border: none; border-radius: 8px; cursor: pointer; margin: 4px; }
+    .btn:hover { opacity: 0.9; }
+    .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+    .btn-copy { background: var(--green); }
+    .btn-regen { background: var(--purple); font-size: 0.8rem; padding: 6px 12px; }
+    .tweet-card { background: var(--bg-tertiary); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+    .tweet-card.approved { border: 2px solid var(--green); }
+    .tweet-text { font-size: 1rem; line-height: 1.5; margin-bottom: 12px; }
+    .tweet-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-tertiary); }
+    .char-count { font-size: 0.75rem; }
+    .char-count.over { color: var(--red); }
+    .badge { padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; }
+    .badge.positive { background: rgba(48, 209, 88, 0.2); color: var(--green); }
+    .badge.neutral { background: rgba(142, 142, 147, 0.2); color: var(--text-tertiary); }
+    .badge.approved { background: var(--green); color: white; }
+    .approved-section { margin-bottom: 24px; }
+    .approved-section h2 { color: var(--green); margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <h1>🐦 Chirp Queue</h1>
+  
+  <button class="btn" onclick="generateFresh()">🔄 Generate Fresh Batch</button>
+  
+  <div id="approved-section" class="approved-section" style="display:none;">
+    <h2>✅ Approved</h2>
+    <div id="approved-list"></div>
+  </div>
+  
+  <h2 style="margin-top:24px;">📝 Drafts</h2>
+  <div id="drafts-list"></div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    let tweets = [];
+    
+    async function loadTweets() {
+      const res = await fetch('/api/chirp/queue?key=' + API_KEY);
+      const data = await res.json();
+      tweets = data.tweets || [];
+      renderTweets();
+    }
+    
+    function renderTweets() {
+      const approved = tweets.filter(t => t.approved);
+      const drafts = tweets.filter(t => !t.approved);
+      
+      // Approved section
+      const approvedSection = document.getElementById('approved-section');
+      const approvedList = document.getElementById('approved-list');
+      
+      if (approved.length) {
+        approvedSection.style.display = 'block';
+        approvedList.innerHTML = approved.map(t => renderCard(t, true)).join('');
+      } else {
+        approvedSection.style.display = 'none';
+      }
+      
+      // Drafts
+      document.getElementById('drafts-list').innerHTML = drafts.map(t => renderCard(t, false)).join('');
+    }
+    
+    function renderCard(tweet, isApproved) {
+      const chars = tweet.text.length;
+      const charClass = chars > 280 ? 'over' : '';
+      const sentiment = tweet.sentiment || 'neutral';
+      
+      return `
+        <div class="tweet-card ${isApproved ? 'approved' : ''}">
+          <div class="tweet-text">${tweet.text}</div>
+          <div class="tweet-meta">
+            <div>
+              <span class="char-count ${charClass}">${chars}/280</span>
+              <span class="badge ${sentiment}">${sentiment}</span>
+              ${isApproved ? '<span class="badge approved">✅</span>' : ''}
+            </div>
+            <div>
+              <button class="btn btn-copy" onclick="copyTweet('${tweet.id}')">📋 Copy</button>
+              ${!isApproved ? `<button class="btn btn-regen" onclick="regenerate('${tweet.id}')">🔄 Regenerate</button>
+              <button class="btn" onclick="approve('${tweet.id}')" style="background:var(--green);font-size:0.8rem;padding:6px 12px;">✅</button>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    async function approve(id) {
+      await fetch('/api/chirp/approve/' + id + '?key=' + API_KEY, {method: 'POST'});
+      loadTweets();
+    }
+    
+    async function regenerate(id) {
+      await fetch('/api/chirp/regenerate/' + id + '?key=' + API_KEY, {method: 'POST'});
+      loadTweets();
+    }
+    
+    async function copyTweet(id) {
+      const tweet = tweets.find(t => t.id === id);
+      await navigator.clipboard.writeText(tweet.text);
+      alert('Copied!');
+    }
+    
+    async function generateFresh() {
+      // Trigger pipeline via API
+      alert('Generating fresh batch... (would call pipeline)');
+      loadTweets();
+    }
+    
+    loadTweets();
+  </script>
+</body>
+</html>

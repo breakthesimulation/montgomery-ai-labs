@@ -1,0 +1,26 @@
+{
+  "symbol": "SNX",
+  "timeframe": "4h",
+  "current_price": 0.437,
+  "swing_high": 0.44,
+  "swing_low": 0.285,
+  "rsi": 76.56,
+  "fib_levels": {
+    "0.0": 0.44,
+    "0.236": 0.40342,
+    "0.382": 0.38079,
+    "0.5": 0.3625,
+    "0.618": 0.34421,
+    "0.786": 0.31817,
+    "1.0": 0.285,
+    "1.272": 0.24284,
+    "1.618": 0.18921,
+    "2.0": 0.13
+  },
+  "nearest_fib": "0.0",
+  "nearest_fib_label": "At .0 resistance",
+  "is_key_level": false,
+  "ew_estimate": "Wave 3 impulse (late)",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:46.932571Z"
+}

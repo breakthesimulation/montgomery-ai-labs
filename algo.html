@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Algorithm Explained | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 700px; margin: 0 auto; }
+        
+        header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        .subtitle { color: var(--text-muted); }
+        
+        .section { margin-bottom: 32px; }
+        .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+        
+        .formula { font-family: 'IBM Plex Mono'; background: var(--bg); padding: 12px; border-radius: 8px; margin: 8px 0; font-size: 0.9rem; }
+        
+        .score-table { width: 100%; border-collapse: collapse; }
+        .score-table th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 8px; border-bottom: 1px solid var(--border); }
+        .score-table td { padding: 8px; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+        
+        .result { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .result-stat { text-align: center; }
+        .result-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+        .result-value { font-size: 1.5rem; font-weight: 700; margin-top: 4px; }
+        
+        .disclaimer { font-size: 0.8rem; color: var(--text-muted); margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📖 How Our Signals Work</h1>
+            <p class="subtitle">The scoring algorithm explained</p>
+        </header>
+        
+        <div class="section">
+            <div class="section-title">📊 RSI Scoring (0-50 points)</div>
+            <div class="card">
+                <table class="score-table">
+                    <tr><th>Condition</th><th>Points</th><th>Description</th></tr>
+                    <tr><td>RSI < 30</td><td>+50</td><td>Oversold</td></tr>
+                    <tr><td>RSI < 40</td><td>+30</td><td>Near oversold</td></tr>
+                    <tr><td>RSI > 70</td><td>+50</td><td>Overbought</td></tr>
+                    <tr><td>RSI > 60</td><td>+30</td><td>Near overbought</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🔗 Multi-Timeframe Confluence (0-30 points)</div>
+            <div class="card">
+                <p style="color:var(--text-muted);margin-bottom:12px">When RSI signals align across timeframes:</p>
+                <table class="score-table">
+                    <tr><th>Timeframes Agree</th><th>Points</th></tr>
+                    <tr><td>3/3 aligned</td><td>+30</td></tr>
+                    <tr><td>2/3 aligned</td><td>+20</td></tr>
+                    <tr><td>1/3 aligned</td><td>+10</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">📈 MACD Confirmation (bonus/penalty)</div>
+            <div class="card">
+                <table class="score-table">
+                    <tr><th>Condition</th><th>Score Change</th></tr>
+                    <tr><td>MACD + RSI both bearish</td><td>+15</td></tr>
+                    <tr><td>MACD + RSI both bullish</td><td>+15</td></tr>
+                    <tr><td>MACD conflicts RSI</td><td>-5</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🔥 Volume Confirmation (bonus/penalty)</div>
+            <div class="card">
+                <table class="score-table">
+                    <tr><th>Condition</th><th>Score Change</th></tr>
+                    <tr><td>Volume > 1.5x average</td><td>+10</td></tr>
+                    <tr><td>Volume < 0.7x average</td><td>-5</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🎯 Confidence Levels</div>
+            <div class="card">
+                <table class="score-table">
+                    <tr><th>Score</th><th>Confidence</th></tr>
+                    <tr><td>≥70</td><td style="color:var(--green)">HIGH</td></tr>
+                    <tr><td>50-69</td><td style="color:var(--yellow)">MEDIUM</td></tr>
+                    <tr><td><50</td><td style="color:var(--text-muted)">LOW</td></tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">📋 Paper Trade Results</div>
+            <div class="result">
+                <div class="result-grid">
+                    <div class="result-stat">
+                        <div class="result-label">Total Trades</div>
+                        <div class="result-value">3</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-label">Win Rate</div>
+                        <div class="result-value" style="color:var(--green)">50%</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-label">Best Trade</div>
+                        <div class="result-value" style="color:var(--green)">+1.4%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="disclaimer">
+            <strong>Disclaimer:</strong> These are paper trading results for educational purposes. 
+            Past performance does not guarantee future results. Always do your own research before trading.
+        </p>
+    </div>
+</body>
+</html>

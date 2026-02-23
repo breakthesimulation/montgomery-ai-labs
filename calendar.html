@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Solana Ecosystem Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-purple: #9945FF;
+            --accent-green: #14F195;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-red: #ef4444;
+            --border-color: #2a2a3a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .logo-text .accent {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: white !important;
+            font-weight: 600;
+        }
+        
+        /* Main */
+        .main {
+            padding: 40px 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Filters */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+        
+        .filter-btn.active {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+            color: white;
+        }
+        
+        .filter-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .filter-dot.all { background: linear-gradient(135deg, var(--accent-purple), var(--accent-green)); }
+        .filter-dot.network_upgrade { background: var(--accent-blue); }
+        .filter-dot.token_launch { background: var(--accent-green); }
+        .filter-dot.conference { background: var(--accent-purple); }
+        .filter-dot.hackathon { background: var(--accent-orange); }
+        .filter-dot.validator { background: var(--accent-red); }
+        .filter-dot.defi { background: #22c55e; }
+        .filter-dot.nft { background: var(--accent-pink); }
+        .filter-dot.governance { background: var(--accent-blue); }
+        .filter-dot.partnership { background: #8b5cf6; }
+        .filter-dot.other { background: var(--text-muted); }
+        
+        /* Calendar */
+        .calendar-container {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 32px;
+            flex: 1;
+        }
+        
+        /* Layout with Sidebar */
+        .content-wrapper {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+        
+        .calendar-section {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        /* Upcoming Events Sidebar */
+        .sidebar {
+            width: 320px;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+        }
+        
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar-title svg {
+            color: var(--accent-green);
+        }
+        
+        .upcoming-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .upcoming-item {
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-purple);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .upcoming-item:hover {
+            transform: translateX(4px);
+            border-left-color: var(--accent-green);
+        }
+        
+        .upcoming-item.network_upgrade { border-left-color: var(--accent-blue); }
+        .upcoming-item.token_launch { border-left-color: var(--accent-green); }
+        .upcoming-item.conference { border-left-color: var(--accent-purple); }
+        .upcoming-item.hackathon { border-left-color: var(--accent-orange); }
+        .upcoming-item.validator { border-left-color: var(--accent-red); }
+        .upcoming-item.defi { border-left-color: #22c55e; }
+        .upcoming-item.nft { border-left-color: var(--accent-pink); }
+        .upcoming-item.governance { border-left-color: var(--accent-blue); }
+        .upcoming-item.partnership { border-left-color: #8b5cf6; }
+        
+        .upcoming-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        
+        .upcoming-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .upcoming-category {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 8px;
+            margin-top: 6px;
+            background: rgba(153, 69, 255, 0.2);
+            color: #c084fc;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .no-upcoming {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        @media (max-width: 1000px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .month-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .current-month {
+            font-size: 1.5rem;
+            font-weight: 700;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .today-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            background: var(--accent-green);
+            border: none;
+            border-radius: 8px;
+            color: #0a0a0f;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .today-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(20, 241, 149, 0.3);
+        }
+        
+        .month-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .month-nav:hover {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 16px 24px;
+            gap: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .weekday {
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 16px 24px 24px;
+            gap: 8px;
+        }
+        
+        .calendar-day {
+            min-height: 100px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        
+        .calendar-day:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+        
+        .calendar-day.other-month {
+            opacity: 0.4;
+        }
+        
+        .calendar-day.today {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 20px rgba(20, 241, 149, 0.2);
+        }
+        
+        .day-number {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .day-events {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .day-event {
+            font-size: 0.7rem;
+            padding: 4px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+        }
+        
+        .day-event.network_upgrade { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .day-event.token_launch { background: rgba(20, 241, 149, 0.2); color: #6ee7b7; }
+        .day-event.conference { background: rgba(153, 69, 255, 0.2); color: #c084fc; }
+        .day-event.hackathon { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .day-event.validator { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+        .day-event.defi { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+        .day-event.nft { background: rgba(236, 72, 153, 0.2); color: #f9a8d4; }
+        .day-event.governance { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+        .day-event.partnership { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; }
+        .day-event.other { background: rgba(96, 96, 112, 0.2); color: #a1a1aa; }
+        
+        .more-events {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        /* Day Detail Modal */
+        .day-detail {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .day-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .day-detail-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .close-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .close-detail:hover {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: white;
+        }
+        
+        .events-list {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .event-card {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-purple);
+            transition: all 0.2s;
+        }
+        
+        .event-card:hover {
+            transform: translateX(4px);
+        }
+        
+        .event-card.network_upgrade { border-left-color: var(--accent-blue); }
+        .event-card.token_launch { border-left-color: var(--accent-green); }
+        .event-card.conference { border-left-color: var(--accent-purple); }
+        .event-card.hackathon { border-left-color: var(--accent-orange); }
+        .event-card.validator { border-left-color: var(--accent-red); }
+        .event-card.defi { border-left-color: #22c55e; }
+        .event-card.nft { border-left-color: var(--accent-pink); }
+        .event-card.governance { border-left-color: var(--accent-blue); }
+        .event-card.partnership { border-left-color: #8b5cf6; }
+        
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .event-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .event-badge {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .event-badge.network_upgrade { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .event-badge.token_launch { background: rgba(20, 241, 149, 0.2); color: #6ee7b7; }
+        .event-badge.conference { background: rgba(153, 69, 255, 0.2); color: #c084fc; }
+        .event-badge.hackathon { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .event-badge.validator { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+        .event-badge.defi { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+        .event-badge.nft { background: rgba(236, 72, 153, 0.2); color: #f9a8d4; }
+        .event-badge.governance { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+        .event-badge.partnership { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; }
+        .event-badge.other { background: rgba(96, 96, 112, 0.2); color: #a1a1aa; }
+        
+        .event-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.85rem;
+        }
+        
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+        }
+        
+        .event-meta-item svg {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .event-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .event-link:hover {
+            color: var(--accent-green);
+        }
+        
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            margin-left: 8px;
+        }
+        
+        .tentative-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            color: var(--accent-orange);
+            margin-left: 8px;
+        }
+        
+        /* Admin Link */
+        .admin-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            z-index: 50;
+        }
+        
+        .admin-link:hover {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 32px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .footer-tagline {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .footer-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .footer-cta p {
+            color: var(--text-secondary);
+        }
+        
+        .btn-cta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .calendar-day {
+                min-height: 70px;
+                padding: 8px;
+            }
+            
+            .day-event {
+                font-size: 0.6rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .filters {
+                gap: 8px;
+            }
+            
+            .filter-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="14" stroke="url(#logoGrad)" stroke-width="2"/>
+                    <path d="M10 16l4 4 8-8" stroke="url(#logoGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32">
+                            <stop stop-color="#9945FF"/>
+                            <stop offset="1" stop-color="#14F195"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">Solana<span class="accent">Calendar</span></span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Calendar</a>
+                <a href="https://solana.com" target="_blank" class="nav-link nav-cta">
+                    <span>Solana.io</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h1 class="hero-title">Solana Ecosystem Events</h1>
+                <p class="hero-subtitle">Track network upgrades, token launches, conferences, governance votes, and more</p>
+            </section>
+
+            <div class="stats" id="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalEvents">--</div>
+                    <div class="stat-label">Total Events</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="upcomingEvents">--</div>
+                    <div class="stat-label">Upcoming</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="verifiedEvents">--</div>
+                    <div class="stat-label">Verified</div>
+                </div>
+            </div>
+
+            <section class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="filter-dot all"></span>All
+                </button>
+                <button class="filter-btn" data-filter="network_upgrade">
+                    <span class="filter-dot network_upgrade"></span>Network
+                </button>
+                <button class="filter-btn" data-filter="token_launch">
+                    <span class="filter-dot token_launch"></span>Tokens
+                </button>
+                <button class="filter-btn" data-filter="defi">
+                    <span class="filter-dot defi"></span>DeFi
+                </button>
+                <button class="filter-btn" data-filter="nft">
+                    <span class="filter-dot nft"></span>NFTs
+                </button>
+                <button class="filter-btn" data-filter="conference">
+                    <span class="filter-dot conference"></span>Events
+                </button>
+                <button class="filter-btn" data-filter="governance">
+                    <span class="filter-dot governance"></span>Governance
+                </button>
+                <button class="filter-btn" data-filter="partnership">
+                    <span class="filter-dot partnership"></span>Partners
+                </button>
+            </section>
+
+            <div class="content-wrapper">
+                <section class="calendar-section">
+                    <section class="calendar-container">
+                <div class="calendar-header">
+                    <button class="month-nav" id="prevMonth">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="month-controls">
+                        <h2 class="current-month" id="currentMonth">February 2026</h2>
+                        <button class="today-btn" id="todayBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            Today
+                        </button>
+                    </div>
+                    <button class="month-nav" id="nextMonth">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                </div>
+                <div class="calendar-days" id="calendarDays">
+                    <div class="loading">Loading events...</div>
+                </div>
+            </section>
+
+            <section class="day-detail" id="dayDetail" style="display: none;">
+                <div class="day-detail-header">
+                    <h3 id="detailDate">Events for February 19, 2026</h3>
+                    <button class="close-detail" id="closeDetail">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="events-list" id="eventsList"></div>
+            </section>
+                </section>
+
+                <!-- Upcoming Events Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            Upcoming Events
+                        </h3>
+                        <div class="upcoming-list" id="upcomingList">
+                            <div class="no-upcoming">Loading...</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+    </main>
+
+    <a href="calendar-admin.html" class="admin-link">⚙️ Add Event</a>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">SolanaCalendar</span>
+                <p class="footer-tagline">Never miss a Solana event</p>
+            </div>
+            <div class="footer-cta">
+                <p>Powered by Montgomery AI Labs</p>
+                <a href="https://solana.com" target="_blank" class="btn-cta">
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="calendar-app.js"></script>
+</body>
+</html>

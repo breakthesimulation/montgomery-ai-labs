@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <title>Portfolio | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>💼 Portfolio</h2>
+      <button class="btn btn-primary" onclick="addHolding()">+ Add Holding</button>
+    </header>
+    
+    <!-- Total Value -->
+    <div class="glass" style="padding: 32px; text-align: center; margin-bottom: 24px;">
+      <div class="stat-label">Total Value</div>
+      <div class="stat-value" id="total-value" style="font-size: 2.5rem;">$0.00</div>
+      <div class="text-sm text-muted mt-sm" id="total-change">--</div>
+    </div>
+    
+    <!-- Holdings Table -->
+    <div class="glass" style="padding: 20px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Value</th>
+            <th>24h</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="holdings"></tbody>
+      </table>
+    </div>
+    
+    <!-- Add Modal -->
+    <div id="add-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 200;">
+      <div class="glass" style="padding: 24px; width: 300px;">
+        <h3 style="margin-bottom: 16px;">Add Holding</h3>
+        <input type="text" id="add-coin" placeholder="Coin (e.g. BTC)" style="width: 100%; margin-bottom: 12px;">
+        <input type="number" id="add-amount" placeholder="Amount" step="any" style="width: 100%; margin-bottom: 12px;">
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-primary" style="flex:1" onclick="saveHolding()">Save</button>
+          <button class="btn btn-secondary" style="flex:1" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/screener.html">🔍</a>
+    <a href="/replay.html">📼</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    const STORAGE_KEY = 'portfolio_holdings';
+    
+    let holdings = JSON.parse(// Apply theme
+    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+    
+    localStorage.getItem(STORAGE_KEY) || '[]');
+    
+    async function loadPrices() {
+      const res = await fetch('/api/prices?key=' + API_KEY);
+      const data = await res.json();
+      return data.prices || [];
+    }
+    
+    async function render() {
+      const prices = await loadPrices();
+      const priceMap = {};
+      prices.forEach(p => priceMap[p.coin] = p);
+      
+      let totalValue = 0;
+      let totalChange = 0;
+      
+      const rows = holdings.map(h => {
+        const price = priceMap[h.coin];
+        const currentPrice = price ? price.price : 0;
+        const value = h.amount * currentPrice;
+        const change = price ? price.change_24h_pct : 0;
+        
+        totalValue += value;
+        totalChange += value * change / 100;
+        
+        return `
+          <tr>
+            <td style="font-weight: 600;">${h.coin}</td>
+            <td class="mono">${h.amount}</td>
+            <td class="mono">$${currentPrice.toFixed(2)}</td>
+            <td class="mono" style="font-weight: 600;">$${value.toFixed(2)}</td>
+            <td class="mono ${change >= 0 ? 'text-green' : 'text-red'}">${change >= 0 ? '+' : ''}${change.toFixed(1)}%</td>
+            <td><button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.7rem;" onclick="removeHolding('${h.coin}')">✕</button></td>
+          </tr>
+        `;
+      }).join('');
+      
+      document.getElementById('holdings').innerHTML = rows || '<tr><td colspan="6" class="text-muted" style="text-align:center;padding: 32px;">No holdings. Click "+ Add Holding" to start.</td></tr>';
+      
+      document.getElementById('total-value').textContent = '$' + totalValue.toFixed(2);
+      
+      const changeEl = document.getElementById('total-change');
+      if (totalValue > 0) {
+        const pct = (totalChange / totalValue) * 100;
+        changeEl.textContent = `${totalChange >= 0 ? '+' : ''}$${totalChange.toFixed(2)} (${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%)`;
+        changeEl.className = 'text-sm mt-sm ' + (totalChange >= 0 ? 'text-green' : 'text-red');
+      }
+    }
+    
+    function addHolding() {
+      document.getElementById('add-modal').style.display = 'flex';
+    }
+    
+    function closeModal() {
+      document.getElementById('add-modal').style.display = 'none';
+    }
+    
+    function saveHolding() {
+      const coin = document.getElementById('add-coin').value.toUpperCase();
+      const amount = parseFloat(document.getElementById('add-amount').value);
+      
+      if (coin && amount > 0) {
+        holdings = holdings.filter(h => h.coin !== coin);
+        holdings.push({ coin, amount });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(holdings));
+        closeModal();
+        render();
+      }
+    }
+    
+    function removeHolding(coin) {
+      holdings = holdings.filter(h => h.coin !== coin);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(holdings));
+      render();
+    }
+    
+    render();
+    setInterval(render, 60000);
+  </script>
+</body>
+</html>

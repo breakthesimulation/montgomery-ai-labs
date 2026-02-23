@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <title>Risk Dashboard | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);">
+        <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+          <a href="/index.html" style="font-weight:700;font-size:1.1rem;">🧠 Montgomery AI</a>
+          <div style="display:flex;gap:8px;" class="hide-mobile">
+            <a href="/dashboard.html" class="nav-link">Dashboard</a>
+            <a href="/screener.html" class="nav-link">Screener</a>
+            <a href="/risk.html" class="nav-link">Risk</a>
+            <a href="/settings.html" class="nav-link">Settings</a>
+          </div>
+        </div>
+      </nav>
+      <div style="padding-top:60px;">
+  <div class="container">
+    <header class="header">
+      <h2>⚠️ Risk Dashboard</h2>
+      <span class="status-dot green" id="halt-status"></span>
+    </header>
+    
+    <!-- Risk Stats -->
+    <div class="grid grid-4" style="margin-bottom: 24px;">
+      <div class="glass stat-card">
+        <div class="stat-label">Open Positions</div>
+        <div class="stat-value" id="open-pos">--</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-label">Max Positions</div>
+        <div class="stat-value" id="max-pos">--</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-label">Daily P&L</div>
+        <div class="stat-value" id="daily-pnl">--</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-label">Drawdown</div>
+        <div class="stat-value" id="drawdown">--</div>
+      </div>
+    </div>
+    
+    <!-- Risk Meters -->
+    <div class="grid grid-2" style="gap: 16px; margin-bottom: 24px;">
+      <!-- Position Limit -->
+      <div class="glass" style="padding: 20px;">
+        <h4 style="margin-bottom: 12px;">📊 Position Limit</h4>
+        <div style="background: var(--bg-tertiary); height: 12px; border-radius: 6px; overflow: hidden;">
+          <div id="pos-bar" style="height: 100%; background: var(--accent); width: 0%; transition: width 0.3s;"></div>
+        </div>
+        <p class="text-xs text-muted mt-sm" id="pos-text">0 / 5</p>
+      </div>
+      
+      <!-- Drawdown Limit -->
+      <div class="glass" style="padding: 20px;">
+        <h4 style="margin-bottom: 12px;">📉 Drawdown Limit</h4>
+        <div style="background: var(--bg-tertiary); height: 12px; border-radius: 6px; overflow: hidden;">
+          <div id="dd-bar" style="height: 100%; background: var(--red); width: 0%; transition: width 0.3s;"></div>
+        </div>
+        <p class="text-xs text-muted mt-sm" id="dd-text">0% / 8%</p>
+      </div>
+    </div>
+    
+    <!-- Open Positions Detail -->
+    <div class="glass" style="padding: 20px; margin-bottom: 16px;">
+      <h4 style="margin-bottom: 12px;">🔄 Open Positions</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Side</th>
+            <th>Entry</th>
+            <th>Value</th>
+            <th>P&L</th>
+          </tr>
+        </thead>
+        <tbody id="positions"></tbody>
+      </table>
+    </div>
+    
+    <!-- Daily P&L -->
+    <div class="glass" style="padding: 20px;">
+      <h4 style="margin-bottom: 12px;">💰 Today's P&L</h4>
+      <div id="today-trades"></div>
+    </div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/correlations.html" class="active">🔗</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    
+    async function load() {
+      // Risk state
+      const riskRes = await fetch('/api/risk?key=' + API_KEY);
+      const risk = await riskRes.json();
+      
+      document.getElementById('open-pos').textContent = risk.positions;
+      document.getElementById('max-pos').textContent = risk.max_positions;
+      
+      // Position bar
+      const posPct = (risk.positions / risk.max_positions) * 100;
+      document.getElementById('pos-bar').style.width = posPct + '%';
+      document.getElementById('pos-bar').style.background = posPct > 80 ? 'var(--red)' : 'var(--accent)';
+      document.getElementById('pos-text').textContent = `${risk.positions} / ${risk.max_positions}`;
+      
+      // Daily P&L
+      const daily = risk.daily_pnl || 0;
+      const dailyEl = document.getElementById('daily-pnl');
+      dailyEl.textContent = (daily >= 0 ? '+' : '') + daily.toFixed(1) + '%';
+      dailyEl.style.color = daily >= 0 ? 'var(--green)' : daily < -risk.max_daily_loss ? 'var(--red)' : 'var(--text-primary)';
+      
+      // Drawdown
+      const dd = risk.drawdown || 0;
+      const ddEl = document.getElementById('drawdown');
+      ddEl.textContent = dd.toFixed(1) + '%';
+      ddEl.style.color = dd > risk.max_drawdown ? 'var(--red)' : 'var(--text-primary)';
+      
+      const ddPct = Math.min((dd / risk.max_drawdown) * 100, 100);
+      document.getElementById('dd-bar').style.width = ddPct + '%';
+      document.getElementById('dd-bar').style.background = ddPct > 80 ? 'var(--red)' : 'var(--green)';
+      document.getElementById('dd-text').textContent = `${dd.toFixed(1)}% / ${risk.max_drawdown}%`;
+      
+      // Halt status
+      const haltDot = document.getElementById('halt-status');
+      if (risk.halted) {
+        haltDot.className = 'status-dot red';
+        haltDot.title = 'Trading halted: ' + risk.halt_reason;
+      } else {
+        haltDot.className = 'status-dot green';
+        haltDot.title = 'Trading active';
+      }
+      
+      // Open positions
+      const openRes = await fetch('/api/trades/open?key=' + API_KEY);
+      const openData = await openRes.json();
+      const openTrades = openData.trades || [];
+      
+      const posHtml = openTrades.map(t => `
+        <tr>
+          <td style="font-weight:600;">${t.coin}</td>
+          <td><span class="tag ${t.side === 'BUY' ? 'buy' : 'sell'}">${t.side}</span></td>
+          <td class="mono">$${t.entry_price}</td>
+          <td class="mono">$${t.size_usdc || '--'}</td>
+          <td class="mono ${t.pnl >= 0 ? 'text-green' : 'text-red'}" style="font-weight:600;">${t.pnl >= 0 ? '+' : ''}${t.pnl?.toFixed(1) || 0}%</td>
+        </tr>
+      `).join('');
+      
+      document.getElementById('positions').innerHTML = posHtml || '<tr><td colspan="5" class="text-muted" style="text-align:center;padding:20px;">No open positions</td></tr>';
+    }
+    
+    load();
+    setInterval(load, 30000);
+  </script>
+</body>
+</html>

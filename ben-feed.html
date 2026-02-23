@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Ben's Feed | Montgomery AI Labs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --green: #00ff94; --red: #ff4757; }
+        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; }
+        h1 { font-size: 1.5rem; margin-bottom: 4px; }
+        .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 20px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .coin { font-size: 1.2rem; font-weight: 700; }
+        .signal { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; margin-left: 8px; }
+        .signal.buy { background: rgba(0,255,148,0.15); color: var(--green); }
+        .signal.sell { background: rgba(255,71,87,0.15); color: var(--red); }
+        .meta { color: #666; font-size: 0.8rem; margin-top: 8px; }
+        .score { color: var(--green); font-weight: 600; }
+        .none { text-align: center; padding: 40px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐻 Ben's Feed</h1>
+        <p class="subtitle">BTC, ETH, SOL only • Score ≥75</p>
+        
+        <div id="signals"></div>
+    </div>
+    
+    <script>
+    async function load() {
+        try {
+            const resp = await fetch('/data/quality_signals.json');
+            const data = await resp.json();
+            
+            const signals = (data.signals || []).filter(s => 
+                ['BTC', 'ETH', 'SOL'].includes(s.coin) && s.score >= 75
+            );
+            
+            if (signals.length === 0) {
+                document.getElementById('signals').innerHTML = '<div class="none">No high-confidence signals</div>';
+                return;
+            }
+            
+            let html = '';
+            signals.forEach(s => {
+                const isBuy = s.action === 'BUY';
+                html += `<div class="card">
+                    <span class="coin">${s.coin}</span>
+                    <span class="signal ${isBuy ? 'buy' : 'sell'}">${s.action}</span>
+                    <div class="meta">
+                        RSI: ${s.rsi?.toFixed(1)} • Score: <span class="score">${s.score}</span>
+                    </div>
+                </div>`;
+            });
+            
+            document.getElementById('signals').innerHTML = html;
+        } catch(e) {
+            document.getElementById('signals').innerHTML = '<div class="none">Loading...</div>';
+        }
+    }
+    load();
+    setInterval(load, 30000);
+    </script>
+</body>
+</html>

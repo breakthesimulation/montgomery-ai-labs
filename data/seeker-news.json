@@ -1,0 +1,663 @@
+{
+  "articles": [
+    {
+      "id": "865910545560",
+      "title": "Solana futures data shows panicked bulls: Will $80 SOL hold?",
+      "url": "https://cointelegraph.com/news/solana-futures-data-shows-panicked-bulls-will-80-sol-hold?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Wed, 18 Feb 2026 23:30:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzcyYzYtNTY0Yy03MGQ3LWE1ODctOTliNzQxYzVlMTZjLmpwZw==.jpg",
+      "teaser": "A drop in Solana\u2019s DApp revenue, along with limited institutional and retail investor interest, adds vulnerability to SOL\u2019s $78 support.",
+      "content": "Those betting against SOL are currently paying an annual rate of 20% just to keep their short positions open, a rare and aggressive move. When funding rates remain negative for over a week, it shows bears have strong conviction. In contrast, ETH\u2019s annualized funding rate sat at 1% on Wednesday. While that\u2019s below the usual 6% neutral mark, it\u2019s nowhere near the lopsided levels seen in SOL. Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. This price slump is also hurting the decentralized applications (DApps) built on Solana. Revenues are down across the board, from staking and decentralized exchanges to launchpads and lending platforms. Investors are starting to worry about a \u201cdeath spiral,\u201d in which falling prices reduce incentives, making it harder for people to justify holding SOL for the long haul. Weekly DApp revenue on Solana dropped to $22.8 million, the lowest since October 2024. Notably, the memecoin launchpad Pump generated $9.1 million in revenue over those seven days, accounting for 40% of the network's total revenue. In comparison, weekly DApps revenue on Ethereum totaled $16 million, up 2% from the previous month. Even though SOL remains among the top seven cryptocurrencies by market cap, the 67% slide from its $253 peak in September 2025 has left a mark on both onchain activity and derivatives. In fact, SOL futures open interest has dropped 75% from its $13.5 billion high seen only five months ago.",
+      "categories": [
+        "NFT",
+        "Market",
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "833505615572",
+      "title": "Zora debuts attention markets on Solana, betting on social trends",
+      "url": "https://cointelegraph.com/news/zora-launches-attention-markets-solana?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Wed, 18 Feb 2026 01:27:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjRkYzYtZTk4Ni03MmVhLWFkNmMtYmZlNGEyNjZiMDRjLmpwZw==.jpg",
+      "teaser": "The ZORA token gained 6.2% to $0.022 over the last 24 hours as Zora announced its new attention markets product.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The launch of Zora\u2019s attention markets coincides with the rapid rise of prediction markets, which are now consistently surpassing $10 billion in monthly trading volume and are increasingly being marketed to the mainstream. All sponsored and commercial content, including press releases, is clearly labeled and reviewed for accuracy, disclosure and compliance. All partners are reviewed prior to entering any paid partnership. Decentralized SocialFi platform Zora has launched its new attention markets platform on Solana, allowing traders to speculate on which buzzwords, hashtags, trends and topics will go viral online. Traders are already testing the app, with \u201cattentionmarkets,\u201d \u201clongevity,\u201d \u201ccats,\u201d \u201cdogs,\u201d \u201cbitcoin\u201d and \u201caigirlfriend\u201d among the most-traded tickers so far.",
+      "categories": [
+        "Market",
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "108979056771",
+      "title": "Solana treasuries sitting on over $1.5B in paper SOL losses",
+      "url": "https://cointelegraph.com/news/solana-treasury-firms-unrealized-losses-equity-repricing?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Tue, 10 Feb 2026 11:36:27 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzQ2ZTQtN2E5YS03ODM4LTlkNDUtYjFkYTA4MGIzMGY4LmpwZw==.jpg",
+      "teaser": "Public companies that amassed large Solana positions in 2025 have paused accumulation as equity markets reprice SOL-heavy balance sheets.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The figures highlight a growing gap between paper losses and liquidity pressure. While none of the companies have been forced to sell their SOL, compressed net asset value (mNAV) multiples and falling share prices have constrained their ability to raise fresh capital. CoinGecko data shows that Forward Industries, Sharps Technology, DeFi Development Corp and Upexi account for over $1.4 billion in disclosed unrealized losses. The total is likely understated, as Solana Company has not fully disclosed its acquisition costs. Publicly listed companies that hold Solana as a treasury asset are sitting on more than $1.5 billion in unrealized losses, based on disclosed acquisition costs and current market prices tracked by CoinGecko. All sponsored and commercial content, including press releases, is clearly labeled and reviewed for accuracy, disclosure and compliance. All partners are reviewed prior to entering any paid partnership.",
+      "categories": [
+        "Market"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "336086702000",
+      "title": "AI agent sends $441K in tokens after decimal error",
+      "url": "https://cointelegraph.com/news/openai-employee-s-ai-agent-accidentally-sent-442k-to-beggar?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Mon, 23 Feb 2026 04:33:56 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5Yzg4MzAtM2I1YS03MmM4LWIyMmUtZDBlMzhhZGE0YjFkLmpwZw==.jpg",
+      "teaser": "The Solana-based trading bot transferred 52.4 million LOBSTAR tokens in a single transaction after an apparent decimal misread.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. Lobstar Wilde, an AI agent created by an OpenAI employee, claims it \u201caccidentally\u201d sent $441,780 worth of tokens to a man who begged for 4 Solana tokens ($310) to fund his uncle's apparent tetanus treatment. All sponsored and commercial content, including press releases, is clearly labeled and reviewed for accuracy, disclosure and compliance. All partners are reviewed prior to entering any paid partnership. Binance co-founder Changpeng Zhao said in January that crypto would become the native currency for AI agents, noting that blockchain is the \u201cmost native technology interface for AI agents.\u201d Branch suggested that Lobstar Wilde may have misread Solana\u2019s interface and made a decimal error, resulting in the transfer of 52.4 million LOBSTAR tokens.",
+      "categories": [
+        "Market",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "740301874326"
+      ]
+    },
+    {
+      "id": "506178065437",
+      "title": "Crypto funds log fourth week of outflows at $173M as BTC dips below $70K",
+      "url": "https://cointelegraph.com/news/crypto-etf-4-week-outflows-173-million-btc-below-70k?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Mon, 16 Feb 2026 09:59:52 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzY1YzYtNDliOS03MWY5LWFmNjMtNGZkYTc1YTkxMjExLmpwZw==.jpg",
+      "teaser": "Crypto funds saw $173 million outflows last week as Bitcoin and Ether slipped, while XRP and Solana bucked the trend across global markets.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. Although the last two weeks brought relatively minor losses, total outflows over the past four weeks now amount to about $3.8 billion, while total assets under management (AUM) stand at about $133 billion, the lowest since April 2025. All sponsored and commercial content, including press releases, is clearly labeled and reviewed for accuracy, disclosure and compliance. All partners are reviewed prior to entering any paid partnership. Crypto investment products failed to attract enough inflows last week to reverse negative sentiment and clocked a fourth consecutive week of outflows. Crypto funds saw $173 million outflows last week as Bitcoin and Ether slipped, while XRP and Solana bucked the trend across global markets.",
+      "categories": [
+        "Market",
+        "Macro"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "636327587126",
+      "title": "Is Solana headed to $50? These three charts show a textbook bear pattern",
+      "url": "https://cointelegraph.com/news/is-solana-headed-to-50-dollars-three-charts-textbook-bear?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Mon, 09 Feb 2026 15:14:02 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzQyZGYtZTM1MC03Yjg5LWE4YTYtYWU1NzZjYTYwYmI0LmpwZw==.jpg",
+      "teaser": "SOL\u2019s price has validated a classic head-and-shoulders pattern on multiple time frames, with a price target of about $50.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. All sponsored and commercial content, including press releases, is clearly labeled and reviewed for accuracy, disclosure and compliance. All partners are reviewed prior to entering any paid partnership. Solana\u2019s association with the FTX crash in November 2022, however, saw a significant deviation below this band, with the price dropping another 70% and bottoming around $7 in December that year. That includes the March 2022 bounce, when the SOL price rose 87% within three weeks to $140 after testing the lowest MVRV deviation band around $75. A similar rebound occurred in December 2020. Pseudonymous analyst Shitpoastin said Solana\u2019s price has also formed a \u201cmassive head and shoulders\u201d pattern on the monthly chart over two years, \u201cwith nothing but air until $30.\u201d",
+      "categories": [
+        "Market"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "714786116771",
+        "714786116771",
+        "905915221511"
+      ]
+    },
+    {
+      "id": "686911766361",
+      "title": "Anchorage, Kamino let institutions borrow against SOL without moving custody",
+      "url": "https://cointelegraph.com/news/anchorage-kamino-institutions-borrow-against-sol-without-moving-custody?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Fri, 13 Feb 2026 17:37:15 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5Yjc5NDQtNjIyMC03NTQ4LWJkOTktZTY0MmM5NTNlZGEyLmpwZw==.jpg",
+      "teaser": "A new framework allows institutions to borrow against staked SOL while the assets remain in qualified custody, as US lawmakers debate DeFi oversight.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The integration between Anchorage Digital, Kamino and Solana Company underscores growing institutional interest in decentralized finance. However, that momentum is unfolding against an uncertain regulatory backdrop in the United States, where lawmakers are still debating how to oversee digital assets and DeFi platforms. Anchorage acts as collateral manager, overseeing loan-to-value ratios, margin requirements and, if necessary, liquidations. Because the collateral remains in segregated custody, institutions do not need to move assets into smart contracts, a requirement that has historically limited participation by regulated entities. Anchorage Digital has partnered with Kamino and Solana Company to roll out a structure that allows institutions to borrow against staked Solana without moving assets out of regulated custody, potentially addressing a key friction between traditional finance and decentralized lending markets. Industry groups have raised concerns that earlier draft language, including amendments introduced in January, does not sufficiently distinguish between centralized intermediaries and decentralized systems.",
+      "categories": [
+        "DeFi",
+        "Validator",
+        "Dev",
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [
+        "Kamino"
+      ],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "396809110755",
+      "title": "Price predictions 2/18: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
+      "url": "https://cointelegraph.com/news/price-predictions-2-18-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Wed, 18 Feb 2026 18:45:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzcxOTctNGIxYy03MzE3LTk0OTQtMzNiMzAzNDM0YTZiLmpwZw==.jpg",
+      "teaser": "Technical charts show Bitcoin price hanging on to softening support in the $68,000 to $65,000 zone, and a breakdown below the level could usher in new",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. Buyers will attempt to maintain the Hyperliquid price above the 50-day SMA ($27.74), but if the bears prevail, the HYPE/USDT pair may tumble toward the solid support at $20.82. The flattish 20-day EMA and the RSI just below the midpoint suggest a range-bound action between $20.82 and $35.50 for some time. Contrarily, if the Ether price turns down and breaks below $1,897, it suggests that the bears are attempting to take charge. The pair may then drop to the critical support at $1,750. Buyers are expected to protect the $1,750 level with all their might, as a close below it may sink the pair to $1,537. That increases the likelihood of a rally above the 20-day EMA. The DOGE/USDT pair may then climb to the 50-day SMA ($0.12). Sellers will attempt to halt the recovery at the $0.12 level, but if the bulls overcome the resistance, the Dogecoin price may soar to the $0.16 level. The possibility of a break above the 20-day EMA remains high. If that happens, the ADA/USDT pair may climb toward the downtrend line, which is expected to act as a stiff resistance. If buyers pierce the downtrend line, the Cardano price may rally to $0.44 and then to $0.50.",
+      "categories": [
+        "Market",
+        "Macro"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "741618411941",
+        "790650882491",
+        "443296652371"
+      ]
+    },
+    {
+      "id": "805358303350",
+      "title": "Price predictions 2/11: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
+      "url": "https://cointelegraph.com/news/price-predictions-2-11-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Wed, 11 Feb 2026 20:20:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzRkOTUtM2RjNS03OTdiLTljNzEtNmI1NjgxNmFjNzhiLmpwZw==.jpg",
+      "teaser": "Technical charts show Bitcoin and altcoins consolidating as part of establishing a new price floor after last week\u2019s sharp sell-off. As a range is set",
+      "content": "Buyers are likely to have other plans. They will attempt to swiftly push the price above the $72,271 resistance. If they do that, the pair may rally to the 20-day exponential moving average (EMA) ($76,275). Buyers will have to pierce the 20-day EMA to start a sustained recovery toward the 50-day simple moving average (SMA) ($85,832). Such a move suggests that the pair may have bottomed out in the near term. Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. Instead, if sellers sink the Ether price below $1,750, the next stop might be $1,537. The first sign of strength will be a close above $2,111. The pair may then climb to the 20-day EMA ($2,364). This is a critical level for the bears to defend, as a close above it might propel the pair to the 50-day SMA ($2,838). Conversely, if the price turns up from the current level or the support zone and breaks above $361, the next stop is likely to be the 20-day EMA ($394). Sellers will again attempt to halt the recovery at the 20-day EMA, but if the buyers pierce the resistance, the pair may run toward the 50-day SMA ($464).\u00a0 The DOGE/USDT pair might drop to the $0.08 level, which is likely to attract buyers. If the Dogecoin price turns up and breaks above the 20-day EMA, it suggests that the bearish momentum is weakening. The pair may then jump toward the breakdown level of $0.12.",
+      "categories": [
+        "Market",
+        "Macro"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "741618411941",
+        "396809110755",
+        "790650882491"
+      ]
+    },
+    {
+      "id": "254263643465",
+      "title": "Santiment: Solana Growth Signals Hope Despite Woes",
+      "url": "https://cryptopotato.com/santiment-solana-growth-signals-hope-despite-woes/",
+      "source": "CryptoPotato",
+      "published": "Sat, 21 Feb 2026 20:19:52 +0000",
+      "image": "https://cryptopotato.com/wp-content/uploads/2025/03/solana_news_cover.jpg",
+      "teaser": "Data from Santiment shows new wallet creation rising even as prices slump, hinting network curiosity hasn\u2019t faded with sentiment yet.",
+      "content": "Wayne is a dynamic part-time trader with an impressive eye for detail. His passion for understanding financial systems has led to an intriguing interest in blockchain technology, and he enjoys exploring and writing about cryptocurrencies. Possessing a keen intellect and diligent work ethic, he stays up-to-date on the latest industry trends, regularly sharing his insights in articles and professional presentations. This operational friction resurfaced in February when a network disruption rerouted U.S. traffic through Europe and Asia. While infrastructure providers like DoubleZero noted that such rerouting is a normal part of internet networking, for validators operating a high-speed chain, milliseconds matter. Nevertheless, the current mood contrasts with earlier cycles that defined Solana\u2019s culture. According to Santiment, traders still reference past events such as NFT booms, meme coin launches, and exchange-related shocks that once dominated online discussion. At the time of writing, the asset was trading around the $84 level, down about 35% over the past month and more than 51% year-on-year. Shorter time frames show mild relief, with gains near 3% in 24 hours and about 6% in seven days, per CoinGecko data. The price of Solana\u2019s native SOL token is near $84, after a steep, multi-month slide that erased nearly 67% from its September 2025 all-time high, with new on-chain data and community debates pointing to a network under strain.",
+      "categories": [
+        "Market"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "252663926465",
+      "title": "AI bot's tipping blunder hands $450,000 memecoin pile to X sad story poster",
+      "url": "https://www.coindesk.com/markets/2026/02/23/ai-bot-s-tipping-blunder-hands-usd250-000-memecoin-pile-to-x-sad-story-poster",
+      "source": "CoinDesk",
+      "published": "Mon, 23 Feb 2026 06:15:37 +0000",
+      "image": "https://cdn.sanity.io/images/s3y3vcno/production/adabcce76fb8ee846276f29b7497cab66e76a988-1280x717.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
+      "teaser": "AI trading bot \"Lobstar Wilde\" accidentally sent a large coin stash to an X user in need of 4 SOL for medical treatment.",
+      "content": "On Sunday, OpenAI engineer Nick Pash&#x27;s automated artificial intelligence trading bot &quot;Lobstar Wilde&quot; tried tipping an X handle, called &quot;treasure David,&quot; 4 solana (SOL) for his uncle&#x27;s tetanus treatment, but accidentally sent its entire Lobstar memecoin stash worth $450,000, or 5% of the token&#x27;s total supply. Some X users call this a publicity stunt to boost Lobstar&#x27;s fame and token price. LilWhaLe\u2122 (@Chandio_Pablito) said it&#x27;s &quot;a wild publicity,&quot; noting that the wallet got the stash, sold it fast for $40,000, then sent the money to another wallet that already had $50,000 from before. Bitcoin fell to $64,270 shortly after midnight UTC before rebounding to $66,300, as thin liquidity amplified moves tied to U.S. tariff plans and geopolitical tensions. AI trading bots are touted as smarter than humans in many ways, but they&#x27;re still vulnerable to fat-finger blunders just like us. Bitcoin stabilizes after overnight crypto rout, bouncing to $66,000",
+      "categories": [
+        "Market",
+        "Meme",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "790650882491",
+      "title": "Price predictions 2/16: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
+      "url": "https://cointelegraph.com/news/price-predictions-2-16-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Mon, 16 Feb 2026 20:20:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzY3NTktMmFjOC03NGFiLTkzZWItZjc2ZDhkODRmNTMwLmpwZw==.jpg",
+      "teaser": "The relief rallies in Bitcoin and several major altcoins are stalling near their respective overhead resistance levels, signaling that the bears remai",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The recovery is facing resistance at the 50-day SMA ($578), but a positive sign is that the bulls have not allowed the Bitcoin Cash price to slip back below the 20-day EMA. That increases the likelihood of the continuation of the relief rally. If buyers pierce the 50-day SMA, the BCH/USDT pair may reach $600. The moving averages are on the verge of a bearish crossover, and the relative strength index (RSI) is in the negative territory, indicating that the bears are making a comeback. The index may start a deeper correction to 6,720 and then to solid support at 6,550 if the price breaks below the 6,780 level. If the bulls do not give up much ground to the bears, the possibility of a break above the 20-day EMA increases. That suggests the ADA/USDT pair may remain inside the descending channel for some more time. A break and close above the downtrend line signals a potential short-term trend change. Buyers will have to drive the Bitcoin price above the breakdown level of $74,508 to signal that the bearish momentum is weakening. The pair may then surge toward the 50-day simple moving average (SMA) ($83,910), where the bears are expected to mount a strong defense.",
+      "categories": [
+        "Market",
+        "Macro",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "741618411941",
+        "396809110755",
+        "443296652371"
+      ]
+    },
+    {
+      "id": "340573116735",
+      "title": "Price predictions 2/9: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
+      "url": "https://cointelegraph.com/news/price-predictions-2-9-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Mon, 09 Feb 2026 19:30:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzQzMzktNjEyYy03ZmM3LWE2NDgtMTM1ZDc0OWUyYTQ1LmpwZw==.jpg",
+      "teaser": "Bitcoin and several major altcoins are not out of the woods yet, especially since they face significant selling near their range highs. Do charts show",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. If the price turns down and breaks below the support line, it indicates that the bears remain in charge. The XRP/USDT pair may then retest the $1.11 level. Buyers are expected to defend the $1.11 level with all their might, as a break below it may sink the pair to $1 and then to $0.75. If the price decisively closes above the $2,111 level, the ETH/USDT pair may climb to the 20-day EMA ($2,447). This is a crucial resistance to watch out for, as a break above it suggests that the bearish momentum has weakened. The Ether price may then rise to the 50-day SMA ($2,877). Contrarily, if bulls push the BNB price above $676, the pair may ascend to the breakdown level of $730. Sellers are expected to defend the $730 to $790 zone as a break above it suggests that the bulls are back in the game. The pair might then surge to the 50-day SMA ($849). The 20-day exponential moving average (EMA) (6,917) is flattening out, and the relative strength index (RSI) is just above the midpoint, signaling a balance between supply and demand. A close above the resistance line might start the next leg of the uptrend toward 7,290.",
+      "categories": [
+        "Market",
+        "Macro"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "741618411941",
+        "396809110755",
+        "790650882491"
+      ]
+    },
+    {
+      "id": "741618411941",
+      "title": "Price predictions 2/20: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
+      "url": "https://cointelegraph.com/news/price-predictions-2-20-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Fri, 20 Feb 2026 18:20:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzdiZGUtYzA4ZS03ZjFkLTkwODgtMGJlYmZkN2ZkY2RmLmpwZw==.jpg",
+      "teaser": "The failure of the bulls to start a strong recovery in Bitcoin and the major altcoins suggests that the bears intend to remain active at higher levels",
+      "content": "Buyers will have to push the Bitcoin price above the 20-day exponential moving average (EMA) ($71,247) to gain the upper hand. If they manage to do that, the BTC/USDT pair may climb to the breakdown level of $74,508. Sellers are expected to aggressively defend the $74,508 level, as a break above it suggests the pair may have formed a short-term bottom. The pair may then ascend to the 50-day simple moving average (SMA) ($82,258). Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The XRP/USDT pair may slide to the support line, which is a crucial level to watch out for. If the XRP price turns up sharply from the support line and breaks above the 20-day EMA, it suggests that the pair may remain inside the descending channel for some more time. Buyers will have to pierce the downtrend line to signal a short-term trend change. The bulls will again attempt to drive the Cardano price above the 20-day EMA. If they succeed, the ADA/USDT pair may march toward the stiff overhead resistance at the downtrend line. Buyers will have to achieve a close above the downtrend line to signal a potential short-term trend change. Sellers will attempt to strengthen their position by pulling the Monero price below the $309 level. If they manage to do that, the XMR/USDT pair might drop to the $276 level. Buyers are expected to defend the $276 level with all their might, as a close below it may sink the pair to $247.",
+      "categories": [
+        "Market",
+        "Macro",
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "396809110755",
+        "790650882491",
+        "443296652371"
+      ]
+    },
+    {
+      "id": "443296652371",
+      "title": "Price predictions 2/13: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
+      "url": "https://cointelegraph.com/news/price-predictions-2-13-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Fri, 13 Feb 2026 20:30:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzU3ZmYtYzdmMC03MTVlLWI1Y2ItOTZmNzM4ZDJkNTUwLmpwZw==.jpg",
+      "teaser": "Bitcoin and several major altcoins are attempting a relief rally, signaling that the bulls are trying to form a higher low.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. However, the relative strength index (RSI) is in oversold territory, indicating that a relief rally is possible in the near term. If the price turns up from the current level, the bulls will attempt to push the BNB/USDT pair above the $669 level. If they can pull it off, the pair may march toward the 20-day EMA ($710). If the price turns down from the current level or the $2,111 resistance, it suggests that the bears are aggressively defending the level. The Ether price may then retest the critical support at $1,750. If the level cracks, the ETH/USDT pair may extend the decline to the next major support at $1,537. That increases the likelihood of a break above $360. If that happens, the bears will again try to halt the recovery at the 20-day EMA ($385). However, buyers are likely to have other plans. They will try to pierce the 20-day EMA, clearing the path for a rally toward the 50-day SMA ($460). The SOL/USDT pair may reach the breakdown level of $95, where the bears are expected to pose a strong challenge. If the price turns down sharply from the $95 level, it suggests that the bears have flipped the level into resistance. The Solana price may then plummet to the $67 level.",
+      "categories": [
+        "Market",
+        "Macro"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "741618411941",
+        "396809110755",
+        "790650882491"
+      ]
+    },
+    {
+      "id": "623951457654",
+      "title": "Price predictions 2/6: BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH, HYPE, XMR",
+      "url": "https://cointelegraph.com/news/price-predictions-2-6-btc-eth-bnb-xrp-sol-doge-ada-bch-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Fri, 06 Feb 2026 18:47:21 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzMzZDItOWU3OC03OGY5LWJlYWYtYzU5OGRmNzkzMjk3LmpwZw==.jpg",
+      "teaser": "Bitcoin and altcoins saw strong double-digit price rebounds after this week\u2019s brutal sell-off, but do technical charts forecast a longer-term recovery",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The bulls are attempting to start a recovery off the $1,750 level, which is expected to face significant selling at the breakdown level of $2,111. If the Ether price turns down sharply from $2,111, it suggests that the bears have flipped the level into resistance. That heightens the risk of a break below the $1,750 level. The next support on the downside is at $1,537. The bulls are attempting to start a relief rally, but the up move is expected to face selling at the 38.2% Fibonacci retracement level of $361. If the price turns down from the overhead resistance, the bears will again try to resume the downtrend. If the $276 level gives way, the XMR/USDT pair may slump to $231. On the upside, the bears will attempt to defend the $74,508 level and flip it into resistance. If they succeed, the BTC/USDT pair may again tumble toward $60,000. The first sign of strength will be a close above $74,508. The Bitcoin price may then ascend to the 20-day exponential moving average (EMA) ($80,899). The upsloping 20-day EMA ($29.78) and the RSI in positive territory indicate an advantage to buyers. If the price turns up from the current level or the 20-day EMA, the bulls will again attempt to clear the overhead hurdle at $35.50. If they can pull it off, the HYPE/USDT pair is likely to soar to $44.",
+      "categories": [
+        "Market",
+        "Macro",
+        "Meme"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "741618411941",
+        "396809110755",
+        "790650882491"
+      ]
+    },
+    {
+      "id": "905915221511",
+      "title": "SOL\u2019s path of least resistance tilts toward $50, but onchain data hints at bottom",
+      "url": "https://cointelegraph.com/news/sol-s-path-of-least-resistance-tilts-toward-dollar50-but-onchain-data-hints-at-a-bottom?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Wed, 18 Feb 2026 21:45:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzcyMjctZTcyOC03NmUwLTg2YTUtNmQ0NzlmZDA0ZDQ1LmpwZw==.jpg",
+      "teaser": "SOL price looks bearish on multiple chart timeframes, leading analysts to put a short-term target on $50. Will the \u201cextreme\u201d state of SOL\u2019s MVRV indic",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. Historically, SOL's price plunged near or even below the lowest MVRV band before a significant rally took place. This can be seen in March 2022, when SOL price rose 87% within three weeks to $140 after testing the lowest MVRV deviation band around $75. A similar rebound occurred earlier in June 2022 and December 2020. The two-day chart shows that the price had broken below the H&amp;S\u2019s neckline at $120 on Jan. 30. The measured target of the H&amp;S pattern, calculated by adding the head\u2019s height from the breakdown point, is $57, representing a 30% drop from the current level. Below $80, SOL's first line of defense is provided by the lowest boundary of its MVRV pricing bands at $73. The bands represent onchain price zones that show when SOL is trading below or above the average price at which traders last moved their coins. All sponsored and commercial content, including press releases, is clearly labeled and reviewed for accuracy, disclosure and compliance. All partners are reviewed prior to entering any paid partnership.",
+      "categories": [
+        "Market",
+        "Meme",
+        "AI"
+      ],
+      "sentiment": "negative",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "921129575091",
+        "636327587126"
+      ]
+    },
+    {
+      "id": "126631130908",
+      "title": "Solana (SOL) Price Alert: 95% Crash on the Way?",
+      "url": "https://cryptopotato.com/solana-sol-price-alert-95-crash-on-the-way/",
+      "source": "CryptoPotato",
+      "published": "Mon, 23 Feb 2026 12:45:44 +0000",
+      "image": "https://cryptopotato.com/wp-content/uploads/2026/02/SOL_CB-2.jpg",
+      "teaser": "SOL is \"basically trading in a big no man's land,\" one popular analyst argued.",
+      "content": "Solana\u2019s recent exchange netflow is another factor worth observing. Toward the end of 2025 and into early 2026, inflows exceeded outflows, suggesting that investors were moving funds from self-custody to centralized platforms. This shift is considered a bearish signal because it can be interpreted as a pre-sale step. In recent weeks, however, the trend has reversed with outflows surpassing inflows. The technical analysis tool gauges the speed and magnitude of recent price movements, offering insight into whether a potential trend reversal may be developing. It ranges from 0 to 100, and ratios below 30 indicate that SOL is oversold and could be on the verge of a rally. Data shows that the RSI has dipped well below that zone on a weekly scale. Dimitar got interested in cryptocurrencies back in 2018 amid the prolonged bear market. His biggest passion in the field is Bitcoin and he was fascinated with its journey. With a flair for producing high-quality content, he started covering the cryptocurrency space in late 2018. His hobby is football. Moreover, Martinez warned investors to pay close attention to the $76 support zone. He believes that breaking below it could open the door to a further pullback to $53, $35, and $23. Despite the broader crypto market\u2019s depressed condition and SOL\u2019s substantial correction, the asset\u2019s Relative Strength Index (RSI) suggests a rebound could be on the way.",
+      "categories": [
+        "Market"
+      ],
+      "sentiment": "negative",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "655882442849"
+      ]
+    },
+    {
+      "id": "655882442849",
+      "title": "Whales Go Long on Solana Despite the 40% Price Crash \u2014 What Are They Seeing?",
+      "url": "https://beincrypto.com/solana-price-whale-long-positioning-analysis/",
+      "source": "BeInCrypto",
+      "published": "Mon, 23 Feb 2026 11:00:00 +0000",
+      "image": "https://assets.beincrypto.com/img/F2QvOd7esWUcVqN3riqaNRwY9D8=/smart/c2aeccda6b5f432b8d2fae96ff24d1ce",
+      "teaser": "Solana price has fallen sharply in recent weeks, losing nearly 40% in a month and more than 54% since its January peak. The trend still looks weak, an",
+      "content": "This accumulation becomes more important when combined with the weekly VWAP, or Volume Weighted Average Price. VWAP reflects the average price weighted by volume and is widely used as a proxy for institutional positioning. Solana recently reclaimed this level briefly, with a 10% upside. The same reclaim also happened in early January, and the price rallied nearly 20%. Currently, the VWAP line is over $79, closer to the current trading price.  This is why the current level is so important. The broader market is still betting against the Solana price, as shown by rising short positions and deeply negative funding rates. But whales and long-term holders are positioning early for a different outcome. The next few candles and the RSI 30 hold \u2014 will determine who is right. Second, the RSI must remain above 30, the previous low hit on November 21. If RSI drops under 30, it would invalidate the bullish divergence and confirm continued weakness. As long as $77 holds and RSI stays above 30 (the second confirmation is more important), the early reversal structure remains intact. Since November 21, the Solana price has continued making lower lows. However, RSI has started forming a higher low. This creates a bullish divergence, which often signals that sellers are losing strength. However, this reversal signal is not confirmed yet. For confirmation, two conditions must hold. Long-term holder behavior provides important clues. The Hodler Net Position Change, which tracks whether long-term investors are buying or selling, shows a sharp increase in accumulation. Long-term holders increased their net buying from 786,539 SOL to 972,417 SOL in one day, a 23.6% rise.",
+      "categories": [
+        "Market",
+        "AI"
+      ],
+      "sentiment": "negative",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "126631130908"
+      ]
+    },
+    {
+      "id": "294348897123",
+      "title": "Bitdeer sold all its bitcoin to fund its move into AI data centers",
+      "url": "https://www.coindesk.com/markets/2026/02/23/bitdeer-empties-bitcoin-treasury-as-miners-accelerate-industry-wide-ai-pivot",
+      "source": "CoinDesk",
+      "published": "Mon, 23 Feb 2026 09:58:57 +0000",
+      "image": "https://cdn.sanity.io/images/s3y3vcno/production/a944f5c40b9f1fece6ecb4c387377f37ae7134cc-1920x1080.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
+      "teaser": "Singapore based BTC and AI miner sells all holdings to build liquidity for expansion, signaling a broader shift in capital strategy across the sector.",
+      "content": "Unlike bitcoin mining, which is tied to price cycles and halvings, AI and HPC contracts can offer more predictable revenue streams. The pivot also represents an attempt by miners to be valued less as leveraged bitcoin proxies and more as digital infrastructure and AI plays. Bitdeer (BTDR) a Singapore-based bitcoin mining and AI infrastructure company has reduced its bitcoin treasury stash to zero, marking a sharp break from the  miner playbook of hoarding coins as a signal of conviction seen by the likes of Strategy (MSTR).  Bitdeer is accelerating its push into AI infrastructure, rolling out NVIDIA GB200 NVL72 systems in Malaysia and advancing conversions of several sites in the U.S. and Europe from crypto mining to AI data centers.  Bitcoin fell to $64,270 shortly after midnight UTC before rebounding to $66,300, as thin liquidity amplified moves tied to U.S. tariff plans and geopolitical tensions. AI expansion is far more capital intensive than incremental mining buildouts, requiring large scale GPU clusters and data center upgrades. ",
+      "categories": [
+        "DeFi",
+        "Market",
+        "Macro",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "804147002380"
+      ]
+    },
+    {
+      "id": "572879952832",
+      "title": "When Will Ripple\u2019s (XRP) Bull Run Resume? We Asked 4 AIs (And Their Answers Surprised Us)",
+      "url": "https://cryptopotato.com/when-will-ripples-xrp-bull-run-resume-we-asked-4-ais-and-their-answers-surprised-us/",
+      "source": "CryptoPotato",
+      "published": "Sun, 22 Feb 2026 14:28:05 +0000",
+      "image": "https://cryptopotato.com/wp-content/uploads/2025/07/XRP_CB-21.jpg",
+      "teaser": "The AI solutions agreed that XRP is currently hunting for a bottom. Also, a few of them put massive price targets for the asset.",
+      "content": "ChatGPT agreed to an extent, but warned that most of the highly anticipated bullish catalysts from the past few years, such as the SEC lawsuit resolution and the approval of spot XRP ETFs, are already behind the token, so it might be in search of new ones. As such, it was rather conservative in predicting a target for the summer, putting a base case around the $2.40 range. Nevertheless, ChatGPT and Perplexity agreed that several factors have aligned to suggest that XRP\u2019s bottom might be rather close \u2013 a 50% month decline from January 6 to February 6 was met with immediate buying pressure, funding rates reached deeply negative levels, a development that preceded rallies in the past, and panic selling appears to have subsided. Gemini and Grok were somewhat optimistic that XRP could indeed locate a bottom by spring 2026, which would open the door for the next phase \u2013 \u201cbase building and recovery.\u201d In this neutral-to-cautiously bullish stage, XRP could regain some traction by the beginning of the summer season. Ripple\u2019s cross-border token has been highly volatile since the US presidential elections in late 2024. At the time, it traded at $0.60, exploded to its 2018 all-time high of $3.40 in January 2025, plunged in the following months, before it skyrocketed to a new record of $3.65 in July. Before even having a theoretical chance of reversing its trend, XRP would need to bottom out first. OpenAI\u2019s platform noted that the token is currently searching for it, which could happen by April, but before it does, it could face even harsher declines if history is any indication:",
+      "categories": [
+        "Market",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "536151686279",
+      "title": "South Korea\u2019s Hanwha taps Jito Foundation for liquidity staking ETPs",
+      "url": "https://www.theblock.co/post/390769/south-korea-hanwha-jito?utm_source=rss&utm_medium=rss",
+      "source": "The Block",
+      "published": "Mon, 23 Feb 2026 05:12:14 -0500",
+      "image": "https://www.tbstat.com/wp/uploads/2024/02/20240220_SouthKorea_News-800x450.jpg",
+      "teaser": "Hanwha Asset Management has partnered with the Jito Foundation to explore JitoSOL-based exchange-traded products in South Korea.",
+      "content": "This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.",
+      "categories": [
+        "DeFi",
+        "Validator",
+        "Market"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [
+        "Jito"
+      ],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "921129575091",
+      "title": "Will Solana fall another 95%? Why SOL\u2019s bottom looks far away",
+      "url": "https://ambcrypto.com/will-solana-fall-another-95-why-sols-bottom-looks-far-away/",
+      "source": "AMB Crypto",
+      "published": "Mon, 23 Feb 2026 01:00:25 +0000",
+      "image": "",
+      "teaser": "The monthly sell signal and the percent addresses in profit hinted at further pain for long-term SOL holders.",
+      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. AMBCrypto also reported that the Layer 1 blockchain was one of the leading competitors in dApp revenue. Combined with spot ETF inflows and high network activity, it seemed that the Solana fundamentals were strong. There could be more pain ahead, and the trepidation from holders might be justified. The percent of addresses in profit was at lows not seen since November 2023, hovering around 20% in February. History need not repeat exactly, but long-term investors can wait a few more months before buying SOL. The market-wide sentiment remained bearish, and it was too early to call the bottom. The Hodler net position change turned green in January. This meant that the monthly position change of long-term SOL holders had been increasing, a sign of accumulation.",
+      "categories": [
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "905915221511"
+      ]
+    },
+    {
+      "id": "714786116771",
+      "title": "Leading AI Claude Predicts the Price of XRP, Solana and Dogecoin By the End of 2026",
+      "url": "https://cryptonews.com/news/leading-ai-claude-predicts-the-price-of-xrp-solana-and-dogecoin-by-the-end-of-2026/",
+      "source": "CryptoNews",
+      "published": "Fri, 20 Feb 2026 22:55:00 +0000",
+      "image": "https://cimg.co/wp-content/uploads/2026/02/20122134/aipredicfeb18_optimized-2.jpg",
+      "teaser": "Feeding a well-crafted prompt into Claude reveals surprising 2026 forecasts for XRP, Solana and Dogecoin.According to Claude\u2019s projections, all three",
+      "content": "Feeding a well-crafted prompt into Claude reveals surprising 2026 forecasts for XRP, Solana and Dogecoin.According to Claude\u2019s projections, all three",
+      "categories": [
+        "Market",
+        "Meme",
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "636327587126"
+      ]
+    },
+    {
+      "id": "740301874326",
+      "title": "AI agent created by OpenAI dev \u2018accidentally\u2019 sends entire memecoin holdings to reply guy",
+      "url": "https://www.theblock.co/post/390722/ai-agent-created-by-openai-dev-accidentally-sends-entire-memecoin-holdings-to-reply-guy?utm_source=rss&utm_medium=rss",
+      "source": "The Block",
+      "published": "Sun, 22 Feb 2026 16:53:26 -0500",
+      "image": "https://www.tbstat.com/wp/uploads/2024/08/20240814_Crypto-AI_News_2-800x450.jpg",
+      "teaser": "The recipient quickly sold the entire stack of Lobstar tokens for a profit of about $40,000, though the same amount of tokens is now wort",
+      "content": "This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.",
+      "categories": [
+        "Meme",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 30,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "336086702000"
+      ]
+    },
+    {
+      "id": "804147002380",
+      "title": "Bitdeer CEO says bitcoin balance \u2018will not always be zero\u2019 as miner eyes land acquisitions after liquidating entire treasury",
+      "url": "https://www.theblock.co/post/390785/bitdeer-ceo-says-bitcoin-balance-will-not-always-be-zero-as-miner-eyes-land-acquisitions-after-liquidating-entire-treasury?utm_source=rss&utm_medium=rss",
+      "source": "The Block",
+      "published": "Mon, 23 Feb 2026 06:26:51 -0500",
+      "image": "https://www.tbstat.com/wp/uploads/2025/12/20251229_Bitcoin_News_5-800x450.jpg",
+      "teaser": "Bitdeer CEO Jihan Wu said the company's zero-bitcoin balance is not permanent after the miner sold its final 943.1 BTC.",
+      "content": "This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.",
+      "categories": [
+        "Market",
+        "Macro",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 30,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "294348897123"
+      ]
+    },
+    {
+      "id": "806493669524",
+      "title": "White House, Banks and Crypto Groups Resume Talks on Stablecoin Rewards",
+      "url": "https://decrypt.co/358688/white-house-banks-crypto-groups-resume-talks-stablecoin",
+      "source": "Decrypt",
+      "published": "Fri, 20 Feb 2026 01:01:28 +0000",
+      "image": "https://cdn.decrypt.co/wp-content/uploads/2025/07/White-House-decrypt-style-02-gID_7.png",
+      "teaser": "Stablecoin incentives remain a key unresolved issue as lawmakers seek to advance digital-asset market-structure legislation.",
+      "content": "White House, Banks and Crypto Groups Resume Talks on Stablecoin Rewards The latest news, articles, and resources, sent to your inbox weekly. Your gateway into the world of Web3 $0.00967707 $0.00000623",
+      "categories": [
+        "Market",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 30,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    }
+  ],
+  "updated": "2026-02-23T13:00:18.636013",
+  "count": 27
+}

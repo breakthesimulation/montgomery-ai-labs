@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montgomery AI | Trading System</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <style>
+    body { background: #0d1117; color: #c9d1d9; font-family: monospace; padding: 40px 20px; }
+    h1 { color: #58a6ff; margin-bottom: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 800px; margin: 30px 0; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 20px; text-decoration: none; color: #c9d1d9; transition: border-color 0.2s; }
+    .card:hover { border-color: #58a6ff; }
+    .card h3 { margin: 0 0 8px 0; color: #58a6ff; }
+    .card p { margin: 0; color: #8b949e; font-size: 0.85em; }
+    .status { color: #8b949e; font-size: 0.8em; margin-top: 30px; }
+    .nav-links { margin-top: 20px; }
+    .nav-links a { color: #58a6ff; margin-right: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🧠 Montgomery AI</h1>
+  <p style="color: #8b949e;">Trading System Dashboard</p>
+  
+  <div class="nav-links">
+    <a href="/status.html">Status</a>
+    <a href="/trades.html">Trades</a>
+    <a href="/briefs.html">Briefs</a>
+  </div>
+
+  <div class="grid">
+    <a href="/status.html" class="card">
+      <h3>📊 System Status</h3>
+      <p>API, signals, OHLCV, positions</p>
+    </a>
+    <a href="/trades.html" class="card">
+      <h3>📋 Trade Journal</h3>
+      <p>Open & closed positions</p>
+    </a>
+    <a href="/briefs.html" class="card">
+      <h3>📰 Trading Briefs</h3>
+      <p>Raoul & Ben daily briefs</p>
+    </a>
+    <a href="/seeker/index.html" class="card">
+      <h3>🔮 Solana Seeker</h3>
+      <p>AI-curated news feed</p>
+    </a>
+    <a href="/dashboard.html" class="card">
+      <h3>📈 Trading Dashboard</h3>
+      <p>Live positions & P/L</p>
+    </a>
+    <a href="/heatmap.html" class="card">
+      <h3>🗺 Signal Heatmap</h3>
+      <p>24h signal history</p>
+    </a>
+  </div>
+
+  <div class="status">
+    <p>Montgomery AI v0.1 | <span id="ts">Last updated: --</span></p>
+  </div>
+  <script>document.getElementById('ts').textContent = 'Updated: ' + new Date().toLocaleString();</script>
+</body>
+</html>

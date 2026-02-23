@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Seeker">
+  <link rel="apple-touch-icon" href="/seeker/icons/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Settings | Solana Seeker</title>
+  <link rel="manifest" href="/seeker/manifest.json">
+  <link rel="stylesheet" href="/seeker/styles.css">
+</head>
+<body>
+  <button onclick="toggleTheme()" style="position:fixed;top:12px;right:12px;background:none;border:none;font-size:1.2rem;z-index:100;">🌙</button>
+  <header class="page-header">
+    <a href="/seeker/index.html" style="color:var(--text-secondary);text-decoration:none;">← Back</a>
+    <h1>⚙️ Settings</h1>
+    <span></span>
+  </header>
+
+  <div style="padding-top:16px;padding-bottom:80px;">
+    
+    <!-- Price Alerts -->
+    <div class="glass" style="margin:0 16px 16px;">
+      <h4 style="padding:16px;border-bottom:1px solid var(--glass-border);margin:0;">💰 Price Alerts</h4>
+      <div style="padding:16px;">
+        <div style="display:flex;gap:8px;margin-bottom:12px;">
+          <select id="alert-coin" style="flex:1;padding:10px;background:var(--bg-tertiary);border:none;border-radius:8px;color:var(--text-primary);">
+            <option value="SOL">SOL</option>
+            <option value="BTC">BTC</option>
+            <option value="ETH">ETH</option>
+          </select>
+          <select id="alert-direction" style="padding:10px;background:var(--bg-tertiary);border:none;border-radius:8px;color:var(--text-primary);">
+            <option value="above">Above</option>
+            <option value="below">Below</option>
+          </select>
+        </div>
+        <input type="number" id="alert-price" placeholder="Price ($)" style="width:100%;padding:10px;margin-bottom:12px;background:var(--bg-tertiary);border:none;border-radius:8px;color:var(--text-primary);">
+        <button class="btn btn-primary" style="width:100%;" onclick="setPriceAlert()">Set Alert</button>
+        <div id="active-alerts" style="margin-top:12px;"></div>
+      </div>
+    </div>
+
+<!-- Notifications -->
+    <div class="glass" style="margin:0 16px 16px;">
+      <h4 style="padding:16px;border-bottom:1px solid var(--glass-border);margin:0;">🔔 Digest Notifications</h4>
+      <div class="setting-row">
+        <span class="label">Morning (08:00 UTC)</span>
+        <div class="toggle active" id="notif-morning" onclick="toggleNotif(this)"></div>
+      </div>
+      <div class="setting-row">
+        <span class="label">New York (13:00 UTC)</span>
+        <div class="toggle active" id="notif-ny" onclick="toggleNotif(this)"></div>
+      </div>
+      <div class="setting-row">
+        <span class="label">Tokyo (23:00 UTC)</span>
+        <div class="toggle active" id="notif-tokyo" onclick="toggleNotif(this)"></div>
+      </div>
+      <div class="setting-row">
+        <span class="label">Breaking News</span>
+        <div class="toggle active" id="notif-breaking" onclick="toggleNotif(this)"></div>
+      </div>
+    </div>
+
+    <!-- Topics -->
+    <div class="glass" style="margin:0 16px 16px;">
+      <h4 style="padding:16px;border-bottom:1px solid var(--glass-border);margin:0;">📂 Topics</h4>
+      <div class="setting-row">
+        <span class="label">DeFi</span>
+        <div class="toggle active" onclick="toggleTopic(this)"></div>
+      </div>
+      <div class="setting-row">
+        <span class="label">NFT</span>
+        <div class="toggle active" onclick="toggleTopic(this)"></div>
+      </div>
+      <div class="setting-row">
+        <span class="label">Validator</span>
+        <div class="toggle active" onclick="toggleTopic(this)"></div>
+      </div>
+      <div class="setting-row">
+        <span class="label">Dev Tools</span>
+        <div class="toggle active" onclick="toggleTopic(this)"></div>
+      </div>
+      <div class="setting-row">
+        <span class="label">Market</span>
+        <div class="toggle active" onclick="toggleTopic(this)"></div>
+      </div>
+    </div>
+
+    <!-- Preferences -->
+    <div class="glass" style="margin:0 16px 16px;">
+      <h4 style="padding:16px;border-bottom:1px solid var(--glass-border);margin:0;">⚡ Preferences</h4>
+      <div class="setting-row">
+        <span class="label">Language</span>
+        <select style="background:var(--bg-tertiary);color:var(--text-primary);border:none;padding:8px;">
+          <option>English</option>
+        </select>
+      </div>
+      <div class="setting-row">
+        <span class="label">Refresh Interval</span>
+        <select id="refresh-select" style="background:var(--bg-tertiary);color:var(--text-primary);border:none;padding:8px;" onchange="setRefresh(this.value)">
+          <option value="15">15 min</option>
+          <option value="30" selected>30 min</option>
+          <option value="60">60 min</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Data -->
+    <div class="glass" style="margin:0 16px 16px;">
+      <h4 style="padding:16px;border-bottom:1px solid var(--glass-border);margin:0;">💾 Data</h4>
+      <div class="setting-row">
+        <span class="label">Saved Articles</span>
+        <span class="text-muted" id="saved-count">0</span>
+      </div>
+      <div class="setting-row">
+        <span class="label">Clear Saved</span>
+        <button class="btn btn-secondary" style="padding:8px 16px;" onclick="clearSaved()">Clear</button>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="glass" style="margin:0 16px 16px;">
+      <h4 style="padding:16px;border-bottom:1px solid var(--glass-border);margin:0;">ℹ️ About</h4>
+      <div class="setting-row">
+        <span class="label">Version</span>
+        <span class="text-muted">1.0.0</span>
+      </div>
+      <div class="setting-row">
+        <span class="label">Last Refresh</span>
+        <span class="text-muted" id="last-refresh">--</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="/seeker/index.html"><span>🏠</span>Feed</a>
+    <a href="/seeker/digest.html"><span>🔔</span>Digest</a>
+    <a href="/seeker/saved.html"><span>🔖</span>Saved</a>
+    <a href="/seeker/notifications.html"><span>📣</span>Alerts</a>
+    <a href="/seeker/settings.html" class="active"><span>⚙️</span>Settings</a>
+  </nav>
+
+  <script>
+    // Load saved count
+    const saved = JSON.parse(localStorage.getItem('saved_articles') || '[]');
+    document.getElementById('saved-count').textContent = saved.length;
+
+    function toggleNotif(el) {
+      el.classList.toggle('active');
+      savePrefs();
+    }
+
+    function toggleTopic(el) {
+      el.classList.toggle('active');
+      savePrefs();
+    }
+
+    function savePrefs() {
+      const prefs = {
+        notifications: {
+          morning: document.getElementById('notif-morning').classList.contains('active'),
+          ny: document.getElementById('notif-ny').classList.contains('active'),
+          tokyo: document.getElementById('notif-tokyo').classList.contains('active'),
+          breaking: document.getElementById('notif-breaking').classList.contains('active')
+        },
+        topics: Array.from(document.querySelectorAll('.setting-row .toggle')).map(t => t.classList.contains('active')),
+        refresh: document.getElementById('refresh-select').value
+      };
+      localStorage.setItem('seeker_prefs', JSON.stringify(prefs));
+    }
+
+    function setRefresh(val) {
+      savePrefs();
+      alert('Refresh interval updated to ' + val + ' minutes');
+    }
+
+    function clearSaved() {
+      if (confirm('Clear all saved articles?')) {
+        localStorage.setItem('saved_articles', '[]');
+        document.getElementById('saved-count').textContent = '0';
+        alert('Saved articles cleared');
+      }
+    }
+
+    // Load last refresh time
+    fetch('/api/seeker/feed?key=3d79d057a66e65a870a114ac10cd895c')
+      .then(r => r.json())
+      .then(d => {
+        if (d.updated) {
+          document.getElementById('last-refresh').textContent = new Date(d.updated).toLocaleTimeString();
+        }
+      });
+  
+    // Price alerts
+    function setPriceAlert() {
+      const coin = document.getElementById('alert-coin').value;
+      const direction = document.getElementById('alert-direction').value;
+      const price = parseFloat(document.getElementById('alert-price').value);
+      
+      let alerts = JSON.parse(localStorage.getItem('price_alerts') || '[]');
+      alerts.push({coin, direction, price, triggered: false});
+      localStorage.setItem('price_alerts', JSON.stringify(alerts));
+      renderPriceAlerts();
+      alert('Alert set!');
+    }
+    
+    function renderPriceAlerts() {
+      const alerts = JSON.parse(localStorage.getItem('price_alerts') || '[]');
+      if (!alerts.length) {
+        document.getElementById('active-alerts').innerHTML = '<p class="text-muted" style="font-size:0.85rem;">No active alerts</p>';
+        return;
+      }
+      document.getElementById('active-alerts').innerHTML = alerts.map((a,i) => 
+        '<div style="display:flex;justify-content:space-between;padding:8px;background:var(--bg-tertiary);border-radius:6px;margin-bottom:4px;font-size:0.85rem;">' +
+        '<span>' + a.coin + ' ' + a.direction + ' $' + a.price + '</span>' +
+        '<span onclick="removeAlert(' + i + ')" style="color:var(--red);cursor:pointer;">✕</span></div>'
+      ).join('');
+    }
+    
+    function removeAlert(i) {
+      let alerts = JSON.parse(localStorage.getItem('price_alerts') || '[]');
+      alerts.splice(i, 1);
+      localStorage.setItem('price_alerts', JSON.stringify(alerts));
+      renderPriceAlerts();
+    }
+    
+    renderPriceAlerts();
+
+  
+    function loadReadingStats() {
+      const stats = JSON.parse(localStorage.getItem('seeker_reading_stats') || '{}');
+      const container = document.getElementById('reading-stats');
+      
+      if (!stats.articlesRead) {
+        container.innerHTML = '<p style="color: var(--text-tertiary);">No reading data yet</p>';
+        return;
+      }
+      
+      container.innerHTML = `
+        <div style="font-size: 0.9rem;">
+          <p><strong>${stats.articlesRead || 0}</strong> articles read</p>
+          <p>Most read: <strong>${stats.favoriteCategory || 'None'}</strong></p>
+          <p>Streak: <strong>${stats.streak || 0} days</strong> 🔥</p>
+        </div>
+      `;
+    }
+    
+    function clearReadingStats() {
+      localStorage.removeItem('seeker_reading_stats');
+      loadReadingStats();
+    }
+    
+    loadReadingStats();
+
+  
+    function togglePush() {
+      if (!('Notification' in window)) {
+        alert('Push not supported in this browser'); return;
+      }
+      Notification.requestPermission().then(perm => {
+        const btn = document.getElementById('push-toggle');
+        if (perm === 'granted') {
+          localStorage.setItem('seeker_push_enabled', 'true');
+          btn.textContent = 'Enabled ✓';
+          btn.style.background = 'var(--green)';
+        } else {
+          localStorage.setItem('seeker_push_enabled', 'false');
+          btn.textContent = 'Disabled';
+        }
+      });
+    }
+    // Check current state
+    if (localStorage.getItem('seeker_push_enabled') === 'true') {
+      const btn = document.getElementById('push-toggle');
+      if (btn) { btn.textContent = 'Enabled ✓'; btn.style.background = 'var(--green)'; }
+    }
+
+  </script>
+
+  <!-- Reading Stats -->
+  <div class="glass" style="margin: 16px; padding: 16px;">
+    <h4 style="margin-bottom: 12px;">📊 Your Stats</h4>
+    <div id="reading-stats">
+      <p style="color: var(--text-tertiary); font-size: 0.9rem;">No reading data yet</p>
+    </div>
+    <button onclick="clearReadingStats()" style="margin-top: 12px; padding: 8px 16px; background: var(--bg-tertiary); border: none; border-radius: 6px; color: var(--text-tertiary); font-size: 0.85rem;">Clear stats</button>
+  </div>
+
+
+  <div class="glass" style="margin: 16px; padding: 16px;">
+    <h4 style="margin-bottom: 12px;">🔔 Push Notifications</h4>
+    <button id="push-toggle" onclick="togglePush()" style="padding: 10px 20px; background: var(--bg-tertiary); border: none; border-radius: 8px; cursor: pointer;">Enable</button>
+  </div>
+
+</body>
+</html>

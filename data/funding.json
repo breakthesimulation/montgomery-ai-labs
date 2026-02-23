@@ -1,0 +1,185 @@
+{
+  "rates": [
+    {
+      "coin": "BTC",
+      "price": 67667.77,
+      "funding_hourly": 0.00020027164190996165,
+      "funding_daily": 0.00480651940583908,
+      "funding_annual": 175.43795831312642,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:02.395270"
+    },
+    {
+      "coin": "ETH",
+      "price": 1959.03,
+      "funding_hourly": 0.00019985710063036662,
+      "funding_daily": 0.004796570415128799,
+      "funding_annual": 175.07482015220117,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:02.645006"
+    },
+    {
+      "coin": "SOL",
+      "price": 84.35,
+      "funding_hourly": 7.040886199608293e-05,
+      "funding_daily": 0.0016898126879059904,
+      "funding_annual": 61.678163108568654,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:02.893783"
+    },
+    {
+      "coin": "BNB",
+      "price": 625.25,
+      "funding_hourly": 0.0004356303359947211,
+      "funding_daily": 0.010455128063873307,
+      "funding_annual": 381.6121743313757,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:03.630186"
+    },
+    {
+      "coin": "XRP",
+      "price": 1.426,
+      "funding_hourly": -0.0003049977335798182,
+      "funding_daily": -0.007319945605915637,
+      "funding_annual": -267.17801461592074,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:03.878409"
+    },
+    {
+      "coin": "ADA",
+      "price": 0.2832,
+      "funding_hourly": -0.00023659938168980844,
+      "funding_daily": -0.0056783851605554025,
+      "funding_annual": -207.2610583602722,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:04.126778"
+    },
+    {
+      "coin": "DOGE",
+      "price": 0.09992,
+      "funding_hourly": -0.00032306906759315367,
+      "funding_daily": -0.007753657622235688,
+      "funding_annual": -283.0085032116026,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:04.374058"
+    },
+    {
+      "coin": "AVAX",
+      "price": 9.16,
+      "funding_hourly": 6.992943345053102e-05,
+      "funding_daily": 0.0016783064028127444,
+      "funding_annual": 61.25818370266517,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:04.622949"
+    },
+    {
+      "coin": "DOT",
+      "price": 1.34,
+      "funding_hourly": 7.515676836033309e-05,
+      "funding_daily": 0.0018037624406479942,
+      "funding_annual": 65.83732908365178,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:04.872240"
+    },
+    {
+      "coin": "MATIC",
+      "price": 0.3794,
+      "funding_hourly": 0.00018616543261570418,
+      "funding_daily": 0.0044679703827769,
+      "funding_annual": 163.08091897135685,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:05.120771"
+    },
+    {
+      "coin": "LINK",
+      "price": 8.89,
+      "funding_hourly": 0.0002818144874213866,
+      "funding_daily": 0.006763547698113278,
+      "funding_annual": 246.86949098113465,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:05.368799"
+    },
+    {
+      "coin": "UNI",
+      "price": 3.517,
+      "funding_hourly": 8.2669098150936e-05,
+      "funding_daily": 0.001984058355622464,
+      "funding_annual": 72.41812998021993,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:06.103292"
+    },
+    {
+      "coin": "ATOM",
+      "price": 2.409,
+      "funding_hourly": 0.00042909877117863846,
+      "funding_daily": 0.010298370508287323,
+      "funding_annual": 375.8905235524873,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:06.838074"
+    },
+    {
+      "coin": "LTC",
+      "price": 55.07,
+      "funding_hourly": 0.00044870333865059764,
+      "funding_daily": 0.010768880127614344,
+      "funding_annual": 393.06412465792357,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:07.573578"
+    },
+    {
+      "coin": "NEAR",
+      "price": 1.058,
+      "funding_hourly": -0.0003129351331083031,
+      "funding_daily": -0.0075104431945992745,
+      "funding_annual": -274.1311766028735,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:07.821849"
+    },
+    {
+      "coin": "APT",
+      "price": 0.882,
+      "funding_hourly": 4.5538675763404676e-05,
+      "funding_daily": 0.0010929282183217122,
+      "funding_annual": 39.891879968742494,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:08.556211"
+    },
+    {
+      "coin": "ARB",
+      "price": 0.0969,
+      "funding_hourly": -0.0003181262209111102,
+      "funding_daily": -0.007635029301866645,
+      "funding_annual": -278.6785695181325,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:08.804448"
+    },
+    {
+      "coin": "OP",
+      "price": 0.1313,
+      "funding_hourly": -0.0004081551639448017,
+      "funding_daily": -0.009795723934675241,
+      "funding_annual": -357.5439236156463,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:09.052947"
+    },
+    {
+      "coin": "FIL",
+      "price": 0.956,
+      "funding_hourly": 7.926752985716753e-06,
+      "funding_daily": 0.00019024207165720206,
+      "funding_annual": 6.943835615487876,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:09.301866"
+    },
+    {
+      "coin": "HBAR",
+      "price": 0.09965,
+      "funding_hourly": 0.0002216397177462932,
+      "funding_daily": 0.005319353225911037,
+      "funding_annual": 194.15639274575284,
+      "exchange": "Binance",
+      "timestamp": "2026-02-21T04:00:09.550866"
+    }
+  ],
+  "timestamp": "2026-02-21T04:00:09.551575"
+}

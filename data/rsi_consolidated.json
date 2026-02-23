@@ -1,0 +1,145 @@
+{
+  "timestamp": "2026-02-23T06:05:36.698864",
+  "coins": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "BNB",
+    "XRP",
+    "ADA",
+    "DOGE",
+    "AVAX",
+    "DOT",
+    "MATIC",
+    "LINK",
+    "UNI",
+    "ATOM",
+    "LTC",
+    "NEAR",
+    "APT",
+    "ARB",
+    "OP",
+    "FIL",
+    "HBAR",
+    "BONK",
+    "WIF",
+    "JUP"
+  ],
+  "alerts": {
+    "BTC": {
+      "rsi": 29.028134968375184,
+      "price": 65137.41,
+      "signal": "BUY"
+    },
+    "ETH": {
+      "rsi": 24.44926790690549,
+      "price": 1867.15,
+      "signal": "BUY"
+    },
+    "SOL": {
+      "rsi": 19.858564034925436,
+      "price": 77.94,
+      "signal": "BUY"
+    },
+    "BNB": {
+      "rsi": 34.174147272967275,
+      "price": 594.63,
+      "signal": "NEUTRAL"
+    },
+    "XRP": {
+      "rsi": 31.488796589063,
+      "price": 1.3475,
+      "signal": "NEUTRAL"
+    },
+    "ADA": {
+      "rsi": 31.459549528162498,
+      "price": 0.2626,
+      "signal": "NEUTRAL"
+    },
+    "DOGE": {
+      "rsi": 32.179006498036685,
+      "price": 0.09305,
+      "signal": "NEUTRAL"
+    },
+    "AVAX": {
+      "rsi": 28.344579344778722,
+      "price": 8.45,
+      "signal": "BUY"
+    },
+    "DOT": {
+      "rsi": 31.76310032336106,
+      "price": 1.262,
+      "signal": "NEUTRAL"
+    },
+    "MATIC": {
+      "rsi": 52.09446379335746,
+      "price": 0.3794,
+      "signal": "NEUTRAL"
+    },
+    "LINK": {
+      "rsi": 25.55447704279068,
+      "price": 8.26,
+      "signal": "BUY"
+    },
+    "UNI": {
+      "rsi": 31.19832448934939,
+      "price": 3.326,
+      "signal": "NEUTRAL"
+    },
+    "ATOM": {
+      "rsi": 38.58113825335653,
+      "price": 2.206,
+      "signal": "NEUTRAL"
+    },
+    "LTC": {
+      "rsi": 30.643575818896764,
+      "price": 51.53,
+      "signal": "NEUTRAL"
+    },
+    "NEAR": {
+      "rsi": 42.468645163634534,
+      "price": 0.998,
+      "signal": "NEUTRAL"
+    },
+    "APT": {
+      "rsi": 44.16333105328591,
+      "price": 0.825,
+      "signal": "NEUTRAL"
+    },
+    "ARB": {
+      "rsi": 41.21942453756263,
+      "price": 0.092,
+      "signal": "NEUTRAL"
+    },
+    "OP": {
+      "rsi": 39.79916196141236,
+      "price": 0.1189,
+      "signal": "NEUTRAL"
+    },
+    "FIL": {
+      "rsi": 36.159208412344654,
+      "price": 0.897,
+      "signal": "NEUTRAL"
+    },
+    "HBAR": {
+      "rsi": 39.8676039575013,
+      "price": 0.09535,
+      "signal": "NEUTRAL"
+    },
+    "BONK": {
+      "rsi": 36.05487484414117,
+      "price": 5.89e-06,
+      "signal": "NEUTRAL"
+    },
+    "WIF": {
+      "rsi": 32.49464760139652,
+      "price": 0.204,
+      "signal": "NEUTRAL"
+    },
+    "JUP": {
+      "rsi": 32.09889011671457,
+      "price": 0.1439,
+      "signal": "NEUTRAL"
+    }
+  }
+}

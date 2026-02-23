@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-02-21T05:06:00.260324",
+  "signals_tested": 10,
+  "results": [
+    {
+      "coin": "NEAR",
+      "signal": "SELL",
+      "score": 56,
+      "entry_price": 1.072,
+      "timestamp": "2026-02-21T05:05:58.023782"
+    },
+    {
+      "coin": "BTC",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 67844.97,
+      "timestamp": "2026-02-21T05:05:58.272137"
+    },
+    {
+      "coin": "ETH",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 1962.66,
+      "timestamp": "2026-02-21T05:05:58.521828"
+    },
+    {
+      "coin": "SOL",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 84.51,
+      "timestamp": "2026-02-21T05:05:58.769675"
+    },
+    {
+      "coin": "BNB",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 627.26,
+      "timestamp": "2026-02-21T05:05:59.018709"
+    },
+    {
+      "coin": "XRP",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 1.4292,
+      "timestamp": "2026-02-21T05:05:59.266846"
+    },
+    {
+      "coin": "ADA",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 0.2836,
+      "timestamp": "2026-02-21T05:05:59.515080"
+    },
+    {
+      "coin": "DOGE",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 0.10004,
+      "timestamp": "2026-02-21T05:05:59.763138"
+    },
+    {
+      "coin": "AVAX",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 9.2,
+      "timestamp": "2026-02-21T05:06:00.012482"
+    },
+    {
+      "coin": "DOT",
+      "signal": "HOLD",
+      "score": 46,
+      "entry_price": 1.351,
+      "timestamp": "2026-02-21T05:06:00.260290"
+    }
+  ]
+}

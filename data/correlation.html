@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correlation Matrix | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        
+        .prices { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+        .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+        .price-symbol { font-weight: 600; }
+        .price-value { color: var(--green); margin-left: 8px; }
+        
+        .matrix { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { padding: 12px; text-align: center; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; background: var(--bg); border: 1px solid var(--border); }
+        td { padding: 10px; text-align: center; font-family: 'IBM Plex Mono'; font-size: 0.85rem; border: 1px solid var(--border); }
+        
+        .legend { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-muted); }
+        .legend-box { width: 16px; height: 16px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Correlation Matrix</h1>
+            <div class="mono" style="color: var(--text-muted)">Updated: <span id="time">--:--:--</span></div>
+        </header>
+        
+        <div class="prices" id="prices"></div>
+        
+        <div class="matrix">
+            <table><tr><th></th><th>BTC</th><th>ETH</th><th>SOL</th><th>BNB</th><th>XRP</th><th>ADA</th><th>DOGE</th><th>AVAX</th><th>DOT</th><th>MATIC</th></tr><tr><th>BTC</th><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.79);color:#000">0.79</td><td style="background:rgba(0, 255, 148, 0.79);color:#000">0.79</td><td style="background:rgba(0, 255, 148, 0.52);color:#000">0.52</td><td style="background:rgba(0, 255, 148, 0.78);color:#000">0.78</td><td style="background:rgba(0, 255, 148, 0.44);color:#fff">0.44</td><td style="background:rgba(0, 255, 148, 0.49);color:#fff">0.49</td><td style="background:rgba(0, 255, 148, 0.76);color:#000">0.76</td><td style="background:rgba(0, 255, 148, 0.89);color:#000">0.89</td><td style="background:rgba(0, 255, 148, 0.89);color:#000">0.89</td></tr><tr><th>ETH</th><td style="background:rgba(0, 255, 148, 0.64);color:#000">0.64</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.64);color:#000">0.64</td><td style="background:rgba(0, 255, 148, 0.68);color:#000">0.68</td><td style="background:rgba(0, 255, 148, 0.61);color:#000">0.61</td><td style="background:rgba(0, 255, 148, 0.63);color:#000">0.63</td><td style="background:rgba(0, 255, 148, 0.49);color:#fff">0.49</td><td style="background:rgba(0, 255, 148, 0.48);color:#fff">0.48</td><td style="background:rgba(0, 255, 148, 0.44);color:#fff">0.44</td><td style="background:rgba(0, 255, 148, 0.43);color:#fff">0.43</td></tr><tr><th>SOL</th><td style="background:rgba(0, 255, 148, 0.83);color:#000">0.83</td><td style="background:rgba(0, 255, 148, 0.43);color:#fff">0.43</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.83);color:#000">0.83</td><td style="background:rgba(0, 255, 148, 0.77);color:#000">0.77</td><td style="background:rgba(0, 255, 148, 0.84);color:#000">0.84</td><td style="background:rgba(0, 255, 148, 0.45);color:#fff">0.45</td><td style="background:rgba(0, 255, 148, 0.48);color:#fff">0.48</td><td style="background:rgba(0, 255, 148, 0.8);color:#000">0.80</td><td style="background:rgba(0, 255, 148, 0.82);color:#000">0.82</td></tr><tr><th>BNB</th><td style="background:rgba(0, 255, 148, 0.47);color:#fff">0.47</td><td style="background:rgba(0, 255, 148, 0.41);color:#fff">0.41</td><td style="background:rgba(0, 255, 148, 0.35);color:#fff">0.35</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.41);color:#fff">0.41</td><td style="background:rgba(0, 255, 148, 0.5);color:#fff">0.50</td><td style="background:rgba(0, 255, 148, 0.62);color:#000">0.62</td><td style="background:rgba(0, 255, 148, 0.53);color:#000">0.53</td><td style="background:rgba(0, 255, 148, 0.68);color:#000">0.68</td><td style="background:rgba(0, 255, 148, 0.36);color:#fff">0.36</td></tr><tr><th>XRP</th><td style="background:rgba(0, 255, 148, 0.64);color:#000">0.64</td><td style="background:rgba(0, 255, 148, 0.55);color:#000">0.55</td><td style="background:rgba(0, 255, 148, 0.28);color:#fff">0.28</td><td style="background:rgba(0, 255, 148, 0.63);color:#000">0.63</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.46);color:#fff">0.46</td><td style="background:rgba(0, 255, 148, 0.33);color:#fff">0.33</td><td style="background:rgba(0, 255, 148, 0.35);color:#fff">0.35</td><td style="background:rgba(0, 255, 148, 0.57);color:#000">0.57</td><td style="background:rgba(0, 255, 148, 0.4);color:#fff">0.40</td></tr><tr><th>ADA</th><td style="background:rgba(0, 255, 148, 0.67);color:#000">0.67</td><td style="background:rgba(0, 255, 148, 0.21);color:#fff">0.21</td><td style="background:rgba(0, 255, 148, 0.4);color:#fff">0.40</td><td style="background:rgba(0, 255, 148, 0.39);color:#fff">0.39</td><td style="background:rgba(0, 255, 148, 0.61);color:#000">0.61</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.39);color:#fff">0.39</td><td style="background:rgba(0, 255, 148, 0.62);color:#000">0.62</td><td style="background:rgba(0, 255, 148, 0.43);color:#fff">0.43</td><td style="background:rgba(0, 255, 148, 0.39);color:#fff">0.39</td></tr><tr><th>DOGE</th><td style="background:rgba(0, 255, 148, 0.37);color:#fff">0.37</td><td style="background:rgba(0, 255, 148, 0.3);color:#fff">0.30</td><td style="background:rgba(0, 255, 148, 0.64);color:#000">0.64</td><td style="background:rgba(0, 255, 148, 0.58);color:#000">0.58</td><td style="background:rgba(0, 255, 148, 0.54);color:#000">0.54</td><td style="background:rgba(0, 255, 148, 0.34);color:#fff">0.34</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.53);color:#000">0.53</td><td style="background:rgba(0, 255, 148, 0.23);color:#fff">0.23</td><td style="background:rgba(0, 255, 148, 0.47);color:#fff">0.47</td></tr><tr><th>AVAX</th><td style="background:rgba(0, 255, 148, 0.45);color:#fff">0.45</td><td style="background:rgba(0, 255, 148, 0.58);color:#000">0.58</td><td style="background:rgba(0, 255, 148, 0.64);color:#000">0.64</td><td style="background:rgba(0, 255, 148, 0.26);color:#fff">0.26</td><td style="background:rgba(0, 255, 148, 0.21);color:#fff">0.21</td><td style="background:rgba(0, 255, 148, 0.63);color:#000">0.63</td><td style="background:rgba(0, 255, 148, 0.68);color:#000">0.68</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.56);color:#000">0.56</td><td style="background:rgba(0, 255, 148, 0.54);color:#000">0.54</td></tr><tr><th>DOT</th><td style="background:rgba(0, 255, 148, 0.36);color:#fff">0.36</td><td style="background:rgba(0, 255, 148, 0.46);color:#fff">0.46</td><td style="background:rgba(0, 255, 148, 0.29);color:#fff">0.29</td><td style="background:rgba(0, 255, 148, 0.2);color:#fff">0.20</td><td style="background:rgba(0, 255, 148, 0.54);color:#000">0.54</td><td style="background:rgba(0, 255, 148, 0.48);color:#fff">0.48</td><td style="background:rgba(0, 255, 148, 0.56);color:#000">0.56</td><td style="background:rgba(0, 255, 148, 0.63);color:#000">0.63</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td><td style="background:rgba(0, 255, 148, 0.29);color:#fff">0.29</td></tr><tr><th>MATIC</th><td style="background:rgba(0, 255, 148, 0.35);color:#fff">0.35</td><td style="background:rgba(0, 255, 148, 0.21);color:#fff">0.21</td><td style="background:rgba(0, 255, 148, 0.69);color:#000">0.69</td><td style="background:rgba(0, 255, 148, 0.63);color:#000">0.63</td><td style="background:rgba(0, 255, 148, 0.48);color:#fff">0.48</td><td style="background:rgba(0, 255, 148, 0.44);color:#fff">0.44</td><td style="background:rgba(0, 255, 148, 0.54);color:#000">0.54</td><td style="background:rgba(0, 255, 148, 0.28);color:#fff">0.28</td><td style="background:rgba(0, 255, 148, 0.66);color:#000">0.66</td><td style="background:rgba(0, 255, 148, 1.0);color:#000">1.00</td></tr></table>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item"><div class="legend-box" style="background:rgba(0,255,148,1)"></div> +1.0</div>
+            <div class="legend-item"><div class="legend-box" style="background:rgba(0,255,148,0.3)"></div> +0.3</div>
+            <div class="legend-item"><div class="legend-box" style="background:rgba(128,128,128,0.3)"></div> 0</div>
+            <div class="legend-item"><div class="legend-box" style="background:rgba(255,71,87,0.3)"></div> -0.3</div>
+            <div class="legend-item"><div class="legend-box" style="background:rgba(255,71,87,1)"></div> -1.0</div>
+        </div>
+    </div>
+    
+    <script>
+    async function update() {
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        try {
+            const resp = await fetch('/data/correlation.json');
+            const data = await resp.json();
+            
+            // Prices
+            let pricesHtml = '';
+            for (const [coin, price] of Object.entries(data.prices || {})) {
+                const fmt = price < 1 ? price.toFixed(6) : price.toLocaleString(undefined, {minimumFractionDigits: 2});
+                pricesHtml += `<div class="price-card"><span class="price-symbol">${coin}</span><span class="price-value">${fmt}</span></div>`;
+            }
+            document.getElementById('prices').innerHTML = pricesHtml;
+        } catch(e) { console.error(e); }
+    }
+    update();
+    setInterval(update, 30000);
+    </script>
+</body>
+</html>

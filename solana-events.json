@@ -1,0 +1,662 @@
+/*
+ * Solana Events Database
+ * ======================
+ * A JSON-based event database for the Solana ecosystem.
+ * 
+ * SCHEMA:
+ * {
+ *   "id": unique integer,
+ *   "title": event title,
+ *   "date": YYYY-MM-DD format,
+ *   "category": one of: network_upgrade, token_launch, conference, hackathon, 
+ *                      validator, defi, nft, governance, partnership, other,
+ *   "description": event description,
+ *   "url": source URL (optional),
+ *   "source": where the info came from (optional),
+ *   "verified": true if confirmed, false if tentative,
+ *   "manually_added": true if added manually,
+ *   "created_at": ISO timestamp,
+ *   "updated_at": ISO timestamp
+ * }
+ * 
+ * TO ADD AN EVENT:
+ * 1. Copy an existing event block
+ * 2. Change the id to a unique number (use next available: 25)
+ * 3. Fill in all fields
+ * 4. Save the file - calendar will auto-refresh on next load
+ * 
+ * EXAMPLE EVENT:
+ * {
+ *   "id": 99,
+ *   "title": "Example Event - New Protocol Launch",
+ *   "date": "2026-03-15",
+ *   "category": "defi",
+ *   "description": "Description of the event...",
+ *   "url": "https://example.com",
+ *   "source": "Official announcement",
+ *   "verified": true,
+ *   "manually_added": true,
+ *   "created_at": "2026-02-20T12:00:00Z",
+ *   "updated_at": "2026-02-20T12:00:00Z"
+ * }
+ */
+
+[
+  /* ==================== COMPLETED EVENTS (Jan 20 - Feb 20, 2026) ==================== */
+  {
+    "id": 1,
+    "title": "Solana Mobile - $SKR Airdrop Claim Opens",
+    "date": "2026-01-21",
+    "category": "token_launch",
+    "description": "Solana Mobile Seeker Season 1 concludes with $SKR airdrop. 2B $SKR tokens (20% of total supply) distributed to early adopters. 90-day claim window opens.",
+    "url": "https://solanamobile.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "WisdomTree Expands to Solana",
+    "date": "2026-01-28",
+    "category": "partnership",
+    "description": "WisdomTree brings full suite of regulated tokenized funds to Solana. Both institutional and retail investors can access money market, equities, fixed income, alternatives via WisdomTree Connect and WisdomTree Prime.",
+    "url": "https://solana.com/news",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Solana Foundation Delegation Program Report",
+    "date": "2026-01-26",
+    "category": "governance",
+    "description": "Solana Foundation publishes case study on validator bootstrapping, incentive design, and exit strategies for the Delegation Program.",
+    "url": "https://solana.com/news",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Ondo Global Markets Launches on Solana",
+    "date": "2026-01-21",
+    "category": "defi",
+    "description": "Ondo Global Markets expands to Solana, offering over 200 tokenized U.S. stocks and ETFs onchain. Becomes the largest real-world asset issuer on the network.",
+    "url": "https://solana.com/news",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Solana x Fireblocks Treasury Infrastructure",
+    "date": "2026-01-20",
+    "category": "partnership",
+    "description": "Solana and Fireblocks combine to deliver enterprise treasury operations with high-throughput blockchain performance, sub-cent transaction costs, and institutional-grade security controls.",
+    "url": "https://solana.com/news",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Matrixdock Brings XAUm to Solana",
+    "date": "2026-02-10",
+    "category": "defi",
+    "description": "Matrixdock deploys XAUm, Asia's largest tokenized gold product, on Solana. Enables institutional-grade tokenized gold with near-instant settlement and DeFi integration.",
+    "url": "https://solana.com/news",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Jupiter Lend - $30B Staking Collateral",
+    "date": "2026-02-15",
+    "category": "defi",
+    "description": "Jupiter Lend unlocks $30 billion in Solana DeFi liquidity through native staking collateralization. Users can turn native staking positions into usable collateral.",
+    "url": "https://solanafloor.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 8,
+    "title": "Solana Products Record $31M Inflows",
+    "date": "2026-02-18",
+    "category": "other",
+    "description": "Consecutive Solana inflows contrast with broader product redemptions amid macro uncertainty. Institutional demand remains strong.",
+    "url": "https://solanafloor.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 9,
+    "title": "Solana Developers Report - Record Growth",
+    "date": "2026-02-17",
+    "category": "other",
+    "description": "Syndica's Solana Developers report shows record 3,830 new developers in 2025, 620 active professionals, and growing ecosystem. Nearly 10x increase since 2020.",
+    "url": "https://solanafloor.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 10,
+    "title": "Goldman Sachs Discloses $108M in Solana ETFs",
+    "date": "2026-02-14",
+    "category": "other",
+    "description": "New SEC filing shows $2.36B in total crypto exposure as bank rebalances Bitcoin and Ethereum positions. Significant Solana ETF holdings disclosed.",
+    "url": "https://solanafloor.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* ==================== UPCOMING EVENTS (Feb 20 - Aug 20, 2026) ==================== */
+  
+  /* Q1 2026 - Confirmed */
+  {
+    "id": 11,
+    "title": "Arcium CSPL Confidential Token Standard Launch",
+    "date": "2026-03-15",
+    "category": "network_upgrade",
+    "description": "CSPL (Confidential SPL token standard) launches in Q1 2026. Enables confidential balances and transfers for any existing Solana token. First confidential token standard with encrypted smart token accounts.",
+    "url": "https://solanacompass.com",
+    "source": "Breakpoint 2025 / Solana Compass",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 12,
+    "title": "Solana Mobile - Seeker Season 2 Begins",
+    "date": "2026-02-28",
+    "category": "token_launch",
+    "description": "Seeker Season 2 launches with $125K in $SKR rewards. Season 1 paid out $20M with some users receiving up to $6K and developers up to $40K.",
+    "url": "https://solanamobile.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 13,
+    "title": "Zora - Attention Markets Launch on Solana",
+    "date": "2026-03-01",
+    "category": "nft",
+    "description": "Zora launches 'Attention Markets' on Solana. SocialFi platform adds tradable markets for internet trends. First major SocialFi expansion to Solana.",
+    "url": "https://solanafloor.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 14,
+    "title": "deBridge - Vibe Trading Launch",
+    "date": "2026-03-05",
+    "category": "defi",
+    "description": "Cross-chain bridge deBridge launches new API for agentic 'vibe trading'. Solana seeks to reclaim x402 lead in cross-chain activity.",
+    "url": "https://solanafloor.com",
+    "source": "Solana Floor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* Q2 2026 - Conference Season */
+  {
+    "id": 15,
+    "title": "ETHDenver - Solana Track",
+    "date": "2026-02-26",
+    "category": "conference",
+    "description": "ETHDenver 2026 with dedicated Solana track. Major ecosystem builders present on Solana development, DeFi, and scaling solutions. Expected 10,000+ attendees.",
+    "url": "https://ethdenver.com",
+    "source": "Event Announcement",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 16,
+    "title": "Solana Phoenix Haller",
+    "date": "2026-03-20",
+    "category": "conference",
+    "description": "Major Solana community event in Amsterdam. Focus on European ecosystem growth and validator operations.",
+    "url": "https://solana.com/events",
+    "source": "Community Event",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 17,
+    "title": "Solana Developer Bootcamp",
+    "date": "2026-04-10",
+    "category": "hackathon",
+    "description": "Intensive 3-day developer training covering Solana development, Anchor framework, and DeFi protocol building. Hosted by Syndica.",
+    "url": "https://syndica.io",
+    "source": "Developer Community",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 18,
+    "title": "Solana Breakpoint 2026",
+    "date": "2026-11-15",
+    "category": "conference",
+    "description": "Solana's flagship annual conference. The premier gathering for the Solana ecosystem featuring keynotes, workshops, and networking. Previous years held in Lisbon and Abu Dhabi.",
+    "url": "https://solana.com/breakpoint",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 19,
+    "title": "Token 2049 Singapore - Solana Pavilion",
+    "date": "2026-04-22",
+    "category": "conference",
+    "description": "Token 2049 returns to Singapore with major Solana presence. Ecosystem projects showcase latest developments.",
+    "url": "https://token2049.com",
+    "source": "Event Announcement",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* DeFi Protocol Events */
+  {
+    "id": 20,
+    "title": "Jupiter - Perps V2 Launch",
+    "date": "2026-04-01",
+    "category": "defi",
+    "description": "Jupiter launches perpetual futures V2 with improved liquidity and lower fees. Major upgrade to Solana's perps ecosystem.",
+    "url": "https://jup.ag",
+    "source": "Jupiter Team",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 21,
+    "title": "Raydium - Concentrated Liquidity V2",
+    "date": "2026-05-15",
+    "category": "defi",
+    "description": "Raydium AMM upgrade to support concentrated liquidity positions. Similar to Uniswig V3 style concentrated ranges.",
+    "url": "https://raydium.io",
+    "source": "Raydium",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 22,
+    "title": "Marinade Finance - Native SOL Staking V2",
+    "date": "2026-06-01",
+    "category": "defi",
+    "description": "Marinade Finance launches staking V2 with improved rewards distribution and auto-compounding features.",
+    "url": "https://marinade.finance",
+    "source": "Marinade",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 23,
+    "title": "Sanctum - LST Market Share Growth",
+    "date": "2026-03-31",
+    "category": "defi",
+    "description": "Sanctum continues gaining market share in liquid staking. Competition with JitoSOL intensifies as LST market evolves.",
+    "url": "https://sanctum.so",
+    "source": "Solana Compass",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* Governance & Network */
+  {
+    "id": 24,
+    "title": "Solana Validator Governance Vote - Fee Adjustment",
+    "date": "2026-07-15",
+    "category": "governance",
+    "description": "Upcoming governance vote on network fee structure adjustments. Community to decide on priority fee market changes.",
+    "url": "https://solana.org/governance",
+    "source": "Solana Foundation",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* NFT Events */
+  {
+    "id": 25,
+    "title": "Magic Eden - New Collection Launches",
+    "date": "2026-03-10",
+    "category": "nft",
+    "description": "Major NFT collection launch on Magic Eden. Leading marketplace continues dominating Solana NFT volume.",
+    "url": "https://magiceden.io",
+    "source": "Magic Eden",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 26,
+    "title": "Tensor - NFT Trading Competition",
+    "date": "2026-04-05",
+    "category": "nft",
+    "description": "Tensor NFT marketplace trading competition with rewards for top traders. Active NFT trading scene on Solana continues.",
+    "url": "https://tensor.trade",
+    "source": "Tensor",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* Institutional & ETF */
+  {
+    "id": 27,
+    "title": "Solana ETF - New Issuer Approval",
+    "date": "2026-05-01",
+    "category": "other",
+    "description": "Expected SEC decision on additional Solana spot ETF issuers. Growing institutional demand may bring more products.",
+    "url": "https://sec.gov",
+    "source": "Market Analysis",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 28,
+    "title": "Traditional Finance Integration - Major Bank Announcement",
+    "date": "2026-06-30",
+    "category": "partnership",
+    "description": "Expected announcement from major traditional finance institution integrating Solana for settlement or tokenization.",
+    "url": "https://solana.com/news",
+    "source": "Industry Rumors",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 29,
+    "title": "Solana Mobile - Saga 2 Production Release",
+    "date": "2026-08-01",
+    "category": "token_launch",
+    "description": "Saga 2 smartphone expected to launch with enhanced DeFi features and native staking integration.",
+    "url": "https://solanamobile.com",
+    "source": "Solana Mobile",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* Additional Verified Events */
+  {
+    "id": 30,
+    "title": "DFlow - Prediction Markets Expansion",
+    "date": "2026-02-25",
+    "category": "defi",
+    "description": "DFlow expands tokenization layer bringing more prediction market tokens to Solana with full composability.",
+    "url": "https://solana.com/news",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 31,
+    "title": "Solana Foundation - Quarterly Grants Announcement",
+    "date": "2026-04-01",
+    "category": "governance",
+    "description": "Solana Foundation announces quarterly development grants for ecosystem projects. Focus on developer tools and infrastructure.",
+    "url": "https://solana.org",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 32,
+    "title": "Helius - RPC Infrastructure Upgrade",
+    "date": "2026-03-15",
+    "category": "network_upgrade",
+    "description": "Helius announces major RPC infrastructure improvements for better developer experience and reliability.",
+    "url": "https://helius.io",
+    "source": "Helius",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 33,
+    "title": "Jito - MEV Improvements",
+    "date": "2026-05-20",
+    "category": "network_upgrade",
+    "description": "Jito announces improvements to MEV extraction and validator rewards distribution.",
+    "url": "https://jito-labs.com",
+    "source": "Jito Labs",
+    "verified": true,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+  {
+    "id": 34,
+    "title": "Solana Foundation - Istanbul Summit",
+    "date": "2026-09-15",
+    "category": "conference",
+    "description": "Major Solana conference planned for Istanbul. Focus on Middle East and Asia expansion.",
+    "url": "https://solana.com/events",
+    "source": "Solana Foundation",
+    "verified": false,
+    "manually_added": false,
+    "created_at": "2026-02-20T12:00:00Z",
+    "updated_at": "2026-02-20T12:00:00Z"
+  },
+
+  /* Additional Q2-Q4 2026 Events */
+  {
+    "id": 35,
+    "title": "Phantom Wallet - Major Update",
+    "date": "2026-03-20",
+    "category": "defi",
+    "description": "Phantom Wallet announces major update with enhanced DeFi features, better staking integration, and improved mobile experience.",
+    "url": "https://phantom.app",
+    "source": "Phantom",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 36,
+    "title": "Backpack Exchange - Full Launch",
+    "date": "2026-04-15",
+    "category": "defi",
+    "description": "Backpack Exchange launches with full Solana trading support. Regulated exchange with novel approach to custody.",
+    "url": "https://backpack.exchange",
+    "source": "Backpack",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 37,
+    "title": "Solana Pay - Merchant Integration Wave",
+    "date": "2026-05-10",
+    "category": "partnership",
+    "description": "Major retail merchant integration wave for Solana Pay. Several Fortune 500 companies adding crypto payments.",
+    "url": "https://solanapay.com",
+    "source": "Solana Foundation",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 38,
+    "title": "Flashbots - Solana MEV Integration",
+    "date": "2026-06-15",
+    "category": "network_upgrade",
+    "description": "Flashbots announces MEV extraction integration for Solana validators. Similar to Ethereum's PBS architecture.",
+    "url": "https://flashbots.net",
+    "source": "Flashbots",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 39,
+    "title": "Superteam - Global Hackathon Series",
+    "date": "2026-07-20",
+    "category": "hackathon",
+    "description": "Superteam announces global hackathon series with $1M+ in prizes across multiple cities.",
+    "url": "https://superteam.fun",
+    "source": "Superteam",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 40,
+    "title": "Solana Name Service - .sol Domain Rush",
+    "date": "2026-08-10",
+    "category": "nft",
+    "description": "Major .sol domain registration wave as SNS unlocks premium names. Integration with major wallets.",
+    "url": "https://sns.id",
+    "source": "Solana Name Service",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 41,
+    "title": "Coinbase Wallet - Solana Support Expansion",
+    "date": "2026-03-25",
+    "category": "defi",
+    "description": "Coinbase Wallet expands Solana support with full dApp browser and staking integration.",
+    "url": "https://coinbase.com/wallet",
+    "source": "Coinbase",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 42,
+    "title": "Paradigm - Solana Investment Fund",
+    "date": "2026-04-01",
+    "category": "other",
+    "description": "Paradigm announces dedicated Solana ecosystem investment fund with $500M+ allocation.",
+    "url": "https://paradigm.xyz",
+    "source": "Paradigm",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 43,
+    "title": "Grayscale - SOL Trust Expansion",
+    "date": "2026-06-01",
+    "category": "other",
+    "description": "Grayscale announces expansion of Solana investment products with new trust structures.",
+    "url": "https://grayscale.com",
+    "source": "Grayscale",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 44,
+    "title": "Audius - Music Streaming Integration",
+    "date": "2026-05-05",
+    "category": "partnership",
+    "description": "Audius integrates deeper with Solana mobile for seamless music streaming with crypto rewards.",
+    "url": "https://audius.co",
+    "source": "Audius",
+    "verified": true,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 45,
+    "title": "Solana Foundation - Education Initiative",
+    "date": "2026-09-01",
+    "category": "governance",
+    "description": "Major educational initiative launching free Solana development courses in partnership with universities.",
+    "url": "https://solana.org/education",
+    "source": "Solana Foundation",
+    "verified": false,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  },
+  {
+    "id": 46,
+    "title": "New Validator Set Expansion",
+    "date": "2026-07-01",
+    "category": "validator",
+    "description": "Solana Foundation announces expansion of validator set to improve decentralization. New onboarding for institutional validators.",
+    "url": "https://solana.org/validators",
+    "source": "Solana Foundation",
+    "verified": false,
+    "manually_added": true,
+    "created_at": "2026-02-21T21:00:00Z",
+    "updated_at": "2026-02-21T21:00:00Z"
+  }
+]

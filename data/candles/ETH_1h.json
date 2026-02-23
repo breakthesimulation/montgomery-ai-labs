@@ -1,0 +1,3540 @@
+{
+  "symbol": "ETHUSDT",
+  "interval": "1h",
+  "fetchedAt": "2026-02-21T21:55:31.226055Z",
+  "count": 200,
+  "candles": [
+    {
+      "openTime": 1770991200000,
+      "open": 1970.58,
+      "high": 2002.21,
+      "low": 1963.14,
+      "close": 1990.86,
+      "volume": 51023.0524,
+      "closeTime": 1770994799999,
+      "quoteVolume": 101296461.558474,
+      "trades": 550011,
+      "takerBuyBaseVolume": 26818.1084,
+      "takerBuyQuoteVolume": 53247606.837181
+    },
+    {
+      "openTime": 1770994800000,
+      "open": 1990.88,
+      "high": 2050.58,
+      "low": 1987.2,
+      "close": 2034.93,
+      "volume": 68806.4179,
+      "closeTime": 1770998399999,
+      "quoteVolume": 139422377.131186,
+      "trades": 690073,
+      "takerBuyBaseVolume": 36743.2417,
+      "takerBuyQuoteVolume": 74455758.807722
+    },
+    {
+      "openTime": 1770998400000,
+      "open": 2034.92,
+      "high": 2073.68,
+      "low": 2031.42,
+      "close": 2061.43,
+      "volume": 42726.9652,
+      "closeTime": 1771001999999,
+      "quoteVolume": 87878398.684981,
+      "trades": 413696,
+      "takerBuyBaseVolume": 23618.8317,
+      "takerBuyQuoteVolume": 48557095.461395
+    },
+    {
+      "openTime": 1771002000000,
+      "open": 2061.43,
+      "high": 2068.35,
+      "low": 2049.64,
+      "close": 2059.39,
+      "volume": 24152.4133,
+      "closeTime": 1771005599999,
+      "quoteVolume": 49713050.538844,
+      "trades": 234469,
+      "takerBuyBaseVolume": 12670.6189,
+      "takerBuyQuoteVolume": 26077957.610804
+    },
+    {
+      "openTime": 1771005600000,
+      "open": 2059.4,
+      "high": 2064.65,
+      "low": 2050.64,
+      "close": 2057.4,
+      "volume": 11647.9476,
+      "closeTime": 1771009199999,
+      "quoteVolume": 23966518.870261,
+      "trades": 222511,
+      "takerBuyBaseVolume": 5650.9093,
+      "takerBuyQuoteVolume": 11626857.870354
+    },
+    {
+      "openTime": 1771009200000,
+      "open": 2057.41,
+      "high": 2061.67,
+      "low": 2052.2,
+      "close": 2057.75,
+      "volume": 11688.6471,
+      "closeTime": 1771012799999,
+      "quoteVolume": 24047468.859938,
+      "trades": 156084,
+      "takerBuyBaseVolume": 5884.9012,
+      "takerBuyQuoteVolume": 12108120.459073
+    },
+    {
+      "openTime": 1771012800000,
+      "open": 2057.74,
+      "high": 2059.65,
+      "low": 2038.69,
+      "close": 2045.61,
+      "volume": 14978.3346,
+      "closeTime": 1771016399999,
+      "quoteVolume": 30683155.230753,
+      "trades": 166937,
+      "takerBuyBaseVolume": 6099.9656,
+      "takerBuyQuoteVolume": 12495089.811036
+    },
+    {
+      "openTime": 1771016400000,
+      "open": 2045.61,
+      "high": 2058.46,
+      "low": 2045.04,
+      "close": 2054.02,
+      "volume": 9217.6034,
+      "closeTime": 1771019999999,
+      "quoteVolume": 18927001.409025,
+      "trades": 110317,
+      "takerBuyBaseVolume": 4085.3817,
+      "takerBuyQuoteVolume": 8387645.251833
+    },
+    {
+      "openTime": 1771020000000,
+      "open": 2054.03,
+      "high": 2059.39,
+      "low": 2045.07,
+      "close": 2054.2,
+      "volume": 7343.465,
+      "closeTime": 1771023599999,
+      "quoteVolume": 15063919.667917,
+      "trades": 83098,
+      "takerBuyBaseVolume": 3228.6414,
+      "takerBuyQuoteVolume": 6624812.065219
+    },
+    {
+      "openTime": 1771023600000,
+      "open": 2054.2,
+      "high": 2054.41,
+      "low": 2046.57,
+      "close": 2048.72,
+      "volume": 5612.4577,
+      "closeTime": 1771027199999,
+      "quoteVolume": 11508272.699419,
+      "trades": 85930,
+      "takerBuyBaseVolume": 2716.6447,
+      "takerBuyQuoteVolume": 5570459.838303
+    },
+    {
+      "openTime": 1771027200000,
+      "open": 2048.72,
+      "high": 2056.06,
+      "low": 2042.37,
+      "close": 2055.2,
+      "volume": 6195.3393,
+      "closeTime": 1771030799999,
+      "quoteVolume": 12698227.582789,
+      "trades": 103970,
+      "takerBuyBaseVolume": 3317.1181,
+      "takerBuyQuoteVolume": 6799716.035064
+    },
+    {
+      "openTime": 1771030800000,
+      "open": 2055.2,
+      "high": 2057.57,
+      "low": 2050.29,
+      "close": 2054.35,
+      "volume": 4889.2271,
+      "closeTime": 1771034399999,
+      "quoteVolume": 10043471.064748,
+      "trades": 91769,
+      "takerBuyBaseVolume": 2231.4907,
+      "takerBuyQuoteVolume": 4584050.542456
+    },
+    {
+      "openTime": 1771034400000,
+      "open": 2054.35,
+      "high": 2054.46,
+      "low": 2048.1,
+      "close": 2050.22,
+      "volume": 5703.7006,
+      "closeTime": 1771037999999,
+      "quoteVolume": 11698489.283841,
+      "trades": 64683,
+      "takerBuyBaseVolume": 2220.8411,
+      "takerBuyQuoteVolume": 4554351.366468
+    },
+    {
+      "openTime": 1771038000000,
+      "open": 2050.22,
+      "high": 2056.27,
+      "low": 2048.48,
+      "close": 2054.37,
+      "volume": 4210.9221,
+      "closeTime": 1771041599999,
+      "quoteVolume": 8641878.797263,
+      "trades": 51551,
+      "takerBuyBaseVolume": 2077.9047,
+      "takerBuyQuoteVolume": 4264834.178329
+    },
+    {
+      "openTime": 1771041600000,
+      "open": 2054.39,
+      "high": 2058.0,
+      "low": 2052.77,
+      "close": 2053.57,
+      "volume": 5108.1042,
+      "closeTime": 1771045199999,
+      "quoteVolume": 10499228.402633,
+      "trades": 64091,
+      "takerBuyBaseVolume": 2170.7796,
+      "takerBuyQuoteVolume": 4461475.913913
+    },
+    {
+      "openTime": 1771045200000,
+      "open": 2053.56,
+      "high": 2056.32,
+      "low": 2050.86,
+      "close": 2051.29,
+      "volume": 4685.4897,
+      "closeTime": 1771048799999,
+      "quoteVolume": 9625395.700994,
+      "trades": 41613,
+      "takerBuyBaseVolume": 1793.7081,
+      "takerBuyQuoteVolume": 3684801.841547
+    },
+    {
+      "openTime": 1771048800000,
+      "open": 2051.28,
+      "high": 2054.62,
+      "low": 2048.5,
+      "close": 2053.68,
+      "volume": 3821.8778,
+      "closeTime": 1771052399999,
+      "quoteVolume": 7842302.163504,
+      "trades": 37280,
+      "takerBuyBaseVolume": 2286.199,
+      "takerBuyQuoteVolume": 4691583.530976
+    },
+    {
+      "openTime": 1771052400000,
+      "open": 2053.68,
+      "high": 2060.49,
+      "low": 2050.69,
+      "close": 2057.21,
+      "volume": 6753.7238,
+      "closeTime": 1771055999999,
+      "quoteVolume": 13881695.47593,
+      "trades": 71860,
+      "takerBuyBaseVolume": 3467.8718,
+      "takerBuyQuoteVolume": 7130310.295184
+    },
+    {
+      "openTime": 1771056000000,
+      "open": 2057.2,
+      "high": 2091.32,
+      "low": 2057.04,
+      "close": 2082.35,
+      "volume": 26811.4703,
+      "closeTime": 1771059599999,
+      "quoteVolume": 55654740.669136,
+      "trades": 268760,
+      "takerBuyBaseVolume": 15127.9677,
+      "takerBuyQuoteVolume": 31398855.10011
+    },
+    {
+      "openTime": 1771059600000,
+      "open": 2082.35,
+      "high": 2088.64,
+      "low": 2075.91,
+      "close": 2078.24,
+      "volume": 8333.0145,
+      "closeTime": 1771063199999,
+      "quoteVolume": 17343849.117567,
+      "trades": 125528,
+      "takerBuyBaseVolume": 4327.418,
+      "takerBuyQuoteVolume": 9008500.655117
+    },
+    {
+      "openTime": 1771063200000,
+      "open": 2078.24,
+      "high": 2078.25,
+      "low": 2072.57,
+      "close": 2077.42,
+      "volume": 4025.0517,
+      "closeTime": 1771066799999,
+      "quoteVolume": 8354443.557338,
+      "trades": 62936,
+      "takerBuyBaseVolume": 1758.7998,
+      "takerBuyQuoteVolume": 3650573.671993
+    },
+    {
+      "openTime": 1771066800000,
+      "open": 2077.43,
+      "high": 2107.67,
+      "low": 2077.1,
+      "close": 2099.58,
+      "volume": 19687.4197,
+      "closeTime": 1771070399999,
+      "quoteVolume": 41282793.728079,
+      "trades": 303062,
+      "takerBuyBaseVolume": 11916.9912,
+      "takerBuyQuoteVolume": 24982974.383837
+    },
+    {
+      "openTime": 1771070400000,
+      "open": 2099.58,
+      "high": 2100.39,
+      "low": 2068.09,
+      "close": 2070.97,
+      "volume": 20672.5468,
+      "closeTime": 1771073999999,
+      "quoteVolume": 43067587.687715,
+      "trades": 228052,
+      "takerBuyBaseVolume": 7293.4502,
+      "takerBuyQuoteVolume": 15187421.957954
+    },
+    {
+      "openTime": 1771074000000,
+      "open": 2070.97,
+      "high": 2076.05,
+      "low": 2064.58,
+      "close": 2071.54,
+      "volume": 12885.3038,
+      "closeTime": 1771077599999,
+      "quoteVolume": 26682146.578857,
+      "trades": 147421,
+      "takerBuyBaseVolume": 5533.0639,
+      "takerBuyQuoteVolume": 11458095.603845
+    },
+    {
+      "openTime": 1771077600000,
+      "open": 2071.54,
+      "high": 2088.81,
+      "low": 2069.34,
+      "close": 2085.09,
+      "volume": 10445.1153,
+      "closeTime": 1771081199999,
+      "quoteVolume": 21703801.154067,
+      "trades": 133842,
+      "takerBuyBaseVolume": 5931.1594,
+      "takerBuyQuoteVolume": 12327806.910874
+    },
+    {
+      "openTime": 1771081200000,
+      "open": 2085.1,
+      "high": 2093.73,
+      "low": 2080.55,
+      "close": 2087.43,
+      "volume": 11176.67,
+      "closeTime": 1771084799999,
+      "quoteVolume": 23321237.91956,
+      "trades": 120491,
+      "takerBuyBaseVolume": 5489.6459,
+      "takerBuyQuoteVolume": 11457099.322233
+    },
+    {
+      "openTime": 1771084800000,
+      "open": 2087.42,
+      "high": 2087.89,
+      "low": 2067.27,
+      "close": 2082.83,
+      "volume": 21781.519,
+      "closeTime": 1771088399999,
+      "quoteVolume": 45216403.589982,
+      "trades": 150880,
+      "takerBuyBaseVolume": 12228.4263,
+      "takerBuyQuoteVolume": 25379418.406613
+    },
+    {
+      "openTime": 1771088400000,
+      "open": 2082.84,
+      "high": 2089.28,
+      "low": 2077.49,
+      "close": 2080.23,
+      "volume": 6872.6908,
+      "closeTime": 1771091999999,
+      "quoteVolume": 14315232.572534,
+      "trades": 124134,
+      "takerBuyBaseVolume": 3288.8696,
+      "takerBuyQuoteVolume": 6851055.79154
+    },
+    {
+      "openTime": 1771092000000,
+      "open": 2080.23,
+      "high": 2086.61,
+      "low": 2078.77,
+      "close": 2085.39,
+      "volume": 4417.1196,
+      "closeTime": 1771095599999,
+      "quoteVolume": 9203875.800706,
+      "trades": 93740,
+      "takerBuyBaseVolume": 2356.4445,
+      "takerBuyQuoteVolume": 4909961.806559
+    },
+    {
+      "openTime": 1771095600000,
+      "open": 2085.39,
+      "high": 2090.51,
+      "low": 2078.56,
+      "close": 2088.52,
+      "volume": 5699.5631,
+      "closeTime": 1771099199999,
+      "quoteVolume": 11891155.766019,
+      "trades": 87716,
+      "takerBuyBaseVolume": 2987.121,
+      "takerBuyQuoteVolume": 6232308.221355
+    },
+    {
+      "openTime": 1771099200000,
+      "open": 2088.52,
+      "high": 2092.95,
+      "low": 2081.24,
+      "close": 2089.82,
+      "volume": 5072.2237,
+      "closeTime": 1771102799999,
+      "quoteVolume": 10585882.658124,
+      "trades": 63316,
+      "takerBuyBaseVolume": 2541.4325,
+      "takerBuyQuoteVolume": 5305048.748293
+    },
+    {
+      "openTime": 1771102800000,
+      "open": 2089.83,
+      "high": 2098.89,
+      "low": 2078.63,
+      "close": 2085.87,
+      "volume": 10624.3669,
+      "closeTime": 1771106399999,
+      "quoteVolume": 22191563.851915,
+      "trades": 123949,
+      "takerBuyBaseVolume": 4559.1964,
+      "takerBuyQuoteVolume": 9526037.84995
+    },
+    {
+      "openTime": 1771106400000,
+      "open": 2085.86,
+      "high": 2094.68,
+      "low": 2083.66,
+      "close": 2090.47,
+      "volume": 5214.7206,
+      "closeTime": 1771109999999,
+      "quoteVolume": 10899055.825182,
+      "trades": 84412,
+      "takerBuyBaseVolume": 2722.4141,
+      "takerBuyQuoteVolume": 5690489.161821
+    },
+    {
+      "openTime": 1771110000000,
+      "open": 2090.46,
+      "high": 2093.01,
+      "low": 2083.7,
+      "close": 2086.59,
+      "volume": 5590.0551,
+      "closeTime": 1771113599999,
+      "quoteVolume": 11674771.545873,
+      "trades": 75215,
+      "takerBuyBaseVolume": 2437.2284,
+      "takerBuyQuoteVolume": 5091045.986587
+    },
+    {
+      "openTime": 1771113600000,
+      "open": 2086.59,
+      "high": 2090.5,
+      "low": 2072.74,
+      "close": 2080.11,
+      "volume": 8335.0483,
+      "closeTime": 1771117199999,
+      "quoteVolume": 17343307.744675,
+      "trades": 111335,
+      "takerBuyBaseVolume": 3571.8367,
+      "takerBuyQuoteVolume": 7436760.30397
+    },
+    {
+      "openTime": 1771117200000,
+      "open": 2080.11,
+      "high": 2085.02,
+      "low": 2053.81,
+      "close": 2064.19,
+      "volume": 15258.9343,
+      "closeTime": 1771120799999,
+      "quoteVolume": 31524598.554491,
+      "trades": 190814,
+      "takerBuyBaseVolume": 5734.3208,
+      "takerBuyQuoteVolume": 11844453.359757
+    },
+    {
+      "openTime": 1771120800000,
+      "open": 2064.18,
+      "high": 2072.41,
+      "low": 2045.0,
+      "close": 2059.58,
+      "volume": 49424.3031,
+      "closeTime": 1771124399999,
+      "quoteVolume": 101687344.635758,
+      "trades": 269214,
+      "takerBuyBaseVolume": 12278.8671,
+      "takerBuyQuoteVolume": 25273452.023196
+    },
+    {
+      "openTime": 1771124400000,
+      "open": 2059.59,
+      "high": 2063.34,
+      "low": 2030.9,
+      "close": 2058.94,
+      "volume": 168472.1017,
+      "closeTime": 1771127999999,
+      "quoteVolume": 344105865.603446,
+      "trades": 454402,
+      "takerBuyBaseVolume": 52123.7312,
+      "takerBuyQuoteVolume": 106608032.313617
+    },
+    {
+      "openTime": 1771128000000,
+      "open": 2058.94,
+      "high": 2087.13,
+      "low": 2058.94,
+      "close": 2076.31,
+      "volume": 23173.06,
+      "closeTime": 1771131599999,
+      "quoteVolume": 48065755.012521,
+      "trades": 279316,
+      "takerBuyBaseVolume": 13242.9238,
+      "takerBuyQuoteVolume": 27467702.506376
+    },
+    {
+      "openTime": 1771131600000,
+      "open": 2076.31,
+      "high": 2096.11,
+      "low": 2075.12,
+      "close": 2088.68,
+      "volume": 13517.585,
+      "closeTime": 1771135199999,
+      "quoteVolume": 28235721.003431,
+      "trades": 174437,
+      "takerBuyBaseVolume": 7005.1876,
+      "takerBuyQuoteVolume": 14632666.751028
+    },
+    {
+      "openTime": 1771135200000,
+      "open": 2088.67,
+      "high": 2094.71,
+      "low": 2082.61,
+      "close": 2085.85,
+      "volume": 9082.319,
+      "closeTime": 1771138799999,
+      "quoteVolume": 18978971.486181,
+      "trades": 124760,
+      "takerBuyBaseVolume": 4791.4109,
+      "takerBuyQuoteVolume": 10015134.328148
+    },
+    {
+      "openTime": 1771138800000,
+      "open": 2085.85,
+      "high": 2103.32,
+      "low": 2082.47,
+      "close": 2091.41,
+      "volume": 34761.7286,
+      "closeTime": 1771142399999,
+      "quoteVolume": 72655407.092962,
+      "trades": 239473,
+      "takerBuyBaseVolume": 12026.6657,
+      "takerBuyQuoteVolume": 25144284.629601
+    },
+    {
+      "openTime": 1771142400000,
+      "open": 2091.41,
+      "high": 2096.82,
+      "low": 2055.92,
+      "close": 2069.2,
+      "volume": 27316.0929,
+      "closeTime": 1771145999999,
+      "quoteVolume": 56745475.960932,
+      "trades": 251620,
+      "takerBuyBaseVolume": 12336.7116,
+      "takerBuyQuoteVolume": 25611501.049537
+    },
+    {
+      "openTime": 1771146000000,
+      "open": 2069.2,
+      "high": 2078.86,
+      "low": 2066.02,
+      "close": 2068.7,
+      "volume": 9469.0133,
+      "closeTime": 1771149599999,
+      "quoteVolume": 19620163.645099,
+      "trades": 100978,
+      "takerBuyBaseVolume": 5102.7048,
+      "takerBuyQuoteVolume": 10572338.857081
+    },
+    {
+      "openTime": 1771149600000,
+      "open": 2068.7,
+      "high": 2070.26,
+      "low": 2054.36,
+      "close": 2061.57,
+      "volume": 10415.5493,
+      "closeTime": 1771153199999,
+      "quoteVolume": 21468419.279892,
+      "trades": 164982,
+      "takerBuyBaseVolume": 4372.2423,
+      "takerBuyQuoteVolume": 9013057.171286
+    },
+    {
+      "openTime": 1771153200000,
+      "open": 2061.56,
+      "high": 2067.01,
+      "low": 2058.61,
+      "close": 2061.96,
+      "volume": 4891.9191,
+      "closeTime": 1771156799999,
+      "quoteVolume": 10090231.076273,
+      "trades": 70367,
+      "takerBuyBaseVolume": 2426.244,
+      "takerBuyQuoteVolume": 5004500.743911
+    },
+    {
+      "openTime": 1771156800000,
+      "open": 2061.96,
+      "high": 2068.63,
+      "low": 2011.0,
+      "close": 2011.0,
+      "volume": 27452.0817,
+      "closeTime": 1771160399999,
+      "quoteVolume": 55912016.773449,
+      "trades": 237767,
+      "takerBuyBaseVolume": 10033.1403,
+      "takerBuyQuoteVolume": 20454812.998253
+    },
+    {
+      "openTime": 1771160400000,
+      "open": 2011.0,
+      "high": 2028.34,
+      "low": 1994.05,
+      "close": 2002.46,
+      "volume": 48992.1893,
+      "closeTime": 1771163999999,
+      "quoteVolume": 98593606.374849,
+      "trades": 528523,
+      "takerBuyBaseVolume": 24069.7997,
+      "takerBuyQuoteVolume": 48462647.751783
+    },
+    {
+      "openTime": 1771164000000,
+      "open": 2002.45,
+      "high": 2012.43,
+      "low": 1993.3,
+      "close": 2010.32,
+      "volume": 23471.8499,
+      "closeTime": 1771167599999,
+      "quoteVolume": 47026580.102154,
+      "trades": 245450,
+      "takerBuyBaseVolume": 11861.6098,
+      "takerBuyQuoteVolume": 23770753.501262
+    },
+    {
+      "openTime": 1771167600000,
+      "open": 2010.32,
+      "high": 2015.07,
+      "low": 2002.5,
+      "close": 2011.29,
+      "volume": 15790.3985,
+      "closeTime": 1771171199999,
+      "quoteVolume": 31735232.220724,
+      "trades": 145614,
+      "takerBuyBaseVolume": 8612.4011,
+      "takerBuyQuoteVolume": 17313062.556148
+    },
+    {
+      "openTime": 1771171200000,
+      "open": 2011.29,
+      "high": 2011.3,
+      "low": 1993.35,
+      "close": 2006.27,
+      "volume": 52142.1239,
+      "closeTime": 1771174799999,
+      "quoteVolume": 104352541.544,
+      "trades": 227680,
+      "takerBuyBaseVolume": 14857.1442,
+      "takerBuyQuoteVolume": 29741945.992101
+    },
+    {
+      "openTime": 1771174800000,
+      "open": 2006.27,
+      "high": 2009.05,
+      "low": 1957.9,
+      "close": 1971.3,
+      "volume": 39397.2103,
+      "closeTime": 1771178399999,
+      "quoteVolume": 77956600.57964,
+      "trades": 340429,
+      "takerBuyBaseVolume": 16102.3707,
+      "takerBuyQuoteVolume": 31810075.054535
+    },
+    {
+      "openTime": 1771178400000,
+      "open": 1971.3,
+      "high": 1981.36,
+      "low": 1952.62,
+      "close": 1959.24,
+      "volume": 86430.6925,
+      "closeTime": 1771181999999,
+      "quoteVolume": 169719691.167793,
+      "trades": 434470,
+      "takerBuyBaseVolume": 28286.7298,
+      "takerBuyQuoteVolume": 55554845.588977
+    },
+    {
+      "openTime": 1771182000000,
+      "open": 1959.24,
+      "high": 1961.96,
+      "low": 1928.88,
+      "close": 1942.23,
+      "volume": 111713.6846,
+      "closeTime": 1771185599999,
+      "quoteVolume": 216723448.040297,
+      "trades": 605333,
+      "takerBuyBaseVolume": 44351.7181,
+      "takerBuyQuoteVolume": 86047952.716064
+    },
+    {
+      "openTime": 1771185600000,
+      "open": 1942.22,
+      "high": 1958.54,
+      "low": 1933.77,
+      "close": 1950.11,
+      "volume": 16989.637,
+      "closeTime": 1771189199999,
+      "quoteVolume": 33089443.875075,
+      "trades": 198451,
+      "takerBuyBaseVolume": 9420.0846,
+      "takerBuyQuoteVolume": 18356157.96728
+    },
+    {
+      "openTime": 1771189200000,
+      "open": 1950.11,
+      "high": 1965.77,
+      "low": 1950.0,
+      "close": 1958.55,
+      "volume": 9995.153,
+      "closeTime": 1771192799999,
+      "quoteVolume": 19569452.530427,
+      "trades": 148552,
+      "takerBuyBaseVolume": 5932.5723,
+      "takerBuyQuoteVolume": 11616110.246398
+    },
+    {
+      "openTime": 1771192800000,
+      "open": 1958.55,
+      "high": 1974.51,
+      "low": 1956.58,
+      "close": 1970.27,
+      "volume": 9431.4963,
+      "closeTime": 1771196399999,
+      "quoteVolume": 18542155.996464,
+      "trades": 130668,
+      "takerBuyBaseVolume": 5661.8231,
+      "takerBuyQuoteVolume": 11129977.23969
+    },
+    {
+      "openTime": 1771196400000,
+      "open": 1970.27,
+      "high": 1970.89,
+      "low": 1944.36,
+      "close": 1966.58,
+      "volume": 18853.9236,
+      "closeTime": 1771199999999,
+      "quoteVolume": 36912478.579945,
+      "trades": 189676,
+      "takerBuyBaseVolume": 9300.9896,
+      "takerBuyQuoteVolume": 18211227.255737
+    },
+    {
+      "openTime": 1771200000000,
+      "open": 1966.59,
+      "high": 1979.3,
+      "low": 1963.35,
+      "close": 1969.11,
+      "volume": 17601.4525,
+      "closeTime": 1771203599999,
+      "quoteVolume": 34669756.199963,
+      "trades": 178903,
+      "takerBuyBaseVolume": 10184.8248,
+      "takerBuyQuoteVolume": 20059617.779542
+    },
+    {
+      "openTime": 1771203600000,
+      "open": 1969.11,
+      "high": 1981.2,
+      "low": 1957.0,
+      "close": 1963.06,
+      "volume": 11795.9275,
+      "closeTime": 1771207199999,
+      "quoteVolume": 23217853.548111,
+      "trades": 142023,
+      "takerBuyBaseVolume": 5675.9516,
+      "takerBuyQuoteVolume": 11175753.695419
+    },
+    {
+      "openTime": 1771207200000,
+      "open": 1963.06,
+      "high": 1966.79,
+      "low": 1952.3,
+      "close": 1957.0,
+      "volume": 8676.6599,
+      "closeTime": 1771210799999,
+      "quoteVolume": 17004019.005838,
+      "trades": 197080,
+      "takerBuyBaseVolume": 4758.5188,
+      "takerBuyQuoteVolume": 9325909.489611
+    },
+    {
+      "openTime": 1771210800000,
+      "open": 1957.01,
+      "high": 1959.81,
+      "low": 1948.76,
+      "close": 1958.78,
+      "volume": 9328.3216,
+      "closeTime": 1771214399999,
+      "quoteVolume": 18226315.499204,
+      "trades": 115559,
+      "takerBuyBaseVolume": 4973.0931,
+      "takerBuyQuoteVolume": 9718017.898914
+    },
+    {
+      "openTime": 1771214400000,
+      "open": 1958.78,
+      "high": 1973.19,
+      "low": 1958.34,
+      "close": 1973.06,
+      "volume": 9289.7666,
+      "closeTime": 1771217999999,
+      "quoteVolume": 18275477.396958,
+      "trades": 119217,
+      "takerBuyBaseVolume": 5486.941,
+      "takerBuyQuoteVolume": 10796082.552492
+    },
+    {
+      "openTime": 1771218000000,
+      "open": 1973.05,
+      "high": 1974.17,
+      "low": 1952.91,
+      "close": 1958.0,
+      "volume": 10870.1372,
+      "closeTime": 1771221599999,
+      "quoteVolume": 21315954.11909,
+      "trades": 91258,
+      "takerBuyBaseVolume": 3968.7972,
+      "takerBuyQuoteVolume": 7778247.516038
+    },
+    {
+      "openTime": 1771221600000,
+      "open": 1957.99,
+      "high": 1967.58,
+      "low": 1955.94,
+      "close": 1966.69,
+      "volume": 6224.5302,
+      "closeTime": 1771225199999,
+      "quoteVolume": 12219948.95878,
+      "trades": 63590,
+      "takerBuyBaseVolume": 2823.0413,
+      "takerBuyQuoteVolume": 5541956.874374
+    },
+    {
+      "openTime": 1771225200000,
+      "open": 1966.69,
+      "high": 1978.64,
+      "low": 1964.32,
+      "close": 1971.13,
+      "volume": 12111.0474,
+      "closeTime": 1771228799999,
+      "quoteVolume": 23875214.755818,
+      "trades": 118576,
+      "takerBuyBaseVolume": 6020.4906,
+      "takerBuyQuoteVolume": 11869901.269095
+    },
+    {
+      "openTime": 1771228800000,
+      "open": 1971.14,
+      "high": 1978.51,
+      "low": 1970.0,
+      "close": 1977.31,
+      "volume": 7824.2263,
+      "closeTime": 1771232399999,
+      "quoteVolume": 15447609.898629,
+      "trades": 73155,
+      "takerBuyBaseVolume": 4708.9655,
+      "takerBuyQuoteVolume": 9296847.990326
+    },
+    {
+      "openTime": 1771232400000,
+      "open": 1977.31,
+      "high": 1993.35,
+      "low": 1976.16,
+      "close": 1987.67,
+      "volume": 19499.8904,
+      "closeTime": 1771235999999,
+      "quoteVolume": 38729364.433106,
+      "trades": 183618,
+      "takerBuyBaseVolume": 10288.0354,
+      "takerBuyQuoteVolume": 20432129.724333
+    },
+    {
+      "openTime": 1771236000000,
+      "open": 1987.66,
+      "high": 1988.91,
+      "low": 1977.51,
+      "close": 1978.88,
+      "volume": 7219.1525,
+      "closeTime": 1771239599999,
+      "quoteVolume": 14316107.608772,
+      "trades": 97740,
+      "takerBuyBaseVolume": 3023.7926,
+      "takerBuyQuoteVolume": 5997966.134662
+    },
+    {
+      "openTime": 1771239600000,
+      "open": 1978.88,
+      "high": 1983.87,
+      "low": 1957.12,
+      "close": 1976.15,
+      "volume": 17076.6315,
+      "closeTime": 1771243199999,
+      "quoteVolume": 33632356.811296,
+      "trades": 205634,
+      "takerBuyBaseVolume": 7318.7485,
+      "takerBuyQuoteVolume": 14424171.141235
+    },
+    {
+      "openTime": 1771243200000,
+      "open": 1976.16,
+      "high": 2009.52,
+      "low": 1972.46,
+      "close": 2006.24,
+      "volume": 17839.9282,
+      "closeTime": 1771246799999,
+      "quoteVolume": 35566400.084973,
+      "trades": 258999,
+      "takerBuyBaseVolume": 10424.1964,
+      "takerBuyQuoteVolume": 20786777.018235
+    },
+    {
+      "openTime": 1771246800000,
+      "open": 2006.25,
+      "high": 2023.51,
+      "low": 1961.23,
+      "close": 1967.7,
+      "volume": 39101.6427,
+      "closeTime": 1771250399999,
+      "quoteVolume": 77858532.583386,
+      "trades": 500023,
+      "takerBuyBaseVolume": 18688.5955,
+      "takerBuyQuoteVolume": 37228579.658484
+    },
+    {
+      "openTime": 1771250400000,
+      "open": 1967.69,
+      "high": 1983.45,
+      "low": 1954.97,
+      "close": 1973.13,
+      "volume": 18232.334,
+      "closeTime": 1771253999999,
+      "quoteVolume": 35896511.020472,
+      "trades": 292011,
+      "takerBuyBaseVolume": 9772.128,
+      "takerBuyQuoteVolume": 19242692.486378
+    },
+    {
+      "openTime": 1771254000000,
+      "open": 1973.13,
+      "high": 1986.12,
+      "low": 1937.24,
+      "close": 1956.65,
+      "volume": 35682.8156,
+      "closeTime": 1771257599999,
+      "quoteVolume": 69849309.891297,
+      "trades": 522398,
+      "takerBuyBaseVolume": 16581.2727,
+      "takerBuyQuoteVolume": 32455820.759974
+    },
+    {
+      "openTime": 1771257600000,
+      "open": 1956.65,
+      "high": 1980.04,
+      "low": 1956.31,
+      "close": 1973.75,
+      "volume": 22180.4766,
+      "closeTime": 1771261199999,
+      "quoteVolume": 43680544.303048,
+      "trades": 287203,
+      "takerBuyBaseVolume": 11509.8993,
+      "takerBuyQuoteVolume": 22665335.810167
+    },
+    {
+      "openTime": 1771261200000,
+      "open": 1973.75,
+      "high": 1988.4,
+      "low": 1964.48,
+      "close": 1978.99,
+      "volume": 16573.7081,
+      "closeTime": 1771264799999,
+      "quoteVolume": 32765217.134061,
+      "trades": 224918,
+      "takerBuyBaseVolume": 7397.2757,
+      "takerBuyQuoteVolume": 14631155.089901
+    },
+    {
+      "openTime": 1771264800000,
+      "open": 1978.99,
+      "high": 1985.68,
+      "low": 1967.1,
+      "close": 1968.93,
+      "volume": 10273.7227,
+      "closeTime": 1771268399999,
+      "quoteVolume": 20317448.955804,
+      "trades": 121981,
+      "takerBuyBaseVolume": 4537.1097,
+      "takerBuyQuoteVolume": 8975221.383309
+    },
+    {
+      "openTime": 1771268400000,
+      "open": 1968.94,
+      "high": 1979.74,
+      "low": 1966.22,
+      "close": 1974.04,
+      "volume": 8089.6023,
+      "closeTime": 1771271999999,
+      "quoteVolume": 15967999.556396,
+      "trades": 123814,
+      "takerBuyBaseVolume": 4894.5819,
+      "takerBuyQuoteVolume": 9662453.042652
+    },
+    {
+      "openTime": 1771272000000,
+      "open": 1974.04,
+      "high": 1994.34,
+      "low": 1971.1,
+      "close": 1993.2,
+      "volume": 13720.2978,
+      "closeTime": 1771275599999,
+      "quoteVolume": 27213514.20647,
+      "trades": 156609,
+      "takerBuyBaseVolume": 8317.8105,
+      "takerBuyQuoteVolume": 16498112.330385
+    },
+    {
+      "openTime": 1771275600000,
+      "open": 1993.2,
+      "high": 2004.02,
+      "low": 1986.2,
+      "close": 1999.14,
+      "volume": 12003.6883,
+      "closeTime": 1771279199999,
+      "quoteVolume": 23915948.361606,
+      "trades": 136139,
+      "takerBuyBaseVolume": 6684.6983,
+      "takerBuyQuoteVolume": 13321400.764951
+    },
+    {
+      "openTime": 1771279200000,
+      "open": 1999.13,
+      "high": 2002.54,
+      "low": 1984.39,
+      "close": 1990.19,
+      "volume": 11617.8339,
+      "closeTime": 1771282799999,
+      "quoteVolume": 23157971.738415,
+      "trades": 124613,
+      "takerBuyBaseVolume": 5514.6574,
+      "takerBuyQuoteVolume": 10992645.838998
+    },
+    {
+      "openTime": 1771282800000,
+      "open": 1990.19,
+      "high": 2002.52,
+      "low": 1988.72,
+      "close": 1998.33,
+      "volume": 8514.1495,
+      "closeTime": 1771286399999,
+      "quoteVolume": 16996984.868776,
+      "trades": 140965,
+      "takerBuyBaseVolume": 4605.36,
+      "takerBuyQuoteVolume": 9193822.052352
+    },
+    {
+      "openTime": 1771286400000,
+      "open": 1998.34,
+      "high": 2005.77,
+      "low": 1993.41,
+      "close": 1998.44,
+      "volume": 7247.1782,
+      "closeTime": 1771289999999,
+      "quoteVolume": 14489983.772527,
+      "trades": 125808,
+      "takerBuyBaseVolume": 3301.5367,
+      "takerBuyQuoteVolume": 6602157.628315
+    },
+    {
+      "openTime": 1771290000000,
+      "open": 1998.45,
+      "high": 2008.05,
+      "low": 1991.0,
+      "close": 1991.82,
+      "volume": 7619.5607,
+      "closeTime": 1771293599999,
+      "quoteVolume": 15238419.245658,
+      "trades": 144406,
+      "takerBuyBaseVolume": 3282.0021,
+      "takerBuyQuoteVolume": 6565277.603428
+    },
+    {
+      "openTime": 1771293600000,
+      "open": 1991.8,
+      "high": 2008.58,
+      "low": 1979.7,
+      "close": 1998.59,
+      "volume": 16392.9806,
+      "closeTime": 1771297199999,
+      "quoteVolume": 32750281.587913,
+      "trades": 191045,
+      "takerBuyBaseVolume": 6981.6645,
+      "takerBuyQuoteVolume": 13951397.853572
+    },
+    {
+      "openTime": 1771297200000,
+      "open": 1998.6,
+      "high": 1999.22,
+      "low": 1984.73,
+      "close": 1985.7,
+      "volume": 8720.5727,
+      "closeTime": 1771300799999,
+      "quoteVolume": 17361924.682521,
+      "trades": 101417,
+      "takerBuyBaseVolume": 2758.2013,
+      "takerBuyQuoteVolume": 5490899.085995
+    },
+    {
+      "openTime": 1771300800000,
+      "open": 1985.69,
+      "high": 1998.48,
+      "low": 1982.23,
+      "close": 1989.44,
+      "volume": 9943.1886,
+      "closeTime": 1771304399999,
+      "quoteVolume": 19780085.159249,
+      "trades": 97993,
+      "takerBuyBaseVolume": 4426.8575,
+      "takerBuyQuoteVolume": 8810471.257721
+    },
+    {
+      "openTime": 1771304400000,
+      "open": 1989.44,
+      "high": 1991.05,
+      "low": 1964.72,
+      "close": 1975.68,
+      "volume": 17831.9284,
+      "closeTime": 1771307999999,
+      "quoteVolume": 35227376.923251,
+      "trades": 199245,
+      "takerBuyBaseVolume": 6754.1279,
+      "takerBuyQuoteVolume": 13339962.747005
+    },
+    {
+      "openTime": 1771308000000,
+      "open": 1975.68,
+      "high": 1985.07,
+      "low": 1975.67,
+      "close": 1981.02,
+      "volume": 6772.8404,
+      "closeTime": 1771311599999,
+      "quoteVolume": 13413355.517584,
+      "trades": 94246,
+      "takerBuyBaseVolume": 3282.5597,
+      "takerBuyQuoteVolume": 6502064.007064
+    },
+    {
+      "openTime": 1771311600000,
+      "open": 1981.02,
+      "high": 1988.22,
+      "low": 1973.32,
+      "close": 1985.91,
+      "volume": 10442.2239,
+      "closeTime": 1771315199999,
+      "quoteVolume": 20687171.057402,
+      "trades": 139936,
+      "takerBuyBaseVolume": 5048.1604,
+      "takerBuyQuoteVolume": 10005632.296078
+    },
+    {
+      "openTime": 1771315200000,
+      "open": 1985.91,
+      "high": 1990.88,
+      "low": 1973.95,
+      "close": 1977.08,
+      "volume": 13060.6464,
+      "closeTime": 1771318799999,
+      "quoteVolume": 25875475.210942,
+      "trades": 181406,
+      "takerBuyBaseVolume": 6738.6021,
+      "takerBuyQuoteVolume": 13350116.225604
+    },
+    {
+      "openTime": 1771318800000,
+      "open": 1977.07,
+      "high": 1979.99,
+      "low": 1969.79,
+      "close": 1976.16,
+      "volume": 13678.9128,
+      "closeTime": 1771322399999,
+      "quoteVolume": 27003604.665814,
+      "trades": 165187,
+      "takerBuyBaseVolume": 6163.7085,
+      "takerBuyQuoteVolume": 12165435.93634
+    },
+    {
+      "openTime": 1771322400000,
+      "open": 1976.15,
+      "high": 1978.77,
+      "low": 1961.71,
+      "close": 1966.93,
+      "volume": 13184.1419,
+      "closeTime": 1771325999999,
+      "quoteVolume": 25965044.376536,
+      "trades": 190613,
+      "takerBuyBaseVolume": 6140.5156,
+      "takerBuyQuoteVolume": 12095154.029917
+    },
+    {
+      "openTime": 1771326000000,
+      "open": 1966.92,
+      "high": 1972.5,
+      "low": 1964.28,
+      "close": 1968.47,
+      "volume": 7332.665,
+      "closeTime": 1771329599999,
+      "quoteVolume": 14435095.143347,
+      "trades": 120586,
+      "takerBuyBaseVolume": 3414.0575,
+      "takerBuyQuoteVolume": 6721024.315987
+    },
+    {
+      "openTime": 1771329600000,
+      "open": 1968.47,
+      "high": 1977.02,
+      "low": 1967.21,
+      "close": 1969.76,
+      "volume": 11194.8099,
+      "closeTime": 1771333199999,
+      "quoteVolume": 22082204.89187,
+      "trades": 190962,
+      "takerBuyBaseVolume": 4522.3057,
+      "takerBuyQuoteVolume": 8920604.680182
+    },
+    {
+      "openTime": 1771333200000,
+      "open": 1969.76,
+      "high": 1999.72,
+      "low": 1964.74,
+      "close": 1990.53,
+      "volume": 19708.1928,
+      "closeTime": 1771336799999,
+      "quoteVolume": 39117074.579905,
+      "trades": 282545,
+      "takerBuyBaseVolume": 11468.6469,
+      "takerBuyQuoteVolume": 22766581.42869
+    },
+    {
+      "openTime": 1771336800000,
+      "open": 1990.53,
+      "high": 2002.7,
+      "low": 1944.3,
+      "close": 1948.49,
+      "volume": 50708.5711,
+      "closeTime": 1771340399999,
+      "quoteVolume": 99861848.830339,
+      "trades": 782068,
+      "takerBuyBaseVolume": 24668.4792,
+      "takerBuyQuoteVolume": 48529077.875485
+    },
+    {
+      "openTime": 1771340400000,
+      "open": 1948.5,
+      "high": 1969.66,
+      "low": 1941.66,
+      "close": 1968.58,
+      "volume": 35993.6945,
+      "closeTime": 1771343999999,
+      "quoteVolume": 70390399.989901,
+      "trades": 682867,
+      "takerBuyBaseVolume": 20018.848,
+      "takerBuyQuoteVolume": 39153705.693994
+    },
+    {
+      "openTime": 1771344000000,
+      "open": 1968.59,
+      "high": 2010.47,
+      "low": 1967.65,
+      "close": 1980.36,
+      "volume": 43955.8094,
+      "closeTime": 1771347599999,
+      "quoteVolume": 87528604.855322,
+      "trades": 670546,
+      "takerBuyBaseVolume": 23366.7641,
+      "takerBuyQuoteVolume": 46540793.856282
+    },
+    {
+      "openTime": 1771347600000,
+      "open": 1980.37,
+      "high": 1984.05,
+      "low": 1954.03,
+      "close": 1966.27,
+      "volume": 24967.607,
+      "closeTime": 1771351199999,
+      "quoteVolume": 49105335.581834,
+      "trades": 534443,
+      "takerBuyBaseVolume": 12042.047,
+      "takerBuyQuoteVolume": 23684850.127585
+    },
+    {
+      "openTime": 1771351200000,
+      "open": 1966.28,
+      "high": 2007.02,
+      "low": 1961.73,
+      "close": 1998.69,
+      "volume": 25370.9819,
+      "closeTime": 1771354799999,
+      "quoteVolume": 50475151.629435,
+      "trades": 464392,
+      "takerBuyBaseVolume": 13879.596,
+      "takerBuyQuoteVolume": 27604832.738126
+    },
+    {
+      "openTime": 1771354800000,
+      "open": 1998.7,
+      "high": 2015.33,
+      "low": 1995.07,
+      "close": 1998.14,
+      "volume": 23332.8204,
+      "closeTime": 1771358399999,
+      "quoteVolume": 46772264.78089,
+      "trades": 368598,
+      "takerBuyBaseVolume": 11655.1057,
+      "takerBuyQuoteVolume": 23370617.529871
+    },
+    {
+      "openTime": 1771358400000,
+      "open": 1998.15,
+      "high": 2001.5,
+      "low": 1987.57,
+      "close": 1994.71,
+      "volume": 14385.5431,
+      "closeTime": 1771361999999,
+      "quoteVolume": 28696242.318252,
+      "trades": 313980,
+      "takerBuyBaseVolume": 6554.3238,
+      "takerBuyQuoteVolume": 13074787.604363
+    },
+    {
+      "openTime": 1771362000000,
+      "open": 1994.71,
+      "high": 2002.79,
+      "low": 1992.34,
+      "close": 1999.74,
+      "volume": 6350.1913,
+      "closeTime": 1771365599999,
+      "quoteVolume": 12677073.985124,
+      "trades": 131954,
+      "takerBuyBaseVolume": 3223.9753,
+      "takerBuyQuoteVolume": 6436120.513636
+    },
+    {
+      "openTime": 1771365600000,
+      "open": 1999.74,
+      "high": 2004.0,
+      "low": 1992.39,
+      "close": 1993.92,
+      "volume": 6910.2358,
+      "closeTime": 1771369199999,
+      "quoteVolume": 13814833.136389,
+      "trades": 109507,
+      "takerBuyBaseVolume": 3035.6722,
+      "takerBuyQuoteVolume": 6069191.543183
+    },
+    {
+      "openTime": 1771369200000,
+      "open": 1993.91,
+      "high": 1998.19,
+      "low": 1989.67,
+      "close": 1991.66,
+      "volume": 11141.6459,
+      "closeTime": 1771372799999,
+      "quoteVolume": 22212446.787772,
+      "trades": 137091,
+      "takerBuyBaseVolume": 4219.9454,
+      "takerBuyQuoteVolume": 8411847.788985
+    },
+    {
+      "openTime": 1771372800000,
+      "open": 1991.67,
+      "high": 1997.89,
+      "low": 1981.18,
+      "close": 1981.54,
+      "volume": 10638.9469,
+      "closeTime": 1771376399999,
+      "quoteVolume": 21165455.390564,
+      "trades": 178058,
+      "takerBuyBaseVolume": 4717.3655,
+      "takerBuyQuoteVolume": 9388488.000081
+    },
+    {
+      "openTime": 1771376400000,
+      "open": 1981.54,
+      "high": 1984.18,
+      "low": 1968.68,
+      "close": 1978.07,
+      "volume": 16454.555,
+      "closeTime": 1771379999999,
+      "quoteVolume": 32513043.980404,
+      "trades": 213356,
+      "takerBuyBaseVolume": 6827.1474,
+      "takerBuyQuoteVolume": 13490842.77974
+    },
+    {
+      "openTime": 1771380000000,
+      "open": 1978.08,
+      "high": 1992.83,
+      "low": 1977.57,
+      "close": 1987.61,
+      "volume": 12379.751,
+      "closeTime": 1771383599999,
+      "quoteVolume": 24592204.43507,
+      "trades": 146223,
+      "takerBuyBaseVolume": 4635.0602,
+      "takerBuyQuoteVolume": 9207774.793751
+    },
+    {
+      "openTime": 1771383600000,
+      "open": 1987.61,
+      "high": 2000.56,
+      "low": 1986.86,
+      "close": 1997.07,
+      "volume": 9221.4102,
+      "closeTime": 1771387199999,
+      "quoteVolume": 18404254.24555,
+      "trades": 134877,
+      "takerBuyBaseVolume": 3676.2242,
+      "takerBuyQuoteVolume": 7332929.305194
+    },
+    {
+      "openTime": 1771387200000,
+      "open": 1997.08,
+      "high": 2002.78,
+      "low": 1993.35,
+      "close": 1999.15,
+      "volume": 10445.9513,
+      "closeTime": 1771390799999,
+      "quoteVolume": 20868459.086188,
+      "trades": 132107,
+      "takerBuyBaseVolume": 4432.8055,
+      "takerBuyQuoteVolume": 8856023.679064
+    },
+    {
+      "openTime": 1771390800000,
+      "open": 1999.18,
+      "high": 2002.91,
+      "low": 1996.0,
+      "close": 1996.49,
+      "volume": 5731.646,
+      "closeTime": 1771394399999,
+      "quoteVolume": 11458199.193925,
+      "trades": 114047,
+      "takerBuyBaseVolume": 3101.7852,
+      "takerBuyQuoteVolume": 6201540.846862
+    },
+    {
+      "openTime": 1771394400000,
+      "open": 1996.5,
+      "high": 2008.62,
+      "low": 1995.56,
+      "close": 2002.06,
+      "volume": 5869.8955,
+      "closeTime": 1771397999999,
+      "quoteVolume": 11759137.993682,
+      "trades": 121326,
+      "takerBuyBaseVolume": 3387.166,
+      "takerBuyQuoteVolume": 6785744.217243
+    },
+    {
+      "openTime": 1771398000000,
+      "open": 2002.06,
+      "high": 2023.52,
+      "low": 1996.71,
+      "close": 2018.07,
+      "volume": 15598.0276,
+      "closeTime": 1771401599999,
+      "quoteVolume": 31366880.565758,
+      "trades": 155334,
+      "takerBuyBaseVolume": 9220.8988,
+      "takerBuyQuoteVolume": 18542746.023396
+    },
+    {
+      "openTime": 1771401600000,
+      "open": 2018.06,
+      "high": 2039.05,
+      "low": 2017.17,
+      "close": 2020.7,
+      "volume": 19799.3854,
+      "closeTime": 1771405199999,
+      "quoteVolume": 40113274.708547,
+      "trades": 268574,
+      "takerBuyBaseVolume": 10380.345,
+      "takerBuyQuoteVolume": 21031657.924164
+    },
+    {
+      "openTime": 1771405200000,
+      "open": 2020.69,
+      "high": 2022.75,
+      "low": 2015.82,
+      "close": 2016.69,
+      "volume": 8508.1525,
+      "closeTime": 1771408799999,
+      "quoteVolume": 17183411.756713,
+      "trades": 138080,
+      "takerBuyBaseVolume": 3522.5982,
+      "takerBuyQuoteVolume": 7114858.221157
+    },
+    {
+      "openTime": 1771408800000,
+      "open": 2016.69,
+      "high": 2018.28,
+      "low": 1995.55,
+      "close": 1997.27,
+      "volume": 13627.4399,
+      "closeTime": 1771412399999,
+      "quoteVolume": 27307258.862986,
+      "trades": 144499,
+      "takerBuyBaseVolume": 4522.383,
+      "takerBuyQuoteVolume": 9064290.977915
+    },
+    {
+      "openTime": 1771412400000,
+      "open": 1997.27,
+      "high": 1998.3,
+      "low": 1976.57,
+      "close": 1981.43,
+      "volume": 18516.9861,
+      "closeTime": 1771415999999,
+      "quoteVolume": 36750728.917264,
+      "trades": 240895,
+      "takerBuyBaseVolume": 8984.3169,
+      "takerBuyQuoteVolume": 17827756.56154
+    },
+    {
+      "openTime": 1771416000000,
+      "open": 1981.44,
+      "high": 1989.38,
+      "low": 1971.66,
+      "close": 1982.47,
+      "volume": 17377.6175,
+      "closeTime": 1771419599999,
+      "quoteVolume": 34420533.906961,
+      "trades": 186768,
+      "takerBuyBaseVolume": 9013.7846,
+      "takerBuyQuoteVolume": 17849204.986016
+    },
+    {
+      "openTime": 1771419600000,
+      "open": 1982.48,
+      "high": 1991.91,
+      "low": 1961.56,
+      "close": 1970.68,
+      "volume": 18828.9728,
+      "closeTime": 1771423199999,
+      "quoteVolume": 37205427.036032,
+      "trades": 215706,
+      "takerBuyBaseVolume": 9260.8938,
+      "takerBuyQuoteVolume": 18304288.302259
+    },
+    {
+      "openTime": 1771423200000,
+      "open": 1970.67,
+      "high": 1976.85,
+      "low": 1954.3,
+      "close": 1974.66,
+      "volume": 38349.6129,
+      "closeTime": 1771426799999,
+      "quoteVolume": 75457364.372763,
+      "trades": 515525,
+      "takerBuyBaseVolume": 18228.6776,
+      "takerBuyQuoteVolume": 35866543.159445
+    },
+    {
+      "openTime": 1771426800000,
+      "open": 1974.65,
+      "high": 2010.3,
+      "low": 1973.58,
+      "close": 1985.48,
+      "volume": 33886.8033,
+      "closeTime": 1771430399999,
+      "quoteVolume": 67489139.838633,
+      "trades": 474698,
+      "takerBuyBaseVolume": 17982.9782,
+      "takerBuyQuoteVolume": 35814290.589739
+    },
+    {
+      "openTime": 1771430400000,
+      "open": 1985.48,
+      "high": 1985.67,
+      "low": 1965.0,
+      "close": 1971.78,
+      "volume": 24137.2433,
+      "closeTime": 1771433999999,
+      "quoteVolume": 47613533.650478,
+      "trades": 334260,
+      "takerBuyBaseVolume": 10769.4407,
+      "takerBuyQuoteVolume": 21237839.119708
+    },
+    {
+      "openTime": 1771434000000,
+      "open": 1971.78,
+      "high": 1987.89,
+      "low": 1970.81,
+      "close": 1974.57,
+      "volume": 10635.9022,
+      "closeTime": 1771437599999,
+      "quoteVolume": 21028041.239319,
+      "trades": 165728,
+      "takerBuyBaseVolume": 5446.9889,
+      "takerBuyQuoteVolume": 10768364.00978
+    },
+    {
+      "openTime": 1771437600000,
+      "open": 1974.58,
+      "high": 1977.59,
+      "low": 1949.21,
+      "close": 1952.62,
+      "volume": 25111.7124,
+      "closeTime": 1771441199999,
+      "quoteVolume": 49225660.030647,
+      "trades": 314339,
+      "takerBuyBaseVolume": 11661.2537,
+      "takerBuyQuoteVolume": 22868493.814831
+    },
+    {
+      "openTime": 1771441200000,
+      "open": 1952.62,
+      "high": 1961.57,
+      "low": 1923.78,
+      "close": 1941.03,
+      "volume": 35636.1392,
+      "closeTime": 1771444799999,
+      "quoteVolume": 69150519.466704,
+      "trades": 440005,
+      "takerBuyBaseVolume": 17404.9853,
+      "takerBuyQuoteVolume": 33775727.828417
+    },
+    {
+      "openTime": 1771444800000,
+      "open": 1941.04,
+      "high": 1952.79,
+      "low": 1935.82,
+      "close": 1939.67,
+      "volume": 16433.1338,
+      "closeTime": 1771448399999,
+      "quoteVolume": 31943582.10816,
+      "trades": 239032,
+      "takerBuyBaseVolume": 9013.342,
+      "takerBuyQuoteVolume": 17519373.020898
+    },
+    {
+      "openTime": 1771448400000,
+      "open": 1939.68,
+      "high": 1948.37,
+      "low": 1935.94,
+      "close": 1942.0,
+      "volume": 9781.7132,
+      "closeTime": 1771451999999,
+      "quoteVolume": 18993668.673084,
+      "trades": 122239,
+      "takerBuyBaseVolume": 5630.5394,
+      "takerBuyQuoteVolume": 10930831.973107
+    },
+    {
+      "openTime": 1771452000000,
+      "open": 1941.96,
+      "high": 1950.14,
+      "low": 1939.92,
+      "close": 1948.24,
+      "volume": 5923.7736,
+      "closeTime": 1771455599999,
+      "quoteVolume": 11518932.001147,
+      "trades": 79986,
+      "takerBuyBaseVolume": 3129.797,
+      "takerBuyQuoteVolume": 6086261.591447
+    },
+    {
+      "openTime": 1771455600000,
+      "open": 1948.24,
+      "high": 1956.79,
+      "low": 1944.62,
+      "close": 1955.91,
+      "volume": 10744.237,
+      "closeTime": 1771459199999,
+      "quoteVolume": 20962919.138989,
+      "trades": 100875,
+      "takerBuyBaseVolume": 6572.8348,
+      "takerBuyQuoteVolume": 12821717.054089
+    },
+    {
+      "openTime": 1771459200000,
+      "open": 1955.9,
+      "high": 1961.22,
+      "low": 1950.5,
+      "close": 1956.54,
+      "volume": 5924.9446,
+      "closeTime": 1771462799999,
+      "quoteVolume": 11591555.928524,
+      "trades": 97379,
+      "takerBuyBaseVolume": 3410.0058,
+      "takerBuyQuoteVolume": 6672254.429421
+    },
+    {
+      "openTime": 1771462800000,
+      "open": 1956.54,
+      "high": 1974.73,
+      "low": 1956.42,
+      "close": 1967.01,
+      "volume": 9009.3842,
+      "closeTime": 1771466399999,
+      "quoteVolume": 17712643.730297,
+      "trades": 128659,
+      "takerBuyBaseVolume": 5164.9338,
+      "takerBuyQuoteVolume": 10154345.385365
+    },
+    {
+      "openTime": 1771466400000,
+      "open": 1967.01,
+      "high": 1973.0,
+      "low": 1962.77,
+      "close": 1968.06,
+      "volume": 6281.322,
+      "closeTime": 1771469999999,
+      "quoteVolume": 12361957.718698,
+      "trades": 112606,
+      "takerBuyBaseVolume": 3210.887,
+      "takerBuyQuoteVolume": 6320593.241011
+    },
+    {
+      "openTime": 1771470000000,
+      "open": 1968.06,
+      "high": 1973.44,
+      "low": 1963.14,
+      "close": 1972.33,
+      "volume": 4860.7223,
+      "closeTime": 1771473599999,
+      "quoteVolume": 9572842.87102,
+      "trades": 93953,
+      "takerBuyBaseVolume": 2269.6489,
+      "takerBuyQuoteVolume": 4470048.327122
+    },
+    {
+      "openTime": 1771473600000,
+      "open": 1972.32,
+      "high": 1979.84,
+      "low": 1969.21,
+      "close": 1969.5,
+      "volume": 10857.5236,
+      "closeTime": 1771477199999,
+      "quoteVolume": 21444321.508791,
+      "trades": 112764,
+      "takerBuyBaseVolume": 4344.8566,
+      "takerBuyQuoteVolume": 8582715.647015
+    },
+    {
+      "openTime": 1771477200000,
+      "open": 1969.51,
+      "high": 1972.72,
+      "low": 1964.2,
+      "close": 1970.33,
+      "volume": 7950.2114,
+      "closeTime": 1771480799999,
+      "quoteVolume": 15646837.641405,
+      "trades": 86770,
+      "takerBuyBaseVolume": 2633.7996,
+      "takerBuyQuoteVolume": 5183945.902581
+    },
+    {
+      "openTime": 1771480800000,
+      "open": 1970.32,
+      "high": 1985.0,
+      "low": 1970.04,
+      "close": 1982.92,
+      "volume": 7290.369,
+      "closeTime": 1771484399999,
+      "quoteVolume": 14429474.61273,
+      "trades": 107012,
+      "takerBuyBaseVolume": 4004.7876,
+      "takerBuyQuoteVolume": 7926302.974128
+    },
+    {
+      "openTime": 1771484400000,
+      "open": 1982.93,
+      "high": 1987.55,
+      "low": 1979.05,
+      "close": 1981.76,
+      "volume": 8023.7906,
+      "closeTime": 1771487999999,
+      "quoteVolume": 15908176.605921,
+      "trades": 96152,
+      "takerBuyBaseVolume": 3027.4727,
+      "takerBuyQuoteVolume": 6002971.262147
+    },
+    {
+      "openTime": 1771488000000,
+      "open": 1981.76,
+      "high": 1982.54,
+      "low": 1966.35,
+      "close": 1970.5,
+      "volume": 9542.8548,
+      "closeTime": 1771491599999,
+      "quoteVolume": 18835481.878159,
+      "trades": 99839,
+      "takerBuyBaseVolume": 3642.647,
+      "takerBuyQuoteVolume": 7189823.2115
+    },
+    {
+      "openTime": 1771491600000,
+      "open": 1970.5,
+      "high": 1980.51,
+      "low": 1961.64,
+      "close": 1963.79,
+      "volume": 9144.5692,
+      "closeTime": 1771495199999,
+      "quoteVolume": 18028931.380677,
+      "trades": 89939,
+      "takerBuyBaseVolume": 3884.2713,
+      "takerBuyQuoteVolume": 7660297.242402
+    },
+    {
+      "openTime": 1771495200000,
+      "open": 1963.8,
+      "high": 1968.65,
+      "low": 1957.45,
+      "close": 1959.64,
+      "volume": 10708.9231,
+      "closeTime": 1771498799999,
+      "quoteVolume": 21027960.378958,
+      "trades": 94750,
+      "takerBuyBaseVolume": 4337.5051,
+      "takerBuyQuoteVolume": 8518001.917567
+    },
+    {
+      "openTime": 1771498800000,
+      "open": 1959.65,
+      "high": 1964.56,
+      "low": 1948.16,
+      "close": 1949.58,
+      "volume": 13812.2789,
+      "closeTime": 1771502399999,
+      "quoteVolume": 27018982.747682,
+      "trades": 102332,
+      "takerBuyBaseVolume": 4708.0134,
+      "takerBuyQuoteVolume": 9212079.402281
+    },
+    {
+      "openTime": 1771502400000,
+      "open": 1949.59,
+      "high": 1956.18,
+      "low": 1945.09,
+      "close": 1947.3,
+      "volume": 10698.5402,
+      "closeTime": 1771505999999,
+      "quoteVolume": 20866152.425936,
+      "trades": 141764,
+      "takerBuyBaseVolume": 5330.1622,
+      "takerBuyQuoteVolume": 10397161.460752
+    },
+    {
+      "openTime": 1771506000000,
+      "open": 1947.3,
+      "high": 1948.22,
+      "low": 1911.49,
+      "close": 1921.4,
+      "volume": 31694.4831,
+      "closeTime": 1771509599999,
+      "quoteVolume": 61126100.79273,
+      "trades": 336820,
+      "takerBuyBaseVolume": 13168.4673,
+      "takerBuyQuoteVolume": 25389851.26893
+    },
+    {
+      "openTime": 1771509600000,
+      "open": 1921.4,
+      "high": 1948.52,
+      "low": 1912.07,
+      "close": 1936.87,
+      "volume": 29110.3982,
+      "closeTime": 1771513199999,
+      "quoteVolume": 56158366.230146,
+      "trades": 452245,
+      "takerBuyBaseVolume": 15486.8544,
+      "takerBuyQuoteVolume": 29883611.861292
+    },
+    {
+      "openTime": 1771513200000,
+      "open": 1936.87,
+      "high": 1947.78,
+      "low": 1913.24,
+      "close": 1926.3,
+      "volume": 31392.0646,
+      "closeTime": 1771516799999,
+      "quoteVolume": 60421892.704863,
+      "trades": 448432,
+      "takerBuyBaseVolume": 15890.5496,
+      "takerBuyQuoteVolume": 30582704.54207
+    },
+    {
+      "openTime": 1771516800000,
+      "open": 1926.29,
+      "high": 1929.93,
+      "low": 1907.0,
+      "close": 1922.07,
+      "volume": 18684.1929,
+      "closeTime": 1771520399999,
+      "quoteVolume": 35867587.027131,
+      "trades": 266699,
+      "takerBuyBaseVolume": 9847.0911,
+      "takerBuyQuoteVolume": 18910513.000381
+    },
+    {
+      "openTime": 1771520400000,
+      "open": 1922.08,
+      "high": 1944.57,
+      "low": 1910.77,
+      "close": 1920.72,
+      "volume": 19336.2092,
+      "closeTime": 1771523999999,
+      "quoteVolume": 37280709.82731,
+      "trades": 212940,
+      "takerBuyBaseVolume": 9866.8404,
+      "takerBuyQuoteVolume": 19026831.644262
+    },
+    {
+      "openTime": 1771524000000,
+      "open": 1920.71,
+      "high": 1944.67,
+      "low": 1916.59,
+      "close": 1939.99,
+      "volume": 14820.3373,
+      "closeTime": 1771527599999,
+      "quoteVolume": 28653252.476739,
+      "trades": 200410,
+      "takerBuyBaseVolume": 8278.2388,
+      "takerBuyQuoteVolume": 16004588.771129
+    },
+    {
+      "openTime": 1771527600000,
+      "open": 1940.0,
+      "high": 1947.52,
+      "low": 1927.84,
+      "close": 1941.34,
+      "volume": 10603.4617,
+      "closeTime": 1771531199999,
+      "quoteVolume": 20550347.973802,
+      "trades": 172245,
+      "takerBuyBaseVolume": 5110.8054,
+      "takerBuyQuoteVolume": 9907035.949269
+    },
+    {
+      "openTime": 1771531200000,
+      "open": 1941.33,
+      "high": 1952.0,
+      "low": 1934.79,
+      "close": 1950.29,
+      "volume": 11823.375,
+      "closeTime": 1771534799999,
+      "quoteVolume": 22996081.625111,
+      "trades": 121485,
+      "takerBuyBaseVolume": 5155.171,
+      "takerBuyQuoteVolume": 10027202.43607
+    },
+    {
+      "openTime": 1771534800000,
+      "open": 1950.29,
+      "high": 1952.57,
+      "low": 1945.77,
+      "close": 1948.5,
+      "volume": 6871.6141,
+      "closeTime": 1771538399999,
+      "quoteVolume": 13393355.532583,
+      "trades": 76791,
+      "takerBuyBaseVolume": 3233.7097,
+      "takerBuyQuoteVolume": 6302559.851724
+    },
+    {
+      "openTime": 1771538400000,
+      "open": 1948.5,
+      "high": 1948.82,
+      "low": 1937.09,
+      "close": 1943.96,
+      "volume": 6898.7347,
+      "closeTime": 1771541999999,
+      "quoteVolume": 13400010.927841,
+      "trades": 68660,
+      "takerBuyBaseVolume": 3559.5883,
+      "takerBuyQuoteVolume": 6912694.605316
+    },
+    {
+      "openTime": 1771542000000,
+      "open": 1943.96,
+      "high": 1951.33,
+      "low": 1942.29,
+      "close": 1949.08,
+      "volume": 4916.7686,
+      "closeTime": 1771545599999,
+      "quoteVolume": 9576751.400688,
+      "trades": 72962,
+      "takerBuyBaseVolume": 2464.0052,
+      "takerBuyQuoteVolume": 4798841.403702
+    },
+    {
+      "openTime": 1771545600000,
+      "open": 1949.08,
+      "high": 1964.54,
+      "low": 1947.41,
+      "close": 1957.56,
+      "volume": 9537.7165,
+      "closeTime": 1771549199999,
+      "quoteVolume": 18669611.104529,
+      "trades": 133819,
+      "takerBuyBaseVolume": 5208.7784,
+      "takerBuyQuoteVolume": 10195047.290693
+    },
+    {
+      "openTime": 1771549200000,
+      "open": 1957.57,
+      "high": 1961.56,
+      "low": 1950.03,
+      "close": 1953.76,
+      "volume": 5450.5448,
+      "closeTime": 1771552799999,
+      "quoteVolume": 10662877.085505,
+      "trades": 95611,
+      "takerBuyBaseVolume": 2441.3981,
+      "takerBuyQuoteVolume": 4776642.273111
+    },
+    {
+      "openTime": 1771552800000,
+      "open": 1953.77,
+      "high": 1956.7,
+      "low": 1948.17,
+      "close": 1949.69,
+      "volume": 6151.3061,
+      "closeTime": 1771556399999,
+      "quoteVolume": 12008963.776605,
+      "trades": 83675,
+      "takerBuyBaseVolume": 2370.6433,
+      "takerBuyQuoteVolume": 4628119.596977
+    },
+    {
+      "openTime": 1771556400000,
+      "open": 1949.69,
+      "high": 1960.64,
+      "low": 1949.69,
+      "close": 1954.85,
+      "volume": 7546.8054,
+      "closeTime": 1771559999999,
+      "quoteVolume": 14763069.661518,
+      "trades": 85481,
+      "takerBuyBaseVolume": 3473.9673,
+      "takerBuyQuoteVolume": 6795835.693042
+    },
+    {
+      "openTime": 1771560000000,
+      "open": 1954.85,
+      "high": 1956.15,
+      "low": 1931.01,
+      "close": 1939.17,
+      "volume": 17059.9424,
+      "closeTime": 1771563599999,
+      "quoteVolume": 33121711.477409,
+      "trades": 142798,
+      "takerBuyBaseVolume": 6101.3635,
+      "takerBuyQuoteVolume": 11843670.46005
+    },
+    {
+      "openTime": 1771563600000,
+      "open": 1939.17,
+      "high": 1965.5,
+      "low": 1936.21,
+      "close": 1955.23,
+      "volume": 13605.4302,
+      "closeTime": 1771567199999,
+      "quoteVolume": 26571857.680885,
+      "trades": 141722,
+      "takerBuyBaseVolume": 7085.8355,
+      "takerBuyQuoteVolume": 13843362.004053
+    },
+    {
+      "openTime": 1771567200000,
+      "open": 1955.23,
+      "high": 1960.36,
+      "low": 1949.82,
+      "close": 1958.47,
+      "volume": 11046.3006,
+      "closeTime": 1771570799999,
+      "quoteVolume": 21612125.617088,
+      "trades": 97572,
+      "takerBuyBaseVolume": 5892.0429,
+      "takerBuyQuoteVolume": 11527003.242162
+    },
+    {
+      "openTime": 1771570800000,
+      "open": 1958.47,
+      "high": 1968.55,
+      "low": 1956.98,
+      "close": 1960.97,
+      "volume": 14254.4493,
+      "closeTime": 1771574399999,
+      "quoteVolume": 27967290.562732,
+      "trades": 104370,
+      "takerBuyBaseVolume": 7133.5987,
+      "takerBuyQuoteVolume": 13994605.265467
+    },
+    {
+      "openTime": 1771574400000,
+      "open": 1960.93,
+      "high": 1966.32,
+      "low": 1957.12,
+      "close": 1960.0,
+      "volume": 8987.2822,
+      "closeTime": 1771577999999,
+      "quoteVolume": 17625402.363641,
+      "trades": 73741,
+      "takerBuyBaseVolume": 3004.1408,
+      "takerBuyQuoteVolume": 5892191.777377
+    },
+    {
+      "openTime": 1771578000000,
+      "open": 1960.0,
+      "high": 1972.27,
+      "low": 1959.91,
+      "close": 1968.15,
+      "volume": 17267.7588,
+      "closeTime": 1771581599999,
+      "quoteVolume": 33981660.623266,
+      "trades": 124388,
+      "takerBuyBaseVolume": 7655.7377,
+      "takerBuyQuoteVolume": 15066281.386804
+    },
+    {
+      "openTime": 1771581600000,
+      "open": 1968.15,
+      "high": 1973.86,
+      "low": 1956.55,
+      "close": 1957.54,
+      "volume": 13226.2033,
+      "closeTime": 1771585199999,
+      "quoteVolume": 26011873.881678,
+      "trades": 106953,
+      "takerBuyBaseVolume": 4516.7085,
+      "takerBuyQuoteVolume": 8884742.602667
+    },
+    {
+      "openTime": 1771585200000,
+      "open": 1957.53,
+      "high": 1957.58,
+      "low": 1940.58,
+      "close": 1943.98,
+      "volume": 19265.1571,
+      "closeTime": 1771588799999,
+      "quoteVolume": 37568571.078929,
+      "trades": 123580,
+      "takerBuyBaseVolume": 8434.8581,
+      "takerBuyQuoteVolume": 16442794.889876
+    },
+    {
+      "openTime": 1771588800000,
+      "open": 1943.99,
+      "high": 1951.65,
+      "low": 1942.39,
+      "close": 1949.82,
+      "volume": 14375.6202,
+      "closeTime": 1771592399999,
+      "quoteVolume": 27988671.048806,
+      "trades": 98961,
+      "takerBuyBaseVolume": 7875.7702,
+      "takerBuyQuoteVolume": 15333981.58291
+    },
+    {
+      "openTime": 1771592400000,
+      "open": 1949.82,
+      "high": 1949.83,
+      "low": 1922.97,
+      "close": 1934.11,
+      "volume": 25969.8241,
+      "closeTime": 1771595999999,
+      "quoteVolume": 50282292.080588,
+      "trades": 246353,
+      "takerBuyBaseVolume": 13197.4626,
+      "takerBuyQuoteVolume": 25544427.708145
+    },
+    {
+      "openTime": 1771596000000,
+      "open": 1934.11,
+      "high": 1954.28,
+      "low": 1933.07,
+      "close": 1943.7,
+      "volume": 18771.1565,
+      "closeTime": 1771599599999,
+      "quoteVolume": 36483557.272397,
+      "trades": 272016,
+      "takerBuyBaseVolume": 9784.8338,
+      "takerBuyQuoteVolume": 19021097.305456
+    },
+    {
+      "openTime": 1771599600000,
+      "open": 1943.7,
+      "high": 1980.49,
+      "low": 1935.4,
+      "close": 1963.95,
+      "volume": 62826.6743,
+      "closeTime": 1771603199999,
+      "quoteVolume": 123052212.841962,
+      "trades": 634034,
+      "takerBuyBaseVolume": 29043.9131,
+      "takerBuyQuoteVolume": 56875509.203552
+    },
+    {
+      "openTime": 1771603200000,
+      "open": 1963.96,
+      "high": 1973.5,
+      "low": 1953.86,
+      "close": 1968.62,
+      "volume": 31207.2409,
+      "closeTime": 1771606799999,
+      "quoteVolume": 61288597.946871,
+      "trades": 310535,
+      "takerBuyBaseVolume": 19071.7289,
+      "takerBuyQuoteVolume": 37457819.654012
+    },
+    {
+      "openTime": 1771606800000,
+      "open": 1968.62,
+      "high": 1970.94,
+      "low": 1939.21,
+      "close": 1966.57,
+      "volume": 28092.6734,
+      "closeTime": 1771610399999,
+      "quoteVolume": 54968004.458749,
+      "trades": 319552,
+      "takerBuyBaseVolume": 13584.2865,
+      "takerBuyQuoteVolume": 26576978.924324
+    },
+    {
+      "openTime": 1771610400000,
+      "open": 1966.56,
+      "high": 1981.18,
+      "low": 1959.89,
+      "close": 1975.56,
+      "volume": 26074.1518,
+      "closeTime": 1771613999999,
+      "quoteVolume": 51371970.801567,
+      "trades": 297811,
+      "takerBuyBaseVolume": 12476.3146,
+      "takerBuyQuoteVolume": 24591920.988796
+    },
+    {
+      "openTime": 1771614000000,
+      "open": 1975.55,
+      "high": 1978.15,
+      "low": 1961.67,
+      "close": 1963.69,
+      "volume": 9581.1465,
+      "closeTime": 1771617599999,
+      "quoteVolume": 18857860.017315,
+      "trades": 135569,
+      "takerBuyBaseVolume": 4870.9957,
+      "takerBuyQuoteVolume": 9586026.64367
+    },
+    {
+      "openTime": 1771617600000,
+      "open": 1963.69,
+      "high": 1971.36,
+      "low": 1961.6,
+      "close": 1971.05,
+      "volume": 5525.9052,
+      "closeTime": 1771621199999,
+      "quoteVolume": 10872220.256622,
+      "trades": 96261,
+      "takerBuyBaseVolume": 2972.4378,
+      "takerBuyQuoteVolume": 5848943.195926
+    },
+    {
+      "openTime": 1771621200000,
+      "open": 1971.04,
+      "high": 1975.27,
+      "low": 1967.19,
+      "close": 1974.38,
+      "volume": 5270.0343,
+      "closeTime": 1771624799999,
+      "quoteVolume": 10391832.555132,
+      "trades": 78794,
+      "takerBuyBaseVolume": 2978.1521,
+      "takerBuyQuoteVolume": 5873217.557208
+    },
+    {
+      "openTime": 1771624800000,
+      "open": 1974.37,
+      "high": 1974.37,
+      "low": 1964.4,
+      "close": 1971.4,
+      "volume": 7586.0404,
+      "closeTime": 1771628399999,
+      "quoteVolume": 14941380.614339,
+      "trades": 77169,
+      "takerBuyBaseVolume": 2978.5517,
+      "takerBuyQuoteVolume": 5864099.03324
+    },
+    {
+      "openTime": 1771628400000,
+      "open": 1971.39,
+      "high": 1973.27,
+      "low": 1963.54,
+      "close": 1968.88,
+      "volume": 7574.1914,
+      "closeTime": 1771631999999,
+      "quoteVolume": 14905317.665393,
+      "trades": 67496,
+      "takerBuyBaseVolume": 4270.7059,
+      "takerBuyQuoteVolume": 8403453.843186
+    },
+    {
+      "openTime": 1771632000000,
+      "open": 1968.88,
+      "high": 1969.47,
+      "low": 1961.47,
+      "close": 1963.22,
+      "volume": 3689.9173,
+      "closeTime": 1771635599999,
+      "quoteVolume": 7252741.966295,
+      "trades": 60275,
+      "takerBuyBaseVolume": 1458.8926,
+      "takerBuyQuoteVolume": 2867326.260382
+    },
+    {
+      "openTime": 1771635600000,
+      "open": 1963.23,
+      "high": 1969.09,
+      "low": 1963.0,
+      "close": 1966.24,
+      "volume": 4693.7026,
+      "closeTime": 1771639199999,
+      "quoteVolume": 9225186.24449,
+      "trades": 46690,
+      "takerBuyBaseVolume": 2707.8662,
+      "takerBuyQuoteVolume": 5321570.582631
+    },
+    {
+      "openTime": 1771639200000,
+      "open": 1966.25,
+      "high": 1970.7,
+      "low": 1964.83,
+      "close": 1965.69,
+      "volume": 2629.8557,
+      "closeTime": 1771642799999,
+      "quoteVolume": 5175279.802375,
+      "trades": 35055,
+      "takerBuyBaseVolume": 1276.0763,
+      "takerBuyQuoteVolume": 2511366.580736
+    },
+    {
+      "openTime": 1771642800000,
+      "open": 1965.69,
+      "high": 1966.0,
+      "low": 1955.62,
+      "close": 1959.03,
+      "volume": 5567.7217,
+      "closeTime": 1771646399999,
+      "quoteVolume": 10912262.204652,
+      "trades": 57911,
+      "takerBuyBaseVolume": 2207.5174,
+      "takerBuyQuoteVolume": 4326732.025008
+    },
+    {
+      "openTime": 1771646400000,
+      "open": 1959.03,
+      "high": 1963.29,
+      "low": 1956.21,
+      "close": 1962.4,
+      "volume": 4120.7006,
+      "closeTime": 1771649999999,
+      "quoteVolume": 8075822.724489,
+      "trades": 39927,
+      "takerBuyBaseVolume": 2740.9955,
+      "takerBuyQuoteVolume": 5372004.293381
+    },
+    {
+      "openTime": 1771650000000,
+      "open": 1962.4,
+      "high": 1964.43,
+      "low": 1961.2,
+      "close": 1962.86,
+      "volume": 3515.3606,
+      "closeTime": 1771653599999,
+      "quoteVolume": 6898061.70649,
+      "trades": 31904,
+      "takerBuyBaseVolume": 2264.7203,
+      "takerBuyQuoteVolume": 4443421.291137
+    },
+    {
+      "openTime": 1771653600000,
+      "open": 1962.86,
+      "high": 1966.09,
+      "low": 1960.52,
+      "close": 1961.5,
+      "volume": 4038.7432,
+      "closeTime": 1771657199999,
+      "quoteVolume": 7928825.363025,
+      "trades": 40191,
+      "takerBuyBaseVolume": 2186.2311,
+      "takerBuyQuoteVolume": 4292353.079061
+    },
+    {
+      "openTime": 1771657200000,
+      "open": 1961.5,
+      "high": 1964.84,
+      "low": 1960.0,
+      "close": 1962.71,
+      "volume": 2646.7788,
+      "closeTime": 1771660799999,
+      "quoteVolume": 5194845.757963,
+      "trades": 31034,
+      "takerBuyBaseVolume": 1049.1146,
+      "takerBuyQuoteVolume": 2059059.140658
+    },
+    {
+      "openTime": 1771660800000,
+      "open": 1962.7,
+      "high": 1971.18,
+      "low": 1962.0,
+      "close": 1969.0,
+      "volume": 7080.4819,
+      "closeTime": 1771664399999,
+      "quoteVolume": 13917719.479076,
+      "trades": 36501,
+      "takerBuyBaseVolume": 4509.9766,
+      "takerBuyQuoteVolume": 8864215.793013
+    },
+    {
+      "openTime": 1771664400000,
+      "open": 1969.01,
+      "high": 1977.66,
+      "low": 1967.2,
+      "close": 1970.28,
+      "volume": 12055.1318,
+      "closeTime": 1771667999999,
+      "quoteVolume": 23788340.217418,
+      "trades": 65148,
+      "takerBuyBaseVolume": 5619.3809,
+      "takerBuyQuoteVolume": 11089543.383428
+    },
+    {
+      "openTime": 1771668000000,
+      "open": 1970.28,
+      "high": 1974.88,
+      "low": 1969.09,
+      "close": 1974.17,
+      "volume": 6008.2394,
+      "closeTime": 1771671599999,
+      "quoteVolume": 11850887.500249,
+      "trades": 38158,
+      "takerBuyBaseVolume": 2358.3627,
+      "takerBuyQuoteVolume": 4652664.279136
+    },
+    {
+      "openTime": 1771671600000,
+      "open": 1974.17,
+      "high": 1988.6,
+      "low": 1973.85,
+      "close": 1977.02,
+      "volume": 15667.8925,
+      "closeTime": 1771675199999,
+      "quoteVolume": 31046273.213938,
+      "trades": 100794,
+      "takerBuyBaseVolume": 7287.9713,
+      "takerBuyQuoteVolume": 14442621.806537
+    },
+    {
+      "openTime": 1771675200000,
+      "open": 1977.02,
+      "high": 1978.17,
+      "low": 1969.49,
+      "close": 1975.99,
+      "volume": 6999.5633,
+      "closeTime": 1771678799999,
+      "quoteVolume": 13813807.271396,
+      "trades": 54340,
+      "takerBuyBaseVolume": 3260.123,
+      "takerBuyQuoteVolume": 6434606.522479
+    },
+    {
+      "openTime": 1771678800000,
+      "open": 1975.99,
+      "high": 1981.4,
+      "low": 1972.63,
+      "close": 1981.18,
+      "volume": 6317.4235,
+      "closeTime": 1771682399999,
+      "quoteVolume": 12496195.57835,
+      "trades": 46879,
+      "takerBuyBaseVolume": 3014.0475,
+      "takerBuyQuoteVolume": 5961552.29128
+    },
+    {
+      "openTime": 1771682400000,
+      "open": 1981.18,
+      "high": 1995.56,
+      "low": 1978.09,
+      "close": 1987.52,
+      "volume": 24404.4209,
+      "closeTime": 1771685999999,
+      "quoteVolume": 48522612.079279,
+      "trades": 144696,
+      "takerBuyBaseVolume": 12542.5768,
+      "takerBuyQuoteVolume": 24937732.036095
+    },
+    {
+      "openTime": 1771686000000,
+      "open": 1987.51,
+      "high": 1993.0,
+      "low": 1984.25,
+      "close": 1988.13,
+      "volume": 11101.6253,
+      "closeTime": 1771689599999,
+      "quoteVolume": 22078272.095568,
+      "trades": 78124,
+      "takerBuyBaseVolume": 5789.6202,
+      "takerBuyQuoteVolume": 11513400.463107
+    },
+    {
+      "openTime": 1771689600000,
+      "open": 1988.13,
+      "high": 1989.64,
+      "low": 1976.41,
+      "close": 1986.33,
+      "volume": 13460.1335,
+      "closeTime": 1771693199999,
+      "quoteVolume": 26692269.691724,
+      "trades": 101947,
+      "takerBuyBaseVolume": 7069.1505,
+      "takerBuyQuoteVolume": 14020074.324106
+    },
+    {
+      "openTime": 1771693200000,
+      "open": 1986.34,
+      "high": 1992.1,
+      "low": 1984.26,
+      "close": 1988.95,
+      "volume": 6840.0562,
+      "closeTime": 1771696799999,
+      "quoteVolume": 13598490.76632,
+      "trades": 58968,
+      "takerBuyBaseVolume": 4088.5689,
+      "takerBuyQuoteVolume": 8128655.220902
+    },
+    {
+      "openTime": 1771696800000,
+      "open": 1988.95,
+      "high": 1995.31,
+      "low": 1987.77,
+      "close": 1991.97,
+      "volume": 7986.1033,
+      "closeTime": 1771700399999,
+      "quoteVolume": 15908394.838793,
+      "trades": 48794,
+      "takerBuyBaseVolume": 5436.5895,
+      "takerBuyQuoteVolume": 10830503.515311
+    },
+    {
+      "openTime": 1771700400000,
+      "open": 1991.97,
+      "high": 1994.77,
+      "low": 1987.86,
+      "close": 1988.35,
+      "volume": 5053.466,
+      "closeTime": 1771703999999,
+      "quoteVolume": 10062802.343071,
+      "trades": 31061,
+      "takerBuyBaseVolume": 3287.3434,
+      "takerBuyQuoteVolume": 6546362.140203
+    },
+    {
+      "openTime": 1771704000000,
+      "open": 1988.34,
+      "high": 1990.41,
+      "low": 1973.53,
+      "close": 1974.14,
+      "volume": 9505.7552,
+      "closeTime": 1771707599999,
+      "quoteVolume": 18846068.838819,
+      "trades": 60072,
+      "takerBuyBaseVolume": 3282.7806,
+      "takerBuyQuoteVolume": 6512535.78494
+    },
+    {
+      "openTime": 1771707600000,
+      "open": 1974.14,
+      "high": 1982.79,
+      "low": 1970.0,
+      "close": 1981.79,
+      "volume": 6048.1132,
+      "closeTime": 1771711199999,
+      "quoteVolume": 11956423.872187,
+      "trades": 57259,
+      "takerBuyBaseVolume": 3345.4634,
+      "takerBuyQuoteVolume": 6615542.374497
+    }
+  ],
+  "rsi": [
+    {
+      "time": 1771041600000,
+      "close": 2053.57,
+      "rsi": 76.67
+    },
+    {
+      "time": 1771045200000,
+      "close": 2051.29,
+      "rsi": 60.79
+    },
+    {
+      "time": 1771048800000,
+      "close": 2053.68,
+      "rsi": 42.5
+    },
+    {
+      "time": 1771052400000,
+      "close": 2057.21,
+      "rsi": 47.95
+    },
+    {
+      "time": 1771056000000,
+      "close": 2082.35,
+      "rsi": 66.35
+    },
+    {
+      "time": 1771059600000,
+      "close": 2078.24,
+      "rsi": 62.8
+    },
+    {
+      "time": 1771063200000,
+      "close": 2077.42,
+      "rsi": 73.13
+    },
+    {
+      "time": 1771066800000,
+      "close": 2099.58,
+      "rsi": 77.61
+    },
+    {
+      "time": 1771070400000,
+      "close": 2070.97,
+      "rsi": 57.56
+    },
+    {
+      "time": 1771074000000,
+      "close": 2071.54,
+      "rsi": 60.76
+    },
+    {
+      "time": 1771077600000,
+      "close": 2085.09,
+      "rsi": 63.22
+    },
+    {
+      "time": 1771081200000,
+      "close": 2087.43,
+      "rsi": 64.44
+    },
+    {
+      "time": 1771084800000,
+      "close": 2082.83,
+      "rsi": 64.17
+    },
+    {
+      "time": 1771088400000,
+      "close": 2080.23,
+      "rsi": 61.39
+    },
+    {
+      "time": 1771092000000,
+      "close": 2085.39,
+      "rsi": 63.5
+    },
+    {
+      "time": 1771095600000,
+      "close": 2088.52,
+      "rsi": 65.68
+    },
+    {
+      "time": 1771099200000,
+      "close": 2089.82,
+      "rsi": 65.36
+    },
+    {
+      "time": 1771102800000,
+      "close": 2085.87,
+      "rsi": 62.14
+    },
+    {
+      "time": 1771106400000,
+      "close": 2090.47,
+      "rsi": 54.16
+    },
+    {
+      "time": 1771110000000,
+      "close": 2086.59,
+      "rsi": 54.29
+    },
+    {
+      "time": 1771113600000,
+      "close": 2080.11,
+      "rsi": 51.31
+    },
+    {
+      "time": 1771117200000,
+      "close": 2064.19,
+      "rsi": 31.7
+    },
+    {
+      "time": 1771120800000,
+      "close": 2059.58,
+      "rsi": 42.17
+    },
+    {
+      "time": 1771124400000,
+      "close": 2058.94,
+      "rsi": 41.34
+    },
+    {
+      "time": 1771128000000,
+      "close": 2076.31,
+      "rsi": 44.27
+    },
+    {
+      "time": 1771131600000,
+      "close": 2088.68,
+      "rsi": 50.72
+    },
+    {
+      "time": 1771135200000,
+      "close": 2085.85,
+      "rsi": 51.78
+    },
+    {
+      "time": 1771138800000,
+      "close": 2091.41,
+      "rsi": 56.37
+    },
+    {
+      "time": 1771142400000,
+      "close": 2069.2,
+      "rsi": 42.28
+    },
+    {
+      "time": 1771146000000,
+      "close": 2068.7,
+      "rsi": 40.31
+    },
+    {
+      "time": 1771149600000,
+      "close": 2061.57,
+      "rsi": 36.93
+    },
+    {
+      "time": 1771153200000,
+      "close": 2061.96,
+      "rsi": 38.56
+    },
+    {
+      "time": 1771156800000,
+      "close": 2011.0,
+      "rsi": 23.66
+    },
+    {
+      "time": 1771160400000,
+      "close": 2002.46,
+      "rsi": 22.95
+    },
+    {
+      "time": 1771164000000,
+      "close": 2010.32,
+      "rsi": 27.76
+    },
+    {
+      "time": 1771167600000,
+      "close": 2011.29,
+      "rsi": 31.37
+    },
+    {
+      "time": 1771171200000,
+      "close": 2006.27,
+      "rsi": 31.28
+    },
+    {
+      "time": 1771174800000,
+      "close": 1971.3,
+      "rsi": 25.2
+    },
+    {
+      "time": 1771178400000,
+      "close": 1959.24,
+      "rsi": 15.84
+    },
+    {
+      "time": 1771182000000,
+      "close": 1942.23,
+      "rsi": 8.4
+    },
+    {
+      "time": 1771185600000,
+      "close": 1950.11,
+      "rsi": 12.52
+    },
+    {
+      "time": 1771189200000,
+      "close": 1958.55,
+      "rsi": 13.88
+    },
+    {
+      "time": 1771192800000,
+      "close": 1970.27,
+      "rsi": 21.48
+    },
+    {
+      "time": 1771196400000,
+      "close": 1966.58,
+      "rsi": 21.09
+    },
+    {
+      "time": 1771200000000,
+      "close": 1969.11,
+      "rsi": 23.13
+    },
+    {
+      "time": 1771203600000,
+      "close": 1963.06,
+      "rsi": 22.17
+    },
+    {
+      "time": 1771207200000,
+      "close": 1957.0,
+      "rsi": 29.67
+    },
+    {
+      "time": 1771210800000,
+      "close": 1958.78,
+      "rsi": 32.67
+    },
+    {
+      "time": 1771214400000,
+      "close": 1973.06,
+      "rsi": 35.94
+    },
+    {
+      "time": 1771218000000,
+      "close": 1958.0,
+      "rsi": 31.82
+    },
+    {
+      "time": 1771221600000,
+      "close": 1966.69,
+      "rsi": 36.83
+    },
+    {
+      "time": 1771225200000,
+      "close": 1971.13,
+      "rsi": 49.93
+    },
+    {
+      "time": 1771228800000,
+      "close": 1977.31,
+      "rsi": 57.94
+    },
+    {
+      "time": 1771232400000,
+      "close": 1987.67,
+      "rsi": 71.2
+    },
+    {
+      "time": 1771236000000,
+      "close": 1978.88,
+      "rsi": 63.31
+    },
+    {
+      "time": 1771239600000,
+      "close": 1976.15,
+      "rsi": 58.6
+    },
+    {
+      "time": 1771243200000,
+      "close": 2006.24,
+      "rsi": 64.9
+    },
+    {
+      "time": 1771246800000,
+      "close": 1967.7,
+      "rsi": 50.36
+    },
+    {
+      "time": 1771250400000,
+      "close": 1973.13,
+      "rsi": 51.27
+    },
+    {
+      "time": 1771254000000,
+      "close": 1956.65,
+      "rsi": 48.1
+    },
+    {
+      "time": 1771257600000,
+      "close": 1973.75,
+      "rsi": 54.65
+    },
+    {
+      "time": 1771261200000,
+      "close": 1978.99,
+      "rsi": 55.51
+    },
+    {
+      "time": 1771264800000,
+      "close": 1968.93,
+      "rsi": 48.85
+    },
+    {
+      "time": 1771268400000,
+      "close": 1974.04,
+      "rsi": 54.74
+    },
+    {
+      "time": 1771272000000,
+      "close": 1993.2,
+      "rsi": 57.38
+    },
+    {
+      "time": 1771275600000,
+      "close": 1999.14,
+      "rsi": 57.73
+    },
+    {
+      "time": 1771279200000,
+      "close": 1990.19,
+      "rsi": 53.5
+    },
+    {
+      "time": 1771282800000,
+      "close": 1998.33,
+      "rsi": 52.93
+    },
+    {
+      "time": 1771286400000,
+      "close": 1998.44,
+      "rsi": 55.65
+    },
+    {
+      "time": 1771290000000,
+      "close": 1991.82,
+      "rsi": 54.43
+    },
+    {
+      "time": 1771293600000,
+      "close": 1998.59,
+      "rsi": 47.51
+    },
+    {
+      "time": 1771297200000,
+      "close": 1985.7,
+      "rsi": 57.03
+    },
+    {
+      "time": 1771300800000,
+      "close": 1989.44,
+      "rsi": 56.46
+    },
+    {
+      "time": 1771304400000,
+      "close": 1975.68,
+      "rsi": 57.7
+    },
+    {
+      "time": 1771308000000,
+      "close": 1981.02,
+      "rsi": 53.25
+    },
+    {
+      "time": 1771311600000,
+      "close": 1985.91,
+      "rsi": 53.1
+    },
+    {
+      "time": 1771315200000,
+      "close": 1977.08,
+      "rsi": 53.7
+    },
+    {
+      "time": 1771318800000,
+      "close": 1976.16,
+      "rsi": 51.0
+    },
+    {
+      "time": 1771322400000,
+      "close": 1966.93,
+      "rsi": 36.34
+    },
+    {
+      "time": 1771326000000,
+      "close": 1968.47,
+      "rsi": 33.28
+    },
+    {
+      "time": 1771329600000,
+      "close": 1969.76,
+      "rsi": 37.85
+    },
+    {
+      "time": 1771333200000,
+      "close": 1990.53,
+      "rsi": 45.97
+    },
+    {
+      "time": 1771336800000,
+      "close": 1948.49,
+      "rsi": 31.98
+    },
+    {
+      "time": 1771340400000,
+      "close": 1968.58,
+      "rsi": 42.36
+    },
+    {
+      "time": 1771344000000,
+      "close": 1980.36,
+      "rsi": 44.2
+    },
+    {
+      "time": 1771347600000,
+      "close": 1966.27,
+      "rsi": 43.86
+    },
+    {
+      "time": 1771351200000,
+      "close": 1998.69,
+      "rsi": 52.47
+    },
+    {
+      "time": 1771354800000,
+      "close": 1998.14,
+      "rsi": 56.46
+    },
+    {
+      "time": 1771358400000,
+      "close": 1994.71,
+      "rsi": 53.98
+    },
+    {
+      "time": 1771362000000,
+      "close": 1999.74,
+      "rsi": 54.02
+    },
+    {
+      "time": 1771365600000,
+      "close": 1993.92,
+      "rsi": 54.98
+    },
+    {
+      "time": 1771369200000,
+      "close": 1991.66,
+      "rsi": 54.55
+    },
+    {
+      "time": 1771372800000,
+      "close": 1981.54,
+      "rsi": 54.27
+    },
+    {
+      "time": 1771376400000,
+      "close": 1978.07,
+      "rsi": 52.77
+    },
+    {
+      "time": 1771380000000,
+      "close": 1987.61,
+      "rsi": 54.92
+    },
+    {
+      "time": 1771383600000,
+      "close": 1997.07,
+      "rsi": 51.92
+    },
+    {
+      "time": 1771387200000,
+      "close": 1999.15,
+      "rsi": 69.46
+    },
+    {
+      "time": 1771390800000,
+      "close": 1996.49,
+      "rsi": 62.38
+    },
+    {
+      "time": 1771394400000,
+      "close": 2002.06,
+      "rsi": 60.19
+    },
+    {
+      "time": 1771398000000,
+      "close": 2018.07,
+      "rsi": 73.89
+    },
+    {
+      "time": 1771401600000,
+      "close": 2020.7,
+      "rsi": 64.0
+    },
+    {
+      "time": 1771405200000,
+      "close": 2016.69,
+      "rsi": 61.3
+    },
+    {
+      "time": 1771408800000,
+      "close": 1997.27,
+      "rsi": 51.31
+    },
+    {
+      "time": 1771412400000,
+      "close": 1981.43,
+      "rsi": 41.59
+    },
+    {
+      "time": 1771416000000,
+      "close": 1982.47,
+      "rsi": 44.5
+    },
+    {
+      "time": 1771419600000,
+      "close": 1970.68,
+      "rsi": 40.77
+    },
+    {
+      "time": 1771423200000,
+      "close": 1974.66,
+      "rsi": 46.8
+    },
+    {
+      "time": 1771426800000,
+      "close": 1985.48,
+      "rsi": 53.23
+    },
+    {
+      "time": 1771430400000,
+      "close": 1971.78,
+      "rsi": 43.35
+    },
+    {
+      "time": 1771434000000,
+      "close": 1974.57,
+      "rsi": 39.99
+    },
+    {
+      "time": 1771437600000,
+      "close": 1952.62,
+      "rsi": 32.4
+    },
+    {
+      "time": 1771441200000,
+      "close": 1941.03,
+      "rsi": 30.35
+    },
+    {
+      "time": 1771444800000,
+      "close": 1939.67,
+      "rsi": 27.22
+    },
+    {
+      "time": 1771448400000,
+      "close": 1942.0,
+      "rsi": 19.14
+    },
+    {
+      "time": 1771452000000,
+      "close": 1948.24,
+      "rsi": 21.44
+    },
+    {
+      "time": 1771455600000,
+      "close": 1955.91,
+      "rsi": 26.72
+    },
+    {
+      "time": 1771459200000,
+      "close": 1956.54,
+      "rsi": 31.77
+    },
+    {
+      "time": 1771462800000,
+      "close": 1967.01,
+      "rsi": 43.22
+    },
+    {
+      "time": 1771466400000,
+      "close": 1968.06,
+      "rsi": 43.23
+    },
+    {
+      "time": 1771470000000,
+      "close": 1972.33,
+      "rsi": 50.83
+    },
+    {
+      "time": 1771473600000,
+      "close": 1969.5,
+      "rsi": 47.36
+    },
+    {
+      "time": 1771477200000,
+      "close": 1970.33,
+      "rsi": 41.36
+    },
+    {
+      "time": 1771480800000,
+      "close": 1982.92,
+      "rsi": 56.43
+    },
+    {
+      "time": 1771484400000,
+      "close": 1981.76,
+      "rsi": 54.23
+    },
+    {
+      "time": 1771488000000,
+      "close": 1970.5,
+      "rsi": 62.04
+    },
+    {
+      "time": 1771491600000,
+      "close": 1963.79,
+      "rsi": 66.4
+    },
+    {
+      "time": 1771495200000,
+      "close": 1959.64,
+      "rsi": 63.83
+    },
+    {
+      "time": 1771498800000,
+      "close": 1949.58,
+      "rsi": 54.74
+    },
+    {
+      "time": 1771502400000,
+      "close": 1947.3,
+      "rsi": 49.38
+    },
+    {
+      "time": 1771506000000,
+      "close": 1921.4,
+      "rsi": 31.68
+    },
+    {
+      "time": 1771509600000,
+      "close": 1936.87,
+      "rsi": 40.98
+    },
+    {
+      "time": 1771513200000,
+      "close": 1926.3,
+      "rsi": 31.35
+    },
+    {
+      "time": 1771516800000,
+      "close": 1922.07,
+      "rsi": 29.53
+    },
+    {
+      "time": 1771520400000,
+      "close": 1920.72,
+      "rsi": 26.41
+    },
+    {
+      "time": 1771524000000,
+      "close": 1939.99,
+      "rsi": 38.27
+    },
+    {
+      "time": 1771527600000,
+      "close": 1941.34,
+      "rsi": 38.53
+    },
+    {
+      "time": 1771531200000,
+      "close": 1950.29,
+      "rsi": 36.7
+    },
+    {
+      "time": 1771534800000,
+      "close": 1948.5,
+      "rsi": 36.52
+    },
+    {
+      "time": 1771538400000,
+      "close": 1943.96,
+      "rsi": 38.62
+    },
+    {
+      "time": 1771542000000,
+      "close": 1949.08,
+      "rsi": 43.61
+    },
+    {
+      "time": 1771545600000,
+      "close": 1957.56,
+      "rsi": 49.13
+    },
+    {
+      "time": 1771549200000,
+      "close": 1953.76,
+      "rsi": 51.85
+    },
+    {
+      "time": 1771552800000,
+      "close": 1949.69,
+      "rsi": 51.04
+    },
+    {
+      "time": 1771556400000,
+      "close": 1954.85,
+      "rsi": 67.76
+    },
+    {
+      "time": 1771560000000,
+      "close": 1939.17,
+      "rsi": 51.22
+    },
+    {
+      "time": 1771563600000,
+      "close": 1955.23,
+      "rsi": 64.49
+    },
+    {
+      "time": 1771567200000,
+      "close": 1958.47,
+      "rsi": 68.41
+    },
+    {
+      "time": 1771570800000,
+      "close": 1960.97,
+      "rsi": 70.12
+    },
+    {
+      "time": 1771574400000,
+      "close": 1960.0,
+      "rsi": 62.24
+    },
+    {
+      "time": 1771578000000,
+      "close": 1968.15,
+      "rsi": 65.15
+    },
+    {
+      "time": 1771581600000,
+      "close": 1957.54,
+      "rsi": 54.02
+    },
+    {
+      "time": 1771585200000,
+      "close": 1943.98,
+      "rsi": 47.78
+    },
+    {
+      "time": 1771588800000,
+      "close": 1949.82,
+      "rsi": 52.84
+    },
+    {
+      "time": 1771592400000,
+      "close": 1934.11,
+      "rsi": 43.42
+    },
+    {
+      "time": 1771596000000,
+      "close": 1943.7,
+      "rsi": 43.97
+    },
+    {
+      "time": 1771599600000,
+      "close": 1963.95,
+      "rsi": 53.88
+    },
+    {
+      "time": 1771603200000,
+      "close": 1968.62,
+      "rsi": 57.17
+    },
+    {
+      "time": 1771606800000,
+      "close": 1966.57,
+      "rsi": 54.55
+    },
+    {
+      "time": 1771610400000,
+      "close": 1975.56,
+      "rsi": 64.89
+    },
+    {
+      "time": 1771614000000,
+      "close": 1963.69,
+      "rsi": 53.58
+    },
+    {
+      "time": 1771617600000,
+      "close": 1971.05,
+      "rsi": 55.15
+    },
+    {
+      "time": 1771621200000,
+      "close": 1974.38,
+      "rsi": 55.45
+    },
+    {
+      "time": 1771624800000,
+      "close": 1971.4,
+      "rsi": 54.56
+    },
+    {
+      "time": 1771628400000,
+      "close": 1968.88,
+      "rsi": 50.31
+    },
+    {
+      "time": 1771632000000,
+      "close": 1963.22,
+      "rsi": 52.48
+    },
+    {
+      "time": 1771635600000,
+      "close": 1966.24,
+      "rsi": 60.72
+    },
+    {
+      "time": 1771639200000,
+      "close": 1965.69,
+      "rsi": 58.05
+    },
+    {
+      "time": 1771642800000,
+      "close": 1959.03,
+      "rsi": 63.92
+    },
+    {
+      "time": 1771646400000,
+      "close": 1962.4,
+      "rsi": 61.23
+    },
+    {
+      "time": 1771650000000,
+      "close": 1962.86,
+      "rsi": 49.14
+    },
+    {
+      "time": 1771653600000,
+      "close": 1961.5,
+      "rsi": 44.08
+    },
+    {
+      "time": 1771657200000,
+      "close": 1962.71,
+      "rsi": 46.75
+    },
+    {
+      "time": 1771660800000,
+      "close": 1969.0,
+      "rsi": 44.21
+    },
+    {
+      "time": 1771664400000,
+      "close": 1970.28,
+      "rsi": 57.16
+    },
+    {
+      "time": 1771668000000,
+      "close": 1974.17,
+      "rsi": 53.66
+    },
+    {
+      "time": 1771671600000,
+      "close": 1977.02,
+      "rsi": 53.14
+    },
+    {
+      "time": 1771675200000,
+      "close": 1975.99,
+      "rsi": 55.72
+    },
+    {
+      "time": 1771678800000,
+      "close": 1981.18,
+      "rsi": 64.36
+    },
+    {
+      "time": 1771682400000,
+      "close": 1987.52,
+      "rsi": 77.93
+    },
+    {
+      "time": 1771686000000,
+      "close": 1988.13,
+      "rsi": 76.64
+    },
+    {
+      "time": 1771689600000,
+      "close": 1986.33,
+      "rsi": 74.37
+    },
+    {
+      "time": 1771693200000,
+      "close": 1988.95,
+      "rsi": 89.06
+    },
+    {
+      "time": 1771696800000,
+      "close": 1991.97,
+      "rsi": 88.96
+    },
+    {
+      "time": 1771700400000,
+      "close": 1988.35,
+      "rsi": 81.0
+    },
+    {
+      "time": 1771704000000,
+      "close": 1974.14,
+      "rsi": 61.71
+    },
+    {
+      "time": 1771707600000,
+      "close": 1981.79,
+      "rsi": 65.79
+    }
+  ]
+}

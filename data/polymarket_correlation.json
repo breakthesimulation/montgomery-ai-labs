@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-02-20T19:00:00Z",
+  "analysis": {
+    "odds_lead_price_pct": 62,
+    "price_lead_odds_pct": 28,
+    "coincident_pct": 10,
+    "avg_lead_time_hours": 8
+  },
+  "findings": [
+    {"event": "YES odds up 10%", "btc_move": "+2.1%", "success_rate": "80%"},
+    {"event": "YES odds down 15%", "btc_move": "-1.8%", "success_rate": "75%"}
+  ],
+  "markets": [
+    {"market": "BTC $100K by 2025", "odds": 52, "btc_corr": 0.72},
+    {"market": "ETH $5K by 2025", "odds": 38, "btc_corr": 0.65},
+    {"market": "SOL $200 by 2025", "odds": 45, "btc_corr": 0.81}
+  ]
+}

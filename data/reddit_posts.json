@@ -1,0 +1,159 @@
+{
+  "timestamp": "2026-02-20T15:07:45.519834",
+  "subreddits": [
+    "CryptoCurrency",
+    "solana",
+    "algotrading",
+    "Bitcoin",
+    "stocks"
+  ],
+  "total_posts": 24,
+  "top_posts": {
+    "bullish": [
+      {
+        "subreddit": "CryptoCurrency",
+        "title": "New regulatory clarity boosts market sentiment",
+        "score": 4441,
+        "comments": 123,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "algotrading",
+        "title": "Bitcoin ETF inflows hit $1B this week",
+        "score": 2975,
+        "comments": 130,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "algotrading",
+        "title": "BlackRock files for new Bitcoin product",
+        "score": 2871,
+        "comments": 366,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "solana",
+        "title": "Solana DeFi TVL reaches new all-time high",
+        "score": 2585,
+        "comments": 164,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "Bitcoin",
+        "title": "Institutional investors increase crypto allocation",
+        "score": 2433,
+        "comments": 312,
+        "sentiment": "BULLISH"
+      }
+    ],
+    "bearish": [
+      {
+        "subreddit": "stocks",
+        "title": "Bank restricts crypto payments",
+        "score": 2896,
+        "comments": 170,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "Bitcoin",
+        "title": "Major crypto project faces investigation",
+        "score": 2810,
+        "comments": 234,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "CryptoCurrency",
+        "title": "Exchange hack exposes security vulnerabilities",
+        "score": 2376,
+        "comments": 152,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "CryptoCurrency",
+        "title": "Selling pressure increases from miners",
+        "score": 2233,
+        "comments": 164,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "stocks",
+        "title": "Bearish technical pattern forms on charts",
+        "score": 1942,
+        "comments": 86,
+        "sentiment": "BEARISH"
+      }
+    ],
+    "hot": [
+      {
+        "subreddit": "CryptoCurrency",
+        "title": "New regulatory clarity boosts market sentiment",
+        "score": 4441,
+        "comments": 123,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "algotrading",
+        "title": "Bitcoin ETF inflows hit $1B this week",
+        "score": 2975,
+        "comments": 130,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "stocks",
+        "title": "Bank restricts crypto payments",
+        "score": 2896,
+        "comments": 170,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "algotrading",
+        "title": "BlackRock files for new Bitcoin product",
+        "score": 2871,
+        "comments": 366,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "Bitcoin",
+        "title": "Major crypto project faces investigation",
+        "score": 2810,
+        "comments": 234,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "solana",
+        "title": "Solana DeFi TVL reaches new all-time high",
+        "score": 2585,
+        "comments": 164,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "Bitcoin",
+        "title": "Institutional investors increase crypto allocation",
+        "score": 2433,
+        "comments": 312,
+        "sentiment": "BULLISH"
+      },
+      {
+        "subreddit": "CryptoCurrency",
+        "title": "Exchange hack exposes security vulnerabilities",
+        "score": 2376,
+        "comments": 152,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "CryptoCurrency",
+        "title": "Selling pressure increases from miners",
+        "score": 2233,
+        "comments": 164,
+        "sentiment": "BEARISH"
+      },
+      {
+        "subreddit": "algotrading",
+        "title": "Solana mobile phone sales exceed expectations",
+        "score": 1999,
+        "comments": 45,
+        "sentiment": "BULLISH"
+      }
+    ]
+  }
+}

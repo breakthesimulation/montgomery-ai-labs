@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-02-21T19:05:28.640303",
+  "results": [
+    {
+      "coin": "BTC",
+      "rsi_1h": 63.1
+    },
+    {
+      "coin": "ETH",
+      "rsi_1h": 68.0
+    },
+    {
+      "coin": "SOL",
+      "rsi_1h": 68.7
+    },
+    {
+      "coin": "BNB",
+      "rsi_1h": 55.6
+    },
+    {
+      "coin": "XRP",
+      "rsi_1h": 57.4
+    },
+    {
+      "coin": "ADA",
+      "rsi_1h": 48.2
+    },
+    {
+      "coin": "DOGE",
+      "rsi_1h": 47.0
+    },
+    {
+      "coin": "AVAX",
+      "rsi_1h": 61.0
+    },
+    {
+      "coin": "DOT",
+      "rsi_1h": 56.5
+    },
+    {
+      "coin": "NEAR",
+      "rsi_1h": 49.0
+    },
+    {
+      "coin": "FIL",
+      "rsi_1h": 54.5
+    },
+    {
+      "coin": "UNI",
+      "rsi_1h": 70.9
+    },
+    {
+      "coin": "ARB",
+      "rsi_1h": 52.1
+    },
+    {
+      "coin": "LTC",
+      "rsi_1h": 58.6
+    }
+  ],
+  "oversold": []
+}

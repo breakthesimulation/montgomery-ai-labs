@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morning Brief | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .timestamp { color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 24px; }
+    .card { background: var(--bg-tertiary); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .card h3 { margin-bottom: 12px; }
+    .regime { font-size: 1.5rem; font-weight: 700; }
+    .regime.bull { color: var(--green); }
+    .regime.bear { color: var(--red); }
+    .regime.ranging { color: var(--yellow); }
+    table { width: 100%; }
+    th, td { padding: 8px; text-align: left; border-bottom: 1px solid var(--glass-border); }
+    .positive { color: var(--green); }
+    .negative { color: var(--red); }
+  </style>
+</head>
+<body>
+  <h1>☀️ Morning Brief</h1>
+  <div class="timestamp" id="timestamp">Loading...</div>
+  <button onclick="load();loadChanges();" style="padding: 12px 24px; background: var(--bg-tertiary); border: none; border-radius: 8px; cursor: pointer; margin-bottom: 16px;">🔄 Refresh</button>
+  
+  <div class="card">
+    <h3>Market Regime</h3>
+    <div id="regime" class="regime">--</div>
+  </div>
+  
+  <div class="card">
+    <h3>Top Signals</h3>
+    <table id="signals"><tr><th>Coin</th><th>Signal</th><th>Score</th></tr></table>
+  </div>
+  
+  <div class="card">
+    <h3>Portfolio P&L</h3>
+    <div id="pnl">--</div>
+  </div>
+  
+  
+  <div class="card">
+    <h3>Changes Since Yesterday</h3>
+    <div id="changes">Loading...</div>
+  </div>
+
+  <div class="card">
+    <h3>Risk State</h3>
+    <div id="risk">--</div>
+  </div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    
+    document.getElementById('timestamp').dataset.time = Date.now();
+      function updateTimestamp() {
+        const elapsed = Math.floor((Date.now() - parseInt(document.getElementById('timestamp').dataset.time)) / 60000);
+        document.getElementById('timestamp').textContent = elapsed < 1 ? "Last updated: just now" : "Last updated: " + elapsed + " min ago";
+      }
+      updateTimestamp();
+    
+    async function load() {
+      try {
+        const [pRes, qRes, rRes] = await Promise.all([
+          fetch('/api/prices?key=' + API_KEY),
+          fetch('/api/quality?key=' + API_KEY),
+          fetch('/api/risk?key=' + API_KEY)
+        ]);
+        
+        const prices = (await pRes.json()).prices || [];
+        const quality = await qRes.json();
+        const risk = await rRes.json();
+        
+        // Regime
+        const btc = prices.find(p => p.coin === 'BTC');
+        const regimeEl = document.getElementById('regime');
+        if (btc?.change_24h_pct > 2) {
+          regimeEl.textContent = '🟢 BULL';
+          regimeEl.className = 'regime bull';
+        } else if (btc?.change_24h_pct < -2) {
+          regimeEl.textContent = '🔴 BEAR';
+          regimeEl.className = 'regime bear';
+        } else {
+          regimeEl.textContent = '🟡 RANGING';
+          regimeEl.className = 'regime ranging';
+        }
+        
+        // Signals
+        const sigs = (quality.signals || []).slice(0, 5);
+        document.getElementById('signals').innerHTML = '<tr><th>Coin</th><th>Signal</th><th>Score</th></tr>' +
+          sigs.map(s => '<tr><td>' + s.coin + '</td><td>' + (s.action || 'HOLD') + '</td><td>' + (s.score || 50) + '</td></tr>').join('');
+        
+        // P&L
+        document.getElementById('pnl').textContent = risk.positions?.length + ' positions, $' + (risk.daily_pnl || 0);
+        
+        // Risk
+        document.getElementById('risk').textContent = risk.halted ? 'HALTED: ' + risk.halt_reason : 'Normal';
+      } catch(e) { console.log(e); }
+    }
+    
+    load();
+        async function loadChanges() {
+      const SNAPSHOT_KEY = 'morning_brief_snapshot';
+      
+      // Get current signals
+      try {
+        const [qRes] = await Promise.all([
+          fetch('/api/quality?key=' + API_KEY),
+        ]);
+        const quality = await qRes.json();
+        const current = quality.signals || [];
+        
+        // Get previous snapshot
+        const prev = JSON.parse(localStorage.getItem(SNAPSHOT_KEY) || '[]');
+        
+        // Compare
+        const rising = [], falling = [], newSig = [];
+        
+        current.forEach(c => {
+          const prevSig = prev.find(p => p.coin === c.coin);
+          const diff = c.score - (prevSig?.score || 50);
+          if (diff > 3) rising.push(c.coin + ' +' + diff);
+          else if (diff < -3) falling.push(c.coin + ' ' + diff);
+          if (!prevSig && c.score > 50) newSig.push(c.coin + ' (' + c.score + ')');
+        });
+        
+        // Save current as snapshot
+        localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(current.map(c => ({coin: c.coin, score: c.score}))));
+        
+        // Render
+        let html = '';
+        if (rising.length) html += '<p style="color:var(--green)">📈 Rising: ' + rising.join(', ') + '</p>';
+        if (falling.length) html += '<p style="color:var(--red)">📉 Falling: ' + falling.join(', ') + '</p>';
+        if (newSig.length) html += '<p>🆕 New signals: ' + newSig.join(', ') + '</p>';
+        
+        const el = document.getElementById('changes');
+        if (el) el.innerHTML = html || '<p style="color:var(--text-tertiary)">No significant changes</p>';
+      } catch(e) {
+        const el = document.getElementById('changes');
+        if (el) el.innerHTML = '<p style="color:var(--text-tertiary)">First run — no comparison available</p>';
+      }
+    }
+
+    loadChanges();
+    setInterval(load, 300000);
+  </script>
+</body>
+</html>

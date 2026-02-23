@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Strategy Builder | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: var(--text-muted); font-size: 0.9rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+        .section-title { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 16px; }
+        
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.85rem; margin-bottom: 8px; color: var(--text-muted); }
+        .form-group input, .form-group select { width: 100%; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: inherit; font-size: 0.9rem; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--green); }
+        
+        .coins-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .coin-check { display: flex; align-items: center; gap: 8px; padding: 8px; background: var(--bg); border-radius: 6px; cursor: pointer; }
+        .coin-check:hover { background: var(--border); }
+        .coin-check input { width: auto; }
+        
+        .btn { background: var(--green); color: #000; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; }
+        .btn:hover { opacity: 0.9; }
+        
+        .output { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; white-space: pre-wrap; max-height: 300px; overflow-y: auto; }
+        
+        .range-wrap { display: flex; align-items: center; gap: 12px; }
+        .range-wrap input[type="range"] { flex: 1; }
+        .range-wrap span { font-family: 'IBM Plex Mono'; font-size: 0.85rem; min-width: 40px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚙️ Strategy Builder</h1>
+            <p class="subtitle">Configure and save trading strategies</p>
+        </header>
+        
+        <div class="card">
+            <div class="section-title">Strategy Parameters</div>
+            
+            <div class="form-group">
+                <label>Strategy Name</label>
+                <input type="text" id="name" value="RSI Momentum" placeholder="My Strategy">
+            </div>
+            
+            <div class="form-group">
+                <label>RSI Period</label>
+                <input type="number" id="rsiPeriod" value="14" min="5" max="50">
+            </div>
+            
+            <div class="form-group">
+                <label>RSI Oversold (Buy Signal)</label>
+                <div class="range-wrap">
+                    <input type="range" id="rsiOversold" min="10" max="50" value="30" oninput="document.getElementById('rsiOversoldVal').textContent = this.value">
+                    <span id="rsiOversoldVal">30</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>RSI Overbought (Sell Signal)</label>
+                <div class="range-wrap">
+                    <input type="range" id="rsiOverbought" min="50" max="90" value="70" oninput="document.getElementById('rsiOverboughtVal').textContent = this.value">
+                    <span id="rsiOverboughtVal">70</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Timeframe</label>
+                <select id="timeframe">
+                    <option value="15m">15 Minutes</option>
+                    <option value="1h" selected>1 Hour</option>
+                    <option value="4h">4 Hours</option>
+                    <option value="1D">1 Day</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Position Size (% of portfolio)</label>
+                <input type="number" id="positionSize" value="10" min="1" max="100">
+            </div>
+            
+            <div class="form-group">
+                <label>Stop Loss (%)</label>
+                <input type="number" id="stopLoss" value="5" min="1" max="50">
+            </div>
+            
+            <div class="form-group">
+                <label>Take Profit (%)</label>
+                <input type="number" id="takeProfit" value="15" min="1" max="100">
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">Select Coins</div>
+            <div class="coins-grid" id="coinsGrid">
+                <label class="coin-check"><input type="checkbox" value="BTC" checked> BTC</label>
+                <label class="coin-check"><input type="checkbox" value="ETH" checked> ETH</label>
+                <label class="coin-check"><input type="checkbox" value="SOL" checked> SOL</label>
+                <label class="coin-check"><input type="checkbox" value="BNB"> BNB</label>
+                <label class="coin-check"><input type="checkbox" value="XRP"> XRP</label>
+                <label class="coin-check"><input type="checkbox" value="ADA"> ADA</label>
+                <label class="coin-check"><input type="checkbox" value="DOGE"> DOGE</label>
+                <label class="coin-check"><input type="checkbox" value="AVAX"> AVAX</label>
+                <label class="coin-check"><input type="checkbox" value="DOT"> DOT</label>
+                <label class="coin-check"><input type="checkbox" value="MATIC"> MATIC</label>
+                <label class="coin-check"><input type="checkbox" value="LINK"> LINK</label>
+                <label class="coin-check"><input type="checkbox" value="ARB"> ARB</label>
+                <label class="coin-check"><input type="checkbox" value="OP"> OP</label>
+                <label class="coin-check"><input type="checkbox" value="NEAR"> NEAR</label>
+                <label class="coin-check"><input type="checkbox" value="BONK"> BONK</label>
+                <label class="coin-check"><input type="checkbox" value="WIF"> WIF</label>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="saveStrategy()">Save Strategy</button>
+        
+        <div class="card" style="margin-top: 20px">
+            <div class="section-title">Strategy Config (JSON)</div>
+            <div class="output" id="output">// Click "Save Strategy" to generate config</div>
+        </div>
+    </div>
+    
+    <script>
+    function saveStrategy() {
+        // Get selected coins
+        const coins = [];
+        document.querySelectorAll('#coinsGrid input:checked').forEach(cb => {
+            coins.push(cb.value);
+        });
+        
+        const strategy = {
+            name: document.getElementById('name').value,
+            indicators: {
+                rsi: {
+                    period: parseInt(document.getElementById('rsiPeriod').value),
+                    oversold: parseInt(document.getElementById('rsiOversold').value),
+                    overbought: parseInt(document.getElementById('rsiOverbought').value)
+                }
+            },
+            timeframe: document.getElementById('timeframe').value,
+            positionSize: parseInt(document.getElementById('positionSize').value),
+            riskManagement: {
+                stopLoss: parseInt(document.getElementById('stopLoss').value),
+                takeProfit: parseInt(document.getElementById('takeProfit').value)
+            },
+            coins: coins,
+            created: new Date().toISOString()
+        };
+        
+        document.getElementById('output').textContent = JSON.stringify(strategy, null, 2);
+        
+        // Save to localStorage
+        localStorage.setItem('tradingStrategy', JSON.stringify(strategy));
+        
+        console.log('Strategy saved:', strategy);
+    }
+    
+    // Load saved strategy on page load
+    window.onload = function() {
+        const saved = // Apply theme
+    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+    
+    localStorage.getItem('tradingStrategy');
+        if (saved) {
+            try {
+                const strategy = JSON.parse(saved);
+                document.getElementById('name').value = strategy.name || 'RSI Momentum';
+                document.getElementById('rsiPeriod').value = strategy.indicators?.rsi?.period || 14;
+                document.getElementById('rsiOversold').value = strategy.indicators?.rsi?.oversold || 30;
+                document.getElementById('rsiOverbought').value = strategy.indicators?.rsi?.overbought || 70;
+                document.getElementById('timeframe').value = strategy.timeframe || '1h';
+                document.getElementById('positionSize').value = strategy.positionSize || 10;
+                document.getElementById('stopLoss').value = strategy.riskManagement?.stopLoss || 5;
+                document.getElementById('takeProfit').value = strategy.riskManagement?.takeProfit || 15;
+                
+                // Set coins
+                if (strategy.coins) {
+                    document.querySelectorAll('#coinsGrid input').forEach(cb => {
+                        cb.checked = strategy.coins.includes(cb.value);
+                    });
+                }
+                
+                document.getElementById('output').textContent = JSON.stringify(strategy, null, 2);
+            } catch(e) {}
+        }
+    };
+    </script>
+</body>
+</html>

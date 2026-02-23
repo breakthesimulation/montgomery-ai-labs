@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-02-20T16:05:58.460170",
+  "agents": [
+    {
+      "name": "Dev (CTO)",
+      "model": "MiniMax-M2.5",
+      "channel": "webchat",
+      "tokens": 45678,
+      "last_active": "2m ago"
+    },
+    {
+      "name": "Bert (CEO)",
+      "model": "Claude Sonnet 4",
+      "channel": "telegram",
+      "tokens": 84876,
+      "last_active": "5m ago"
+    },
+    {
+      "name": "Raoul (Trading)",
+      "model": "MiniMax-M2.5",
+      "channel": "webchat",
+      "tokens": 39543,
+      "last_active": "3h ago"
+    },
+    {
+      "name": "Ben (Trading)",
+      "model": "MiniMax-M2.5",
+      "channel": "webchat",
+      "tokens": 27242,
+      "last_active": "4h ago"
+    },
+    {
+      "name": "Deputy COO",
+      "model": "Claude Sonnet 4",
+      "channel": "telegram",
+      "tokens": 188839,
+      "last_active": "6h ago"
+    },
+    {
+      "name": "Cron: Dev Check",
+      "model": "Claude Sonnet 4",
+      "channel": "cron",
+      "tokens": 37711,
+      "last_active": "10m ago"
+    }
+  ],
+  "total_agents": 6,
+  "total_tokens": 423889
+}

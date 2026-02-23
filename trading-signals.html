@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Trading Signals | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --green: #238636; --green-bright: #3fb950; --red: #da3633; --blue: #58a6ff; --purple: #a371f7; --yellow: #d29922; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .header h1 { font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        .back-link { color: var(--blue); text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .coming-soon { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 60px 40px; text-align: center; }
+        .coming-soon h2 { font-size: 2rem; margin-bottom: 16px; }
+        .coming-soon p { color: var(--text-muted); margin-bottom: 24px; font-size: 1.1rem; }
+        
+        .status-badge { display: inline-block; background: rgba(210, 153, 34, 0.15); color: var(--yellow); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; }
+        
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px; }
+        .feature { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+        .feature h3 { font-size: 1rem; margin-bottom: 8px; color: var(--blue); }
+        .feature p { font-size: 0.85rem; color: var(--text-muted); }
+        
+        .nav { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-link { padding: 6px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.8rem; }
+        .nav-link:hover { border-color: var(--text-muted); color: var(--text); }
+        .nav-link.active { border-color: var(--green); color: var(--green); background: rgba(35, 134, 54, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/index.html" class="back-link">← Back to Dashboard</a>
+        
+        <div class="header">
+            <h1>⚡ Trading Signals</h1>
+            <div class="nav">
+                <a href="/index.html" class="nav-link">🏠 Home</a>
+                <a href="/mission-control.html" class="nav-link">🎯 Mission Control</a>
+                <a href="/candles.html" class="nav-link">📊 Charts</a>
+            </div>
+        </div>
+        
+        <div class="coming-soon">
+            <h2>🚀 Coming Soon</h2>
+            <p>AI-generated trading signals with real-time market analysis</p>
+            <span class="status-badge">In Development</span>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🤖 AI-Powered Analysis</h3>
+                <p>Machine learning models analyzing RSI, MACD, volume, and market sentiment to generate high-probability trade setups.</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Multi-Timeframe Signals</h3>
+                <p>Signals across 15m, 1h, 4h, and 1D timeframes with confluence scoring for stronger setups.</p>
+            </div>
+            <div class="feature">
+                <h3>🎯 Risk Management</h3>
+                <p>Every signal comes with auto-calculated position size, stop loss, and take profit levels.</p>
+            </div>
+            <div class="feature">
+                <h3>📈 Performance Tracking</h3>
+                <p>Track signal win rate, average return, and compare against benchmarks.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

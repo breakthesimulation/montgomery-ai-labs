@@ -1,0 +1,64 @@
+{
+  "current_value": 27143.0015,
+  "prices": {
+    "BTC": 67530.01,
+    "ETH": 1963.1,
+    "USDC": 1.0002,
+    "SOL": 84.19
+  },
+  "current_allocation": {
+    "SOL": 7.754300864626192,
+    "USDC": 18.424638852118104,
+    "BTC": 37.31901757438285,
+    "ETH": 18.08108804768699
+  },
+  "target_allocation": {
+    "BTC": 40,
+    "ETH": 30,
+    "SOL": 20,
+    "USDC": 10
+  },
+  "recommendations": [
+    {
+      "coin": "BTC",
+      "action": "BUY",
+      "current_pct": 37.3,
+      "target_pct": 40,
+      "diff_pct": 2.7,
+      "amount_usd": 727.7,
+      "amount_coin": 0.010776,
+      "price": 67530.01
+    },
+    {
+      "coin": "ETH",
+      "action": "BUY",
+      "current_pct": 18.1,
+      "target_pct": 30,
+      "diff_pct": 11.9,
+      "amount_usd": 3235.15,
+      "amount_coin": 1.64798,
+      "price": 1963.1
+    },
+    {
+      "coin": "SOL",
+      "action": "BUY",
+      "current_pct": 7.8,
+      "target_pct": 20,
+      "diff_pct": 12.2,
+      "amount_usd": 3323.85,
+      "amount_coin": 39.480346,
+      "price": 84.19
+    },
+    {
+      "coin": "USDC",
+      "action": "SELL",
+      "current_pct": 18.4,
+      "target_pct": 10,
+      "diff_pct": -8.4,
+      "amount_usd": 2286.7,
+      "amount_coin": 2286.242601,
+      "price": 1.0002
+    }
+  ],
+  "timestamp": "2026-02-20T17:08:05.694318"
+}

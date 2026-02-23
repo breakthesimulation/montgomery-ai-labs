@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backtest Results | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+        .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; margin-top: 8px; }
+        .positive { color: var(--green); }
+        .negative { color: var(--red); }
+        
+        .table { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 12px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📈 Backtest Results</h1>
+            <div class="mono" style="color:var(--text-muted)">RSI Strategy - 90 Days</div>
+        </header>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Avg Return</div>
+                <div class="stat-value negative">-8.44%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Sharpe Ratio</div>
+                <div class="stat-value mono">0.00</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Trades</div>
+                <div class="stat-value mono">113</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Max Drawdown</div>
+                <div class="stat-value negative">-25.5%</div>
+            </div>
+        </div>
+        
+        <div class="table">
+            <table>
+                <thead><tr><th>Symbol</th><th>Return</th><th>Trades</th><th>Win Rate</th><th>Drawdown</th></tr></thead>
+                <tbody>
+                    
+            <tr>
+                <td><strong>BTC</strong></td>
+                <td class="mono negative">-18.46%</td>
+                <td class="mono">31</td>
+                <td class="mono">25.8%</td>
+                <td class="mono">-12.3%</td>
+            </tr>
+        
+            <tr>
+                <td><strong>ETH</strong></td>
+                <td class="mono negative">-21.42%</td>
+                <td class="mono">39</td>
+                <td class="mono">38.5%</td>
+                <td class="mono">-12.3%</td>
+            </tr>
+        
+            <tr>
+                <td><strong>SOL</strong></td>
+                <td class="mono positive">+14.55%</td>
+                <td class="mono">43</td>
+                <td class="mono">30.2%</td>
+                <td class="mono">-12.3%</td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

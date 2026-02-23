@@ -1,0 +1,51 @@
+{
+  "lastUpdated": "2026-02-20T09:13:00Z",
+  "analyst": "Ben",
+  "market": "crypto",
+  "summary": "Bear fib rejections: SOL, BTC, ETH — breakdown imminent",
+  "longs": [],
+  "shorts": [
+    {
+      "token": "SOL/USDT",
+      "price": 83.62,
+      "entry": "83.80-84.00",
+      "stop": 86.10,
+      "target": 79.61,
+      "rr": "3.4:1",
+      "rsi": null,
+      "rationale": "Rejected at 38.2% fib ($84.56). Failed bounce. Break $81.27 confirms dump to 100% fib ($79.61).",
+      "analyst": "Ben",
+      "timeframe": "1h"
+    },
+    {
+      "token": "BTC/USDT",
+      "price": 66878,
+      "entry": "67200-67400",
+      "stop": 67900,
+      "target": 65632,
+      "rr": "2.2:1",
+      "rsi": null,
+      "rationale": "Below 50% fib ($67,054). Need clean break $66,446 support to confirm.",
+      "analyst": "Ben",
+      "timeframe": "4h"
+    },
+    {
+      "token": "ETH/USDT",
+      "price": 1958,
+      "entry": "1965",
+      "stop": 2007,
+      "target": 1907,
+      "rr": "2.0:1",
+      "rsi": null,
+      "rationale": "Holding 61.8% fib ($1,957) — last support before cascade. Break $1,938 = $1,907.",
+      "analyst": "Ben",
+      "timeframe": "1h"
+    }
+  ],
+  "avoid": [
+    {
+      "token": "BTC",
+      "reason": "Wait for $66,446 break confirmation"
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Performance | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; --yellow: #fbbf24; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        header { margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
+        h1 { font-size: 1.3rem; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+        .stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-value { font-size: 1.4rem; font-weight: 700; font-family: 'IBM Plex Mono'; margin-top: 4px; }
+        
+        .chart { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; height: 300px; margin-bottom: 24px; }
+        
+        .section-title { font-size: 1rem; margin-bottom: 12px; }
+        
+        .table { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 10px 12px; font-size: 0.85rem; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono'; }
+        
+        .positive { color: var(--green); }
+        .negative { color: var(--red); }
+        
+        .footer { margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 0.75rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Performance Analytics</h1>
+        </header>
+        
+        <div class="stats-grid" id="stats"></div>
+        
+        <div class="chart" id="chart"></div>
+        
+        <div class="section-title">Trade History</div>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coin</th>
+                        <th>Side</th>
+                        <th>Entry</th>
+                        <th>Exit</th>
+                        <th>P&L</th>
+                        <th>Hold</th>
+                    </tr>
+                </thead>
+                <tbody id="trades"></tbody>
+            </table>
+        </div>
+        
+        <p class="footer" id="updated"></p>
+    </div>
+    
+    <script>
+    async function load() {
+        try {
+            const resp = await fetch('/data/hl_paper_trades.json');
+            const data = await resp.json();
+            
+            const trades = data.trades || [];
+            const closed = trades.filter(t => t.status === 'CLOSED').sort((a, b) => new Date(b.exit_timestamp || 0) - new Date(a.exit_timestamp || 0));
+            
+            // Stats
+            let wins = 0, losses = 0;
+            let totalWin = 0, totalLoss = 0;
+            let pnlValues = [];
+            let streakW = 0, streakL = 0, maxStreakW = 0, maxStreakL = 0;
+            
+            closed.forEach(t => {
+                const pnl = parseFloat(t.pnl);
+                pnlValues.push(pnl);
+                if (pnl > 0) {
+                    wins++;
+                    totalWin += pnl;
+                    streakW++;
+                    streakL = 0;
+                    maxStreakW = Math.max(maxStreakW, streakW);
+                } else {
+                    losses++;
+                    totalLoss += Math.abs(pnl);
+                    streakL++;
+                    streakW = 0;
+                    maxStreakL = Math.max(maxStreakL, streakL);
+                }
+            });
+            
+            const total = wins + losses;
+            const winRate = total ? (wins / total * 100).toFixed(0) : 0;
+            const avgWin = wins ? (totalWin / wins).toFixed(1) : 0;
+            const avgLoss = losses ? (totalLoss / losses).toFixed(1) : 0;
+            const profitFactor = avgLoss ? (avgWin / avgLoss).toFixed(2) : 0;
+            
+            // Sharpe-like
+            const avgPnl = pnlValues.length ? (pnlValues.reduce((a, b) => a + b, 0) / pnlValues.length) : 0;
+            const stdDev = pnlValues.length > 1 ? Math.sqrt(pnlValues.reduce((a, b) => a + Math.pow(b - avgPnl, 2), 0) / (pnlValues.length - 1)) : 1;
+            const sharpe = stdDev ? (avgPnl / stdDev).toFixed(2) : 0;
+            
+            document.getElementById('stats').innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-label">Win Rate</div>
+                    <div class="stat-value ${winRate >= 50 ? 'positive' : 'negative'}">${winRate}%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Winner</div>
+                    <div class="stat-value positive">+${avgWin}%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Loser</div>
+                    <div class="stat-value negative">-${avgLoss}%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Profit Factor</div>
+                    <div class="stat-value">${profitFactor}</div>
+                </div>
+            `;
+            
+            // Trade table
+            let html = '';
+            closed.forEach(t => {
+                const pnl = parseFloat(t.pnl);
+                const hold = t.exit_timestamp && t.timestamp ? Math.round((new Date(t.exit_timestamp) - new Date(t.timestamp)) / 3600000) + 'h' : '-';
+                html += `<tr>
+                    <td>${t.coin}</td>
+                    <td>${t.side}</td>
+                    <td>$${t.entry_price}</td>
+                    <td>$${t.exit_price}</td>
+                    <td class="${pnl >= 0 ? 'positive' : 'negative'}">${pnl >= 0 ? '+' : ''}${pnl.toFixed(2)}%</td>
+                    <td>${hold}</td>
+                </tr>`;
+            });
+            document.getElementById('trades').innerHTML = html;
+            
+            // Equity curve
+            const sorted = trades.filter(t => t.status === 'CLOSED').sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            let balance = 10000;
+            const points = [{date: 'Start', balance: 10000}];
+            sorted.forEach(t => {
+                balance = balance * (1 + parseFloat(t.pnl) / 100);
+                points.push({date: (t.exit_timestamp || '').slice(0, 10), balance});
+            });
+            
+            const width = 800, height = 240, padding = 40;
+            const minBal = Math.min(...points.map(p => p.balance)) * 0.95;
+            const maxBal = Math.max(...points.map(p => p.balance)) * 1.05;
+            
+            let svg = `<svg viewBox="0 0 ${width} ${height}" style="width:100%;height:100%">`;
+            let path = '';
+            points.forEach((p, i) => {
+                const x = padding + (i / (points.length - 1)) * (width - 2 * padding);
+                const y = height - padding - ((p.balance - minBal) / (maxBal - minBal)) * (height - 2 * padding);
+                path += (i === 0 ? 'M' : 'L') + `${x},${y} `;
+            });
+            svg += `<path d="${path}" stroke="var(--green)" stroke-width="3" fill="none"/>`;
+            points.forEach((p, i) => {
+                const x = padding + (i / (points.length - 1)) * (width - 2 * padding);
+                const y = height - padding - ((p.balance - minBal) / (maxBal - minBal)) * (height - 2 * padding);
+                svg += `<circle cx="${x}" cy="${y}" r="5" fill="var(--green)"/>`;
+            });
+            svg += '</svg>';
+            
+            document.getElementById('chart').innerHTML = svg;
+            document.getElementById('updated').textContent = 'Updated: ' + new Date().toLocaleString();
+            
+        } catch(e) {
+            console.error(e);
+            document.getElementById('chart').innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">Loading...</div>';
+        }
+    }
+    
+    load();
+    </script>
+</body>
+</html>

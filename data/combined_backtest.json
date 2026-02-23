@@ -1,0 +1,2111 @@
+{
+  "timestamp": "2026-02-21T22:32:50.532900Z",
+  "parameters": {
+    "entry_threshold": 60,
+    "exit_pct": 0.05,
+    "max_hold_candles": 24
+  },
+  "combined": {
+    "ARB": {
+      "metrics": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_return": -3.69,
+        "max_drawdown": 7.3,
+        "sharpe_ratio": -17.29
+      },
+      "trades": [
+        {
+          "entry_time": 1771441200000,
+          "entry_price": 0.1084,
+          "entry_idx": 125,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.1018,
+          "exit_time": 1771506000000,
+          "pnl_pct": -6.088560885608851,
+          "duration_candles": 18
+        },
+        {
+          "entry_time": 1771509600000,
+          "entry_price": 0.1004,
+          "entry_idx": 144,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.0991,
+          "exit_time": 1771689600000,
+          "pnl_pct": -1.2948207171314836,
+          "duration_candles": 50
+        }
+      ]
+    },
+    "BTC": {
+      "metrics": {
+        "total_trades": 4,
+        "win_rate": 50.0,
+        "avg_return": 0.03,
+        "max_drawdown": 3.85,
+        "sharpe_ratio": 0.19
+      },
+      "trades": [
+        {
+          "entry_time": 1771174800000,
+          "entry_price": 68641.21,
+          "entry_idx": 51,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 66875.06,
+          "exit_time": 1771336800000,
+          "pnl_pct": -2.5730169966409515,
+          "duration_candles": 45
+        },
+        {
+          "entry_time": 1771347600000,
+          "entry_price": 67244.22,
+          "entry_idx": 99,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 66359.99,
+          "exit_time": 1771437600000,
+          "pnl_pct": -1.3149531662349505,
+          "duration_candles": 25
+        },
+        {
+          "entry_time": 1771441200000,
+          "entry_price": 66177.14,
+          "entry_idx": 125,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 67318.41,
+          "exit_time": 1771585200000,
+          "pnl_pct": 1.724568332811004,
+          "duration_candles": 40
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 66801.62,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 68322.6,
+          "exit_time": 1771689600000,
+          "pnl_pct": 2.2768609503781656,
+          "duration_candles": 27
+        }
+      ]
+    },
+    "CRV": {
+      "metrics": {
+        "total_trades": 4,
+        "win_rate": 50.0,
+        "avg_return": -0.61,
+        "max_drawdown": 6.2,
+        "sharpe_ratio": -2.37
+      },
+      "trades": [
+        {
+          "entry_time": 1771174800000,
+          "entry_price": 0.2492,
+          "entry_idx": 51,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.2496,
+          "exit_time": 1771336800000,
+          "pnl_pct": 0.16051364365970452,
+          "duration_candles": 45
+        },
+        {
+          "entry_time": 1771376400000,
+          "entry_price": 0.25,
+          "entry_idx": 107,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.2345,
+          "exit_time": 1771506000000,
+          "pnl_pct": -6.2000000000000055,
+          "duration_candles": 36
+        },
+        {
+          "entry_time": 1771516800000,
+          "entry_price": 0.2358,
+          "entry_idx": 146,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.2443,
+          "exit_time": 1771682400000,
+          "pnl_pct": 3.6047497879558863,
+          "duration_candles": 46
+        },
+        {
+          "entry_time": 1771689600000,
+          "entry_price": 0.2422,
+          "entry_idx": 194,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.2424,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 6
+        }
+      ]
+    },
+    "ETH": {
+      "metrics": {
+        "total_trades": 4,
+        "win_rate": 50.0,
+        "avg_return": -0.42,
+        "max_drawdown": 4.13,
+        "sharpe_ratio": -2.83
+      },
+      "trades": [
+        {
+          "entry_time": 1771156800000,
+          "entry_price": 2011.0,
+          "entry_idx": 46,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 1967.7,
+          "exit_time": 1771246800000,
+          "pnl_pct": -2.1531576330183966,
+          "duration_candles": 25
+        },
+        {
+          "entry_time": 1771254000000,
+          "entry_price": 1956.65,
+          "entry_idx": 73,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 1966.27,
+          "exit_time": 1771347600000,
+          "pnl_pct": 0.4916566580635213,
+          "duration_candles": 26
+        },
+        {
+          "entry_time": 1771419600000,
+          "entry_price": 1970.68,
+          "entry_idx": 119,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 1921.4,
+          "exit_time": 1771506000000,
+          "pnl_pct": -2.5006596707735387,
+          "duration_candles": 24
+        },
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 1926.3,
+          "entry_idx": 145,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 1974.14,
+          "exit_time": 1771704000000,
+          "pnl_pct": 2.4835176244614106,
+          "duration_candles": 53
+        }
+      ]
+    },
+    "FIL": {
+      "metrics": {
+        "total_trades": 5,
+        "win_rate": 40.0,
+        "avg_return": 0.18,
+        "max_drawdown": 4.62,
+        "sharpe_ratio": 0.8
+      },
+      "trades": [
+        {
+          "entry_time": 1771156800000,
+          "entry_price": 0.965,
+          "entry_idx": 46,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.96,
+          "exit_time": 1771246800000,
+          "pnl_pct": -0.5181347150259072,
+          "duration_candles": 25
+        },
+        {
+          "entry_time": 1771254000000,
+          "entry_price": 0.955,
+          "entry_idx": 73,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.959,
+          "exit_time": 1771412400000,
+          "pnl_pct": 0.4188481675392674,
+          "duration_candles": 44
+        },
+        {
+          "entry_time": 1771419600000,
+          "entry_price": 0.95,
+          "entry_idx": 119,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.907,
+          "exit_time": 1771506000000,
+          "pnl_pct": -4.526315789473677,
+          "duration_candles": 24
+        },
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 0.905,
+          "entry_idx": 145,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.955,
+          "exit_time": 1771610400000,
+          "pnl_pct": 5.524861878453031,
+          "duration_candles": 27
+        },
+        {
+          "entry_time": 1771686000000,
+          "entry_price": 0.989,
+          "entry_idx": 193,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.972,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 7
+        }
+      ]
+    },
+    "INJ": {
+      "metrics": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_return": -1.51,
+        "max_drawdown": 3.02,
+        "sharpe_ratio": -11.22
+      },
+      "trades": [
+        {
+          "entry_time": 1771142400000,
+          "entry_price": 3.245,
+          "entry_idx": 42,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 3.147,
+          "exit_time": 1771246800000,
+          "pnl_pct": -3.0200308166409955,
+          "duration_candles": 29
+        },
+        {
+          "entry_time": 1771466400000,
+          "entry_price": 3.309,
+          "entry_idx": 132,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 3.859,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 68
+        }
+      ]
+    },
+    "NEAR": {
+      "metrics": {
+        "total_trades": 4,
+        "win_rate": 50.0,
+        "avg_return": 0.64,
+        "max_drawdown": 5.01,
+        "sharpe_ratio": 1.97
+      },
+      "trades": [
+        {
+          "entry_time": 1771142400000,
+          "entry_price": 1.073,
+          "entry_idx": 42,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 1.044,
+          "exit_time": 1771246800000,
+          "pnl_pct": -2.702702702702695,
+          "duration_candles": 29
+        },
+        {
+          "entry_time": 1771254000000,
+          "entry_price": 1.031,
+          "entry_idx": 73,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 1.046,
+          "exit_time": 1771354800000,
+          "pnl_pct": 1.4548981571290132,
+          "duration_candles": 28
+        },
+        {
+          "entry_time": 1771419600000,
+          "entry_price": 1.035,
+          "entry_idx": 119,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.996,
+          "exit_time": 1771506000000,
+          "pnl_pct": -3.7681159420289783,
+          "duration_candles": 24
+        },
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 0.992,
+          "entry_idx": 145,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 1.067,
+          "exit_time": 1771682400000,
+          "pnl_pct": 7.560483870967738,
+          "duration_candles": 47
+        }
+      ]
+    },
+    "OP": {
+      "metrics": {
+        "total_trades": 3,
+        "win_rate": 0.0,
+        "avg_return": -4.8,
+        "max_drawdown": 13.87,
+        "sharpe_ratio": -18.32
+      },
+      "trades": [
+        {
+          "entry_time": 1771448400000,
+          "entry_price": 0.1673,
+          "entry_idx": 127,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.155,
+          "exit_time": 1771473600000,
+          "pnl_pct": -7.3520621637776475,
+          "duration_candles": 7
+        },
+        {
+          "entry_time": 1771480800000,
+          "entry_price": 0.1507,
+          "entry_idx": 136,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.1401,
+          "exit_time": 1771506000000,
+          "pnl_pct": -7.0338420703384195,
+          "duration_candles": 7
+        },
+        {
+          "entry_time": 1771509600000,
+          "entry_price": 0.1384,
+          "entry_idx": 144,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.1292,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 56
+        }
+      ]
+    },
+    "SNX": {
+      "metrics": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_return": 0,
+        "max_drawdown": 0,
+        "sharpe_ratio": 0
+      },
+      "trades": [
+        {
+          "entry_time": 1771524000000,
+          "entry_price": 0.327,
+          "entry_idx": 148,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.437,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 52
+        }
+      ]
+    },
+    "SOL": {
+      "metrics": {
+        "total_trades": 3,
+        "win_rate": 33.33,
+        "avg_return": -1.76,
+        "max_drawdown": 7.41,
+        "sharpe_ratio": -7.5
+      },
+      "trades": [
+        {
+          "entry_time": 1771207200000,
+          "entry_price": 85.39,
+          "entry_idx": 60,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 83.26,
+          "exit_time": 1771336800000,
+          "pnl_pct": -2.494437287738606,
+          "duration_candles": 36
+        },
+        {
+          "entry_time": 1771376400000,
+          "entry_price": 84.25,
+          "entry_idx": 107,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 80.0,
+          "exit_time": 1771506000000,
+          "pnl_pct": -5.044510385756676,
+          "duration_candles": 36
+        },
+        {
+          "entry_time": 1771585200000,
+          "entry_price": 83.58,
+          "entry_idx": 165,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 85.48,
+          "exit_time": 1771704000000,
+          "pnl_pct": 2.27327111749223,
+          "duration_candles": 33
+        }
+      ]
+    },
+    "UNI": {
+      "metrics": {
+        "total_trades": 4,
+        "win_rate": 25.0,
+        "avg_return": -0.98,
+        "max_drawdown": 5.57,
+        "sharpe_ratio": -4.89
+      },
+      "trades": [
+        {
+          "entry_time": 1771156800000,
+          "entry_price": 3.503,
+          "entry_idx": 46,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 3.499,
+          "exit_time": 1771246800000,
+          "pnl_pct": -0.11418783899514712,
+          "duration_candles": 25
+        },
+        {
+          "entry_time": 1771254000000,
+          "entry_price": 3.455,
+          "entry_idx": 73,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 3.516,
+          "exit_time": 1771419600000,
+          "pnl_pct": 1.7655571635311125,
+          "duration_candles": 46
+        },
+        {
+          "entry_time": 1771430400000,
+          "entry_price": 3.516,
+          "entry_idx": 122,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 3.32,
+          "exit_time": 1771506000000,
+          "pnl_pct": -5.574516496018207,
+          "duration_candles": 21
+        },
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 3.33,
+          "entry_idx": 145,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 3.636,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 55
+        }
+      ]
+    },
+    "YGG": {
+      "metrics": {
+        "total_trades": 3,
+        "win_rate": 33.33,
+        "avg_return": -1.45,
+        "max_drawdown": 5.58,
+        "sharpe_ratio": -6.33
+      },
+      "trades": [
+        {
+          "entry_time": 1771113600000,
+          "entry_price": 0.043,
+          "entry_idx": 34,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.0406,
+          "exit_time": 1771156800000,
+          "pnl_pct": -5.581395348837209,
+          "duration_candles": 12
+        },
+        {
+          "entry_time": 1771174800000,
+          "entry_price": 0.0405,
+          "entry_idx": 51,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.041,
+          "exit_time": 1771304400000,
+          "pnl_pct": 1.234567901234569,
+          "duration_candles": 36
+        },
+        {
+          "entry_time": 1771336800000,
+          "entry_price": 0.0406,
+          "entry_idx": 96,
+          "side": "long",
+          "signal_type": "combined",
+          "exit_price": 0.0486,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 104
+        }
+      ]
+    }
+  },
+  "rsi_only": {
+    "ARB": {
+      "metrics": {
+        "total_trades": 43,
+        "win_rate": 67.44,
+        "avg_return": 0.05,
+        "max_drawdown": 6.42,
+        "sharpe_ratio": 0.58
+      },
+      "trades": [
+        {
+          "entry_time": 1771563600000,
+          "entry_price": 0.0977,
+          "entry_idx": 159,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0967,
+          "exit_time": 1771567200000,
+          "pnl_pct": 1.0235414534288647,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771574400000,
+          "entry_price": 0.0962,
+          "entry_idx": 162,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.0967,
+          "exit_time": 1771578000000,
+          "pnl_pct": 0.5197505197505202,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771581600000,
+          "entry_price": 0.0954,
+          "entry_idx": 164,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.0943,
+          "exit_time": 1771588800000,
+          "pnl_pct": -1.1530398322851192,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 0.0938,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.095,
+          "exit_time": 1771596000000,
+          "pnl_pct": 1.2793176972281521,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 0.097,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0965,
+          "exit_time": 1771632000000,
+          "pnl_pct": 0.5154639175257736,
+          "duration_candles": 9
+        },
+        {
+          "entry_time": 1771635600000,
+          "entry_price": 0.0966,
+          "entry_idx": 179,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1028,
+          "exit_time": 1771660800000,
+          "pnl_pct": -6.418219461697719,
+          "duration_candles": 7
+        },
+        {
+          "entry_time": 1771664400000,
+          "entry_price": 0.1029,
+          "entry_idx": 187,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1019,
+          "exit_time": 1771675200000,
+          "pnl_pct": 0.9718172983479114,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771678800000,
+          "entry_price": 0.1009,
+          "entry_idx": 191,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.1,
+          "exit_time": 1771686000000,
+          "pnl_pct": -0.891972249752228,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771689600000,
+          "entry_price": 0.0991,
+          "entry_idx": 194,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.0993,
+          "exit_time": 1771693200000,
+          "pnl_pct": 0.20181634712412286,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771696800000,
+          "entry_price": 0.0993,
+          "entry_idx": 196,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0993,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 4
+        }
+      ]
+    },
+    "BTC": {
+      "metrics": {
+        "total_trades": 34,
+        "win_rate": 55.88,
+        "avg_return": 0.01,
+        "max_drawdown": 2.31,
+        "sharpe_ratio": 0.25
+      },
+      "trades": [
+        {
+          "entry_time": 1771495200000,
+          "entry_price": 66843.08,
+          "entry_idx": 140,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 66496.02,
+          "exit_time": 1771498800000,
+          "pnl_pct": 0.5192160504871973,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771506000000,
+          "entry_price": 65913.37,
+          "entry_idx": 143,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 66421.2,
+          "exit_time": 1771509600000,
+          "pnl_pct": 0.7704506688096843,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 66398.0,
+          "entry_idx": 145,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 66916.51,
+          "exit_time": 1771534800000,
+          "pnl_pct": -0.7809120756649217,
+          "duration_candles": 6
+        },
+        {
+          "entry_time": 1771538400000,
+          "entry_price": 66915.14,
+          "entry_idx": 152,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 67948.99,
+          "exit_time": 1771581600000,
+          "pnl_pct": -1.5450165687466333,
+          "duration_candles": 12
+        },
+        {
+          "entry_time": 1771585200000,
+          "entry_price": 67318.41,
+          "entry_idx": 165,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 67541.77,
+          "exit_time": 1771588800000,
+          "pnl_pct": 0.3317963095087964,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 66801.62,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 67069.65,
+          "exit_time": 1771596000000,
+          "pnl_pct": 0.4012327844743868,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 67582.95,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 67646.03,
+          "exit_time": 1771614000000,
+          "pnl_pct": -0.09333715086423683,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771617600000,
+          "entry_price": 67750.4,
+          "entry_idx": 174,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 67667.77,
+          "exit_time": 1771642800000,
+          "pnl_pct": 0.12196237955789206,
+          "duration_candles": 7
+        },
+        {
+          "entry_time": 1771646400000,
+          "entry_price": 67816.97,
+          "entry_idx": 182,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 68322.6,
+          "exit_time": 1771689600000,
+          "pnl_pct": -0.7455803466300612,
+          "duration_candles": 12
+        },
+        {
+          "entry_time": 1771693200000,
+          "entry_price": 68437.45,
+          "entry_idx": 195,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 68211.19,
+          "exit_time": 1771704000000,
+          "pnl_pct": 0.3306084607185025,
+          "duration_candles": 3
+        }
+      ]
+    },
+    "CRV": {
+      "metrics": {
+        "total_trades": 36,
+        "win_rate": 63.89,
+        "avg_return": 0.11,
+        "max_drawdown": 9.7,
+        "sharpe_ratio": 1.38
+      },
+      "trades": [
+        {
+          "entry_time": 1771524000000,
+          "entry_price": 0.2401,
+          "entry_idx": 148,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2409,
+          "exit_time": 1771585200000,
+          "pnl_pct": -0.3331945022907102,
+          "duration_candles": 17
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 0.2378,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.2411,
+          "exit_time": 1771596000000,
+          "pnl_pct": 1.3877207737594606,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 0.248,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2458,
+          "exit_time": 1771614000000,
+          "pnl_pct": 0.8870967741935514,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771617600000,
+          "entry_price": 0.246,
+          "entry_idx": 174,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2457,
+          "exit_time": 1771632000000,
+          "pnl_pct": 0.12195121951219298,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771635600000,
+          "entry_price": 0.2463,
+          "entry_idx": 179,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2445,
+          "exit_time": 1771642800000,
+          "pnl_pct": 0.7308160779537134,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771646400000,
+          "entry_price": 0.245,
+          "entry_idx": 182,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2436,
+          "exit_time": 1771657200000,
+          "pnl_pct": 0.5714285714285652,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771660800000,
+          "entry_price": 0.2452,
+          "entry_idx": 186,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2445,
+          "exit_time": 1771671600000,
+          "pnl_pct": 0.28548123980424395,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771675200000,
+          "entry_price": 0.2445,
+          "entry_idx": 190,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2443,
+          "exit_time": 1771682400000,
+          "pnl_pct": 0.08179959100204734,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771689600000,
+          "entry_price": 0.2422,
+          "entry_idx": 194,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.2425,
+          "exit_time": 1771693200000,
+          "pnl_pct": 0.12386457473162459,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771696800000,
+          "entry_price": 0.2432,
+          "entry_idx": 196,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.2413,
+          "exit_time": 1771704000000,
+          "pnl_pct": 0.7812500000000052,
+          "duration_candles": 2
+        }
+      ]
+    },
+    "ETH": {
+      "metrics": {
+        "total_trades": 36,
+        "win_rate": 55.56,
+        "avg_return": -0.01,
+        "max_drawdown": 3.24,
+        "sharpe_ratio": -0.14
+      },
+      "trades": [
+        {
+          "entry_time": 1771448400000,
+          "entry_price": 1942.0,
+          "entry_idx": 127,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1970.5,
+          "exit_time": 1771488000000,
+          "pnl_pct": -1.4675592173017509,
+          "duration_candles": 11
+        },
+        {
+          "entry_time": 1771491600000,
+          "entry_price": 1963.79,
+          "entry_idx": 139,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 1936.87,
+          "exit_time": 1771509600000,
+          "pnl_pct": -1.3708186720576065,
+          "duration_candles": 5
+        },
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 1926.3,
+          "entry_idx": 145,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 1920.72,
+          "exit_time": 1771520400000,
+          "pnl_pct": -0.2896745055287301,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771524000000,
+          "entry_price": 1939.99,
+          "entry_idx": 148,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1939.17,
+          "exit_time": 1771560000000,
+          "pnl_pct": 0.042268259114734426,
+          "duration_candles": 10
+        },
+        {
+          "entry_time": 1771563600000,
+          "entry_price": 1955.23,
+          "entry_idx": 159,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1957.54,
+          "exit_time": 1771581600000,
+          "pnl_pct": -0.11814466840218006,
+          "duration_candles": 5
+        },
+        {
+          "entry_time": 1771585200000,
+          "entry_price": 1943.98,
+          "entry_idx": 165,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 1949.82,
+          "exit_time": 1771588800000,
+          "pnl_pct": 0.3004146133190629,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 1934.11,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 1943.7,
+          "exit_time": 1771596000000,
+          "pnl_pct": 0.49583529375268964,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 1963.95,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1963.69,
+          "exit_time": 1771614000000,
+          "pnl_pct": 0.013238626237938384,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771617600000,
+          "entry_price": 1971.05,
+          "entry_idx": 174,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1959.03,
+          "exit_time": 1771642800000,
+          "pnl_pct": 0.6098272494355791,
+          "duration_candles": 7
+        },
+        {
+          "entry_time": 1771646400000,
+          "entry_price": 1962.4,
+          "entry_idx": 182,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1974.14,
+          "exit_time": 1771704000000,
+          "pnl_pct": -0.5982470444353857,
+          "duration_candles": 16
+        }
+      ]
+    },
+    "FIL": {
+      "metrics": {
+        "total_trades": 33,
+        "win_rate": 51.52,
+        "avg_return": -0.2,
+        "max_drawdown": 8.89,
+        "sharpe_ratio": -1.85
+      },
+      "trades": [
+        {
+          "entry_time": 1771563600000,
+          "entry_price": 0.922,
+          "entry_idx": 159,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.92,
+          "exit_time": 1771570800000,
+          "pnl_pct": 0.21691973969631254,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771574400000,
+          "entry_price": 0.92,
+          "entry_idx": 162,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.923,
+          "exit_time": 1771581600000,
+          "pnl_pct": -0.3260869565217394,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771585200000,
+          "entry_price": 0.912,
+          "entry_idx": 165,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.916,
+          "exit_time": 1771588800000,
+          "pnl_pct": 0.4385964912280706,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 0.908,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.919,
+          "exit_time": 1771596000000,
+          "pnl_pct": 1.2114537444933933,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 0.953,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.955,
+          "exit_time": 1771610400000,
+          "pnl_pct": -0.2098635886673664,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771617600000,
+          "entry_price": 0.95,
+          "entry_idx": 174,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.95,
+          "exit_time": 1771632000000,
+          "pnl_pct": 0.0,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771635600000,
+          "entry_price": 0.954,
+          "entry_idx": 179,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1.007,
+          "exit_time": 1771668000000,
+          "pnl_pct": -5.555555555555549,
+          "duration_candles": 9
+        },
+        {
+          "entry_time": 1771678800000,
+          "entry_price": 0.999,
+          "entry_idx": 191,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.989,
+          "exit_time": 1771686000000,
+          "pnl_pct": 1.0010010010010018,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771689600000,
+          "entry_price": 0.974,
+          "entry_idx": 194,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.977,
+          "exit_time": 1771696800000,
+          "pnl_pct": 0.3080082135523617,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771700400000,
+          "entry_price": 0.978,
+          "entry_idx": 197,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.97,
+          "exit_time": 1771704000000,
+          "pnl_pct": 0.8179959100204507,
+          "duration_candles": 1
+        }
+      ]
+    },
+    "INJ": {
+      "metrics": {
+        "total_trades": 36,
+        "win_rate": 61.11,
+        "avg_return": -0.65,
+        "max_drawdown": 28.29,
+        "sharpe_ratio": -2.5
+      },
+      "trades": [
+        {
+          "entry_time": 1771495200000,
+          "entry_price": 3.223,
+          "entry_idx": 140,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.197,
+          "exit_time": 1771506000000,
+          "pnl_pct": 0.8067018305926094,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771509600000,
+          "entry_price": 3.255,
+          "entry_idx": 144,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.239,
+          "exit_time": 1771545600000,
+          "pnl_pct": 0.4915514592933952,
+          "duration_candles": 10
+        },
+        {
+          "entry_time": 1771549200000,
+          "entry_price": 3.235,
+          "entry_idx": 155,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.252,
+          "exit_time": 1771570800000,
+          "pnl_pct": -0.5255023183925782,
+          "duration_candles": 6
+        },
+        {
+          "entry_time": 1771574400000,
+          "entry_price": 3.242,
+          "entry_idx": 162,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.446,
+          "exit_time": 1771599600000,
+          "pnl_pct": -6.292412091301672,
+          "duration_candles": 7
+        },
+        {
+          "entry_time": 1771610400000,
+          "entry_price": 3.396,
+          "entry_idx": 172,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.422,
+          "exit_time": 1771653600000,
+          "pnl_pct": -0.7656065959952958,
+          "duration_candles": 12
+        },
+        {
+          "entry_time": 1771657200000,
+          "entry_price": 3.495,
+          "entry_idx": 185,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.689,
+          "exit_time": 1771664400000,
+          "pnl_pct": -5.5507868383404855,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771668000000,
+          "entry_price": 3.805,
+          "entry_idx": 188,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 4.002,
+          "exit_time": 1771678800000,
+          "pnl_pct": -5.177398160315364,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771682400000,
+          "entry_price": 3.828,
+          "entry_idx": 192,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 3.828,
+          "exit_time": 1771686000000,
+          "pnl_pct": 0.0,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771689600000,
+          "entry_price": 3.844,
+          "entry_idx": 194,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.739,
+          "exit_time": 1771693200000,
+          "pnl_pct": 2.7315296566077,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771696800000,
+          "entry_price": 3.756,
+          "entry_idx": 196,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.859,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 4
+        }
+      ]
+    },
+    "NEAR": {
+      "metrics": {
+        "total_trades": 31,
+        "win_rate": 61.29,
+        "avg_return": -0.08,
+        "max_drawdown": 9.03,
+        "sharpe_ratio": -0.83
+      },
+      "trades": [
+        {
+          "entry_time": 1771437600000,
+          "entry_price": 1.024,
+          "entry_idx": 124,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 1.019,
+          "exit_time": 1771444800000,
+          "pnl_pct": -0.48828125000001127,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771448400000,
+          "entry_price": 1.016,
+          "entry_idx": 127,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 1.015,
+          "exit_time": 1771462800000,
+          "pnl_pct": -0.09842519685040471,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771466400000,
+          "entry_price": 1.014,
+          "entry_idx": 132,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1.009,
+          "exit_time": 1771488000000,
+          "pnl_pct": 0.49309664694281213,
+          "duration_candles": 6
+        },
+        {
+          "entry_time": 1771502400000,
+          "entry_price": 1.004,
+          "entry_idx": 142,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.992,
+          "exit_time": 1771516800000,
+          "pnl_pct": -1.195219123505977,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771524000000,
+          "entry_price": 1.003,
+          "entry_idx": 148,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1.005,
+          "exit_time": 1771560000000,
+          "pnl_pct": -0.19940179461615173,
+          "duration_candles": 10
+        },
+        {
+          "entry_time": 1771563600000,
+          "entry_price": 1.013,
+          "entry_idx": 159,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1.012,
+          "exit_time": 1771592400000,
+          "pnl_pct": 0.09871668311943632,
+          "duration_candles": 8
+        },
+        {
+          "entry_time": 1771596000000,
+          "entry_price": 1.028,
+          "entry_idx": 168,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1.044,
+          "exit_time": 1771632000000,
+          "pnl_pct": -1.5564202334630364,
+          "duration_candles": 10
+        },
+        {
+          "entry_time": 1771635600000,
+          "entry_price": 1.052,
+          "entry_idx": 179,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1.092,
+          "exit_time": 1771671600000,
+          "pnl_pct": -3.802281368821296,
+          "duration_candles": 10
+        },
+        {
+          "entry_time": 1771675200000,
+          "entry_price": 1.082,
+          "entry_idx": 190,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 1.054,
+          "exit_time": 1771693200000,
+          "pnl_pct": -2.587800369685769,
+          "duration_candles": 5
+        },
+        {
+          "entry_time": 1771696800000,
+          "entry_price": 1.057,
+          "entry_idx": 196,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 1.058,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 4
+        }
+      ]
+    },
+    "OP": {
+      "metrics": {
+        "total_trades": 39,
+        "win_rate": 61.54,
+        "avg_return": -0.3,
+        "max_drawdown": 19.97,
+        "sharpe_ratio": -2.03
+      },
+      "trades": [
+        {
+          "entry_time": 1771552800000,
+          "entry_price": 0.1311,
+          "entry_idx": 156,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.1298,
+          "exit_time": 1771560000000,
+          "pnl_pct": -0.991609458428677,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771563600000,
+          "entry_price": 0.1319,
+          "entry_idx": 159,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1301,
+          "exit_time": 1771570800000,
+          "pnl_pct": 1.364670204700528,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771578000000,
+          "entry_price": 0.1309,
+          "entry_idx": 163,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1295,
+          "exit_time": 1771581600000,
+          "pnl_pct": 1.0695187165775284,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771585200000,
+          "entry_price": 0.1278,
+          "entry_idx": 165,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.1271,
+          "exit_time": 1771592400000,
+          "pnl_pct": -0.5477308294209752,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771596000000,
+          "entry_price": 0.1284,
+          "entry_idx": 168,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1306,
+          "exit_time": 1771603200000,
+          "pnl_pct": -1.7133956386292897,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771610400000,
+          "entry_price": 0.1281,
+          "entry_idx": 172,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.1286,
+          "exit_time": 1771614000000,
+          "pnl_pct": 0.39032006245121037,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771624800000,
+          "entry_price": 0.1275,
+          "entry_idx": 176,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1315,
+          "exit_time": 1771671600000,
+          "pnl_pct": -3.137254901960787,
+          "duration_candles": 13
+        },
+        {
+          "entry_time": 1771678800000,
+          "entry_price": 0.1309,
+          "entry_idx": 191,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1295,
+          "exit_time": 1771682400000,
+          "pnl_pct": 1.0695187165775284,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771686000000,
+          "entry_price": 0.13,
+          "entry_idx": 193,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1281,
+          "exit_time": 1771689600000,
+          "pnl_pct": 1.4615384615384714,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771693200000,
+          "entry_price": 0.1283,
+          "entry_idx": 195,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.1286,
+          "exit_time": 1771700400000,
+          "pnl_pct": -0.23382696804364358,
+          "duration_candles": 2
+        }
+      ]
+    },
+    "SNX": {
+      "metrics": {
+        "total_trades": 38,
+        "win_rate": 47.37,
+        "avg_return": -0.65,
+        "max_drawdown": 24.69,
+        "sharpe_ratio": -3.03
+      },
+      "trades": [
+        {
+          "entry_time": 1771563600000,
+          "entry_price": 0.375,
+          "entry_idx": 159,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.372,
+          "exit_time": 1771574400000,
+          "pnl_pct": 0.8000000000000007,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771578000000,
+          "entry_price": 0.378,
+          "entry_idx": 163,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.368,
+          "exit_time": 1771588800000,
+          "pnl_pct": 2.645502645502648,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771596000000,
+          "entry_price": 0.362,
+          "entry_idx": 168,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.389,
+          "exit_time": 1771617600000,
+          "pnl_pct": -7.458563535911609,
+          "duration_candles": 6
+        },
+        {
+          "entry_time": 1771624800000,
+          "entry_price": 0.408,
+          "entry_idx": 176,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.393,
+          "exit_time": 1771628400000,
+          "pnl_pct": 3.6764705882352837,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771632000000,
+          "entry_price": 0.381,
+          "entry_idx": 178,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.379,
+          "exit_time": 1771635600000,
+          "pnl_pct": -0.5249343832021002,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771639200000,
+          "entry_price": 0.393,
+          "entry_idx": 180,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.384,
+          "exit_time": 1771660800000,
+          "pnl_pct": 2.2900763358778646,
+          "duration_candles": 6
+        },
+        {
+          "entry_time": 1771664400000,
+          "entry_price": 0.384,
+          "entry_idx": 187,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.409,
+          "exit_time": 1771682400000,
+          "pnl_pct": -6.510416666666657,
+          "duration_candles": 5
+        },
+        {
+          "entry_time": 1771686000000,
+          "entry_price": 0.416,
+          "entry_idx": 193,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.406,
+          "exit_time": 1771689600000,
+          "pnl_pct": 2.403846153846143,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771693200000,
+          "entry_price": 0.406,
+          "entry_idx": 195,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.411,
+          "exit_time": 1771700400000,
+          "pnl_pct": -1.2315270935960465,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771704000000,
+          "entry_price": 0.422,
+          "entry_idx": 198,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.437,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 2
+        }
+      ]
+    },
+    "SOL": {
+      "metrics": {
+        "total_trades": 31,
+        "win_rate": 67.74,
+        "avg_return": -0.02,
+        "max_drawdown": 5.51,
+        "sharpe_ratio": -0.2
+      },
+      "trades": [
+        {
+          "entry_time": 1771448400000,
+          "entry_price": 81.28,
+          "entry_idx": 127,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 81.73,
+          "exit_time": 1771488000000,
+          "pnl_pct": -0.5536417322834681,
+          "duration_candles": 11
+        },
+        {
+          "entry_time": 1771491600000,
+          "entry_price": 81.21,
+          "entry_idx": 139,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 81.53,
+          "exit_time": 1771495200000,
+          "pnl_pct": 0.39404014283956096,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771498800000,
+          "entry_price": 81.24,
+          "entry_idx": 141,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 80.78,
+          "exit_time": 1771509600000,
+          "pnl_pct": -0.5662235352043252,
+          "duration_candles": 3
+        },
+        {
+          "entry_time": 1771516800000,
+          "entry_price": 80.79,
+          "entry_idx": 146,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 83.58,
+          "exit_time": 1771585200000,
+          "pnl_pct": -3.4533976977348577,
+          "duration_candles": 19
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 82.19,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 83.07,
+          "exit_time": 1771596000000,
+          "pnl_pct": 1.0706898649470684,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 84.38,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 84.35,
+          "exit_time": 1771642800000,
+          "pnl_pct": 0.035553448684523745,
+          "duration_candles": 12
+        },
+        {
+          "entry_time": 1771646400000,
+          "entry_price": 84.4,
+          "entry_idx": 182,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 84.12,
+          "exit_time": 1771653600000,
+          "pnl_pct": 0.331753554502371,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771657200000,
+          "entry_price": 84.24,
+          "entry_idx": 185,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 86.13,
+          "exit_time": 1771689600000,
+          "pnl_pct": -2.2435897435897445,
+          "duration_candles": 9
+        },
+        {
+          "entry_time": 1771693200000,
+          "entry_price": 86.25,
+          "entry_idx": 195,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 86.22,
+          "exit_time": 1771700400000,
+          "pnl_pct": 0.03478260869565349,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771704000000,
+          "entry_price": 85.48,
+          "entry_idx": 198,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 85.82,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 2
+        }
+      ]
+    },
+    "UNI": {
+      "metrics": {
+        "total_trades": 33,
+        "win_rate": 63.64,
+        "avg_return": -0.09,
+        "max_drawdown": 6.61,
+        "sharpe_ratio": -0.82
+      },
+      "trades": [
+        {
+          "entry_time": 1771480800000,
+          "entry_price": 3.434,
+          "entry_idx": 136,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.406,
+          "exit_time": 1771488000000,
+          "pnl_pct": 0.8153756552125808,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771495200000,
+          "entry_price": 3.387,
+          "entry_idx": 140,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 3.389,
+          "exit_time": 1771498800000,
+          "pnl_pct": 0.05904930617064599,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771502400000,
+          "entry_price": 3.358,
+          "entry_idx": 142,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 3.36,
+          "exit_time": 1771509600000,
+          "pnl_pct": 0.05955926146515127,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 3.33,
+          "entry_idx": 145,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 3.336,
+          "exit_time": 1771516800000,
+          "pnl_pct": 0.18018018018017368,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771520400000,
+          "entry_price": 3.334,
+          "entry_idx": 147,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.378,
+          "exit_time": 1771560000000,
+          "pnl_pct": -1.3197360527894433,
+          "duration_candles": 11
+        },
+        {
+          "entry_time": 1771563600000,
+          "entry_price": 3.4,
+          "entry_idx": 159,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.394,
+          "exit_time": 1771585200000,
+          "pnl_pct": 0.17647058823528775,
+          "duration_candles": 6
+        },
+        {
+          "entry_time": 1771592400000,
+          "entry_price": 3.34,
+          "entry_idx": 167,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 3.384,
+          "exit_time": 1771596000000,
+          "pnl_pct": 1.317365269461079,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 3.456,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.646,
+          "exit_time": 1771668000000,
+          "pnl_pct": -5.497685185185184,
+          "duration_candles": 19
+        },
+        {
+          "entry_time": 1771671600000,
+          "entry_price": 3.647,
+          "entry_idx": 189,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.618,
+          "exit_time": 1771689600000,
+          "pnl_pct": 0.7951741157115414,
+          "duration_candles": 5
+        },
+        {
+          "entry_time": 1771693200000,
+          "entry_price": 3.619,
+          "entry_idx": 195,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 3.636,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 5
+        }
+      ]
+    },
+    "YGG": {
+      "metrics": {
+        "total_trades": 35,
+        "win_rate": 54.29,
+        "avg_return": -0.32,
+        "max_drawdown": 28.14,
+        "sharpe_ratio": -1.18
+      },
+      "trades": [
+        {
+          "entry_time": 1771513200000,
+          "entry_price": 0.0383,
+          "entry_idx": 145,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.0383,
+          "exit_time": 1771520400000,
+          "pnl_pct": 0.0,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771524000000,
+          "entry_price": 0.0389,
+          "entry_idx": 148,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0393,
+          "exit_time": 1771552800000,
+          "pnl_pct": -1.0282776349614513,
+          "duration_candles": 8
+        },
+        {
+          "entry_time": 1771556400000,
+          "entry_price": 0.0394,
+          "entry_idx": 157,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.04,
+          "exit_time": 1771578000000,
+          "pnl_pct": -1.5228426395939172,
+          "duration_candles": 6
+        },
+        {
+          "entry_time": 1771581600000,
+          "entry_price": 0.0397,
+          "entry_idx": 164,
+          "side": "long",
+          "signal_type": "rsi",
+          "exit_price": 0.039,
+          "exit_time": 1771596000000,
+          "pnl_pct": -1.7632241813601994,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771599600000,
+          "entry_price": 0.04,
+          "entry_idx": 169,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0493,
+          "exit_time": 1771632000000,
+          "pnl_pct": -23.24999999999999,
+          "duration_candles": 9
+        },
+        {
+          "entry_time": 1771639200000,
+          "entry_price": 0.0511,
+          "entry_idx": 180,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0493,
+          "exit_time": 1771653600000,
+          "pnl_pct": 3.522504892367912,
+          "duration_candles": 4
+        },
+        {
+          "entry_time": 1771657200000,
+          "entry_price": 0.051,
+          "entry_idx": 185,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0488,
+          "exit_time": 1771660800000,
+          "pnl_pct": 4.313725490196066,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771668000000,
+          "entry_price": 0.0483,
+          "entry_idx": 188,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0477,
+          "exit_time": 1771675200000,
+          "pnl_pct": 1.2422360248447273,
+          "duration_candles": 2
+        },
+        {
+          "entry_time": 1771678800000,
+          "entry_price": 0.0502,
+          "entry_idx": 191,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0488,
+          "exit_time": 1771682400000,
+          "pnl_pct": 2.788844621513941,
+          "duration_candles": 1
+        },
+        {
+          "entry_time": 1771686000000,
+          "entry_price": 0.0492,
+          "entry_idx": 193,
+          "side": "short",
+          "signal_type": "rsi",
+          "exit_price": 0.0486,
+          "exit_time": 1771707600000,
+          "pnl_pct": 0,
+          "duration_candles": 7
+        }
+      ]
+    }
+  },
+  "comparison": {
+    "ARB": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -67.44,
+        "avg_return_diff": -3.74,
+        "sharpe_diff": -17.87
+      }
+    },
+    "BTC": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -5.88,
+        "avg_return_diff": 0.02,
+        "sharpe_diff": -0.06
+      }
+    },
+    "CRV": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -13.89,
+        "avg_return_diff": -0.72,
+        "sharpe_diff": -3.75
+      }
+    },
+    "ETH": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -5.56,
+        "avg_return_diff": -0.41,
+        "sharpe_diff": -2.69
+      }
+    },
+    "FIL": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -11.52,
+        "avg_return_diff": 0.38,
+        "sharpe_diff": 2.65
+      }
+    },
+    "INJ": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -61.11,
+        "avg_return_diff": -0.86,
+        "sharpe_diff": -8.72
+      }
+    },
+    "NEAR": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -11.29,
+        "avg_return_diff": 0.72,
+        "sharpe_diff": 2.8
+      }
+    },
+    "OP": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -61.54,
+        "avg_return_diff": -4.5,
+        "sharpe_diff": -16.29
+      }
+    },
+    "SNX": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -47.37,
+        "avg_return_diff": 0.65,
+        "sharpe_diff": 3.03
+      }
+    },
+    "SOL": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -34.41,
+        "avg_return_diff": -1.74,
+        "sharpe_diff": -7.3
+      }
+    },
+    "UNI": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -38.64,
+        "avg_return_diff": -0.89,
+        "sharpe_diff": -4.07
+      }
+    },
+    "YGG": {
+      "combined_vs_rsi": {
+        "win_rate_diff": -20.96,
+        "avg_return_diff": -1.13,
+        "sharpe_diff": -5.15
+      }
+    }
+  }
+}

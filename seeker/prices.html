@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Seeker">
+  <link rel="apple-touch-icon" href="/seeker/icons/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Prices | Solana Seeker</title>
+  <link rel="stylesheet" href="/seeker/styles.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <style>
+    body { background: var(--bg-primary); color: var(--text-primary); padding-bottom: 80px; }
+    .header { padding: 16px; background: var(--bg-secondary); display: flex; justify-content: space-between; align-items: center; }
+    .sort-btns { display: flex; gap: 8px; }
+    .sort-btns button { padding: 6px 12px; background: var(--bg-tertiary); border: none; border-radius: 6px; color: var(--text-primary); font-size: 0.8rem; }
+    .sort-btns button.active { background: var(--blue); color: white; }
+    table { width: 100%; border-collapse: collapse; }
+    th { padding: 12px; text-align: left; font-size: 0.8rem; color: var(--text-tertiary); border-bottom: 1px solid var(--glass-border); }
+    td { padding: 16px 12px; border-bottom: 1px solid var(--glass-border); }
+    tr:active { background: var(--bg-tertiary); }
+    .coin { font-weight: 600; font-size: 1.1rem; }
+    .price { font-weight: 600; }
+    .change { font-weight: 600; }
+    .change.up { color: var(--green); }
+    .change.down { color: var(--red); }
+    .score-bar { width: 50px; height: 6px; background: var(--bg-tertiary); border-radius: 3px; overflow: hidden; }
+    .score-fill { height: 100%; background: var(--blue); }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>💰 Prices</h1>
+    <div class="sort-btns">
+      <button onclick="sortBy='price';render()">Price</button>
+      <button onclick="sortBy='change';render()" class="active">24h</button>
+      <button onclick="sortBy='score';render()">Score</button>
+    </div>
+  </div>
+  
+  <table>
+    <thead>
+      <tr><th>Coin</th><th>Price</th><th>24h</th><th>Signal</th></tr>
+    </thead>
+    <tbody id="prices-list"></tbody>
+  </table>
+
+  <nav class="bottom-nav">
+    <a href="/seeker/index.html">🏠 Feed</a>
+    <a href="/seeker/digest.html">📑 Digest</a>
+    <a href="/seeker/prices.html" class="active">💰 Prices</a>
+    <a href="/seeker/settings.html">⚙️</a>
+  </nav>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    let prices = [];
+    let signals = {};
+    let sortBy = 'change';
+    
+    async function load() {
+      try {
+        const [pRes, sRes] = await Promise.all([
+          fetch('/api/prices?key=' + API_KEY),
+          fetch('/api/quality?key=' + API_KEY).catch(() => ({json: () => ({signals: []})}))
+        ]);
+        prices = (await pRes.json()).prices || [];
+        const sigData = await sRes.json();
+        (sigData.signals || []).forEach(s => signals[s.coin] = s.score || 50);
+        
+        render();
+      } catch(e) { console.log(e); }
+    }
+    
+    function render() {
+      const sorted = [...prices].sort((a, b) => {
+        if (sortBy === 'change') return (b.change_24h_pct || 0) - (a.change_24h_pct || 0);
+        if (sortBy === 'price') return (b.price || 0) - (a.price || 0);
+        return (signals[b.coin] || 0) - (signals[a.coin] || 0);
+      });
+      
+      document.getElementById('prices-list').innerHTML = sorted.map(p => {
+        const change = p.change_24h_pct || 0;
+        const score = signals[p.coin] || 0;
+        return `
+          <tr onclick="location.href='/seeker/signal.html?coin=${p.coin}'">
+            <td class="coin">${p.coin}</td>
+            <td class="price">$${p.price.toFixed(2)}</td>
+            <td class="change ${change >= 0 ? 'up' : 'down'}">${change >= 0 ? '+' : ''}${change.toFixed(1)}%</td>
+            <td><div class="score-bar"><div class="score-fill" style="width:${score}%"></div></div></td>
+          </tr>
+        `;
+      }).join('');
+    }
+    
+    load();
+  <script>function toggleTheme(){const isDark=document.body.classList.contains("dark");document.body.classList.toggle("dark");localStorage.setItem("seeker_theme",isDark?"light":"dark");document.querySelector("button[onclick^=toggleTheme]").textContent=isDark?"☀️":"🌙"}if(localStorage.getItem("seeker_theme")==="light"){document.body.classList.remove("dark")}</script>
+</body>
+</html>

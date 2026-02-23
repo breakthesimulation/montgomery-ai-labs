@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-02-21T08:25:50.525937",
+  "correlations": [
+    {
+      "market": "SOL $200 by 2025?",
+      "symbol": "SOL",
+      "odds_shift": 5,
+      "price_move_pct": 0.51190476190477,
+      "direction": "odds_up_price_up",
+      "timestamp": "2026-02-21T08:25:50.188019",
+      "significant": false
+    },
+    {
+      "market": "BTC ETF Approval 2025?",
+      "symbol": "BTC",
+      "odds_shift": 6,
+      "price_move_pct": 1.4577313432835717,
+      "direction": "odds_up_price_up",
+      "timestamp": "2026-02-21T08:25:50.436963",
+      "significant": true
+    }
+  ],
+  "significant_count": 1
+}

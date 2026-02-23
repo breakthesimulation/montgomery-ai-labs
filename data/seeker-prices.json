@@ -1,0 +1,45 @@
+{
+  "prices": [
+    {
+      "coin": "BTC",
+      "price": 64786.63,
+      "change_24h_pct": -4.599
+    },
+    {
+      "coin": "ETH",
+      "price": 1863.15,
+      "change_24h_pct": -5.532
+    },
+    {
+      "coin": "SOL",
+      "price": 77.81,
+      "change_24h_pct": -8.416
+    },
+    {
+      "coin": "BNB",
+      "price": 587.27,
+      "change_24h_pct": -5.855
+    },
+    {
+      "coin": "XRP",
+      "price": 1.3427,
+      "change_24h_pct": -5.689
+    },
+    {
+      "coin": "FIL",
+      "price": 0.883,
+      "change_24h_pct": -7.053
+    },
+    {
+      "coin": "UNI",
+      "price": 3.3,
+      "change_24h_pct": -8.104
+    },
+    {
+      "coin": "ARB",
+      "price": 0.0903,
+      "change_24h_pct": -6.425
+    }
+  ],
+  "updated": "2026-02-23T03:00:07.022369"
+}

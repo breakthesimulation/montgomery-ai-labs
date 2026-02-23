@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Seeker">
+  <link rel="apple-touch-icon" href="/seeker/icons/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Saved | Solana Seeker</title>
+  <link rel="manifest" href="/seeker/manifest.json">
+  <link rel="stylesheet" href="/seeker/styles.css">
+</head>
+<body>
+  <button onclick="toggleTheme()" style="position:fixed;top:12px;right:12px;background:none;border:none;font-size:1.2rem;z-index:100;">🌙</button>
+  <header class="page-header">
+    <a href="/seeker/index.html" style="color:var(--text-secondary);text-decoration:none;">← Back</a>
+    <h1>🔖 Saved</h1>
+    <span style="font-size:0.85rem;color:var(--text-muted);" id="count">0</span>
+  </header>
+
+  <div id="saved-content" style="padding-top:16px;padding-bottom:80px;"></div>
+
+  <div id="empty" style="display:none;padding:60px;text-align:center;">
+    <div style="font-size:3rem;margin-bottom:16px;">📑</div>
+    <p class="text-muted">No saved articles</p>
+    <a href="/seeker/index.html" class="btn btn-secondary" style="margin-top:16px;display:inline-block;">Browse Feed</a>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="/seeker/index.html"><span>🏠</span>Feed</a>
+    <a href="/seeker/digest.html"><span>🔔</span>Digest</a>
+    <a href="/seeker/notifications.html"><span>📣</span>Alerts</a>
+    <a href="/seeker/saved.html" class="active"><span>🔖</span>Saved</a>
+    <a href="/seeker/prices.html">💰 Prices</a>
+    <a href="/seeker/settings.html"><span>⚙️</span>Settings</a>
+  </nav>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    let savedIds = JSON.parse(localStorage.getItem('saved_articles') || '[]');
+
+    function timeAgo(timestamp) {
+      const seconds = Math.floor((Date.now() - new Date(timestamp)) / 1000);
+      if (seconds < 60) return 'just now';
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return minutes + 'm ago';
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return hours + 'h ago';
+      return Math.floor(hours / 24) + 'd ago';
+    }
+
+    function removeSave(id) {
+      savedIds = savedIds.filter(s => s !== id);
+      localStorage.setItem('saved_articles', JSON.stringify(savedIds));
+      loadSaved();
+    }
+
+    let touchStartX = 0;
+    let currentSwipe = null;
+
+    function handleSwipeStart(e, id) {
+      touchStartX = e.touches[0].clientX;
+      currentSwipe = id;
+    }
+
+    function handleSwipeMove(e) {
+      if (!currentSwipe) return;
+      const diff = e.touches[0].clientX - touchStartX;
+      const el = document.querySelector(`[data-id="${currentSwipe}"]`);
+      if (el) {
+        el.style.transform = diff < 0 ? `translateX(${Math.max(-80, diff)}px)` : `translateX(0)`;
+      }
+    }
+
+    function handleSwipeEnd(e, id) {
+      if (!currentSwipe) return;
+      const diff = e.changedTouches[0].clientX - touchStartX;
+      if (diff < -60) {
+        removeSave(id);
+      } else {
+        const el = document.querySelector(`[data-id="${id}"]`);
+        if (el) el.style.transform = 'translateX(0)';
+      }
+      currentSwipe = null;
+    }
+
+    async function loadSaved() {
+      document.getElementById('count').textContent = savedIds.length;
+      
+      if (!savedIds.length) {
+        document.getElementById('empty').style.display = 'block';
+        document.getElementById('saved-content').innerHTML = '';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/seeker/feed?key=' + API_KEY);
+        const data = await res.json();
+        
+        const savedArticles = (data.articles || []).filter(a => savedIds.includes(a.id));
+        
+        if (!savedArticles.length) {
+          document.getElementById('empty').style.display = 'block';
+          return;
+        }
+
+        document.getElementById('empty').style.display = 'none';
+        
+        document.getElementById('saved-content').innerHTML = savedArticles.map(article => `
+          <div class="swipe-item" data-id="${article.id}"
+               ontouchstart="handleSwipeStart(event, '${article.id}')"
+               ontouchmove="handleSwipeMove(event)"
+               ontouchend="handleSwipeEnd(event, '${article.id}')">
+            <a href="/seeker/article.html?id=${article.id}" class="news-card" style="margin:0 0 8px;">
+              <div class="content">
+                <div class="headline">${article.title}</div>
+                <div class="footer">
+                  <span class="time">${timeAgo(article.published)}</span>
+                  <span class="category">${article.category}</span>
+                </div>
+              </div>
+            </a>
+            <div class="delete-btn" onclick="removeSave('${article.id}')">🗑️ Delete</div>
+          </div>
+        `).join('');
+      } catch(e) {
+        console.error(e);
+      }
+    }
+
+    loadSaved();
+  </script>
+</body>
+</html>

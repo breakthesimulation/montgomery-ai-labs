@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Solana DEX Volume Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-purple: #9945FF;
+            --accent-green: #14F195;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --border-color: #2a2a3a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .logo-text .accent {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .refresh-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-tertiary);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .refresh-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .main {
+            padding: 40px 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+        
+        .chart-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .bar-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 120px;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .bar-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .bar-container {
+            height: 32px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .bar {
+            height: 100%;
+            border-radius: 8px;
+            transition: width 0.5s ease;
+        }
+        
+        .bar-1 { background: linear-gradient(90deg, var(--accent-purple), #b366ff); }
+        .bar-2 { background: linear-gradient(90deg, var(--accent-green), #4fffb0); }
+        .bar-3 { background: linear-gradient(90deg, var(--accent-blue), #60a5fa); }
+        .bar-4 { background: linear-gradient(90deg, var(--accent-orange), #fbbf24); }
+        .bar-5 { background: linear-gradient(90deg, #ec4899, #f9a8d4); }
+        .bar-6 { background: linear-gradient(90deg, #8b5cf6, #c4b5fd); }
+        .bar-7 { background: linear-gradient(90deg, #06b6d4, #67e8f9); }
+        .bar-8 { background: linear-gradient(90deg, #84cc16, #a3e635); }
+        
+        .bar-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+        
+        .table-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 60px 1fr 120px 100px 100px;
+            gap: 16px;
+            padding: 16px 24px;
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pair-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 120px 100px 100px;
+            gap: 16px;
+            padding: 14px 24px;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+        }
+        
+        .pair-row:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .pair-row:last-child {
+            border-bottom: none;
+        }
+        
+        .rank {
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        
+        .rank.top-3 {
+            color: var(--accent-orange);
+        }
+        
+        .pair-name {
+            font-weight: 600;
+        }
+        
+        .pair-volume {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-green);
+        }
+        
+        .price-change {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+        
+        .price-change.positive {
+            color: var(--accent-green);
+        }
+        
+        .price-change.negative {
+            color: var(--accent-red);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .error {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--accent-red);
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 12px;
+            margin: 20px;
+        }
+        
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 24px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-brand {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .table-header, .pair-row {
+                grid-template-columns: 50px 1fr 80px;
+            }
+            .table-header > *:nth-child(4),
+            .table-header > *:nth-child(5),
+            .pair-row > *:nth-child(4),
+            .pair-row > *:nth-child(5) {
+                display: none;
+            }
+            .bar-row {
+                grid-template-columns: 80px 1fr 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-text">📊 <span class="accent">Solana</span> DEX Volume</span>
+            </div>
+            <div class="refresh-badge">
+                <span class="dot"></span>
+                Live Data
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h1 class="hero-title">DEX Trading Volume</h1>
+                <p class="hero-subtitle">Top trading pairs on Solana DEXes (Jupiter, Raydium, Orca)</p>
+            </section>
+            
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalVolume">-</div>
+                    <div class="stat-label">24h Volume</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalTrades">-</div>
+                    <div class="stat-label">24h Trades</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="topPair">-</div>
+                    <div class="stat-label">Top Pair</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="lastUpdate">-</div>
+                    <div class="stat-label">Last Updated</div>
+                </div>
+            </div>
+            
+            <div class="chart-section">
+                <h2 class="chart-title">Volume by Trading Pair (24h)</h2>
+                <div class="bar-chart" id="volumeChart">
+                    <div class="loading">Loading chart data...</div>
+                </div>
+            </div>
+            
+            <div class="table-section">
+                <div class="table-header">
+                    <div>#</div>
+                    <div>Pair</div>
+                    <div>Volume</div>
+                    <div>Price</div>
+                    <div>24h Change</div>
+                </div>
+                <div id="pairsList">
+                    <div class="loading">Loading pairs...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">Powered by Montgomery AI Labs</div>
+            <div class="footer-brand">Data: DeFiLlama / Jupiter</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mock data for demonstration - in production, use real API calls
+        const mockData = {
+            pairs: [
+                { name: 'SOL/USDC', base: 'SOL', quote: 'USDC', volume: 1250000000, price: 98.45, change: 2.34 },
+                { name: 'SOL/USDT', base: 'SOL', quote: 'USDT', volume: 890000000, price: 98.42, change: 2.28 },
+                { name: 'JUP/USDC', base: 'JUP', quote: 'USDC', volume: 456000000, price: 0.82, change: -1.23 },
+                { name: 'BONK/USDC', base: 'BONK', quote: 'USDC', volume: 234000000, price: 0.0000185, change: 5.67 },
+                { name: 'WEN/USDC', base: 'WEN', quote: 'USDC', volume: 189000000, price: 0.000185, change: 3.45 },
+                { name: 'JTO/USDC', base: 'JTO', quote: 'USDC', volume: 156000000, price: 2.34, change: -0.89 },
+                { name: 'PYTH/USDC', base: 'PYTH', quote: 'USDC', volume: 134000000, price: 0.42, change: 1.56 },
+                { name: 'WIF/USDC', base: 'WIF', quote: 'USDC', volume: 112000000, price: 2.18, change: 8.92 }
+            ]
+        };
+        
+        let pairs = [];
+        
+        async function fetchDexData() {
+            // In production, fetch from DeFiLlama or Jupiter API
+            // For now, use mock data with simulated API call
+            return new Promise(resolve => {
+                setTimeout(() => resolve(mockData), 500);
+            });
+        }
+        
+        function formatVolume(usd) {
+            if (usd >= 1e9) return '$' + (usd / 1e9).toFixed(2) + 'B';
+            if (usd >= 1e6) return '$' + (usd / 1e6).toFixed(2) + 'M';
+            if (usd >= 1e3) return '$' + (usd / 1e3).toFixed(2) + 'K';
+            return '$' + usd.toFixed(2);
+        }
+        
+        function formatPrice(price) {
+            if (price >= 1) return '$' + price.toFixed(2);
+            if (price >= 0.01) return '$' + price.toFixed(4);
+            return '$' + price.toFixed(6);
+        }
+        
+        function renderChart() {
+            const chart = document.getElementById('volumeChart');
+            const maxVolume = Math.max(...pairs.map(p => p.volume));
+            
+            chart.innerHTML = pairs.slice(0, 8).map((pair, i) => {
+                const width = (pair.volume / maxVolume) * 100;
+                return `
+                    <div class="bar-row">
+                        <div class="bar-label">${pair.base}/${pair.quote}</div>
+                        <div class="bar-container">
+                            <div class="bar bar-${i + 1}" style="width: ${width}%"></div>
+                        </div>
+                        <div class="bar-value">${formatVolume(pair.volume)}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function renderTable() {
+            const list = document.getElementById('pairsList');
+            
+            list.innerHTML = pairs.map((pair, i) => {
+                const rank = i + 1;
+                const changeClass = pair.change >= 0 ? 'positive' : 'negative';
+                const changeSign = pair.change >= 0 ? '+' : '';
+                
+                return `
+                    <div class="pair-row">
+                        <div class="rank ${rank <= 3 ? 'top-3' : ''}">${rank}</div>
+                        <div class="pair-name">${pair.base}/${pair.quote}</div>
+                        <div class="pair-volume">${formatVolume(pair.volume)}</div>
+                        <div class="pair-price">${formatPrice(pair.price)}</div>
+                        <div class="price-change ${changeClass}">${changeSign}${pair.change.toFixed(2)}%</div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function updateStats() {
+            const totalVolume = pairs.reduce((sum, p) => sum + p.volume, 0);
+            const avgChange = pairs.reduce((sum, p) => sum + p.change, 0) / pairs.length;
+            
+            document.getElementById('totalVolume').textContent = formatVolume(totalVolume);
+            document.getElementById('totalTrades').textContent = pairs.length + ' Pairs';
+            document.getElementById('topPair').textContent = pairs[0]?.base || '-';
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString();
+        }
+        
+        async function init() {
+            try {
+                const data = await fetchDexData();
+                pairs = data.pairs;
+                renderChart();
+                renderTable();
+                updateStats();
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('pairsList').innerHTML = 
+                    `<div class="error">Error loading data: ${error.message}</div>`;
+            }
+        }
+        
+        // Refresh every 30 seconds
+        init();
+        setInterval(init, 30000);
+    </script>
+</body>
+</html>

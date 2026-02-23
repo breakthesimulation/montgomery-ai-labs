@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Confluence | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 24px; }
+    .coin-row { background: var(--bg-tertiary); border-radius: 12px; padding: 16px; margin-bottom: 12px; cursor: pointer; }
+    .coin-row:hover { opacity: 0.9; }
+    .coin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .coin-name { font-size: 1.2rem; font-weight: 600; }
+    .confluence-score { font-size: 1.5rem; font-weight: 700; }
+    .confluence-bars { display: flex; gap: 8px; justify-content: center; }
+    .bar-container { text-align: center; }
+    .bar { width: 40px; height: 60px; background: var(--bg-secondary); border-radius: 4px; position: relative; overflow: hidden; }
+    .bar-fill { position: absolute; bottom: 0; left: 0; right: 0; transition: height 0.3s; }
+    .bar-fill.bullish { background: var(--green); }
+    .bar-fill.bearish { background: var(--red); }
+    .bar-fill.neutral { background: var(--text-tertiary); }
+    .bar-label { font-size: 0.7rem; color: var(--text-tertiary); margin-top: 4px; }
+    .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-top: 1px solid var(--glass-border); font-size: 0.9rem; }
+    .detail-row:first-child { border-top: none; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1>🎯 Signal Confluence</h1>
+  
+  <div id="confluence-list"></div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    
+    // Demo data - in production would pull from APIs
+    const coins = [
+      {name: 'SOL', rsi: 'bullish', fib: 'bullish', funding: 'neutral', ew: 'bullish', score: 75},
+      {name: 'BTC', rsi: 'bullish', fib: 'neutral', funding: 'bearish', ew: 'neutral', score: 25},
+      {name: 'ETH', rsi: 'bearish', fib: 'bullish', funding: 'bullish', ew: 'bearish', score: 50},
+      {name: 'JUP', rsi: 'bullish', fib: 'bullish', funding: 'bullish', ew: 'bullish', score: 100},
+      {name: 'NEAR', rsi: 'neutral', fib: 'neutral', funding: 'bullish', ew: 'neutral', score: 25},
+    ];
+    
+    function getBarClass(signal) {
+      if (signal === 'bullish') return 'bullish';
+      if (signal === 'bearish') return 'bearish';
+      return 'neutral';
+    }
+    
+    function getBarHeight(signal) {
+      if (signal === 'bullish') return '80%';
+      if (signal === 'bearish') return '80%';
+      return '30%';
+    }
+    
+    function render() {
+      // Sort by score
+      coins.sort((a, b) => b.score - a.score);
+      
+      document.getElementById('confluence-list').innerHTML = coins.map(c => `
+        <div class="coin-row" onclick="this.querySelector('.details').classList.toggle('hidden')">
+          <div class="coin-header">
+            <span class="coin-name">${c.name}</span>
+            <span class="confluence-score" style="color: ${c.score > 60 ? 'var(--green)' : c.score > 30 ? 'var(--yellow)' : 'var(--red)'}">${c.score}%</span>
+          </div>
+          <div class="confluence-bars">
+            <div class="bar-container">
+              <div class="bar"><div class="bar-fill ${getBarClass(c.rsi)}" style="height: ${getBarHeight(c.rsi)}"></div></div>
+              <div class="bar-label">RSI</div>
+            </div>
+            <div class="bar-container">
+              <div class="bar"><div class="bar-fill ${getBarClass(c.fib)}" style="height: ${getBarHeight(c.fib)}"></div></div>
+              <div class="bar-label">Fib</div>
+            </div>
+            <div class="bar-container">
+              <div class="bar"><div class="bar-fill ${getBarClass(c.funding)}" style="height: ${getBarHeight(c.funding)}"></div></div>
+              <div class="bar-label">Funding</div>
+            </div>
+            <div class="bar-container">
+              <div class="bar"><div class="bar-fill ${getBarClass(c.ew)}" style="height: ${getBarHeight(c.ew)}"></div></div>
+              <div class="bar-label">E/W</div>
+            </div>
+          </div>
+          <div class="details hidden" style="margin-top: 12px;">
+            <div class="detail-row"><span>RSI Signal</span><span>${c.rsi}</span></div>
+            <div class="detail-row"><span>Fibonacci</span><span>${c.fib}</span></div>
+            <div class="detail-row"><span>Funding Rate</span><span>${c.funding}</span></div>
+            <div class="detail-row"><span>Elliot Wave</span><span>${c.ew}</span></div>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    render();
+  </script>
+</body>
+</html>

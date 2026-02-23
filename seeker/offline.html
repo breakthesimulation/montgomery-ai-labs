@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Offline | Solana Seeker</title>
+  <link rel="stylesheet" href="/seeker/styles.css">
+  <style>
+    body { background: #0A0A0F; color: #fff; font-family: -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 20px; }
+    .offline-card { max-width: 400px; }
+    .icon { font-size: 4rem; margin-bottom: 20px; }
+    h1 { font-size: 1.5rem; margin-bottom: 12px; }
+    p { color: #8E8E93; margin-bottom: 24px; }
+    .btn { display: inline-block; padding: 14px 28px; background: #0A84FF; color: #fff; border-radius: 10px; text-decoration: none; font-weight: 600; }
+    .cached { margin-top: 32px; text-align: left; }
+    .cached h3 { font-size: 0.9rem; color: #8E8E93; margin-bottom: 12px; }
+    .cached-item { padding: 10px; background: #1C1C1E; border-radius: 8px; margin-bottom: 8px; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="offline-card">
+    <div class="icon">📡</div>
+    <h1>You're offline</h1>
+    <p>Check your connection and try again</p>
+    <a href="/" class="btn" onclick="location.reload()">Refresh</a>
+    
+    <div class="cached">
+      <h3>📰 Cached Headlines</h3>
+      <div id="cached-list"></div>
+    </div>
+  </div>
+  
+  <script>
+    // Show cached headlines
+    try {
+      const cached = JSON.parse(localStorage.getItem('seeker_feed'));
+      if (cached && cached.val) {
+        const list = document.getElementById('cached-list');
+        list.innerHTML = cached.val.slice(0, 5).map(a => 
+          '<div class="cached-item">' + a.title + '</div>'
+        ).join('');
+      }
+    } catch(e) {}
+  </script>
+</body>
+</html>

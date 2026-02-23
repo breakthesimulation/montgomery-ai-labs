@@ -1,0 +1,31 @@
+{
+  "open": [
+    {
+      "symbol": "SOL",
+      "side": "LONG",
+      "size": 100,
+      "entry_price": 80.0,
+      "stop_loss": 72.0,
+      "take_profit": 100.0,
+      "opened_at": "2026-02-20T21:06:24.513741",
+      "closed_at": null,
+      "pnl": 0,
+      "pnl_pct": 0,
+      "status": "open"
+    },
+    {
+      "symbol": "BTC",
+      "side": "LONG",
+      "size": 0.1,
+      "entry_price": 65000,
+      "stop_loss": 58500,
+      "take_profit": 78000,
+      "opened_at": "2026-02-20T21:06:24.514250",
+      "closed_at": null,
+      "pnl": 0,
+      "pnl_pct": 0,
+      "status": "open"
+    }
+  ],
+  "closed": []
+}

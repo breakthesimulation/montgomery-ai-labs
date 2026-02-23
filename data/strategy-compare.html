@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy Comparison | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        
+        .best { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 20px; display: flex; gap: 24px; }
+        .best-item { text-align: center; }
+        .best-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+        .best-value { font-size: 1.1rem; font-weight: 700; color: var(--green); margin-top: 4px; }
+        
+        .table { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 12px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        .mono { font-family: 'IBM Plex Mono'; }
+        .positive { color: var(--green); }
+        .negative { color: var(--red); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Strategy Comparison</h1>
+        </header>
+        
+        <div class="best">
+            <div class="best-item">
+                <div class="best-label">Best Return</div>
+                <div class="best-value">btc_accumulation</div>
+            </div>
+            <div class="best-item">
+                <div class="best-label">Best Sharpe</div>
+                <div class="best-value">btc_accumulation</div>
+            </div>
+            <div class="best-item">
+                <div class="best-label">Best Win Rate</div>
+                <div class="best-value">btc_accumulation</div>
+            </div>
+        </div>
+        
+        <div class="table">
+            <table>
+                <thead><tr><th>Strategy</th><th>Description</th><th>Avg Return</th><th>Win Rate</th><th>Sharpe</th><th>Max DD</th></tr></thead>
+                <tbody>
+                    
+            <tr>
+                <td><strong>alt_rotation</strong></td>
+                <td>Alternating between assets</td>
+                <td class="mono positive">+7.50%</td>
+                <td class="mono">52.5%</td>
+                <td class="mono">0.50</td>
+                <td class="mono negative">-21.3%</td>
+            </tr>
+        
+            <tr>
+                <td><strong>btc_accumulation</strong></td>
+                <td>Accumulate BTC on dips</td>
+                <td class="mono positive">+15.58%</td>
+                <td class="mono">56.2%</td>
+                <td class="mono">1.30</td>
+                <td class="mono negative">-15.0%</td>
+            </tr>
+        
+            <tr>
+                <td><strong>mean_reversion</strong></td>
+                <td>Buy oversold, sell overbought</td>
+                <td class="mono negative">-4.44%</td>
+                <td class="mono">43.9%</td>
+                <td class="mono">-0.22</td>
+                <td class="mono negative">-22.8%</td>
+            </tr>
+        
+            <tr>
+                <td><strong>momentum</strong></td>
+                <td>Follow trends</td>
+                <td class="mono positive">+3.38%</td>
+                <td class="mono">49.4%</td>
+                <td class="mono">0.19</td>
+                <td class="mono negative">-22.8%</td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

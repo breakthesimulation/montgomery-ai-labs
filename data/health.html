@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Health | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; --yellow: #fbbf24; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        
+        .status-banner { background: var(--card); border: 2px solid var(--red); border-radius: 12px; padding: 20px; margin-bottom: 24px; text-align: center; }
+        .status-title { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+        .status-value { font-size: 2rem; font-weight: 700; color: var(--red); margin-top: 8px; }
+        
+        .stats { display: flex; gap: 16px; margin-bottom: 24px; }
+        .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; flex: 1; text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; }
+        .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; }
+        
+        .table { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 12px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        .mono { font-family: 'IBM Plex Mono'; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💊 System Health</h1>
+            <span class="mono" style="color:var(--text-muted)">Updated: <span id="time">--:--:--</span></span>
+        </header>
+        
+        <div class="status-banner">
+            <div class="status-title">Overall Status</div>
+            <div class="status-value">CRITICAL</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value" style="color:var(--green)">1</div>
+                <div class="stat-label">Running</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" style="color:var(--red)">5</div>
+                <div class="stat-label">Stopped</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Total</div>
+            </div>
+        </div>
+        
+        <div class="table">
+            <table>
+                <thead><tr><th>Service</th><th>Status</th><th>Last Seen</th></tr></thead>
+                <tbody>
+                    
+            <tr>
+                <td>🟡 Alert Monitor</td>
+                <td style="color:var(--yellow)">STALE</td>
+                <td class="mono">14:41:03</td>
+            </tr>
+        
+            <tr>
+                <td>🔴 Paper Trading</td>
+                <td style="color:var(--red)">STOPPED</td>
+                <td class="mono">None</td>
+            </tr>
+        
+            <tr>
+                <td>🟡 Token Scanner</td>
+                <td style="color:var(--yellow)">STALE</td>
+                <td class="mono">04:00:02</td>
+            </tr>
+        
+            <tr>
+                <td>🟡 DEX Monitor</td>
+                <td style="color:var(--yellow)">STALE</td>
+                <td class="mono">04:00:01</td>
+            </tr>
+        
+            <tr>
+                <td>🟡 On-Chain Flow</td>
+                <td style="color:var(--yellow)">STALE</td>
+                <td class="mono">03:00:02</td>
+            </tr>
+        
+            <tr>
+                <td>🟢 Price API</td>
+                <td style="color:var(--green)">RUNNING</td>
+                <td class="mono">13:05:01</td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+    async function update() {
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        try {
+            const resp = await fetch('/data/health.json');
+            const data = await resp.json();
+            
+            // Update stats
+        } catch(e) { console.error(e); }
+    }
+    update();
+    setInterval(update, 30000);
+    </script>
+</body>
+</html>

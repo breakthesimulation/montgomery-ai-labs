@@ -1,0 +1,51 @@
+{
+  "alerts": [
+    {
+      "type": "volume_spike",
+      "dex": "Raydium",
+      "pair": "SOL/USDC",
+      "volume": 2500000,
+      "change": 340,
+      "timestamp": "2026-02-21T04:00:01.957763"
+    },
+    {
+      "type": "new_pool",
+      "dex": "Orca",
+      "pair": "BONK/SOL",
+      "liquidity": 150000,
+      "change": 100,
+      "timestamp": "2026-02-21T04:00:01.957775"
+    },
+    {
+      "type": "large_swap",
+      "dex": "Jupiter",
+      "pair": "SOL/USDC",
+      "amount": 45000,
+      "change": 25,
+      "timestamp": "2026-02-21T04:00:01.957777"
+    },
+    {
+      "type": "volume_spike",
+      "dex": "Raydium",
+      "pair": "JTO/SOL",
+      "volume": 890000,
+      "change": 180,
+      "timestamp": "2026-02-21T04:00:01.957779"
+    },
+    {
+      "type": "new_pool",
+      "dex": "Orca",
+      "pair": "WIF/SOL",
+      "liquidity": 320000,
+      "change": 100,
+      "timestamp": "2026-02-21T04:00:01.957780"
+    }
+  ],
+  "summary": {
+    "total_volume_24h": 3390000,
+    "total_liquidity": 470000,
+    "spikes": 2,
+    "new_pools": 2
+  },
+  "timestamp": "2026-02-21T04:00:01.957791"
+}

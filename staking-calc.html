@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Solana Staking Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-purple: #9945FF;
+            --accent-green: #14F195;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --border-color: #2a2a3a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .logo-text .accent {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .sol-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-tertiary);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .sol-price .label {
+            color: var(--text-muted);
+        }
+        
+        .sol-price .value {
+            color: var(--accent-green);
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .main {
+            padding: 40px 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        
+        @media (max-width: 900px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 14px 16px;
+            padding-right: 60px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+        
+        .input-suffix {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .slider-container {
+            margin-top: 8px;
+        }
+        
+        .slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        
+        .results-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .results-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .total-value {
+            text-align: right;
+        }
+        
+        .total-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .total-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .reward-card {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-purple);
+        }
+        
+        .reward-card.daily { border-left-color: var(--accent-green); }
+        .reward-card.weekly { border-left-color: var(--accent-blue); }
+        .reward-card.monthly { border-left-color: var(--accent-purple); }
+        .reward-card.yearly { border-left-color: var(--accent-orange); }
+        
+        .reward-period {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        
+        .reward-sol {
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .reward-usd {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .breakdown {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .breakdown-title {
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+        
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        
+        .breakdown-row:last-child {
+            border-bottom: none;
+        }
+        
+        .breakdown-label {
+            color: var(--text-secondary);
+        }
+        
+        .breakdown-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+        
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .info-box strong {
+            color: var(--accent-blue);
+        }
+        
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 24px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-brand {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-text">⚡ <span class="accent">Solana</span> Staking Calculator</span>
+            </div>
+            <div class="sol-price">
+                <span class="label">SOL:</span>
+                <span class="value" id="solPrice">$98.45</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h1 class="hero-title">Staking Rewards Calculator</h1>
+                <p class="hero-subtitle">Calculate your potential staking rewards on Solana</p>
+            </section>
+            
+            <div class="calculator-grid">
+                <div class="input-card">
+                    <div class="input-group">
+                        <label class="input-label">Amount to Stake</label>
+                        <div class="input-wrapper">
+                            <input type="number" class="input-field" id="solAmount" value="1000" min="1" step="1">
+                            <span class="input-suffix">SOL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label class="input-label">Validator Commission</label>
+                            <div class="input-wrapper">
+                                <input type="number" class="input-field" id="commission" value="5" min="0" max="100" step="0.1">
+                                <span class="input-suffix">%</span>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" class="slider" id="commissionSlider" min="0" max="20" value="5" step="0.5">
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Expected APY</label>
+                            <div class="input-wrapper">
+                                <input type="number" class="input-field" id="apy" value="7.5" min="0" max="20" step="0.1">
+                                <span class="input-suffix">%</span>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" class="slider" id="apySlider" min="1" max="15" value="7.5" step="0.5">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <strong>Note:</strong> Staking rewards vary based on network participation, validator performance, and inflation rate. These calculations are estimates based on the APY you input.
+                    </div>
+                </div>
+                
+                <div class="results-card">
+                    <div class="results-header">
+                        <h2 class="results-title">Estimated Rewards</h2>
+                        <div class="total-value">
+                            <div class="total-label">Total Staked</div>
+                            <div class="total-amount" id="totalStaked">1,000 SOL</div>
+                        </div>
+                    </div>
+                    
+                    <div class="rewards-grid">
+                        <div class="reward-card daily">
+                            <div class="reward-period">Daily</div>
+                            <div class="reward-sol" id="rewardDaily">0.21 SOL</div>
+                            <div class="reward-usd" id="rewardDailyUsd">$20.67</div>
+                        </div>
+                        <div class="reward-card weekly">
+                            <div class="reward-period">Weekly</div>
+                            <div class="reward-sol" id="rewardWeekly">1.44 SOL</div>
+                            <div class="reward-usd" id="rewardWeeklyUsd">$141.72</div>
+                        </div>
+                        <div class="reward-card monthly">
+                            <div class="reward-period">Monthly</div>
+                            <div class="reward-sol" id="rewardMonthly">6.25 SOL</div>
+                            <div class="reward-usd" id="rewardMonthlyUsd">$615.31</div>
+                        </div>
+                        <div class="reward-card yearly">
+                            <div class="reward-period">Yearly</div>
+                            <div class="reward-sol" id="rewardYearly">75.00 SOL</div>
+                            <div class="reward-usd" id="rewardYearlyUsd">$7,381.88</div>
+                        </div>
+                    </div>
+                    
+                    <div class="breakdown">
+                        <h3 class="breakdown-title">Reward Breakdown</h3>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">Gross Rewards (Year)</span>
+                            <span class="breakdown-value" id="grossRewards">78.95 SOL</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">Validator Commission</span>
+                            <span class="breakdown-value" id="validatorFee">3.95 SOL</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">Net Rewards (Year)</span>
+                            <span class="breakdown-value" id="netRewards" style="color: var(--accent-green)">75.00 SOL</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">Effective APY</span>
+                            <span class="breakdown-value" id="effectiveApy">7.50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">Powered by Montgomery AI Labs</div>
+            <div class="footer-brand">For educational purposes only</div>
+        </div>
+    </footer>
+
+    <script>
+        const SOL_PRICE = 98.45; // Mock price - in production, fetch from API
+        
+        // Update SOL price display
+        document.getElementById('solPrice').textContent = '$' + SOL_PRICE.toFixed(2);
+        
+        // Get elements
+        const solAmountInput = document.getElementById('solAmount');
+        const commissionInput = document.getElementById('commission');
+        const commissionSlider = document.getElementById('commissionSlider');
+        const apyInput = document.getElementById('apy');
+        const apySlider = document.getElementById('apySlider');
+        
+        // Sync sliders with inputs
+        commissionSlider.addEventListener('input', () => {
+            commissionInput.value = commissionSlider.value;
+            calculate();
+        });
+        
+        commissionInput.addEventListener('input', () => {
+            commissionSlider.value = commissionInput.value;
+            calculate();
+        });
+        
+        apySlider.addEventListener('input', () => {
+            apyInput.value = apySlider.value;
+            calculate();
+        });
+        
+        apyInput.addEventListener('input', () => {
+            apySlider.value = apyInput.value;
+            calculate();
+        });
+        
+        solAmountInput.addEventListener('input', calculate);
+        
+        function calculate() {
+            const sol = parseFloat(solAmountInput.value) || 0;
+            const commission = parseFloat(commissionInput.value) || 0;
+            const apy = parseFloat(apyInput.value) || 0;
+            
+            // Calculate rewards
+            const dailyRate = apy / 100 / 365;
+            const weeklyRate = apy / 100 / 52;
+            const monthlyRate = apy / 100 / 12;
+            const yearlyRate = apy / 100;
+            
+            const grossDaily = sol * dailyRate;
+            const grossWeekly = sol * weeklyRate;
+            const grossMonthly = sol * monthlyRate;
+            const grossYearly = sol * yearlyRate;
+            
+            const netCommission = commission / 100;
+            const netDaily = grossDaily * (1 - netCommission);
+            const netWeekly = grossWeekly * (1 - netCommission);
+            const netMonthly = grossMonthly * (1 - netCommission);
+            const netYearly = grossYearly * (1 - netCommission);
+            
+            // Update display
+            document.getElementById('totalStaked').textContent = sol.toLocaleString() + ' SOL';
+            
+            document.getElementById('rewardDaily').textContent = netDaily.toFixed(4) + ' SOL';
+            document.getElementById('rewardDailyUsd').textContent = '$' + (netDaily * SOL_PRICE).toFixed(2);
+            
+            document.getElementById('rewardWeekly').textContent = netWeekly.toFixed(2) + ' SOL';
+            document.getElementById('rewardWeeklyUsd').textContent = '$' + (netWeekly * SOL_PRICE).toFixed(2);
+            
+            document.getElementById('rewardMonthly').textContent = netMonthly.toFixed(2) + ' SOL';
+            document.getElementById('rewardMonthlyUsd').textContent = '$' + (netMonthly * SOL_PRICE).toFixed(2);
+            
+            document.getElementById('rewardYearly').textContent = netYearly.toFixed(2) + ' SOL';
+            document.getElementById('rewardYearlyUsd').textContent = '$' + (netYearly * SOL_PRICE).toFixed(2);
+            
+            // Breakdown
+            document.getElementById('grossRewards').textContent = grossYearly.toFixed(2) + ' SOL';
+            document.getElementById('validatorFee').textContent = (grossYearly * netCommission).toFixed(2) + ' SOL';
+            document.getElementById('netRewards').textContent = netYearly.toFixed(2) + ' SOL';
+            document.getElementById('effectiveApy').textContent = (apy * (1 - netCommission)).toFixed(2) + '%';
+        }
+        
+        // Initial calculation
+        calculate();
+        
+        // Simulate price updates
+        setInterval(() => {
+            // In production, fetch real price
+            document.getElementById('solPrice').textContent = '$' + SOL_PRICE.toFixed(2);
+            calculate();
+        }, 60000);
+    </script>
+</body>
+</html>

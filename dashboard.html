@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <title>Dashboard | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);">
+        <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+          <a href="/index.html" style="font-weight:700;font-size:1.1rem;">🧠 Montgomery AI</a>
+          <div style="display:flex;gap:8px;" class="hide-mobile">
+            <a href="/dashboard.html" class="nav-link">Dashboard</a>
+            <a href="/positions.html">📊 Positions</a>
+    <a href="/screener.html" class="nav-link">Screener</a>
+            <a href="/risk.html" class="nav-link">Risk</a>
+            <a href="/settings.html" class="nav-link">Settings</a>
+          </div>
+        </div>
+      </nav>
+      <div style="padding-top:60px;">
+  <div class="container">
+    
+    <!-- P/L Banner -->
+    <div id="pl-banner" style="background: var(--bg-tertiary); padding: 12px 20px; text-align: center; font-family: monospace; display: none;">
+        <span style="color: var(--green);" id="raoul-pl">Raoul +$0.00</span>
+        <span style="margin: 0 20px;">|</span>
+        <span style="color: var(--text-tertiary);" id="ben-pl">Ben $0.00</span>
+    </div>
+
+    <!-- Header -->
+    
+    <!-- Solana Network Stats -->
+    <div class="glass" style="padding:16px;margin-bottom:16px;">
+      <h3 style="margin-bottom:12px;">⛓️ Solana Network</h3>
+      <div class="grid grid-4" style="gap:12px;">
+        <div style="text-align:center;">
+          <div class="mono" id="sol-price" style="font-size:1.25rem;font-weight:700;">$--</div>
+          <div class="text-xs text-muted">SOL Price</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="mono" id="sol-change" style="font-size:1.25rem;font-weight:700;">--%</div>
+          <div class="text-xs text-muted">24h</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="mono" id="sol-tps" style="font-size:1.25rem;font-weight:700;">--</div>
+          <div class="text-xs text-muted">TPS</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="mono" id="sol-epoch" style="font-size:1.25rem;font-weight:700;">--</div>
+          <div class="text-xs text-muted">Epoch</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 24h Performance Panel -->
+    <div class="glass" style="padding:16px;margin-bottom:16px;">
+      <h3 style="margin-bottom:12px;">📈 24h Performance</h3>
+      <div class="grid grid-4" style="gap:12px;margin-bottom:16px;">
+        <div style="text-align:center;">
+          <div class="mono" id="perf-trades" style="font-size:1.25rem;font-weight:700;">--</div>
+          <div class="text-xs text-muted">Trades</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="mono" id="perf-wins" style="font-size:1.25rem;font-weight:700;color:var(--green);">--</div>
+          <div class="text-xs text-muted">Wins</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="mono" id="perf-losses" style="font-size:1.25rem;font-weight:700;color:var(--red);">--</div>
+          <div class="text-xs text-muted">Losses</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="mono" id="perf-pnl" style="font-size:1.25rem;font-weight:700;">--</div>
+          <div class="text-xs text-muted">Net P&L</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--glass-border);font-size:0.85rem;">
+        <span>Best: <span id="perf-best" style="color:var(--green);font-weight:600;">--</span></span>
+        <span>Worst: <span id="perf-worst" style="color:var(--red);font-weight:600;">--</span></span>
+      </div>
+      <!-- Mini equity curve -->
+      <div id="equity-curve" style="display:flex;align-items:flex-end;gap:4px;height:40px;margin-top:12px;">
+        <!-- Bars would be rendered by JS -->
+      </div>
+    </div>
+
+
+    <!-- Data Freshness -->
+    <div id="freshness-bar" style="display:flex;gap:12px;padding:8px 16px;background:var(--bg-secondary);font-size:0.75rem;border-bottom:1px solid var(--glass-border);">
+      <span>Data:</span>
+      <span id="fresh-signals" title="Signals">🟢</span>
+      <span id="fresh-prices" title="Prices">🟢</span>
+      <span id="fresh-news" title="News">🟢</span>
+    </div>
+
+
+    <div id="regime-badge" style="text-align:center;padding:12px;background:var(--bg-tertiary);font-size:1.2rem;font-weight:700;cursor:help;">
+      <span id="regime-icon">🟡</span> <span id="regime-text">RANGING</span>
+    </div>
+
+<header class="header">
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-secondary" onclick="setTimeframe('15m')" id="tf-15m">15m</button>
+        <button class="btn btn-secondary" onclick="setTimeframe('1h')" id="tf-1h">1h</button>
+        <button class="btn btn-secondary" onclick="setTimeframe('4h')" id="tf-4h">4h</button>
+        <button class="btn btn-secondary" onclick="setTimeframe('1d')" id="tf-1d">1d</button>
+      </div>
+      <h2>📊 Dashboard</h2>
+      <span class="text-sm text-muted" id="time"></span>
+    </header>
+    
+    <!-- Live Ticker -->
+    <div class="glass" style="padding: 12px 16px; margin-bottom: 16px; overflow-x: auto; white-space: nowrap; font-family: var(--font-mono); font-size: 0.8rem;" id="ticker">
+      Loading prices...
+    </div>
+    
+    <!-- Stats -->
+    <div class="grid grid-4" style="margin-bottom: 24px;">
+      <div class="glass stat-card">
+        <div class="skeleton" style="height:20px;width:60%;margin-bottom:8px;"></div>
+        <div class="stat-label">Balance</div>
+        <div class="stat-value" id="eq-balance">--</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="skeleton" style="height:20px;width:60%;margin-bottom:8px;"></div>
+        <div class="stat-label">Win Rate</div>
+        <div class="stat-value" id="win-rate"><div class="skeleton" style="height:24px;width:50%;"></div></div>
+      </div>
+      <div class="glass stat-card">
+        <div class="skeleton" style="height:20px;width:60%;margin-bottom:8px;"></div>
+        <div class="stat-label">Open Trades</div>
+        <div class="stat-value" id="open-count">--</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="skeleton" style="height:20px;width:60%;margin-bottom:8px;"></div>
+        <div class="stat-label">Streak</div>
+        <div class="stat-value" id="streak" style="font-size: 1.25rem;">--</div>
+      </div>
+    </div>
+    
+    <!-- Top Signals -->
+    <div class="glass" style="padding: 20px; margin-bottom: 16px;">
+      <h4 style="margin-bottom: 12px;">🎯 Top Signals</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Signal</th>
+            <th>RSI</th>
+            <th>Score</th>
+            <th>MACD</th>
+          </tr>
+        </thead>
+        <tbody id="top-signals"></tbody>
+      </table>
+    </div>
+    
+    <!-- Open Positions -->
+    <div class="glass" style="padding: 20px; margin-bottom: 16px;">
+      <h4 style="margin-bottom: 12px;">🔄 Open Positions</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Side</th>
+            <th>Entry</th>
+            <th>Current</th>
+            <th>P&L</th>
+          </tr>
+        </thead>
+        <tbody id="open-trades"></tbody>
+      </table>
+    </div>
+    
+    <!-- Closed Trades -->
+    <div class="glass" style="padding: 20px;">
+      <h4 style="margin-bottom: 12px;">📜 Recent Closed</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Side</th>
+            <th>Entry</th>
+            <th>Exit</th>
+            <th>P&L</th>
+          </tr>
+        </thead>
+        <tbody id="closed-trades"></tbody>
+      </table>
+    </div>
+    
+    <p class="text-xs text-muted mt-lg" style="text-align: center;" id="updated"></p>
+  </div>
+  
+  <!-- Mobile Nav -->
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html" class="active">📊</a>
+    <a href="/positions.html">📊 Positions</a>
+    <a href="/screener.html">🔍</a>
+    <a href="/replay.html">📼</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    
+    document.getElementById('time').textContent = new Date().toLocaleTimeString();
+    
+    async function loadTicker() {
+      try {
+        const res = await fetch('/api/prices?key=' + API_KEY);
+        const data = await res.json();
+        const prices = data.prices || [];
+        
+        let html = '';
+        for (const p of prices.slice(0, 6)) {
+          const color = p.change_24h_pct >= 0 ? 'var(--green)' : 'var(--red)';
+          const sign = p.change_24h_pct >= 0 ? '+' : '';
+          html += `<span style="margin-right: 20px;">${p.coin} $${p.price.toLocaleString(undefined, {minimumFractionDigits: 2})} <span style="color:${color}">${sign}${p.change_24h_pct.toFixed(1)}%</span></span>`;
+        }
+        document.getElementById('ticker').innerHTML = html;
+      } catch(e) {}
+    }
+    
+    async function load() {
+      const [summary, equity, signals, open, closed] = await Promise.all([
+        fetch('/api/summary?key=' + API_KEY).then(r => r.json()).catch(() => ({})),
+        fetch('/api/equity?key=' + API_KEY).then(r => r.json()).catch(() => ({})),
+        fetch('/api/quality?key=' + API_KEY).then(r => r.json()).catch(() => ({})),
+        fetch('/api/trades/open?key=' + API_KEY).then(r => r.json()).catch(() => ({})),
+        fetch('/api/trades/closed?key=' + API_KEY).then(r => r.json()).catch(() => ({}))
+      ]);
+      
+      // Stats
+      document.getElementById('eq-balance').textContent = '$' + (equity.balance || 0);
+      
+      const wr = document.getElementById('win-rate');
+      wr.textContent = (summary.win_rate || 0) + '%';
+      
+      document.getElementById('open-count').textContent = summary.open_trades || 0;
+      
+      // Top signals
+      const sigHtml = (signals.signals || []).map(s => `
+        <tr>
+          <td style="font-weight: 600;">${s.coin}</td>
+          <td><span class="tag ${s.action === 'BUY' ? 'buy' : 'sell'}">${s.action}</span></td>
+          <td class="mono">${s.rsi}</td>
+          <td class="mono" style="font-weight: 600;">${s.score}</td>
+          <td>${s.macd_signal === 'bullish' ? '📈' : s.macd_signal === 'bearish' ? '📉' : '—'}</td>
+        </tr>
+      `).join('');
+      document.getElementById('top-signals').innerHTML = sigHtml || '<tr><td colspan="5" class="text-muted" style="text-align:center;">No signals</td></tr>';
+      
+      // Open trades
+      const openHtml = (open.trades || []).map(t => `
+        <tr>
+          <td style="font-weight: 600;">${t.coin}</td>
+          <td><span class="tag ${t.side === 'BUY' ? 'buy' : 'sell'}">${t.side}</span></td>
+          <td class="mono">$${t.entry_price}</td>
+          <td class="mono">$${t.current_price || '—'}</td>
+          <td class="mono ${t.pnl >= 0 ? 'text-green' : 'text-red'}" style="font-weight: 600;">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
+        </tr>
+      `).join('');
+      document.getElementById('open-trades').innerHTML = openHtml || '<tr><td colspan="5" class="text-muted" style="text-align:center;">No open positions</td></tr>';
+      
+      // Closed trades
+      const closedHtml = (closed.trades || []).slice(0, 10).map(t => `
+        <tr>
+          <td style="font-weight: 600;">${t.coin}</td>
+          <td><span class="tag ${t.side === 'BUY' ? 'buy' : 'sell'}">${t.side}</span></td>
+          <td class="mono">$${t.entry_price}</td>
+          <td class="mono">$${t.exit_price}</td>
+          <td class="mono ${t.pnl >= 0 ? 'text-green' : 'text-red'}" style="font-weight: 600;">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
+        </tr>
+      `).join('');
+      document.getElementById('closed-trades').innerHTML = closedHtml || '<tr><td colspan="5" class="text-muted" style="text-align:center;">No closed trades</td></tr>';
+      
+      document.getElementById('updated').textContent = 'Updated: ' + new Date().toLocaleString();
+    }
+    
+    loadTicker();
+    load();
+    setInterval(loadTicker, 60000);
+    setInterval(load, 30000);
+  
+    // Load trading calls
+    async function loadTradingCalls() {
+      try {
+        const res = await fetch('/api/trading-calls?key=' + API_KEY);
+        const data = await res.json();
+        
+        // Raoul
+        const raoulHtml = data.raoul && data.raoul.length ? 
+          data.raoul.map(p => '<div style="font-size:0.85rem;padding:4px 0;">' + p.coin + ' ' + (p.direction === 'LONG' ? '🟢' : '🔴') + '</div>').join('') :
+          '<div class="text-muted" style="font-size:0.85rem;">No positions</div>';
+        document.getElementById('raoul-positions').innerHTML = raoulHtml;
+        
+        // Ben
+        const benHtml = data.ben && data.ben.length ?
+          data.ben.map(p => '<div style="font-size:0.85rem;padding:4px 0;">' + p.coin + ' ' + (p.direction === 'LONG' ? '🟢' : '🔴') + '</div>').join('') :
+          '<div class="text-muted" style="font-size:0.85rem;">No positions</div>';
+        document.getElementById('ben-positions').innerHTML = benHtml;
+      } catch(e) { console.log('Trading calls error:', e); }
+    }
+    loadTradingCalls();
+
+  
+  document.getElementById('last-updated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+
+  
+    // Solana network stats
+    async function loadSolanaStats() {
+      try {
+        // Price from existing prices API
+        const res = await fetch('/api/prices?key=' + API_KEY);
+        const data = await res.json();
+        const sol = (data.prices || []).find(p => p.coin === 'SOL');
+        if (sol) {
+          document.getElementById('sol-price').textContent = '$' + sol.price.toFixed(2);
+          const ch = sol.change_24h_pct || 0;
+          document.getElementById('sol-change').textContent = (ch >= 0 ? '+' : '') + ch.toFixed(1) + '%';
+          document.getElementById('sol-change').style.color = ch >= 0 ? 'var(--green)' : 'var(--red)';
+        }
+        
+        // TPS from Solana RPC
+        try {
+          const rpcRes = await fetch('https://api.mainnet-beta.solana.com', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({jsonrpc:'2.0',id:1,method:'getRecentPerformanceSamples',params:[5]})
+          });
+          const rpcData = await rpcRes.json();
+          if (rpcData.result) {
+            const avgTps = rpcData.result.reduce((a,b) => a + b.numTransactions, 0) / Math.min(rpcData.result.length, 5);
+            document.getElementById('sol-tps').textContent = Math.round(avgTps).toLocaleString();
+          }
+        } catch(e) { document.getElementById('sol-tps').textContent = '--'; }
+        
+        // Epoch
+        try {
+          const epochRes = await fetch('https://api.mainnet-beta.solana.com', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({jsonrpc:'2.0',id:1,method:'getEpochInfo'})
+          });
+          const epochData = await epochRes.json();
+          if (epochData.result) {
+            document.getElementById('sol-epoch').textContent = epochData.result.epoch;
+          }
+        } catch(e) { document.getElementById('sol-epoch').textContent = '--'; }
+      } catch(e) { console.log(e); }
+    }
+    loadSolanaStats();
+    setInterval(loadSolanaStats, 60000);
+
+  
+    async function loadPerformance() {
+      // Demo data - would pull from paper trader
+      const perf = {
+        trades: 12,
+        wins: 8,
+        losses: 4,
+        pnl: 245.50,
+        pnlPct: 12.3,
+        best: {coin: 'SOL', pnl: 85.20},
+        worst: {coin: 'JUP', pnl: -12.50},
+        equity: [100, 105, 102, 110, 108, 115, 112, 120, 118, 125]
+      };
+      
+      document.getElementById('perf-trades').textContent = perf.trades;
+      document.getElementById('perf-wins').textContent = perf.wins;
+      document.getElementById('perf-losses').textContent = perf.losses;
+      document.getElementById('perf-pnl').textContent = (perf.pnl >= 0 ? '+' : '') + '$' + perf.pnl.toFixed(2);
+      document.getElementById('perf-pnl').style.color = perf.pnl >= 0 ? 'var(--green)' : 'var(--red)';
+      document.getElementById('perf-best').textContent = perf.best.coin + ' +$' + perf.best.pnl.toFixed(2);
+      document.getElementById('perf-worst').textContent = perf.worst.coin + ' -$' + Math.abs(perf.worst.pnl).toFixed(2);
+      
+      // Render equity curve
+      const max = Math.max(...perf.equity);
+      const min = Math.min(...perf.equity);
+      const range = max - min || 1;
+      
+      document.getElementById('equity-curve').innerHTML = perf.equity.map(v => {
+        const height = ((v - min) / range) * 35 + 5;
+        const color = v >= perf.equity[0] ? 'var(--green)' : 'var(--red)';
+        return `<div style="width:100%;height:${height}px;background:${color};border-radius:2px;flex:1;"></div>`;
+      }).join('');
+    }
+    loadPerformance();
+
+  
+    async function loadWatchlist() {
+      try {
+        // Load watchlist
+        const watchRes = await fetch('/home/openclaw/vault/Dev/seeker/watchlist.json');
+        const watchlist = await watchRes.json();
+        
+        // Load prices
+        const priceRes = await fetch('/api/prices?key=' + API_KEY);
+        const priceData = await priceRes.json();
+        
+        // Load news
+        const newsRes = await fetch('/api/seeker/feed?key=' + API_KEY);
+        const newsData = await newsRes.json();
+        
+        const container = document.getElementById('watchlist');
+        
+        container.innerHTML = watchlist.map(coin => {
+          const price = (priceData.prices || []).find(p => p.coin === coin);
+          const article = (newsData.articles || []).find(a => a.title && a.title.toUpperCase().includes(coin.toUpperCase()));
+          
+          return `
+            <div style="min-width:150px;background:var(--bg-secondary);border-radius:8px;padding:12px;">
+              <div style="font-weight:600;">${coin}</div>
+              <div style="font-size:1.1rem;">$${price ? price.price.toFixed(2) : '--'}</div>
+              <div style="font-size:0.8rem;${price && price.change_24h_pct > 0 ? 'color:var(--green)' : 'color:var(--red)'}">
+                ${price ? (price.change_24h_pct > 0 ? '+' : '') + price.change_24h_pct.toFixed(1) + '%' : '--'}
+              </div>
+              ${article ? `<div style="font-size:0.7rem;color:var(--text-tertiary);margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${article.title}</div>` : ''}
+            </div>
+          `;
+        }).join('');
+      } catch(e) {
+        document.getElementById('watchlist').innerHTML = '<p style="color:var(--text-tertiary)">No data</p>';
+      }
+    }
+    loadWatchlist();
+
+  
+    async function loadFreshness() {
+      try {
+        const res = await fetch('/api/data/freshness?key=' + API_KEY);
+        const data = await res.json();
+        
+        const getDot = (min) => min < 30 ? '🟢' : min < 60 ? '🟡' : '🔴';
+        
+        if (data.signals) {
+          document.getElementById('fresh-signals').textContent = getDot(data.signals.age_minutes);
+          document.getElementById('fresh-signals').title = 'Signals: ' + data.signals.age_minutes + ' min ago';
+        }
+        if (data.prices) {
+          document.getElementById('fresh-prices').textContent = getDot(data.prices.age_minutes);
+          document.getElementById('fresh-prices').title = 'Prices: ' + data.prices.age_minutes + ' min ago';
+        }
+        if (data.news) {
+          document.getElementById('fresh-news').textContent = getDot(data.news.age_minutes);
+          document.getElementById('fresh-news').title = 'News: ' + data.news.age_minutes + ' min ago';
+        }
+      } catch(e) {}
+    }
+    loadFreshness();
+    loadRegime();
+    setInterval(loadFreshness, 60000);
+
+  </script>
+$(cat /tmp/search.html)
+ SEARCH
+</html>
+
+  <!-- Coin Search Modal -->
+  <div id="search-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:300;padding:100px 20px;">
+    <div style="max-width:600px;margin:0 auto;">
+      <input type="text" id="search-input" placeholder="Search coins (press /)..." style="width:100%;font-size:1.5rem;padding:16px;background:var(--bg-secondary);border:1px solid var(--glass-border);color:var(--text-primary);border-radius:8px;">
+      <div id="search-results" style="margin-top:20px;"></div>
+    </div>
+  </div>
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && !e.target.matches('input')) { e.preventDefault(); document.getElementById('search-modal').style.display = 'flex'; document.getElementById('search-input').focus(); }
+      if (e.key === 'Escape') document.getElementById('search-modal').style.display = 'none';
+    });
+    document.getElementById('search-input').addEventListener('input', async (e) => {
+      const q = e.target.value.toUpperCase();
+      if (q.length < 1) { document.getElementById('search-results').innerHTML = ''; return; }
+      const res = await fetch('/api/quality?key=' + API_KEY);
+      const data = await res.json();
+      const matches = (data.signals || []).filter(p => p.coin.startsWith(q)).slice(0, 10);
+      document.getElementById('search-results').innerHTML = matches.map(p => 
+        `<a href="/signal.html?coin=${p.coin}" style="display:block;padding:12px;border-bottom:1px solid var(--glass-border);text-decoration:none;color:inherit;">
+          <div style="font-weight:600;">${p.coin}</div><div class="text-sm text-muted">RSI: ${p.rsi?.toFixed(0)} | Score: ${p.score}</div></a>`
+      ).join('') || '<p class="text-muted">No results</p>';
+    });
+  
+    // Load trading calls
+    async function loadTradingCalls() {
+      try {
+        const res = await fetch('/api/trading-calls?key=' + API_KEY);
+        const data = await res.json();
+        
+        // Raoul
+        const raoulHtml = data.raoul && data.raoul.length ? 
+          data.raoul.map(p => '<div style="font-size:0.85rem;padding:4px 0;">' + p.coin + ' ' + (p.direction === 'LONG' ? '🟢' : '🔴') + '</div>').join('') :
+          '<div class="text-muted" style="font-size:0.85rem;">No positions</div>';
+        document.getElementById('raoul-positions').innerHTML = raoulHtml;
+        
+        // Ben
+        const benHtml = data.ben && data.ben.length ?
+          data.ben.map(p => '<div style="font-size:0.85rem;padding:4px 0;">' + p.coin + ' ' + (p.direction === 'LONG' ? '🟢' : '🔴') + '</div>').join('') :
+          '<div class="text-muted" style="font-size:0.85rem;">No positions</div>';
+        document.getElementById('ben-positions').innerHTML = benHtml;
+      } catch(e) { console.log('Trading calls error:', e); }
+    }
+    loadTradingCalls();
+
+  
+  document.getElementById('last-updated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+
+  
+    // Solana network stats
+    async function loadSolanaStats() {
+      try {
+        // Price from existing prices API
+        const res = await fetch('/api/prices?key=' + API_KEY);
+        const data = await res.json();
+        const sol = (data.prices || []).find(p => p.coin === 'SOL');
+        if (sol) {
+          document.getElementById('sol-price').textContent = '$' + sol.price.toFixed(2);
+          const ch = sol.change_24h_pct || 0;
+          document.getElementById('sol-change').textContent = (ch >= 0 ? '+' : '') + ch.toFixed(1) + '%';
+          document.getElementById('sol-change').style.color = ch >= 0 ? 'var(--green)' : 'var(--red)';
+        }
+        
+        // TPS from Solana RPC
+        try {
+          const rpcRes = await fetch('https://api.mainnet-beta.solana.com', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({jsonrpc:'2.0',id:1,method:'getRecentPerformanceSamples',params:[5]})
+          });
+          const rpcData = await rpcRes.json();
+          if (rpcData.result) {
+            const avgTps = rpcData.result.reduce((a,b) => a + b.numTransactions, 0) / Math.min(rpcData.result.length, 5);
+            document.getElementById('sol-tps').textContent = Math.round(avgTps).toLocaleString();
+          }
+        } catch(e) { document.getElementById('sol-tps').textContent = '--'; }
+        
+        // Epoch
+        try {
+          const epochRes = await fetch('https://api.mainnet-beta.solana.com', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({jsonrpc:'2.0',id:1,method:'getEpochInfo'})
+          });
+          const epochData = await epochRes.json();
+          if (epochData.result) {
+            document.getElementById('sol-epoch').textContent = epochData.result.epoch;
+          }
+        } catch(e) { document.getElementById('sol-epoch').textContent = '--'; }
+      } catch(e) { console.log(e); }
+    }
+    loadSolanaStats();
+    setInterval(loadSolanaStats, 60000);
+
+  
+    async function loadPerformance() {
+      // Demo data - would pull from paper trader
+      const perf = {
+        trades: 12,
+        wins: 8,
+        losses: 4,
+        pnl: 245.50,
+        pnlPct: 12.3,
+        best: {coin: 'SOL', pnl: 85.20},
+        worst: {coin: 'JUP', pnl: -12.50},
+        equity: [100, 105, 102, 110, 108, 115, 112, 120, 118, 125]
+      };
+      
+      document.getElementById('perf-trades').textContent = perf.trades;
+      document.getElementById('perf-wins').textContent = perf.wins;
+      document.getElementById('perf-losses').textContent = perf.losses;
+      document.getElementById('perf-pnl').textContent = (perf.pnl >= 0 ? '+' : '') + '$' + perf.pnl.toFixed(2);
+      document.getElementById('perf-pnl').style.color = perf.pnl >= 0 ? 'var(--green)' : 'var(--red)';
+      document.getElementById('perf-best').textContent = perf.best.coin + ' +$' + perf.best.pnl.toFixed(2);
+      document.getElementById('perf-worst').textContent = perf.worst.coin + ' -$' + Math.abs(perf.worst.pnl).toFixed(2);
+      
+      // Render equity curve
+      const max = Math.max(...perf.equity);
+      const min = Math.min(...perf.equity);
+      const range = max - min || 1;
+      
+      document.getElementById('equity-curve').innerHTML = perf.equity.map(v => {
+        const height = ((v - min) / range) * 35 + 5;
+        const color = v >= perf.equity[0] ? 'var(--green)' : 'var(--red)';
+        return `<div style="width:100%;height:${height}px;background:${color};border-radius:2px;flex:1;"></div>`;
+      }).join('');
+    }
+    loadPerformance();
+
+  
+    async function loadWatchlist() {
+      try {
+        // Load watchlist
+        const watchRes = await fetch('/home/openclaw/vault/Dev/seeker/watchlist.json');
+        const watchlist = await watchRes.json();
+        
+        // Load prices
+        const priceRes = await fetch('/api/prices?key=' + API_KEY);
+        const priceData = await priceRes.json();
+        
+        // Load news
+        const newsRes = await fetch('/api/seeker/feed?key=' + API_KEY);
+        const newsData = await newsRes.json();
+        
+        const container = document.getElementById('watchlist');
+        
+        container.innerHTML = watchlist.map(coin => {
+          const price = (priceData.prices || []).find(p => p.coin === coin);
+          const article = (newsData.articles || []).find(a => a.title && a.title.toUpperCase().includes(coin.toUpperCase()));
+          
+          return `
+            <div style="min-width:150px;background:var(--bg-secondary);border-radius:8px;padding:12px;">
+              <div style="font-weight:600;">${coin}</div>
+              <div style="font-size:1.1rem;">$${price ? price.price.toFixed(2) : '--'}</div>
+              <div style="font-size:0.8rem;${price && price.change_24h_pct > 0 ? 'color:var(--green)' : 'color:var(--red)'}">
+                ${price ? (price.change_24h_pct > 0 ? '+' : '') + price.change_24h_pct.toFixed(1) + '%' : '--'}
+              </div>
+              ${article ? `<div style="font-size:0.7rem;color:var(--text-tertiary);margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${article.title}</div>` : ''}
+            </div>
+          `;
+        }).join('');
+      } catch(e) {
+        document.getElementById('watchlist').innerHTML = '<p style="color:var(--text-tertiary)">No data</p>';
+      }
+    }
+    loadWatchlist();
+
+  
+    async function loadFreshness() {
+      try {
+        const res = await fetch('/api/data/freshness?key=' + API_KEY);
+        const data = await res.json();
+        
+        const getDot = (min) => min < 30 ? '🟢' : min < 60 ? '🟡' : '🔴';
+        
+        if (data.signals) {
+          document.getElementById('fresh-signals').textContent = getDot(data.signals.age_minutes);
+          document.getElementById('fresh-signals').title = 'Signals: ' + data.signals.age_minutes + ' min ago';
+        }
+        if (data.prices) {
+          document.getElementById('fresh-prices').textContent = getDot(data.prices.age_minutes);
+          document.getElementById('fresh-prices').title = 'Prices: ' + data.prices.age_minutes + ' min ago';
+        }
+        if (data.news) {
+          document.getElementById('fresh-news').textContent = getDot(data.news.age_minutes);
+          document.getElementById('fresh-news').title = 'News: ' + data.news.age_minutes + ' min ago';
+        }
+      } catch(e) {}
+    }
+    loadFreshness();
+    loadRegime();
+    setInterval(loadFreshness, 60000);
+
+  </script>

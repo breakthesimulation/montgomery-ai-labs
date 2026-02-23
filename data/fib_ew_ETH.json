@@ -1,0 +1,26 @@
+{
+  "symbol": "ETH",
+  "timeframe": "4h",
+  "current_price": 1981.79,
+  "swing_high": 2107.67,
+  "swing_low": 1907.0,
+  "rsi": 72.59,
+  "fib_levels": {
+    "0.0": 2107.67,
+    "0.236": 2060.31188,
+    "0.382": 2031.01406,
+    "0.5": 2007.335,
+    "0.618": 1983.65594,
+    "0.786": 1949.94338,
+    "1.0": 1907.0,
+    "1.272": 1852.41776,
+    "1.618": 1782.98594,
+    "2.0": 1706.33
+  },
+  "nearest_fib": "0.618",
+  "nearest_fib_label": "At .618 resistance",
+  "is_key_level": true,
+  "ew_estimate": "Wave 5 impulse (possible top)",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:31.591153Z"
+}

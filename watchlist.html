@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <title>Watchlist | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);">
+        <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+          <a href="/index.html" style="font-weight:700;font-size:1.1rem;">🧠 Montgomery AI</a>
+          <div style="display:flex;gap:8px;" class="hide-mobile">
+            <a href="/dashboard.html" class="nav-link">Dashboard</a>
+            <a href="/screener.html" class="nav-link">Screener</a>
+            <a href="/risk.html" class="nav-link">Risk</a>
+            <a href="/settings.html" class="nav-link">Settings</a>
+          </div>
+        </div>
+      </nav>
+      <div style="padding-top:60px;">
+  <div class="container">
+    <header class="header">
+      <h2>👁️ Watchlist</h2>
+      <button class="btn btn-primary" onclick="showAdd()">+ Add Coin</button>
+    </header>
+    
+    <!-- Add Modal -->
+    <div id="add-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 200;">
+      <div class="glass" style="padding: 24px; width: 300px;">
+        <h3 style="margin-bottom: 16px;">Add to Watchlist</h3>
+        <input type="text" id="add-coin" placeholder="Coin (e.g. SOL)" style="width: 100%; margin-bottom: 16px;">
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-primary" style="flex:1" onclick="addCoin()">Add</button>
+          <button class="btn btn-secondary" style="flex:1" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Watchlist Grid -->
+    <div class="grid grid-3" id="watchlist"></div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/watchlist.html" class="active">👁️</a>
+    <a href="/screener.html">🔍</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    const STORAGE_KEY = 'watchlist_coins';
+    
+    let watchlist = JSON.parse(// Apply theme
+    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+    
+    localStorage.getItem(STORAGE_KEY) || '["BTC","ETH","SOL","NEAR"]');
+    
+    async function load() {
+      const res = await fetch('/api/prices?key=' + API_KEY);
+      const prices = (await res.json()).prices || [];
+      const priceMap = {};
+      prices.forEach(p => priceMap[p.coin] = p);
+      
+      // Get signals
+      const sigRes = await fetch('/api/quality?key=' + API_KEY);
+      const signals = (await sigRes.json()).signals || [];
+      const sigMap = {};
+      signals.forEach(s => sigMap[s.coin] = s);
+      
+      const html = watchlist.map(coin => {
+        const price = priceMap[coin] || {};
+        const signal = sigMap[coin] || {};
+        
+        const change = price.change_24h_pct || 0;
+        const rsi = signal.rsi || '--';
+        const score = signal.score || '--';
+        
+        return `
+          <div class="glass" style="padding: 20px; position: relative;">
+            <button onclick="removeCoin('${coin}')" style="position: absolute; top: 12px; right: 12px; background: none; border: none; color: var(--text-tertiary); cursor: pointer; font-size: 1rem;">✕</button>
+            <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 4px;">${coin}</div>
+            <div class="mono" style="font-size: 1.25rem;">$${price.price?.toFixed(2) || '--'}</div>
+            <div class="mono ${change >= 0 ? 'text-green' : 'text-red'}" style="font-size: 0.875rem; margin-bottom: 16px;">
+              ${change >= 0 ? '+' : ''}${change.toFixed(1)}%
+            </div>
+            <div class="grid grid-2" style="gap: 8px; font-size: 0.75rem;">
+              <div><span class="text-muted">RSI</span><br><span class="mono">${rsi}</span></div>
+              <div><span class="text-muted">Score</span><br><span class="mono ${score >= 70 ? 'text-green' : ''}">${score}</span></div>
+            </div>
+            <a href="/signal.html?coin=${coin}" style="display: block; margin-top: 16px; text-align: center; padding: 8px; background: var(--bg-tertiary); border-radius: 8px; font-size: 0.8rem;">View Details →</a>
+          </div>
+        `;
+      }).join('');
+      
+      document.getElementById('watchlist').innerHTML = html || '<p class="text-muted">No coins in watchlist</p>';
+    }
+    
+    function showAdd() { document.getElementById('add-modal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('add-modal').style.display = 'none'; }
+    
+    function addCoin() {
+      const coin = document.getElementById('add-coin').value.toUpperCase();
+      if (coin && !watchlist.includes(coin)) {
+        watchlist.push(coin);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(watchlist));
+        closeModal();
+        load();
+      }
+    }
+    
+    function removeCoin(coin) {
+      watchlist = watchlist.filter(c => c !== coin);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(watchlist));
+      load();
+    }
+    
+    load();
+    setInterval(load, 30000);
+  <script>
+    function showError(msg) {
+      document.getElementById('watchlist').innerHTML = `<div class="glass" style="padding:40px;text-align:center;"><p class="text-muted">${msg}</p><button class="btn btn-secondary" style="margin-top:12px;" onclick="render()">Retry</button></div>`;
+    }</script>
+</body>
+</html>

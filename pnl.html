@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Live P&L | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+        .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; margin-top: 8px; }
+        .positive { color: var(--green); }
+        .negative { color: var(--red); }
+        
+        .section { margin-bottom: 24px; }
+        .section-title { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; }
+        
+        .table { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 12px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        tr:last-child td { border-bottom: none; }
+        
+        .timeframe { display: flex; gap: 8px; margin-bottom: 16px; }
+        .time-btn { background: var(--card); border: 1px solid var(--border); color: var(--text-muted); padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .time-btn.active { background: var(--green); color: #000; border-color: var(--green); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Live P&L Tracker</h1>
+            <span class="mono" style="color:var(--text-muted)">Updated: <span id="time">--:--:--</span></span>
+        </header>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Portfolio Value</div>
+                <div class="stat-value">$34,253.47</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Realized P&L</div>
+                <div class="stat-value positive">+$2,420.00</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Unrealized P&L</div>
+                <div class="stat-value positive">+$1,255.90</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Today's P&L</div>
+                <div class="stat-value positive">+$1,255.90</div>
+            </div>
+        </div>
+        
+        <div class="timeframe">
+            <button class="time-btn">Today</button>
+            <button class="time-btn">Yesterday</button>
+            <button class="time-btn">This Week</button>
+            <button class="time-btn">This Month</button>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Open Positions</div>
+            <div class="table">
+                <table>
+                    <thead><tr><th>Asset</th><th>Side</th><th>Size</th><th>Entry</th><th>Current</th><th>P&L</th><th>P&L %</th></tr></thead>
+                    <tbody id="positions">
+                        <tr><td>SOL</td><td>LONG</td><td class="mono">150</td><td class="mono">$78.50</td><td class="mono">$84.65</td><td class="mono positive">+$922.50</td><td class="mono positive">+7.8%</td></tr>
+                        <tr><td>BTC</td><td>LONG</td><td class="mono">0.15</td><td class="mono">$62,000</td><td class="mono">$67,435</td><td class="mono positive">+$815.25</td><td class="mono positive">+8.8%</td></tr>
+                        <tr><td>ETH</td><td>LONG</td><td class="mono">3.2</td><td class="mono">$1,850</td><td class="mono">$1,964</td><td class="mono positive">+$364.80</td><td class="mono positive">+6.2%</td></tr>
+                        <tr><td>BONK</td><td>LONG</td><td class="mono">6,000,000</td><td class="mono">$0.00000166</td><td class="mono">$0.00000622</td><td class="mono positive">+$27,360</td><td class="mono positive">+274.7%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Recent Closed Trades</div>
+            <div class="table">
+                <table>
+                    <thead><tr><th>Date</th><th>Asset</th><th>Side</th><th>Entry</th><th>Exit</th><th>P&L</th></tr></thead>
+                    <tbody>
+                        <tr><td>Feb 19</td><td>AVAX</td><td>LONG</td><td class="mono">$8.50</td><td class="mono">$9.24</td><td class="mono positive">+$740.00</td></tr>
+                        <tr><td>Feb 18</td><td>LINK</td><td>SHORT</td><td class="mono">$9.20</td><td class="mono">$8.72</td><td class="mono positive">+$384.00</td></tr>
+                        <tr><td>Feb 17</td><td>OP</td><td>LONG</td><td class="mono">$0.12</td><td class="mono">$0.13</td><td class="mono positive">+$170.00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function update() {
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+    }
+    update();
+    setInterval(update, 30000);
+    </script>
+</body>
+</html>

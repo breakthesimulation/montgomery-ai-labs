@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <title>Notifications | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>🔔 Notifications</h2>
+      <div>
+        <button class="btn btn-secondary" onclick="requestPermission()" id="perm-btn">Enable Notifications</button>
+        <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+      </div>
+    </header>
+    
+    <!-- Enable Banner -->
+    <div id="enable-banner" class="glass" style="padding: 16px; margin-bottom: 16px; display: none;">
+      <p class="text-sm">Enable browser notifications to get alerts even when the tab is in the background.</p>
+    </div>
+    
+    <!-- Notification List -->
+    <div class="glass" style="padding: 0; overflow: hidden;">
+      <div id="notifications-list"></div>
+    </div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/notifications.html" class="active">🔔</a>
+    <a href="/settings.html">⚙️</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    const STORAGE_KEY = 'notifications';
+    let notifications = JSON.parse(// Apply theme
+    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+    
+    localStorage.getItem(STORAGE_KEY) || '[]');
+    let notificationPermission = Notification.permission;
+    
+    function render() {
+      const list = document.getElementById('notifications-list');
+      
+      if (!notifications.length) {
+        list.innerHTML = '<p class="text-muted text-sm" style="padding: 32px; text-align: center;">No notifications yet</p>';
+        return;
+      }
+      
+      const html = notifications.map((n, i) => `
+        <div style="padding: 16px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: start;">
+          <div>
+            <div style="font-weight: 600; margin-bottom: 4px;">${n.title}</div>
+            <div class="text-sm text-muted">${n.body}</div>
+            <div class="text-xs text-muted" style="margin-top: 4px;">${new Date(n.timestamp).toLocaleString()}</div>
+          </div>
+          ${n.read ? '' : '<span class="status-dot green"></span>'}
+        </div>
+      `).join('');
+      
+      list.innerHTML = html;
+    }
+    
+    async function requestPermission() {
+      if ('Notification' in window) {
+        const perm = await Notification.requestPermission();
+        notificationPermission = perm;
+        
+        if (perm === 'granted') {
+          new Notification('Notifications Enabled', { body: 'You will receive alerts from Montgomery AI Trading' });
+        }
+      }
+      
+      render();
+    }
+    
+    function markAllRead() {
+      notifications = notifications.map(n => ({...n, read: true}));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications));
+      render();
+    }
+    
+    function clearAll() {
+      notifications = [];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications));
+      render();
+    }
+    
+    async function loadFromAPI() {
+      try {
+        const res = await fetch('/api/events?key=' + API_KEY);
+        const data = await res.json();
+        
+        const newEvents = (data.events || []).slice(0, 10).map(e => ({
+          title: e.type,
+          body: e.message,
+          timestamp: e.timestamp,
+          read: false
+        }));
+        
+        // Merge with local, dedupe
+        const existing = new Set(notifications.map(n => n.timestamp + n.title));
+        newEvents.forEach(e => {
+          if (!existing.has(e.timestamp + e.title)) {
+            notifications.unshift(e);
+            
+            // Show browser notification
+            if (notificationPermission === 'granted' && !e.read) {
+              new Notification(e.title, { body: e.body });
+            }
+          }
+        });
+        
+        notifications = notifications.slice(0, 50);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(notifications));
+      } catch(e) {}
+      
+      render();
+    }
+    
+    // Check permission
+    if (Notification.permission === 'granted') {
+      document.getElementById('perm-btn').textContent = 'Enabled ✓';
+    }
+    
+    render();
+    loadFromAPI();
+    setInterval(loadFromAPI, 60000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-02-23T13:05:01.981864",
+  "services": [
+    {
+      "name": "Alert Monitor",
+      "status": "stale",
+      "last_seen": "2026-02-20T14:41:03.681960",
+      "age_seconds": 253437
+    },
+    {
+      "name": "Paper Trading",
+      "status": "stopped",
+      "last_seen": null,
+      "age_seconds": null
+    },
+    {
+      "name": "Token Scanner",
+      "status": "stale",
+      "last_seen": "2026-02-21T04:00:02.030415",
+      "age_seconds": 205499
+    },
+    {
+      "name": "DEX Monitor",
+      "status": "stale",
+      "last_seen": "2026-02-21T04:00:01.956414",
+      "age_seconds": 205499
+    },
+    {
+      "name": "On-Chain Flow",
+      "status": "stale",
+      "last_seen": "2026-02-23T03:00:02.878781",
+      "age_seconds": 36298
+    },
+    {
+      "name": "Price API",
+      "status": "running",
+      "last_seen": "2026-02-23T13:05:01.980520",
+      "age_seconds": 0
+    }
+  ],
+  "running": 1,
+  "total": 6,
+  "status": "critical"
+}

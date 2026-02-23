@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Detail | Montgomery AI</title>
+  <meta name="description" content="Deep dive analysis on trading signals">
+  <link rel="stylesheet" href="/styles/apple.css">
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://unpkg.com/lightweight-charts@4.0.0/dist/lightweight-charts.standalone.production.js"></script>
+  <style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
+    .fade-in { animation: fadeIn 0.4s ease-out; }
+    .chart-main { height: 280px; }
+    .chart-rsi { height: 100px; }
+  </style>
+</head>
+<body>
+  <!-- Top Nav -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);">
+    <div style="max-width:1400px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+      <a href="/screener.html" style="color:var(--text-secondary);">← Back</a>
+      <h2 id="coin-title" style="font-size:1.1rem;font-weight:600;">--</h2>
+      <button class="btn btn-primary" onclick="showAlertModal()">🔔 Set Alert</button>
+    </div>
+  </nav>
+
+  <div style="padding:70px 20px 20px;max-width:1400px;margin:0 auto;">
+    <!-- Loading -->
+    <div id="loading" class="glass" style="padding:40px;">
+      <div class="skeleton" style="height:400px;margin-bottom:20px;"></div>
+    </div>
+
+    <!-- Error -->
+    <div id="error" class="glass" style="display:none;padding:60px;text-align:center;">
+      <div style="font-size:3rem;margin-bottom:16px;">⚠️</div>
+      <p class="text-muted" style="margin-bottom:16px;">Failed to load data</p>
+      <button class="btn btn-secondary" onclick="load()">Retry</button>
+    </div>
+
+    <!-- Content -->
+    <div id="content" style="display:none;" class="fade-in">
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:20px;">
+        <!-- Left: Chart -->
+        <div>
+          <div class="glass" style="padding:16px;">
+            <div id="chart-main" class="chart-main"></div>
+            <div id="chart-rsi" class="chart-rsi" style="margin-top:8px;"></div>
+          </div>
+          <!-- Mini Trade Log -->
+          <div class="glass" style="padding:16px;margin-top:16px;">
+            <h4 style="margin-bottom:12px;">📋 Recent Signals</h4>
+            <table style="width:100%;font-size:0.8rem;">
+              <thead><tr><th>Date</th><th>Signal</th><th>Score</th><th>Result</th></tr></thead>
+              <tbody id="signal-log"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right: Sidebar -->
+        <div>
+          <!-- Price -->
+          <div class="glass" style="padding:20px;margin-bottom:16px;">
+            <div class="grid grid-2" style="gap:12px;">
+              <div><div class="text-xs text-muted">Price</div><div class="mono" id="price" style="font-size:1.5rem;font-weight:700;">--</div></div>
+              <div><div class="text-xs text-muted">24h</div><div class="mono" id="change" style="font-size:1.5rem;font-weight:700;">--</div></div>
+            </div>
+          </div>
+
+          <!-- Signal -->
+          <div class="glass" style="padding:20px;margin-bottom:16px;">
+            <h4 style="margin-bottom:12px;">🎯 Signal</h4>
+            <div id="signal-meta"></div>
+            <!-- Confidence bar -->
+            <div style="margin-top:12px;">
+              <div class="text-xs text-muted" style="margin-bottom:4px;">Confidence</div>
+              <div style="background:var(--bg-tertiary);height:8px;border-radius:4px;overflow:hidden;">
+                <div id="confidence-bar" style="height:100%;background:var(--accent);width:0%;transition:width 0.3s;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Funding -->
+          <div class="glass" style="padding:20px;">
+            <h4 style="margin-bottom:12px;">💰 Funding</h4>
+            <div class="mono" id="funding" style="font-size:1.5rem;font-weight:700;">--</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert Modal -->
+  <div id="alert-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:200;align-items:center;justify-content:center;">
+    <div class="glass" style="padding:24px;width:300px;">
+      <h3 style="margin-bottom:16px;">Set RSI Alert</h3>
+      <select id="alert-type" style="width:100%;margin-bottom:12px;">
+        <option value="below">RSI drops below</option>
+        <option value="above">RSI rises above</option>
+      </select>
+      <input type="number" id="alert-rsi" placeholder="RSI value" style="width:100%;margin-bottom:16px;">
+      <button class="btn btn-primary" style="width:100%;" onclick="saveAlert()">Save</button>
+      <button class="btn btn-secondary" style="width:100%;margin-top:8px;" onclick="closeAlertModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    const COIN = new URLSearchParams(window.location.search).get('coin') || 'BTC';
+    document.getElementById('coin-title').textContent = COIN;
+
+    let mainChart, candleSeries, rsiSeries, rsiArea;
+
+    function initCharts() {
+      mainChart = LightweightCharts.createChart(document.getElementById('chart-main'), {
+        layout: { background: { type: 'solid', color: '#1C1C1E' }, textColor: '#8E8E93' },
+        grid: { vertLines: { color: '#2C2C2E' }, horzLines: { color: '#2C2C2E' } },
+        width: document.getElementById('chart-main').clientWidth,
+        height: 280
+      });
+      candleSeries = mainChart.addCandlestickSeries({
+        upColor: '#30D158', downColor: '#FF453A', borderUpColor: '#30D158', borderDownColor: '#FF453A'
+      });
+
+      const rsiChart = LightweightCharts.createChart(document.getElementById('chart-rsi'), {
+        layout: { background: { type: 'solid', color: '#1C1C1E' }, textColor: '#8E8E93' },
+        grid: { vertLines: { color: '#2C2C2E' }, horzLines: { color: '#2C2C2E' } },
+        width: document.getElementById('chart-rsi').clientWidth,
+        height: 100
+      });
+      rsiArea = rsiChart.addLineSeries({ color: '#0A84FF', lineWidth: 2 });
+      
+      // RSI reference lines
+      rsiChart.addLineSeries({ color: 'rgba(255,69,58,0.3)', lineWidth: 1, priceLineVisible: false }).setData([
+        { time: 0, value: 70 }, { time: 9999999999, value: 70 }
+      ]);
+      rsiChart.addLineSeries({ color: 'rgba(48,209,88,0.3)', lineWidth: 1, priceLineVisible: false }).setData([
+        { time: 0, value: 30 }, { time: 9999999999, value: 30 }
+      ]);
+    }
+
+    async function load() {
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('content').style.display = 'none';
+      document.getElementById('error').style.display = 'none';
+
+      try {
+        const [sigRes, priceRes, fundRes, histRes] = await Promise.all([
+          fetch('/api/quality?key=' + API_KEY),
+          fetch('/api/prices?key=' + API_KEY),
+          fetch('/api/funding?key=' + API_KEY),
+          fetch('/api/signals/history?key=' + API_KEY)
+        ]);
+
+        const sig = (await sigRes.json()).signals?.find(s => s.coin === COIN);
+        const p = (await priceRes.json()).prices?.find(pr => pr.coin === COIN);
+        const f = (await fundRes.json()).rates?.find(fr => fr.coin === COIN);
+        const history = (await histRes.json()).history || [];
+
+        // Candles
+        const candlesRes = await fetch(`/api/candles?coin=${COIN}&interval=1h&key=${API_KEY}`);
+        const candlesData = await candlesRes.json();
+        if (candlesData.candles) {
+          if (!mainChart) initCharts();
+          const candles = candlesData.candles.map(c => ({ time: c.time, open: c.open, high: c.high, low: c.low, close: c.close }));
+          candleSeries.setData(candles);
+          
+          // RSI from candles
+          const rsiData = calculateRSI(candles.map(c => c.close));
+          rsiArea.setData(rsiData.map((v, i) => ({ time: candles[i].time, value: v })));
+        }
+
+        // Price
+        if (p) {
+          document.getElementById('price').textContent = '$' + p.price.toFixed(2);
+          const ch = p.change_24h_pct;
+          document.getElementById('change').textContent = (ch >= 0 ? '+' : '') + ch.toFixed(1) + '%';
+          document.getElementById('change').style.color = ch >= 0 ? 'var(--green)' : 'var(--red)';
+        }
+
+        // Signal meta
+        if (sig) {
+          const macd = sig.macd_signal || 'neutral';
+          document.getElementById('signal-meta').innerHTML = `
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--glass-border)"><span class="text-muted">Score</span><span class="mono" style="font-weight:700;">${sig.score}</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--glass-border)"><span class="text-muted">RSI</span><span class="mono">${sig.rsi?.toFixed(1)}</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--glass-border)"><span class="text-muted">MACD</span><span>${macd === 'bullish' ? '📈' : macd === 'bearish' ? '📉' : '—'}</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0"><span class="text-muted">Timeframe</span><span>${sig.timeframe_alignment || 'N/A'}</span></div>
+          `;
+          document.getElementById('confidence-bar').style.width = sig.score + '%';
+          document.getElementById('confidence-bar').style.background = sig.score >= 70 ? 'var(--green)' : sig.score >= 50 ? 'var(--yellow)' : 'var(--text-muted)';
+        }
+
+        // Funding
+        if (f) {
+          document.getElementById('funding').innerHTML = `<span class="${f.rate_pct > 0 ? 'text-red' : 'text-green'}">${f.rate_pct >= 0 ? '+' : ''}${f.rate_pct.toFixed(3)}%</span>`;
+        }
+
+        // Signal log
+        const logHtml = history.slice(0, 5).map(snap => {
+          const s = snap.signals?.find(s => s.coin === COIN);
+          if (!s) return '';
+          return `<tr><td class="text-muted">${snap.timestamp?.slice(5, 16)}</td><td class="${s.action === 'BUY' ? 'text-green' : 'text-red'}">${s.action}</td><td class="mono">${s.score}</td><td>—</td></tr>`;
+        }).join('');
+        document.getElementById('signal-log').innerHTML = logHtml || '<tr><td colspan="4" class="text-muted">No history</td></tr>';
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      } catch(e) {
+        console.error(e);
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').style.display = 'block';
+      }
+    }
+
+    function calculateRSI(closes) {
+      if (closes.length < 14) return closes.map(() => 50);
+      let gains = [], losses = [];
+      for (let i = 1; i < closes.length; i++) {
+        const d = closes[i] - closes[i-1];
+        gains.push(d > 0 ? d : 0);
+        losses.push(d < 0 ? -d : 0);
+      }
+      let avgG = gains.slice(0, 14).reduce((a, b) => a + b) / 14;
+      let avgL = losses.slice(0, 14).reduce((a, b) => a + b) / 14;
+      const rsi = [50];
+      for (let i = 14; i < gains.length; i++) {
+        avgG = (avgG * 13 + gains[i]) / 14;
+        avgL = (avgL * 13 + losses[i]) / 14;
+        rsi.push(avgL === 0 ? 100 : 100 - 100 / (1 + avgG / avgL));
+      }
+      return rsi;
+    }
+
+    function showAlertModal() { document.getElementById('alert-modal').style.display = 'flex'; }
+    function closeAlertModal() { document.getElementById('alert-modal').style.display = 'none'; }
+    function saveAlert() {
+      let alerts = JSON.parse(localStorage.getItem('rsi_alerts') || '[]');
+      alerts.push({ id: Date.now().toString(), coin: COIN, type: document.getElementById('alert-type').value, rsi: parseFloat(document.getElementById('alert-rsi').value), created: new Date().toISOString(), triggered: false });
+      localStorage.setItem('rsi_alerts', JSON.stringify(alerts));
+      closeAlertModal();
+      alert('Alert set!');
+    }
+
+    load();
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "symbol": "BTC",
+  "timeframe": "4h",
+  "current_price": 68365.51,
+  "swing_high": 70983.0,
+  "swing_low": 65631.83,
+  "rsi": 72.99,
+  "fib_levels": {
+    "0.0": 70983.0,
+    "0.236": 69720.12388,
+    "0.382": 68938.85306,
+    "0.5": 68307.415,
+    "0.618": 67675.97694,
+    "0.786": 66776.98038,
+    "1.0": 65631.83,
+    "1.272": 64176.31176,
+    "1.618": 62324.80694,
+    "2.0": 60280.66
+  },
+  "nearest_fib": "0.5",
+  "nearest_fib_label": "At .5 support",
+  "is_key_level": true,
+  "ew_estimate": "Wave 5 impulse (possible top)",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:30.130423Z"
+}

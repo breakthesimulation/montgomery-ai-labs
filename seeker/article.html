@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Seeker">
+  <link rel="apple-touch-icon" href="/seeker/icons/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta property="og:title" content="Solana Seeker">
+  <meta property="og:description" content="Your Solana news hub - AI-curated daily digests">
+  <meta property="og:image" content="/seeker/seeker-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Article | Solana Seeker</title>
+  <link rel="manifest" href="/seeker/manifest.json">
+  <link rel="stylesheet" href="/seeker/styles.css">
+</head>
+<body>
+  <!-- Reading Progress -->
+  <div class="reading-progress" id="progress-bar"></div>
+
+  <button onclick="toggleTheme()" style="position:fixed;top:12px;right:12px;background:none;border:none;font-size:1.2rem;z-index:100;">🌙</button>
+  <header class="page-header">
+    <a href="javascript:history.back()" style="color:var(--text-secondary);text-decoration:none;">← Back</a>
+    <h1></h1>
+    <div style="display:flex;gap:12px;">
+      <span onclick="shareArticle()" style="cursor:pointer;font-size:1.2rem;">📤</span>
+      <span id="bookmark-btn" onclick="toggleSave()" style="cursor:pointer;font-size:1.2rem;">☆</span>
+    </div>
+  </header>
+
+  <div id="article-content"></div>
+
+  <!-- Text Size Toggle -->
+  <div class="text-size-controls" id="text-controls" style="display:none;">
+    <button onclick="setTextSize('small')" id="size-small">A</button>
+    <button onclick="setTextSize('medium')" id="size-medium" class="active">A</button>
+    <button onclick="setTextSize('large')" id="size-large">A</button>
+  </div>
+
+  <!-- Sticky Footer -->
+  <div class="sticky-footer" id="sticky-footer" style="display:none;">
+    <button class="btn btn-secondary" onclick="toggleSave()">
+      <span id="save-text">🔖 Save</span>
+    </button>
+    <a href="#" id="read-more-btn" class="btn btn-primary" target="_blank">
+      Read on <span id="source-name"></span> →
+    </a>
+  </div>
+
+  <div id="loading" style="padding:40px;text-align:center;">
+    <p class="text-muted">Loading article...</p>
+  </div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    const params = new URLSearchParams(window.location.search);
+    const articleId = params.get('id');
+    let article = null;
+    let textSize = localStorage.getItem('seeker_text_size') || 'medium';
+
+    function setTextSize(size) {
+      textSize = size;
+      localStorage.setItem('seeker_text_size', size);
+      const sizes = { small: '0.9rem', medium: '1rem', large: '1.15rem' };
+      document.getElementById('article-content').style.fontSize = sizes[size];
+      document.querySelectorAll('.text-size-controls button').forEach(b => b.classList.remove('active'));
+      document.getElementById('size-' + size).classList.add('active');
+    }
+
+    function toggleSave() {
+      let saved = JSON.parse(localStorage.getItem('saved_articles') || '[]');
+      if (saved.includes(articleId)) {
+        saved = saved.filter(s => s !== articleId);
+        document.getElementById('bookmark-btn').textContent = '☆';
+        document.getElementById('save-text').textContent = '🔖 Save';
+      } else {
+        saved.push(articleId);
+        document.getElementById('bookmark-btn').textContent = '★';
+        document.getElementById('save-text').textContent = '★ Saved';
+      }
+      localStorage.setItem('saved_articles', JSON.stringify(saved));
+    }
+
+    async function shareArticle() {
+      if (!article) return;
+      const text = `${article.title}\n\nRead more: ${article.url}`;
+      if (navigator.share) {
+        navigator.share({ title: article.title, text: text, url: article.url });
+      } else {
+        await navigator.clipboard.writeText(text);
+        alert('Link copied!');
+      }
+    }
+
+    function estimateReadTime(content) {
+      const words = (content || '').split(/\s+/).length;
+      return Math.max(1, Math.ceil(words / 200));
+    }
+
+    function markAsRead() {
+      let read = JSON.parse(localStorage.getItem('seeker_read') || '[]');
+      if (!read.includes(articleId)) {
+        read.push(articleId);
+        localStorage.setItem('seeker_read', JSON.stringify(read));
+      }
+    }
+
+    async function loadArticle() {
+      try {
+        const res = await fetch('/api/seeker/feed?key=' + API_KEY);
+        const data = await res.json();
+        article = (data.articles || []).find(a => a.id === articleId);
+        
+        if (!article) {
+          document.getElementById('loading').textContent = 'Article not found';
+          return;
+        }
+
+        const saved = JSON.parse(localStorage.getItem('saved_articles') || '[]');
+        const isSaved = saved.includes(articleId);
+        document.getElementById('bookmark-btn').textContent = isSaved ? '★' : '☆';
+        document.getElementById('save-text').textContent = isSaved ? '★ Saved' : '🔖 Save';
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('sticky-footer').style.display = 'flex';
+        document.getElementById('text-controls').style.display = 'flex';
+        setTextSize(textSize);
+        
+        const published = new Date(article.published).toLocaleDateString('en-US', { 
+          year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+        });
+
+        const readTime = estimateReadTime(article.content);
+        document.getElementById('source-name').textContent = article.source;
+        document.getElementById('read-more-btn').href = article.url;
+
+        document.getElementById('article-content').innerHTML = `
+          <div class="article-view">
+            ${article.image ? `<img class="hero" src="${article.image}" alt="" onerror="this.style.display='none'">` : ''}
+            <div class="source-row">
+              <span>${article.source}</span>
+              <span class="text-muted">•</span>
+              <span class="text-muted">${readTime} min read</span>
+            </div>
+            <h1 class="title">${article.title}</h1>
+            <div class="meta">Published ${published}</div>
+            
+            ${article.ai_summary ? `
+              <div class="ai-summary">
+                <h4>🤖 AI Summary</h4>
+                <p>${article.ai_summary}</p>
+              </div>
+            ` : ''}
+            
+            <div class="key-takeaways" style="background:var(--bg-tertiary);padding:16px;border-radius:12px;margin-bottom:20px;">
+              <h4 style="font-size:0.9rem;margin-bottom:12px;">🎯 Key Takeaways</h4>
+              <ul style="padding-left:20px;margin:0;">
+                ${article.key_takeaways && article.key_takeaways.length ? 
+                  article.key_takeaways.map(t => `<li style="margin-bottom:8px;">${t}</li>`).join('') :
+                  `<li>Solana ecosystem continues to evolve with new developments</li>
+                  <li>Monitor DeFi activity for emerging opportunities</li><li>Stay tuned for more updates</li>`
+                }
+              </ul>
+            </div>
+            
+            <div class="content">
+              <p>${article.content || article.teaser || 'Click below to read the full article.'}</p>
+            </div>
+            
+            <a href="${article.url}" target="_blank" rel="noopener" class="read-more">
+              Read on ${article.source} →
+            </a>
+            
+            <div class="related-section">
+              <h4>Related Articles</h4>
+              <div id="related"></div>
+            </div>
+          </div>
+        `;
+
+        // Load related
+        const related = (data.articles || []).filter(a => 
+          a.id !== articleId && a.category === article.category &&
+          new Date(a.published) > new Date(Date.now() - 24*60*60*1000)
+        ).slice(0, 3);
+
+        document.getElementById('related').innerHTML = related.length ? 
+          related.map(a => `<a href="/seeker/article.html?id=${a.id}" style="display:block;padding:12px 0;border-bottom:1px solid var(--glass-border);color:inherit;text-decoration:none;"><div style="font-weight:600;font-size:0.9rem;">${a.title}</div><div class="text-sm text-muted">${a.source} • ${a.category}</div></a>`).join('') :
+          '<p class="text-muted">No related articles</p>';
+        
+        // Reading progress
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.body.offsetHeight - window.innerHeight;
+          const progress = (scrollTop / docHeight) * 100;
+          document.getElementById('progress-bar').style.width = progress + '%';
+          
+          if (progress > 90) markAsRead();
+        });
+      } catch(e) {
+        console.error(e);
+        document.getElementById('loading').textContent = 'Failed to load';
+      }
+    }
+
+    loadArticle();
+  
+    async function explainArticle() {
+      const panel = document.getElementById('explain-panel');
+      const content = document.getElementById('explain-content');
+      
+      // Check cache
+      const articleId = new URLSearchParams(window.location.search).get('id');
+      const cacheKey = 'explain_' + articleId;
+      const cached = localStorage.getItem(cacheKey);
+      
+      if (cached) {
+        panel.style.display = 'block';
+        content.innerHTML = cached;
+        return;
+      }
+      
+      // Show panel
+      panel.style.display = 'block';
+      content.innerHTML = 'Getting explanation...';
+      
+      // Demo explanation
+      const demo = "This news story is about [TOPIC]. In simple terms, this means [EXPLANATION]. For Solana, this matters because [IMPACT]. Watch for [NEXT STEPS] in the coming days.";
+      
+      // In production, would call MiniMax API here
+      
+      content.innerHTML = demo;
+      localStorage.setItem(cacheKey, demo);
+    }
+
+  </script>
+
+    <!-- Explain Panel -->
+    <div id="explain-panel" style="display:none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-tertiary); padding: 20px; border-top: 2px solid var(--purple); z-index: 1000; max-height: 50vh; overflow-y: auto;">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="margin:0;">💡 Explanation</h3>
+          <button onclick="document.getElementById('explain-panel').style.display='none'" style="background:none;border:none;color:var(--text-tertiary);font-size:1.5rem;cursor:pointer;">✕</button>
+        </div>
+        <div id="explain-content" style="line-height:1.6;">Loading...</div>
+      </div>
+    </div>
+
+</body>
+</html>

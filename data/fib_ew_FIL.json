@@ -1,0 +1,26 @@
+{
+  "symbol": "FIL",
+  "timeframe": "4h",
+  "current_price": 0.972,
+  "swing_high": 1.032,
+  "swing_low": 0.894,
+  "rsi": 73.1,
+  "fib_levels": {
+    "0.0": 1.032,
+    "0.236": 0.999432,
+    "0.382": 0.979284,
+    "0.5": 0.963,
+    "0.618": 0.946716,
+    "0.786": 0.923532,
+    "1.0": 0.894,
+    "1.272": 0.856464,
+    "1.618": 0.808716,
+    "2.0": 0.756
+  },
+  "nearest_fib": "0.382",
+  "nearest_fib_label": "At .382 resistance",
+  "is_key_level": true,
+  "ew_estimate": "Wave 5 impulse (possible top)",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:37.429720Z"
+}

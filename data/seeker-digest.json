@@ -1,0 +1,67 @@
+{
+  "ny": {
+    "name": "New York",
+    "generated": "2026-02-23T13:00:01.516355",
+    "summary": "Top 10 stories from New York.",
+    "stories": [
+      {
+        "title": "Solana futures data shows panicked bulls: Will $80 SOL hold?",
+        "url": "https://cointelegraph.com/news/solana-futures-data-shows-panicked-bulls-will-80-sol-hold?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Zora debuts attention markets on Solana, betting on social trends",
+        "url": "https://cointelegraph.com/news/zora-launches-attention-markets-solana?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Solana treasuries sitting on over $1.5B in paper SOL losses",
+        "url": "https://cointelegraph.com/news/solana-treasury-firms-unrealized-losses-equity-repricing?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "AI agent sends $441K in tokens after decimal error",
+        "url": "https://cointelegraph.com/news/openai-employee-s-ai-agent-accidentally-sent-442k-to-beggar?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Crypto funds log fourth week of outflows at $173M as BTC dips below $70K",
+        "url": "https://cointelegraph.com/news/crypto-etf-4-week-outflows-173-million-btc-below-70k?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Is Solana headed to $50? These three charts show a textbook bear pattern",
+        "url": "https://cointelegraph.com/news/is-solana-headed-to-50-dollars-three-charts-textbook-bear?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Anchorage, Kamino let institutions borrow against SOL without moving custody",
+        "url": "https://cointelegraph.com/news/anchorage-kamino-institutions-borrow-against-sol-without-moving-custody?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Price predictions 2/18: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
+        "url": "https://cointelegraph.com/news/price-predictions-2-18-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Price predictions 2/11: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
+        "url": "https://cointelegraph.com/news/price-predictions-2-11-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Santiment: Solana Growth Signals Hope Despite Woes",
+        "url": "https://cryptopotato.com/santiment-solana-growth-signals-hope-despite-woes/",
+        "category": "News"
+      }
+    ],
+    "categories": [
+      {
+        "category": "News",
+        "summary": ""
+      }
+    ],
+    "key_insight": "Market evolving. Monitor DeFi TVL.",
+    "status": "extractive"
+  }
+}

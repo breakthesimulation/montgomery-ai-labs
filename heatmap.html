@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <title>Signal Heatmap | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; overflow-x: auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .heatmap { display: flex; flex-direction: column; gap: 2px; }
+    .heatmap-row { display: flex; gap: 2px; }
+    .heatmap-cell { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; cursor: pointer; border-radius: 4px; transition: transform 0.1s; }
+    .heatmap-cell:hover { transform: scale(1.1); z-index: 10; }
+    .heatmap-cell.header { background: none; color: var(--text-tertiary); font-size: 0.55rem; }
+    .heatmap-cell.coin { width: 56px; justify-content: flex-start; padding-left: 4px; background: none; font-weight: 600; }
+    .tooltip { position: fixed; background: var(--bg-tertiary); border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; display: none; z-index: 1000; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <h1>🗺 Signal Heatmap</h1>
+  <p style="color:var(--text-tertiary);margin-bottom:20px;">Last 24 hours — click any cell for details</p>
+  
+  <div id="heatmap" class="heatmap"></div>
+  <div id="tooltip" class="tooltip"></div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    
+    async function loadHeatmap() {
+      try {
+        const res = await fetch('/api/signals/history?key=' + API_KEY);
+        const data = await res.json();
+        
+        const coins = ['BTC','ETH','SOL','JUP','ARB','OP','AVAX','NEAR','MATIC','LINK','BNB','XRP'];
+        const snapshots = data.slice(-24) || [];
+        
+        let html = '<div class="heatmap-row"><div class="heatmap-cell header"></div>';
+        
+        // Header: hours
+        snapshots.forEach(s => {
+          const d = new Date(s.timestamp * 1000);
+          html += '<div class="heatmap-cell header">' + d.getHours() + ':00</div>';
+        });
+        html += '</div>';
+        
+        // Rows: each coin
+        coins.forEach(coin => {
+          html += '<div class="heatmap-row"><div class="heatmap-cell coin">' + coin + '</div>';
+          snapshots.forEach(s => {
+            const sig = (s.signals || []).find(x => x.coin === coin);
+            const score = sig?.score || 50;
+            const hue = score > 50 ? 120 : 0;
+            const sat = Math.abs(score - 50) * 2;
+            const bg = `hsl(${hue}, ${sat}%, 25%)`;
+            
+            html += '<div class="heatmap-cell" style="background:' + bg + ';" onclick="showTooltip(event,\'' + coin + '\',' + s.timestamp + ',' + score + ',' + (sig?.rsi || 50) + ',\'' + (sig?.action || 'HOLD') + '\')">' + score + '</div>';
+          });
+          html += '</div>';
+        });
+        
+        document.getElementById('heatmap').innerHTML = html;
+      } catch(e) { console.log(e); }
+    }
+    
+    function showTooltip(e, coin, ts, score, rsi, action) {
+      const t = document.getElementById('tooltip');
+      const d = new Date(ts * 1000);
+      t.style.display = 'block';
+      t.style.left = e.pageX + 10 + 'px';
+      t.style.top = e.pageY + 10 + 'px';
+      t.innerHTML = '<strong>' + coin + '</strong> @ ' + d.toLocaleTimeString() + '<br>Score: ' + score + '<br>RSI: ' + rsi + '<br>Action: ' + action;
+    }
+    
+    document.addEventListener('click', e => {
+      if (!e.target.classList.contains('heatmap-cell')) {
+        document.getElementById('tooltip').style.display = 'none';
+      }
+    });
+    
+    loadHeatmap();
+  </script>
+</body>
+</html>

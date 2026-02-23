@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <title>Journal | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>📓 Journal</h2>
+      <button class="btn btn-secondary" onclick="exportCSV()">Export CSV</button>
+    </header>
+    
+    <!-- Filters -->
+    <div class="glass" style="padding: 16px; margin-bottom: 16px;">
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <input type="text" id="filter-coin" placeholder="Coin" style="width: 100px;" oninput="render()">
+        <select id="filter-side" onchange="render()" style="width: 120px;">
+          <option value="">All</option>
+          <option value="BUY">Long</option>
+          <option value="SELL">Short</option>
+        </select>
+        <input type="date" id="filter-date" onchange="render()" style="width: 140px;">
+        <button class="btn btn-secondary" onclick="clearFilters()">Clear</button>
+      </div>
+    </div>
+    
+    <!-- Summary -->
+    <div class="grid grid-3" style="margin-bottom: 16px;">
+      <div class="glass stat-card">
+        <div class="stat-label">Total Trades</div>
+        <div class="stat-value" id="total-count">--</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-label">Win Rate</div>
+        <div class="stat-value" id="win-rate">--</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-label">Net P&L</div>
+        <div class="stat-value" id="net-pnl">--</div>
+      </div>
+    </div>
+    
+    <!-- Journal Entries -->
+    <div class="glass" style="padding: 0; overflow: hidden;">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Coin</th>
+            <th>Side</th>
+            <th>Entry</th>
+            <th>Exit</th>
+            <th>P&L</th>
+            <th>Hold</th>
+          </tr>
+        </thead>
+        <tbody id="journal-list"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/screener.html">🔍</a>
+    <a href="/settings.html">⚙️</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    let trades = [];
+    
+    async function load() {
+      const res = await fetch('/api/trades/closed?key=' + API_KEY);
+      const data = await res.json();
+      trades = (data.trades || []).sort((a, b) => new Date(b.exit_timestamp) - new Date(a.exit_timestamp));
+      render();
+    }
+    
+    function render() {
+      const coin = document.getElementById('filter-coin').value.toUpperCase();
+      const side = document.getElementById('filter-side').value;
+      const date = document.getElementById('filter-date').value;
+      
+      let filtered = trades;
+      
+      if (coin) filtered = filtered.filter(t => t.coin === coin);
+      if (side) filtered = filtered.filter(t => t.side === side);
+      if (date) filtered = filtered.filter(t => t.exit_timestamp?.startsWith(date));
+      
+      // Summary
+      const wins = filtered.filter(t => t.pnl > 0).length;
+      const wr = filtered.length ? (wins / filtered.length * 100).toFixed(0) : 0;
+      const net = filtered.reduce((sum, t) => sum + t.pnl, 0);
+      
+      document.getElementById('total-count').textContent = filtered.length;
+      document.getElementById('win-rate').textContent = wr + '%';
+      
+      const pnlEl = document.getElementById('net-pnl');
+      pnlEl.textContent = (net >= 0 ? '+' : '') + net.toFixed(1) + '%';
+      pnlEl.style.color = net >= 0 ? 'var(--green)' : 'var(--red)';
+      
+      // List
+      const rows = filtered.map(t => {
+        const hold = t.timestamp && t.exit_timestamp ? 
+          ((new Date(t.exit_timestamp) - new Date(t.timestamp)) / 36e5).toFixed(1) + 'h' : '-';
+        
+        return `
+          <tr>
+            <td class="text-sm">${t.exit_timestamp?.slice(0, 10) || '-'}</td>
+            <td style="font-weight: 600;">${t.coin}</td>
+            <td><span class="tag ${t.side === 'BUY' ? 'buy' : 'sell'}">${t.side}</span></td>
+            <td class="mono">$${t.entry_price}</td>
+            <td class="mono">$${t.exit_price}</td>
+            <td class="mono ${t.pnl >= 0 ? 'text-green' : 'text-red'}" style="font-weight: 600;">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
+            <td class="text-muted text-sm">${hold}</td>
+          </tr>
+        `;
+      }).join('');
+      
+      document.getElementById('journal-list').innerHTML = rows || '<tr><td colspan="7" class="text-muted text-sm" style="text-align:center;padding:32px;">No trades found</td></tr>';
+    }
+    
+    function clearFilters() {
+      document.getElementById('filter-coin').value = '';
+      document.getElementById('filter-side').value = '';
+      document.getElementById('filter-date').value = '';
+      render();
+    }
+    
+    function exportCSV() {
+      let csv = 'Date,Coin,Side,Entry,Exit,P&L,Hold,Score\n';
+      
+      trades.forEach(t => {
+        const hold = t.timestamp && t.exit_timestamp ? 
+          ((new Date(t.exit_timestamp) - new Date(t.timestamp)) / 36e5).toFixed(1) : '';
+        
+        csv += `${t.exit_timestamp?.slice(0,10) || ''},${t.coin},${t.side},${t.entry_price},${t.exit_price},${t.pnl},${hold},${t.score || ''}\n`;
+      });
+      
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'trading-journal.csv';
+      a.click();
+    }
+    
+    load();
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "strategy": "btc_accumulation",
+  "optimized": "2026-02-20T19:04:47.211994",
+  "parameters": {
+    "rsi_oversold": 25,
+    "rsi_overbought": 75,
+    "position_pct": 15
+  },
+  "results": {
+    "rsi_oversold": 25,
+    "rsi_overbought": 75,
+    "position_pct": 15,
+    "trades": 23,
+    "wins": 16,
+    "win_rate": 72.2,
+    "return_pct": 14.98,
+    "sharpe_ratio": 1.0,
+    "max_drawdown": 5.3,
+    "score": 50
+  }
+}

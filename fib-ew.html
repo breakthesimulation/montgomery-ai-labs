@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Fibonacci + Elliott Wave Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-purple: #9945FF;
+            --accent-green: #14F195;
+            --accent-orange: #f59e0b;
+            --border-color: #2a2a3a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .refresh-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: var(--bg-tertiary);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        tr:last-child td { border-bottom: none; }
+        
+        tr.key-level {
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        tr.key-level td:first-child {
+            border-left: 3px solid var(--accent-orange);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .badge.high { background: rgba(20, 241, 149, 0.2); color: var(--accent-green); }
+        .badge.medium { background: rgba(245, 158, 11, 0.2); color: var(--accent-orange); }
+        .badge.low { background: rgba(160, 160, 176, 0.2); color: var(--text-secondary); }
+        
+        .legend {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-key {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            background: rgba(245, 158, 11, 0.3);
+            border: 1px solid var(--accent-orange);
+        }
+    </style>
+    <meta http-equiv="refresh" content="900">
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Fib + Elliott Wave Scanner</h1>
+        <span class="refresh-info">Auto-refresh: 15 min</span>
+    </div>
+    
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-key"></div>
+            <span>Near key Fib level (.382, .5, .618, .786)</span>
+        </div>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Price</th>
+                <th>RSI</th>
+                <th>Nearest Fib</th>
+                <th>Elliott Wave</th>
+                <th>Confidence</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr class="key-level">
+            <td>🟡 <strong>FIL</strong></td>
+            <td>$0.9720</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">52.6</td>
+            <td>At .382 resistance</td>
+            <td>Consolidation / Wave 4</td>
+            <td><span class="badge low">low</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>FIL</strong></td>
+            <td>$0.9720</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">73.1</td>
+            <td>At .382 resistance</td>
+            <td>Wave 5 impulse (possible top)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>NEAR</strong></td>
+            <td>$1.0580</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">73.2</td>
+            <td>At .382 resistance</td>
+            <td>Wave 5 impulse (possible top)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>BTC</strong></td>
+            <td>$68,365.5100</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">73.0</td>
+            <td>At .5 support</td>
+            <td>Wave 5 impulse (possible top)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>ARB</strong></td>
+            <td>$0.0993</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">45.9</td>
+            <td>At .5 support</td>
+            <td>Wave 4 / B correction</td>
+            <td><span class="badge low">low</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>NEAR</strong></td>
+            <td>$1.0580</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">45.2</td>
+            <td>At .5 support</td>
+            <td>Consolidation / Wave 4</td>
+            <td><span class="badge low">low</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>SOL</strong></td>
+            <td>$85.8200</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">83.5</td>
+            <td>At .5 support</td>
+            <td>Wave 3 impulse (late)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>ETH</strong></td>
+            <td>$1,981.7900</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">72.6</td>
+            <td>At .618 resistance</td>
+            <td>Wave 5 impulse (possible top)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>CRV</strong></td>
+            <td>$0.2424</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">44.9</td>
+            <td>At .618 support</td>
+            <td>Consolidation / Wave 4</td>
+            <td><span class="badge low">low</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>ARB</strong></td>
+            <td>$0.0993</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">53.1</td>
+            <td>At .786 support</td>
+            <td>Wave B retracement</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>CRV</strong></td>
+            <td>$0.2424</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">60.7</td>
+            <td>At .786 support</td>
+            <td>Wave 3 or 5 (in progress)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="key-level">
+            <td>🟡 <strong>OP</strong></td>
+            <td>$0.1292</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">40.2</td>
+            <td>At .786 support</td>
+            <td>Consolidation / Wave 4</td>
+            <td><span class="badge low">low</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>INJ</strong></td>
+            <td>$3.8590</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">78.5</td>
+            <td>No key level nearby</td>
+            <td>Wave 3 impulse (late)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>OP</strong></td>
+            <td>$0.1292</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">33.3</td>
+            <td>No key level nearby</td>
+            <td>Wave A/C correction</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>YGG</strong></td>
+            <td>$0.0486</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">40.3</td>
+            <td>No key level nearby</td>
+            <td>Wave B retracement</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>YGG</strong></td>
+            <td>$0.0486</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">81.2</td>
+            <td>No key level nearby</td>
+            <td>Wave 3 impulse (late)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>SNX</strong></td>
+            <td>$0.4370</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">69.9</td>
+            <td>At .0 resistance</td>
+            <td>Wave 3 impulse</td>
+            <td><span class="badge high">high</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>SNX</strong></td>
+            <td>$0.4370</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">76.6</td>
+            <td>At .0 resistance</td>
+            <td>Wave 3 impulse (late)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>BTC</strong></td>
+            <td>$68,365.5100</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">62.3</td>
+            <td>At .236 support</td>
+            <td>Wave 3 or 5 (in progress)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>ETH</strong></td>
+            <td>$1,981.7900</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">65.8</td>
+            <td>At .236 support</td>
+            <td>Wave 3 or 5 (in progress)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>INJ</strong></td>
+            <td>$3.8590</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">68.4</td>
+            <td>At .236 support</td>
+            <td>Wave 3 impulse</td>
+            <td><span class="badge high">high</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>SOL</strong></td>
+            <td>$85.8200</td>
+            <td style="color: #a0a0b0; font-family: 'JetBrains Mono';">66.5</td>
+            <td>At .236 support</td>
+            <td>Wave 3 or 5 (in progress)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>UNI</strong></td>
+            <td>$3.6360</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">71.2</td>
+            <td>At .236 support</td>
+            <td>Wave 5 impulse (possible top)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        <tr class="">
+            <td>⚪ <strong>UNI</strong></td>
+            <td>$3.6360</td>
+            <td style="color: #ef4444; font-family: 'JetBrains Mono';">93.2</td>
+            <td>At .236 support</td>
+            <td>Wave 3 impulse (late)</td>
+            <td><span class="badge medium">medium</span></td>
+        </tr>
+        
+        </tbody>
+    </table>
+</body>
+</html>

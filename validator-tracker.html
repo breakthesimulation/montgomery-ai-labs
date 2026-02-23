@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Solana Validator Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-purple: #9945FF;
+            --accent-green: #14F195;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --border-color: #2a2a3a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .logo-text .accent {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .refresh-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-tertiary);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        .refresh-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .main {
+            padding: 40px 0;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+        
+        .validators-table {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 60px 1fr 150px 100px 120px;
+            gap: 16px;
+            padding: 16px 24px;
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .validator-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 150px 100px 120px;
+            gap: 16px;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
+            transition: background 0.2s;
+        }
+        
+        .validator-row:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .validator-row:last-child {
+            border-bottom: none;
+        }
+        
+        .rank {
+            font-weight: 700;
+            color: var(--accent-purple);
+        }
+        
+        .rank.top-3 {
+            color: var(--accent-orange);
+        }
+        
+        .validator-name {
+            font-weight: 600;
+        }
+        
+        .validator-name .identity {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        .stake {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-green);
+        }
+        
+        .commission {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .commission.high {
+            color: var(--accent-red);
+        }
+        
+        .commission.low {
+            color: var(--accent-green);
+        }
+        
+        .epoch-credits {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .error {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--accent-red);
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 12px;
+            margin: 20px;
+        }
+        
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 24px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-brand {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .table-header, .validator-row {
+                grid-template-columns: 50px 1fr 80px;
+            }
+            .table-header > *:nth-child(4),
+            .table-header > *:nth-child(5),
+            .validator-row > *:nth-child(4),
+            .validator-row > *:nth-child(5) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-text">🔷 <span class="accent">Solana</span> Validator Tracker</span>
+            </div>
+            <div class="refresh-badge">
+                <span class="dot"></span>
+                Auto-refresh: 5 min
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h1 class="hero-title">Top Validators by Stake</h1>
+                <p class="hero-subtitle">Real-time data from Solana mainnet</p>
+            </section>
+            
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalValidators">-</div>
+                    <div class="stat-label">Total Validators</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalStake">-</div>
+                    <div class="stat-label">Total Stake (SOL)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="avgCommission">-</div>
+                    <div class="stat-label">Avg Commission</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="lastUpdate">-</div>
+                    <div class="stat-label">Last Updated</div>
+                </div>
+            </div>
+            
+            <div class="validators-table">
+                <div class="table-header">
+                    <div>Rank</div>
+                    <div>Validator</div>
+                    <div>Stake</div>
+                    <div>Commission</div>
+                    <div>Epoch Credits</div>
+                </div>
+                <div id="validatorsList">
+                    <div class="loading">Loading validators...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">Powered by Montgomery AI Labs</div>
+            <div class="footer-brand">Data: Solana RPC</div>
+        </div>
+    </footer>
+
+    <script>
+        const RPC_ENDPOINT = 'https://api.mainnet-beta.solana.com';
+        let validators = [];
+        
+        async function fetchValidators() {
+            try {
+                const response = await fetch(RPC_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        jsonrpc: '2.0',
+                        id: 1,
+                        method: 'getVoteAccounts',
+                        params: []
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error.message);
+                }
+                
+                return data.result.current;
+            } catch (error) {
+                console.error('Error fetching validators:', error);
+                throw error;
+            }
+        }
+        
+        function formatSOL(lamports) {
+            return (lamports / 1e9).toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
+        
+        function formatCredits(credits) {
+            return credits.toLocaleString('en-US');
+        }
+        
+        function renderValidators() {
+            const list = document.getElementById('validatorsList');
+            
+            if (validators.length === 0) {
+                list.innerHTML = '<div class="loading">No validators found</div>';
+                return;
+            }
+            
+            // Sort by stake (descending)
+            validators.sort((a, b) => b.activatedStake - a.activatedStake);
+            
+            list.innerHTML = validators.slice(0, 20).map((v, i) => {
+                const rank = i + 1;
+                const name = v.identity || v.votePubkey.substring(0, 8) + '...';
+                const commissionClass = v.commission > 10 ? 'high' : v.commission < 5 ? 'low' : '';
+                
+                return `
+                    <div class="validator-row">
+                        <div class="rank ${rank <= 3 ? 'top-3' : ''}">#${rank}</div>
+                        <div class="validator-name">
+                            ${escapeHtml(name)}
+                            <div class="identity">${escapeHtml(v.votePubkey.substring(0, 20))}...</div>
+                        </div>
+                        <div class="stake">${formatSOL(v.activatedStake)} SOL</div>
+                        <div class="commission ${commissionClass}">${v.commission}%</div>
+                        <div class="epoch-credits">${formatCredits(v.epochCredits || 0)}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Update stats
+            const totalStake = validators.reduce((sum, v) => sum + v.activatedStake, 0);
+            const avgCommission = validators.reduce((sum, v) => sum + v.commission, 0) / validators.length;
+            
+            document.getElementById('totalValidators').textContent = validators.length;
+            document.getElementById('totalStake').textContent = formatSOL(totalStake);
+            document.getElementById('avgCommission').textContent = avgCommission.toFixed(1) + '%';
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString();
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        async function init() {
+            try {
+                validators = await fetchValidators();
+                renderValidators();
+            } catch (error) {
+                document.getElementById('validatorsList').innerHTML = 
+                    `<div class="error">Error loading validators: ${error.message}</div>`;
+            }
+        }
+        
+        // Auto-refresh every 5 minutes
+        init();
+        setInterval(init, 5 * 60 * 1000);
+    </script>
+</body>
+</html>

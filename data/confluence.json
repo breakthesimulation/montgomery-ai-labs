@@ -1,0 +1,409 @@
+{
+  "timestamp": "2026-02-23T03:00:20.983748",
+  "signals": [
+    {
+      "coin": "BTC",
+      "rsi_15m": 22.0,
+      "rsi_1h": 21.1,
+      "rsi_4h": 29.1,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:04.429986"
+    },
+    {
+      "coin": "ETH",
+      "rsi_15m": 19.7,
+      "rsi_1h": 20.6,
+      "rsi_4h": 29.0,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:05.188443"
+    },
+    {
+      "coin": "SOL",
+      "rsi_15m": 13.8,
+      "rsi_1h": 14.0,
+      "rsi_4h": 25.9,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:05.944193"
+    },
+    {
+      "coin": "BNB",
+      "rsi_15m": 18.7,
+      "rsi_1h": 18.6,
+      "rsi_4h": 28.8,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:06.697538"
+    },
+    {
+      "coin": "XRP",
+      "rsi_15m": 32.8,
+      "rsi_1h": 26.5,
+      "rsi_4h": 28.5,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:07.451240"
+    },
+    {
+      "coin": "ADA",
+      "rsi_15m": 29.9,
+      "rsi_1h": 23.1,
+      "rsi_4h": 29.9,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:08.203471"
+    },
+    {
+      "coin": "DOGE",
+      "rsi_15m": 34.7,
+      "rsi_1h": 26.0,
+      "rsi_4h": 24.4,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:08.956726"
+    },
+    {
+      "coin": "AVAX",
+      "rsi_15m": 22.4,
+      "rsi_1h": 20.7,
+      "rsi_4h": 24.9,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:09.710207"
+    },
+    {
+      "coin": "DOT",
+      "rsi_15m": 25.5,
+      "rsi_1h": 23.2,
+      "rsi_4h": 29.6,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:10.462868"
+    },
+    {
+      "coin": "MATIC",
+      "rsi_15m": 41.7,
+      "rsi_1h": 52.1,
+      "rsi_4h": 52.3,
+      "signal": "NEUTRAL",
+      "confidence": "NONE",
+      "aligned_count": 0,
+      "timestamp": "2026-02-23T03:00:11.215089"
+    },
+    {
+      "coin": "LINK",
+      "rsi_15m": 20.7,
+      "rsi_1h": 19.6,
+      "rsi_4h": 27.5,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:11.965747"
+    },
+    {
+      "coin": "UNI",
+      "rsi_15m": 28.9,
+      "rsi_1h": 23.8,
+      "rsi_4h": 32.6,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:12.716975"
+    },
+    {
+      "coin": "ATOM",
+      "rsi_15m": 32.8,
+      "rsi_1h": 30.6,
+      "rsi_4h": 35.4,
+      "signal": "NEUTRAL",
+      "confidence": "NONE",
+      "aligned_count": 0,
+      "timestamp": "2026-02-23T03:00:13.467316"
+    },
+    {
+      "coin": "LTC",
+      "rsi_15m": 24.3,
+      "rsi_1h": 21.5,
+      "rsi_4h": 29.8,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:14.219351"
+    },
+    {
+      "coin": "NEAR",
+      "rsi_15m": 34.4,
+      "rsi_1h": 32.4,
+      "rsi_4h": 35.0,
+      "signal": "NEUTRAL",
+      "confidence": "NONE",
+      "aligned_count": 0,
+      "timestamp": "2026-02-23T03:00:14.971996"
+    },
+    {
+      "coin": "APT",
+      "rsi_15m": 39.1,
+      "rsi_1h": 32.7,
+      "rsi_4h": 27.6,
+      "signal": "BUY_WEAK",
+      "confidence": "LOW",
+      "aligned_count": 1,
+      "timestamp": "2026-02-23T03:00:15.723211"
+    },
+    {
+      "coin": "ARB",
+      "rsi_15m": 36.1,
+      "rsi_1h": 29.8,
+      "rsi_4h": 26.6,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:16.475222"
+    },
+    {
+      "coin": "OP",
+      "rsi_15m": 26.6,
+      "rsi_1h": 23.7,
+      "rsi_4h": 14.7,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:17.226348"
+    },
+    {
+      "coin": "FIL",
+      "rsi_15m": 27.9,
+      "rsi_1h": 24.9,
+      "rsi_4h": 31.7,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:17.977947"
+    },
+    {
+      "coin": "HBAR",
+      "rsi_15m": 35.9,
+      "rsi_1h": 32.4,
+      "rsi_4h": 30.7,
+      "signal": "NEUTRAL",
+      "confidence": "NONE",
+      "aligned_count": 0,
+      "timestamp": "2026-02-23T03:00:18.728425"
+    },
+    {
+      "coin": "BONK",
+      "rsi_15m": 34.4,
+      "rsi_1h": 30.0,
+      "rsi_4h": 27.6,
+      "signal": "BUY_WEAK",
+      "confidence": "LOW",
+      "aligned_count": 1,
+      "timestamp": "2026-02-23T03:00:19.480553"
+    },
+    {
+      "coin": "WIF",
+      "rsi_15m": 35.3,
+      "rsi_1h": 25.2,
+      "rsi_4h": 23.0,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:20.230386"
+    },
+    {
+      "coin": "JUP",
+      "rsi_15m": 30.0,
+      "rsi_1h": 23.4,
+      "rsi_4h": 29.4,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:20.983725"
+    }
+  ],
+  "high_confluence": [
+    {
+      "coin": "BTC",
+      "rsi_15m": 22.0,
+      "rsi_1h": 21.1,
+      "rsi_4h": 29.1,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:04.429986"
+    },
+    {
+      "coin": "ETH",
+      "rsi_15m": 19.7,
+      "rsi_1h": 20.6,
+      "rsi_4h": 29.0,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:05.188443"
+    },
+    {
+      "coin": "SOL",
+      "rsi_15m": 13.8,
+      "rsi_1h": 14.0,
+      "rsi_4h": 25.9,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:05.944193"
+    },
+    {
+      "coin": "BNB",
+      "rsi_15m": 18.7,
+      "rsi_1h": 18.6,
+      "rsi_4h": 28.8,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:06.697538"
+    },
+    {
+      "coin": "ADA",
+      "rsi_15m": 29.9,
+      "rsi_1h": 23.1,
+      "rsi_4h": 29.9,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:08.203471"
+    },
+    {
+      "coin": "AVAX",
+      "rsi_15m": 22.4,
+      "rsi_1h": 20.7,
+      "rsi_4h": 24.9,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:09.710207"
+    },
+    {
+      "coin": "DOT",
+      "rsi_15m": 25.5,
+      "rsi_1h": 23.2,
+      "rsi_4h": 29.6,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:10.462868"
+    },
+    {
+      "coin": "LINK",
+      "rsi_15m": 20.7,
+      "rsi_1h": 19.6,
+      "rsi_4h": 27.5,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:11.965747"
+    },
+    {
+      "coin": "LTC",
+      "rsi_15m": 24.3,
+      "rsi_1h": 21.5,
+      "rsi_4h": 29.8,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:14.219351"
+    },
+    {
+      "coin": "OP",
+      "rsi_15m": 26.6,
+      "rsi_1h": 23.7,
+      "rsi_4h": 14.7,
+      "signal": "STRONG_BUY",
+      "confidence": "HIGH",
+      "aligned_count": 3,
+      "timestamp": "2026-02-23T03:00:17.226348"
+    }
+  ],
+  "medium_confluence": [
+    {
+      "coin": "XRP",
+      "rsi_15m": 32.8,
+      "rsi_1h": 26.5,
+      "rsi_4h": 28.5,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:07.451240"
+    },
+    {
+      "coin": "DOGE",
+      "rsi_15m": 34.7,
+      "rsi_1h": 26.0,
+      "rsi_4h": 24.4,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:08.956726"
+    },
+    {
+      "coin": "UNI",
+      "rsi_15m": 28.9,
+      "rsi_1h": 23.8,
+      "rsi_4h": 32.6,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:12.716975"
+    },
+    {
+      "coin": "ARB",
+      "rsi_15m": 36.1,
+      "rsi_1h": 29.8,
+      "rsi_4h": 26.6,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:16.475222"
+    },
+    {
+      "coin": "FIL",
+      "rsi_15m": 27.9,
+      "rsi_1h": 24.9,
+      "rsi_4h": 31.7,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:17.977947"
+    },
+    {
+      "coin": "WIF",
+      "rsi_15m": 35.3,
+      "rsi_1h": 25.2,
+      "rsi_4h": 23.0,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:20.230386"
+    },
+    {
+      "coin": "JUP",
+      "rsi_15m": 30.0,
+      "rsi_1h": 23.4,
+      "rsi_4h": 29.4,
+      "signal": "BUY",
+      "confidence": "MEDIUM",
+      "aligned_count": 2,
+      "timestamp": "2026-02-23T03:00:20.983725"
+    }
+  ]
+}

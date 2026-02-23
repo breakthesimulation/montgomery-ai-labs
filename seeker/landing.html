@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Seeker">
+  <link rel="apple-touch-icon" href="/seeker/icons/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Solana Seeker - Your Solana News Hub</title>
+  <meta name="description" content="AI-curated Solana news, 3 digests daily">
+  <meta name="theme-color" content="#0A84FF">
+  <link rel="manifest" href="/seeker/manifest.json">
+  <link rel="stylesheet" href="/seeker/styles.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: linear-gradient(180deg, #1C1C1E 0%, #000 100%); color: white; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+    
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+    h1 { font-size: 2.2rem; font-weight: 800; text-align: center; line-height: 1.2; margin-bottom: 12px; }
+    h1 span { background: linear-gradient(90deg, #0A84FF, #5E5CE6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subhead { font-size: 1.1rem; color: #8E8E93; text-align: center; margin-bottom: 32px; max-width: 320px; }
+    
+    /* Phone Mockup */
+    .phone-frame {
+      width: 260px; height: 520px; background: #000; border-radius: 36px;
+      border: 12px solid #2C2C2E; overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7), inset 0 0 0 2px #1a1a1a;
+      position: relative; margin-bottom: 32px;
+    }
+    .phone-notch {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 90px; height: 28px; background: #000;
+      border-radius: 0 0 18px 18px; z-index: 10;
+    }
+    /* Feed UI inside mockup */
+    .mock-feed { background: #0A0A0F; height: 100%; overflow: hidden; }
+    .mock-header { padding: 32px 12px 8px; font-size: 0.7rem; color: #8E8E93; display: flex; justify-content: space-between; }
+    .mock-ticker { padding: 6px 12px; background: #1C1C1E; font-size: 0.6rem; color: #8E8E93; white-space: nowrap; overflow: hidden; }
+    .mock-chip { display: inline-block; padding: 3px 8px; background: #0A84FF; border-radius: 8px; font-size: 0.55rem; margin: 2px; }
+    .mock-card { background: #1C1C1E; margin: 6px 10px; padding: 8px; border-radius: 8px; }
+    .mock-card-img { width: 100%; height: 50px; background: linear-gradient(135deg, #2C2C2E, #3C3C3E); border-radius: 4px; margin-bottom: 6px; }
+    .mock-card-title { font-size: 0.55rem; font-weight: 600; line-height: 1.2; }
+    .mock-card-meta { font-size: 0.45rem; color: #8E8E93; margin-top: 4px; display: flex; justify-content: space-between; }
+    .mock-nav { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.95); padding: 8px; display: flex; justify-content: space-around; font-size: 0.5rem; color: #8E8E93; border-top: 1px solid #2C2C2E; }
+    .mock-nav span.active { color: #0A84FF; }
+    
+    /* Social proof */
+    .proof { display: flex; gap: 16px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
+    .proof-item { text-align: center; }
+    .proof-num { font-size: 1.5rem; font-weight: 700; color: #0A84FF; }
+    .proof-label { font-size: 0.75rem; color: #8E8E93; }
+    
+    /* CTA */
+    .cta-btn {
+      background: linear-gradient(90deg, #0A84FF, #5E5CE6);
+      color: white; border: none; padding: 16px 40px;
+      font-size: 1.1rem; font-weight: 600; border-radius: 30px;
+      cursor: pointer; width: 100%; max-width: 300px;
+      box-shadow: 0 4px 20px rgba(10,132,255,0.4);
+    }
+    .cta-btn:hover { transform: scale(1.02); }
+    
+    .open-link { display: block; margin-top: 16px; color: #8E8E93; text-decoration: none; font-size: 0.9rem; }
+    .open-link:hover { color: #fff; }
+    
+    footer { margin-top: 60px; color: #555; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Never miss a<br><span>Solana</span> story</h1>
+    <p class="subhead">AI-curated Solana news, delivered 3× daily</p>
+    
+    <!-- Phone Mockup -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="mock-feed">
+        <div class="mock-header">
+          <span>🔥 Solana Seeker</span>
+          <span>🔔</span>
+        </div>
+        <div class="mock-ticker">
+          SOL $98.50 ▲2.3% · JUP $0.42 ▼1.2% · BONK ▲5.8%
+        </div>
+        <div style="padding:6px 10px;">
+          <span class="mock-chip">All</span><span class="mock-chip">DeFi</span><span class="mock-chip">NFT</span>
+        </div>
+        <div class="mock-card">
+          <div class="mock-card-img"></div>
+          <div class="mock-card-title">Jupiter DEX Volume Hits Record $2.1B</div>
+          <div class="mock-card-meta"><span>CoinDesk</span><span>2m ago</span></div>
+        </div>
+        <div class="mock-card">
+          <div class="mock-card-title">Jito Staking Rewards Surge 15% This Week</div>
+          <div class="mock-card-meta"><span>Cointelegraph</span><span>15m</span></div>
+        </div>
+        <div class="mock-card">
+          <div class="mock-card-title">Solana Mobile Reveals Seeker 2 Device</div>
+          <div class="mock-card-meta"><span>The Block</span><span>1h</span></div>
+        </div>
+        <div class="mock-nav">
+          <span class="active">🏠</span><span>🔔</span><span>🌐</span><span>💰</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Social Proof -->
+    <div class="proof">
+      <div class="proof-item">
+        <div class="proof-num">5+</div>
+        <div class="proof-label">Sources</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">3</div>
+        <div class="proof-label">Digests Daily</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">22</div>
+        <div class="proof-label">Stories Today</div>
+      </div>
+    </div>
+    
+    <!-- CTA -->
+    <button class="cta-btn" onclick="installPWA()">Add to Home Screen</button>
+    <a href="/seeker/index.html" class="open-link">Or open the app →</a>
+    
+    <footer>Built by Montgomery AI Labs</footer>
+  </div>
+
+  <script>
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; });
+    function installPWA() {
+      if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(r => deferredPrompt = null); }
+      else { alert('Tap Share → Add to Home Screen'); }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "symbol": "ARB",
+  "timeframe": "4h",
+  "current_price": 0.0993,
+  "swing_high": 0.1224,
+  "swing_low": 0.0926,
+  "rsi": 53.06,
+  "fib_levels": {
+    "0.0": 0.1224,
+    "0.236": 0.1153672,
+    "0.382": 0.1110164,
+    "0.5": 0.1075,
+    "0.618": 0.1039836,
+    "0.786": 0.0989772,
+    "1.0": 0.0926,
+    "1.272": 0.0844944,
+    "1.618": 0.0741836,
+    "2.0": 0.0628
+  },
+  "nearest_fib": "0.786",
+  "nearest_fib_label": "At .786 support",
+  "is_key_level": true,
+  "ew_estimate": "Wave B retracement",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:41.330036Z"
+}

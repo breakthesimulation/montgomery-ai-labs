@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <title>Alerts | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>🔔 Alerts</h2>
+      <button class="btn btn-primary" onclick="showAddAlert()">+ New Alert</button>
+    </header>
+    
+    <!-- Active Alerts -->
+    <div class="glass" style="padding: 20px; margin-bottom: 24px;">
+      <h4 style="margin-bottom: 12px;">Active Alerts</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Type</th>
+            <th>RSI Threshold</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="alerts-list"></tbody>
+      </table>
+    </div>
+    
+    <!-- Triggered History -->
+    <div class="glass" style="padding: 20px;">
+      <h4 style="margin-bottom: 12px;">Triggered</h4>
+      <div id="triggered-list"></div>
+    </div>
+    
+    <!-- Add Modal -->
+    <div id="add-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 200;">
+      <div class="glass" style="padding: 24px; width: 320px;">
+        <h3 style="margin-bottom: 16px;">New RSI Alert</h3>
+        <input type="text" id="alert-coin" placeholder="Coin (e.g. SOL)" style="width: 100%; margin-bottom: 12px;">
+        <select id="alert-type" style="width: 100%; margin-bottom: 12px;">
+          <option value="below">RSI drops below</option>
+          <option value="above">RSI rises above</option>
+        </select>
+        <input type="number" id="alert-rsi" placeholder="RSI value (e.g. 35)" style="width: 100%; margin-bottom: 16px;">
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-primary" style="flex:1" onclick="saveAlert()">Save</button>
+          <button class="btn btn-secondary" style="flex:1" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/screener.html">🔍</a>
+    <a href="/replay.html">📼</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    const STORAGE_KEY = 'rsi_alerts';
+    
+    let alerts = JSON.parse(// Apply theme
+    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+    
+    localStorage.getItem(STORAGE_KEY) || '[]');
+    
+        // Audio chime
+    function playChime() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 880;
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.4);
+      } catch(e) {}
+    }
+
+    async function checkAlerts() {
+      const res = await fetch('/api/prices?key=' + API_KEY);
+      const data = await res.json();
+      const prices = data.prices || [];
+      
+      // Get RSI for each alert
+      for (const alert of alerts) {
+        if (alert.triggered) continue;
+        
+        try {
+          const rsiRes = await fetch(`/api/coin/${alert.coin}?key=` + API_KEY);
+          const rsiData = await rsiRes.json();
+          const rsi = rsiData.rsi_1h;
+          
+          if (!rsi) continue;
+          
+          const triggered = (alert.type === 'below' && rsi < alert.rsi) ||
+                          (alert.type === 'above' && rsi > alert.rsi);
+          
+          if (triggered) {
+            alert.triggered = true;
+            alert.triggeredAt = new Date().toISOString();
+            alert.triggeredRsi = rsi;
+            
+            // Log event
+            logTriggered(alert, rsi);
+          }
+        } catch(e) {}
+      }
+      
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(alerts));
+      render();
+    }
+    
+    playChime(); async function logTriggered(alert, rsi) {
+      try {
+        await fetch('/api/events?key=' + API_KEY, {
+          method: 'POST',
+          body: JSON.stringify({
+            type: 'ALERT_TRIGGERED',
+            coin: alert.coin,
+            rsi: rsi,
+            threshold: alert.rsi
+          })
+        });
+      } catch(e) {}
+    }
+    
+    function render() {
+      const rows = alerts.map(a => `
+        <tr>
+          <td style="font-weight: 600;">${a.coin}</td>
+          <td><span class="tag ${a.type === 'below' ? 'buy' : 'sell'}">${a.type === 'below' ? 'Below' : 'Above'}</span></td>
+          <td class="mono">RSI ${a.rsi}</td>
+          <td>${a.triggered ? '<span class="tag" style="background: var(--green); color: black;">Triggered</span>' : '<span class="tag neutral">Active</span>'}</td>
+          <td><button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.7rem;" onclick="deleteAlert('${a.id}')">✕</button></td>
+        </tr>
+      `).join('');
+      
+      document.getElementById('alerts-list').innerHTML = rows || '<tr><td colspan="5" class="text-muted" style="text-align:center;padding: 24px;">No alerts set</td></tr>';
+      
+      // Triggered list
+      const triggered = alerts.filter(a => a.triggered).slice(-5).reverse();
+      const triggeredHtml = triggered.map(a => `
+        <div style="padding: 12px; border-bottom: 1px solid var(--glass-border);">
+          <span style="font-weight: 600;">${a.coin}</span>
+          <span class="text-muted"> — RSI ${a.triggeredRsi.toFixed(1)} (threshold: ${a.rsi})</span>
+          <span class="text-xs text-muted" style="float: right;">${new Date(a.triggeredAt).toLocaleTimeString()}</span>
+        </div>
+      `).join('');
+      
+      document.getElementById('triggered-list').innerHTML = triggeredHtml || '<p class="text-muted text-sm" style="padding: 12px;">No triggered alerts</p>';
+    }
+    
+    function showAddAlert() {
+      document.getElementById('add-modal').style.display = 'flex';
+    }
+    
+    function closeModal() {
+      document.getElementById('add-modal').style.display = 'none';
+    }
+    
+    function saveAlert() {
+      const coin = document.getElementById('alert-coin').value.toUpperCase();
+      const type = document.getElementById('alert-type').value;
+      const rsi = parseFloat(document.getElementById('alert-rsi').value);
+      
+      if (coin && rsi) {
+        alerts.push({
+          id: Date.now().toString(),
+          coin, type, rsi,
+          created: new Date().toISOString(),
+          triggered: false
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(alerts));
+        closeModal();
+        render();
+        checkAlerts();
+      }
+    }
+    
+    function deleteAlert(id) {
+      alerts = alerts.filter(a => a.id !== id);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(alerts));
+      render();
+    }
+    
+    render();
+    checkAlerts();
+    setInterval(checkAlerts, 900000); // Check every 15 min
+  </script>
+</body>
+</html>

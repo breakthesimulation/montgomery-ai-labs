@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-02-22T04:00:02.201190",
+  "concurrent_requests": 10,
+  "results": [
+    {
+      "endpoint": "/api/health",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 7.35,
+        "max": 13.66,
+        "avg": 12.17,
+        "median": 13.26,
+        "p95": 13.66
+      }
+    },
+    {
+      "endpoint": "/api/signals",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 2.1,
+        "max": 6.85,
+        "avg": 4.53,
+        "median": 4.67,
+        "p95": 6.85
+      }
+    },
+    {
+      "endpoint": "/api/pnl",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 2.26,
+        "max": 10.3,
+        "avg": 5.03,
+        "median": 4.59,
+        "p95": 10.3
+      }
+    },
+    {
+      "endpoint": "/api/positions",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 1.5,
+        "max": 7.61,
+        "avg": 4.55,
+        "median": 4.38,
+        "p95": 7.61
+      }
+    },
+    {
+      "endpoint": "/api/rsi",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 2.72,
+        "max": 8.78,
+        "avg": 5.17,
+        "median": 4.58,
+        "p95": 8.78
+      }
+    },
+    {
+      "endpoint": "/api/sentiment",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 3.18,
+        "max": 7.37,
+        "avg": 5.28,
+        "median": 5.1,
+        "p95": 7.37
+      }
+    },
+    {
+      "endpoint": "/api/funding",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 1.63,
+        "max": 6.5,
+        "avg": 3.82,
+        "median": 4.22,
+        "p95": 6.5
+      }
+    },
+    {
+      "endpoint": "/api/setups",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 3.16,
+        "max": 7.88,
+        "avg": 4.75,
+        "median": 4.57,
+        "p95": 7.88
+      }
+    },
+    {
+      "endpoint": "/api/all",
+      "runs": 10,
+      "success_rate": 0.0,
+      "times_ms": {
+        "min": 3.09,
+        "max": 10.01,
+        "avg": 6.05,
+        "median": 5.89,
+        "p95": 10.01
+      }
+    }
+  ],
+  "summary": {
+    "total_endpoints": 9,
+    "avg_response_ms": 5.71,
+    "avg_p95_ms": 8.77,
+    "slow_endpoints": []
+  }
+}

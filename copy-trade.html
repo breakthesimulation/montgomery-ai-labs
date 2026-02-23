@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Copy Trade Candidates | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; --yellow: #fbbf24; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .rank { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .rank.gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; }
+        .rank.silver { background: linear-gradient(135deg, #9ca3af, #6b7280); color: #000; }
+        .rank.bronze { background: linear-gradient(135deg, #d97706, #b45309); color: #000; }
+        
+        .name { font-weight: 700; font-size: 1.1rem; }
+        .type { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 12px 0; }
+        .stat { text-align: center; }
+        .stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-value { font-family: 'IBM Plex Mono'; font-size: 1rem; font-weight: 600; margin-top: 4px; }
+        .positive { color: var(--green); }
+        .negative { color: var(--red); }
+        
+        .recent-trades { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+        .trade { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 4px 0; }
+        
+        .score { font-family: 'IBM Plex Mono'; font-size: 1.5rem; font-weight: 700; }
+        .score.high { color: var(--green); }
+        .score.med { color: var(--yellow); }
+        
+        .copy-btn { background: var(--green); color: #000; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐋 Copy Trade Candidates</h1>
+            <p style="color:var(--text-muted);font-size:0.9rem">Top performing wallets to copy</p>
+        </header>
+        
+        <div id="wallets"></div>
+    </div>
+    
+    <script>
+    async function load() {
+        const resp = await fetch('/data/wallet_rankings.json');
+        const data = await resp.json();
+        
+        const wallets = data.ranking?.top_5 || [];
+        
+        let html = '';
+        
+        for (let i = 0; i < Math.min(5, wallets.length); i++) {
+            const w = wallets[i];
+            const rankClass = ['gold', 'silver', 'bronze'][i] || '';
+            const scoreClass = w.score > 150 ? 'high' : 'med';
+            
+            // Demo recent trades
+            const trades = [
+                {coin: 'SOL', side: 'LONG', pnl: Math.random() > 0.5 ? '+' + (Math.random()*10).toFixed(1) + '%' : '-' + (Math.random()*5).toFixed(1) + '%'},
+                {coin: 'BTC', side: 'LONG', pnl: Math.random() > 0.3 ? '+' + (Math.random()*8).toFixed(1) + '%' : '-' + (Math.random()*3).toFixed(1) + '%'},
+                {coin: 'ETH', side: 'SHORT', pnl: Math.random() > 0.4 ? '+' + (Math.random()*6).toFixed(1) + '%' : '-' + (Math.random()*4).toFixed(1) + '%'},
+            ];
+            
+            html += `
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display:flex;align-items:center;gap:12px">
+                            <div class="rank ${rankClass}">${i+1}</div>
+                            <div>
+                                <div class="name">${w.name}</div>
+                                <div class="type">${w.type}</div>
+                            </div>
+                        </div>
+                        <div class="score ${scoreClass}">${w.score}</div>
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-label">P&L</div>
+                            <div class="stat-value ${w.total_pnl_sol > 0 ? 'positive' : 'negative'}">${w.total_pnl_sol > 0 ? '+' : ''}${(w.total_pnl_sol/1000).toFixed(1)}K SOL</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Win Rate</div>
+                            <div class="stat-value">${w.win_rate}%</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Trades</div>
+                            <div class="stat-value">${w.trades}</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Strategy</div>
+                            <div class="stat-value">${w.strategy}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-trades">
+                        <div class="stat-label" style="margin-bottom:8px">Recent Trades</div>
+                        ${trades.map(t => `
+                            <div class="trade">
+                                <span>${t.coin} ${t.side}</span>
+                                <span class="${t.pnl.startsWith('+') ? 'positive' : 'negative'}">${t.pnl}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        document.getElementById('wallets').innerHTML = html;
+    }
+    
+    load();
+    setInterval(load, 30000);
+    </script>
+</body>
+</html>

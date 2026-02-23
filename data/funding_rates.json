@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-02-23T03:00:04.237387",
+  "rates": [
+    {
+      "coin": "BTC",
+      "rate": -2.894e-05,
+      "rate_pct": -0.002894,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:02.086446"
+    },
+    {
+      "coin": "ETH",
+      "rate": -0.00020409,
+      "rate_pct": -0.020409,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:02.396195"
+    },
+    {
+      "coin": "SOL",
+      "rate": -0.00021991,
+      "rate_pct": -0.021991,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:02.751787"
+    },
+    {
+      "coin": "BNB",
+      "rate": 0.0,
+      "rate_pct": 0.0,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:03.037626"
+    },
+    {
+      "coin": "XRP",
+      "rate": -0.00021876,
+      "rate_pct": -0.021876,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:03.324582"
+    },
+    {
+      "coin": "FIL",
+      "rate": -0.00015037,
+      "rate_pct": -0.015037000000000002,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:03.619785"
+    },
+    {
+      "coin": "UNI",
+      "rate": -8.056e-05,
+      "rate_pct": -0.008056,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:03.921326"
+    },
+    {
+      "coin": "ARB",
+      "rate": -0.00014011,
+      "rate_pct": -0.014011000000000001,
+      "direction": "BULLISH",
+      "timestamp": "2026-02-23T03:00:04.235898"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-02-21T11:04:32.657477",
+  "scan": [
+    {
+      "coin": "NEAR",
+      "rsi_1h": 83.1
+    },
+    {
+      "coin": "FIL",
+      "rsi_1h": 80.2
+    },
+    {
+      "coin": "DOT",
+      "rsi_1h": 73.2
+    },
+    {
+      "coin": "UNI",
+      "rsi_1h": 77.4
+    },
+    {
+      "coin": "ARB",
+      "rsi_1h": 77.3
+    },
+    {
+      "coin": "BTC",
+      "rsi_1h": 60.4
+    },
+    {
+      "coin": "ETH",
+      "rsi_1h": 58.0
+    },
+    {
+      "coin": "SOL",
+      "rsi_1h": 63.5
+    }
+  ],
+  "high_rsi": [
+    {
+      "coin": "NEAR",
+      "rsi_1h": 83.1
+    },
+    {
+      "coin": "FIL",
+      "rsi_1h": 80.2
+    },
+    {
+      "coin": "UNI",
+      "rsi_1h": 77.4
+    },
+    {
+      "coin": "ARB",
+      "rsi_1h": 77.3
+    }
+  ]
+}

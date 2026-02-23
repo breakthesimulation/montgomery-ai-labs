@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <title>Correlations | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>🔗 Correlation Matrix</h2>
+      <button class="btn btn-secondary" onclick="refresh()">↻ Refresh</button>
+    </header>
+    
+    <!-- Filter -->
+    <div class="glass" style="padding: 12px 16px; margin-bottom: 16px;">
+      <label class="text-sm text-muted">Show top:</label>
+      <select id="filter" onchange="render()" style="margin-left: 8px; width: auto;">
+        <option value="all">All pairs</option>
+        <option value="10" selected>Top 10</option>
+        <option value="20">Top 20</option>
+      </select>
+    </div>
+    
+    <!-- Matrix -->
+    <div class="glass" style="padding: 20px; overflow-x: auto;">
+      <table id="matrix">
+        <thead>
+          <tr id="matrix-header"></tr>
+        </thead>
+        <tbody id="matrix-body"></tbody>
+      </table>
+    </div>
+    
+    <!-- Legend -->
+    <div class="glass" style="padding: 12px 16px; margin-top: 16px; display: flex; gap: 24px; align-items: center;">
+      <span class="text-xs text-muted">Correlation:</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:rgba(255,69,58,0.8);border-radius:2px;"></span> -1.0</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:#2C2C2E;border-radius:2px;"></span> 0</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:rgba(48,209,88,0.8);border-radius:2px;"></span> +1.0</span>
+    </div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/risk.html">⚠️</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    let correlations = {};
+    let coins = [];
+    
+    async function load() {
+      const res = await fetch('/api/correlations?key=' + API_KEY);
+      correlations = await res.json();
+      
+      // Extract unique coins
+      const coinSet = new Set();
+      Object.keys(correlations).forEach(pair => {
+        const [c1, c2] = pair.split('_');
+        coinSet.add(c1);
+        coinSet.add(c2);
+      });
+      coins = Array.from(coinSet).sort();
+      
+      render();
+    }
+    
+    function render() {
+      const filter = document.getElementById('filter').value;
+      let pairs = Object.entries(correlations);
+      
+      if (filter !== 'all') {
+        pairs = pairs.sort((a, b) => Math.abs(b[1]) - Math.abs(a[1])).slice(0, parseInt(filter));
+      }
+      
+      // Header
+      const header = document.getElementById('matrix-header');
+      header.innerHTML = '<th></th>' + coins.map(c => `<th style="font-size:0.7rem;padding:8px;">${c}</th>`).join('');
+      
+      // Body
+      const tbody = document.getElementById('matrix-body');
+      tbody.innerHTML = coins.map(c1 => {
+        return '<tr>' + 
+          `<td style="font-weight:600;font-size:0.8rem;">${c1}</td>` +
+          coins.map(c2 => {
+            if (c1 === c2) {
+              return '<td style="background:var(--bg-tertiary);"></td>';
+            }
+            
+            let corr = correlations[`${c1}_${c2}`] || correlations[`${c2}_${c1}`];
+            if (corr === undefined) corr = 0;
+            
+            let bg;
+            if (corr > 0) {
+              bg = `rgba(48, 209, 88, ${Math.abs(corr) * 0.8})`;
+            } else {
+              bg = `rgba(255, 69, 58, ${Math.abs(corr) * 0.8})`;
+            }
+            
+            return `<td style="background:${bg};text-align:center;cursor:pointer;" title="${c1}-${c2}: ${corr}" onclick="alert('${c1} ↔ ${c2}: ${corr}')">
+              <span class="text-xs" style="color:${Math.abs(corr) > 0.5 ? 'white' : 'var(--text-muted)'}">${corr.toFixed(2)}</span>
+            </td>`;
+          }).join('') +
+        '</tr>';
+      }).join('');
+    }
+    
+    async function refresh() {
+      // Trigger recalculation
+      const res = await fetch('/api/dry-run?key=' + API_KEY);
+      await load();
+    }
+    
+    load();
+  </script>
+</body>
+</html>

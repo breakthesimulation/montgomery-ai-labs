@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-02-23T03:00:02.879772",
+  "threshold": 500,
+  "total_inflows": 1570.26,
+  "total_outflows": 1570.26,
+  "net_flow": 0.0,
+  "transfers": [
+    {
+      "slot": 402100953,
+      "account_index": 0,
+      "amount_sol": 1000.0,
+      "timestamp": 1771815584,
+      "type": "OUT"
+    },
+    {
+      "slot": 402100953,
+      "account_index": 1,
+      "amount_sol": 1000.0,
+      "timestamp": 1771815584,
+      "type": "IN"
+    },
+    {
+      "slot": 402100953,
+      "account_index": 2,
+      "amount_sol": 570.26,
+      "timestamp": 1771815584,
+      "type": "IN"
+    },
+    {
+      "slot": 402100953,
+      "account_index": 5,
+      "amount_sol": 570.26,
+      "timestamp": 1771815584,
+      "type": "OUT"
+    }
+  ]
+}

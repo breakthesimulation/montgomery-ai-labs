@@ -1,0 +1,26 @@
+{
+  "symbol": "YGG",
+  "timeframe": "4h",
+  "current_price": 0.0486,
+  "swing_high": 0.0532,
+  "swing_low": 0.0378,
+  "rsi": 81.21,
+  "fib_levels": {
+    "0.0": 0.0532,
+    "0.236": 0.0495656,
+    "0.382": 0.0473172,
+    "0.5": 0.0455,
+    "0.618": 0.0436828,
+    "0.786": 0.0410956,
+    "1.0": 0.0378,
+    "1.272": 0.0336112,
+    "1.618": 0.0282828,
+    "2.0": 0.0224
+  },
+  "nearest_fib": null,
+  "nearest_fib_label": "No key level nearby",
+  "is_key_level": false,
+  "ew_estimate": "Wave 3 impulse (late)",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:45.464190Z"
+}

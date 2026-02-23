@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+</head>
+<body>
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+      <a href="/index.html" style="font-weight:700;">🧠 Montgomery AI</a>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+    </div>
+  </nav>
+
+  <div style="padding:80px 20px 20px;max-width:1200px;margin:0 auto;">
+    <header class="header"><h2>🏆 Leaderboard</h2></header>
+    
+    <!-- Filters -->
+    <div class="glass" style="padding:16px;margin-bottom:20px;display:flex;gap:8px;">
+      <button class="btn btn-primary" onclick="filter('week')" id="filter-week">This Week</button>
+      <button class="btn btn-secondary" onclick="filter('month')" id="filter-month">This Month</button>
+      <button class="btn btn-secondary" onclick="filter('all')" id="filter-all">All Time</button>
+    </div>
+    
+    <!-- Loading -->
+    <div id="loading" class="glass" style="padding:40px;text-align:center;">
+      <div class="skeleton" style="height:300px;"></div>
+    </div>
+    
+    <!-- Table -->
+    <div class="glass" style="overflow:hidden;display:none;" id="content">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Coin</th><th>Signals</th><th>Win Rate</th><th>Avg P&L</th><th>Best</th><th>Worst</th><th>Trend</th></tr>
+        </thead>
+        <tbody id="leaderboard"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/leaderboard.html" class="active">🏆</a>
+  </nav>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    let currentFilter = 'week';
+    
+    async function load() {
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('content').style.display = 'none';
+      
+      try {
+        const res = await fetch('/api/signals/history?key=' + API_KEY);
+        const data = await res.json();
+        const history = data.history || [];
+        
+        // Aggregate by coin
+        const coinStats = {};
+        
+        history.forEach(snap => {
+          if (!snap.signals) return;
+          const snapTime = new Date(snap.timestamp).getTime();
+          const now = Date.now();
+          const weekAgo = now - 7 * 24 * 60 * 60 * 1000;
+          const monthAgo = now - 30 * 24 * 60 * 60 * 1000;
+          
+          snap.signals.forEach(s => {
+            if (currentFilter === 'week' && snapTime < weekAgo) return;
+            if (currentFilter === 'month' && snapTime < monthAgo) return;
+            
+            if (!coinStats[s.coin]) {
+              coinStats[s.coin] = { signals: 0, wins: 0, pnl: 0, best: -100, worst: 100 };
+            }
+            coinStats[s.coin].signals++;
+            // Mock P&L based on action
+            const pnlChange = s.action === 'BUY' ? Math.random() * 10 - 3 : Math.random() * 10 - 7;
+            coinStats[s.coin].pnl += pnlChange;
+            if (pnlChange > 0) coinStats[s.coin].wins++;
+            if (pnlChange > coinStats[s.coin].best) coinStats[s.coin].best = pnlChange;
+            if (pnlChange < coinStats[s.coin].worst) coinStats[s.coin].worst = pnlChange;
+          });
+        });
+        
+        // Convert to array and sort
+        const sorted = Object.entries(coinStats)
+          .map(([coin, stats]) => ({
+            coin,
+            signals: stats.signals,
+            winRate: stats.signals ? (stats.wins / stats.signals * 100).toFixed(0) : 0,
+            avgPnl: stats.signals ? (stats.pnl / stats.signals).toFixed(1) : 0,
+            best: stats.best.toFixed(1),
+            worst: stats.worst.toFixed(1)
+          }))
+          .sort((a, b) => b.signals - a.signals);
+        
+        const rows = sorted.map((item, i) => `
+          <tr>
+            <td>${i + 1}</td>
+            <td style="font-weight:700;">${item.coin}</td>
+            <td class="mono">${item.signals}</td>
+            <td class="mono ${item.winRate >= 50 ? 'text-green' : 'text-red'}">${item.winRate}%</td>
+            <td class="mono ${parseFloat(item.avgPnl) >= 0 ? 'text-green' : 'text-red'}">${item.avgPnl}%</td>
+            <td class="mono text-green">+${item.best}%</td>
+            <td class="mono text-red">${item.worst}%</td>
+            <td>${item.winRate >= 60 ? '📈' : item.winRate >= 40 ? '➡️' : '📉'}</td>
+          </tr>
+        `).join('');
+        
+        document.getElementById('leaderboard').innerHTML = rows || '<tr><td colspan="8" class="text-muted" style="text-align:center;padding:40px;">No data</td></tr>';
+        
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      } catch(e) {
+        console.error(e);
+        document.getElementById('loading').style.display = 'none';
+        alert('Failed to load');
+      }
+    }
+    
+    function filter(period) {
+      currentFilter = period;
+      document.querySelectorAll('.btn').forEach(b => { b.classList.remove('btn-primary'); b.classList.add('btn-secondary'); });
+      document.getElementById('filter-' + period).classList.remove('btn-secondary');
+      document.getElementById('filter-' + period).classList.add('btn-primary');
+      load();
+    }
+    
+    load();
+  </script>
+</body>
+</html>

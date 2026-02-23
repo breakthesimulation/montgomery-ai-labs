@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-21T18:04:18.804637",
+  "total_trades": 4,
+  "closed_trades": 2,
+  "open_trades": 2,
+  "wins": 1,
+  "losses": 1,
+  "win_rate": 50.0,
+  "avg_win": 1.39,
+  "avg_loss": -3.18,
+  "sharpe_like": 0.44
+}

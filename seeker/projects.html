@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0}.glass{background:#1C1C1E;border-radius:12px;padding:16px;margin:0 16px 16px}.btn{padding:12px 20px;border-radius:8px;border:none;font-weight:600;cursor:pointer}.btn-primary{background:#0A84FF;color:#fff}.btn-secondary{background:#2C2C2E;color:#fff}.text-muted{color:#8E8E93}.text-sm{font-size:0.85rem}@media(max-width:600px){.grid{grid-template-columns:1fr!important}}</style>
+  <meta charset="UTF-8">
+  meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Seeker">
+  <link rel="apple-touch-icon" href="/seeker/icons/icon-192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Solana Seeker">
+  <meta property="og:description" content="Your Solana news hub - AI-curated daily digests">
+  <meta property="og:image" content="/seeker/seeker-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <title>Projects | Solana Seeker</title>
+  <link rel="manifest" href="/seeker/manifest.json">
+  <link rel="stylesheet" href="/seeker/styles.css">
+</head>
+<body>
+  <button onclick="toggleTheme()" style="position:fixed;top:12px;right:12px;background:none;border:none;font-size:1.2rem;z-index:100;">🌙</button>
+  <header class="page-header">
+    <a href="/seeker/index.html" style="color:var(--text-secondary)">← Back</a>
+    <h1>🌐 Projects</h1>
+    <span onclick="toggleSearch()" style="cursor:pointer;font-size:1.2rem;">🔍</span>
+  </header>
+
+  <div id="search-bar" style="display:none;padding:12px;background:var(--bg-primary);border-bottom:1px solid var(--glass-border);">
+    <input type="text" id="search-input" placeholder="Search projects..." style="width:100%;padding:12px;border-radius:8px;background:var(--bg-secondary);border:1px solid var(--glass-border);color:var(--text-primary);">
+  </div>
+
+  <div class="category-filter">
+    <button class="chip active" data-cat="all">All</button>
+    <button class="chip" data-cat="DeFi">DeFi</button>
+    <button class="chip" data-cat="NFT">NFT</button>
+    <button class="chip" data-cat="Infrastructure">Infra</button>
+    <button class="chip" data-cat="Gaming">Gaming</button>
+    <button class="chip" data-cat="Social">Social</button>
+    <button class="chip" data-cat="Validators">Validators</button>
+  </div>
+
+  <div id="projects-content" style="padding:16px;padding-bottom:80px;"></div>
+
+  <nav class="bottom-nav">
+    <a href="/seeker/index.html"><span>🏠</span>Feed</a>
+    <a href="/seeker/digest.html"><span>🔔</span>Digest</a>
+    <a href="/seeker/projects.html" class="active"><span>🌐</span>Projects</a>
+    <a href="/seeker/prices.html"><span>💰</span>Prices</a>
+  </nav>
+
+  <script>
+const PROJECTS = {"DeFi": [{"name": "Jupiter", "desc": "DEX aggregator, best swap rates", "url": "https://jup.ag"}, {"name": "Raydium", "desc": "AMM with order book, IDOs", "url": "https://raydium.io"}, {"name": "Orca", "desc": "User-friendly concentrated liquidity", "url": "https://orca.so"}, {"name": "Meteora", "desc": "Dynamic liquidity pools", "url": "https://meteora.ag"}, {"name": "FluxBeam", "desc": "Established Solana DEX", "url": "https://fluxbeam.xyz"}, {"name": "Kamino", "desc": "Lending & leveraged yields", "url": "https://kamino.finance"}, {"name": "Solend", "desc": "Institutional lending", "url": "https://solend.io"}, {"name": "Drift", "desc": "Perpetuals DEX", "url": "https://drift.protocol"}], "NFT": [{"name": "Magic Eden", "desc": "Dominant NFT marketplace", "url": "https://magiceden.io"}, {"name": "Tensor", "desc": "NFT AMM & marketplace", "url": "https://tensor.trade"}, {"name": "Solanart", "desc": "Original Solana NFT market", "url": "https://solanart.io"}, {"name": "Digital Eyes", "desc": "NFT marketplace", "url": "https://digitaleyes.market"}, {"name": "Mad Lads", "desc": "Premier collection", "url": "https://madlads.com"}], "Infrastructure": [{"name": "Phantom", "desc": "Leading wallet", "url": "https://phantom.app"}, {"name": "Solflare", "desc": "Wallet & staking", "url": "https://solflare.com"}, {"name": "Backpack", "desc": "Wallet & exchange", "url": "https://backpack.app"}], "Gaming": [{"name": "Star Atlas", "desc": "MMO space game", "url": "https://staratlas.com"}, {"name": "Aurory", "desc": "RPG game", "url": "https://aurory.io"}], "Social": [{"name": "Bonk", "desc": "Social token & community", "url": "https://bonk.so"}, {"name": "Dialect", "desc": "Messaging", "url": "https://dialect.to"}], "Validators": [{"name": "Jito", "desc": "MEV & liquid staking", "url": "https://jito.network"}, {"name": "Marinade", "desc": "Liquid staking", "url": "https://marinade.finance"}, {"name": "Sanctum", "desc": "LST aggregator", "url": "https://sanctum.so"}]};
+
+function toggleSearch() {
+  const bar = document.getElementById("search-bar");
+  bar.style.display = bar.style.display === "none" ? "block" : "none";
+  if (bar.style.display === "block") document.getElementById("search-input").focus();
+}
+
+function render(cat) {
+  const q = (document.getElementById("search-input")?.value || "").toLowerCase();
+  let list = cat === "all" ? Object.values(PROJECTS).flat() : PROJECTS[cat] || [];
+  if (q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+  
+  if (!list.length) { document.getElementById("projects-content").innerHTML = "<p class=text-muted>No projects</p>"; return; }
+  
+  let html = "";
+  if (cat === "all") {
+    for (const [catName, projs] of Object.entries(PROJECTS)) {
+      const filtered = q ? projs.filter(p => p.name.toLowerCase().includes(q)) : projs;
+      if (!filtered.length) continue;
+      html += `<h3 style="margin:20px 0 12px;">${catName} <span class="text-muted">(${filtered.length})</span></h3>`;
+      html += '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">';
+      html += filtered.map(p => `<a href="${p.url}" target="_blank" class="glass" style="padding:12px;border-radius:10px;text-decoration:none;color:inherit;">
+        <div style="font-weight:700;">${p.name}</div><div class="text-sm text-muted">${p.desc}</div></a>`).join("");
+      html += "</div>";
+    }
+  } else {
+    html = '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">';
+    html += list.map(p => `<a href="${p.url}" target="_blank" class="glass" style="padding:12px;border-radius:10px;text-decoration:none;color:inherit;">
+      <div style="font-weight:700;">${p.name}</div><div class="text-sm text-muted">${p.desc}</div></a>`).join("");
+    html += "</div>";
+  }
+  document.getElementById("projects-content").innerHTML = html;
+}
+
+document.querySelector(".category-filter").onclick = e => {
+  if (e.target.classList.contains("chip")) {
+    document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+    e.target.classList.add("active");
+    render(e.target.dataset.cat);
+  }
+};
+
+document.getElementById("search-input")?.addEventListener("input", e => render(document.querySelector(".chip.active").dataset.cat));
+
+render("all");
+  </script>
+</body>
+</html>

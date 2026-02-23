@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <title>System Health | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .section { background: var(--bg-tertiary); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .section h2 { font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .status-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--glass-border); }
+    .status-row:last-child { border-bottom: none; }
+    .status-ok { color: var(--green); }
+    .status-warn { color: var(--yellow); }
+    .status-error { color: var(--red); }
+    .timestamp { color: var(--text-tertiary); font-size: 0.8rem; text-align: center; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <h1>🩺 System Health</h1>
+  
+  <div class="section">
+    <h2>📡 API Server</h2>
+    <div id="api-status">Loading...</div>
+  </div>
+  
+  <div class="section">
+    <h2>⏰ Cron Jobs</h2>
+    <div id="cron-status">Loading...</div>
+  </div>
+  
+  <div class="section">
+    <h2>📊 Data Freshness</h2>
+    <div id="data-status">Loading...</div>
+  </div>
+  
+  <div class="section">
+    <h2>📈 Trading</h2>
+    <div id="trading-status">Loading...</div>
+  </div>
+  
+  <div class="section">
+    <h2>📱 Seeker</h2>
+    <div id="seeker-status">Loading...</div>
+  </div>
+  
+  <div class="timestamp" id="last-updated">Last updated: --</div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    const DATA_FILES = ['quality_signals.json', 'correlations.json', 'equity_curve.json', 'seeker-news.json'];
+    
+    function fmtAge(ts) {
+      const age = (Date.now() / 1000) - ts;
+      if (age < 3600) return Math.floor(age / 60) + 'm';
+      return Math.floor(age / 3600) + 'h';
+    }
+    
+    async function checkAPI() {
+      try {
+        const res = await fetch('/api/health?key=' + API_KEY);
+        const data = await res.json();
+        const uptime = Math.floor(data.uptime || 0);
+        const hours = Math.floor(uptime / 3600);
+        document.getElementById('api-status').innerHTML = '<div class="status-row"><span>✅ ONLINE</span><span>Uptime: ' + hours + 'h</span></div>';
+      } catch(e) {
+        document.getElementById('api-status').innerHTML = '<div class="status-row"><span>❌ OFFLINE</span></div>';
+      }
+    }
+    
+    async function checkCron() {
+      try {
+        const res = await fetch('/api/cron-status?key=' + API_KEY);
+        const jobs = await res.json();
+        let html = '';
+        for (const j of jobs) {
+          html += '<div class="status-row"><span>' + j.name + '</span><span>' + j.schedule + '</span></div>';
+        }
+        document.getElementById('cron-status').innerHTML = html || '<div class="status-row">No jobs found</div>';
+      } catch(e) {
+        document.getElementById('cron-status').innerHTML = '<div class="status-row"><span>⚠️ Could not load</span></div>';
+      }
+    }
+    
+    async function checkData() {
+      let html = '';
+      for (const f of DATA_FILES) {
+        try {
+          const res = await fetch('/api/data-info?key=' + API_KEY + '&file=' + f);
+          const data = await res.json();
+          const age = data.age_minutes || 0;
+          const status = age > 120 ? '⚠️ STALE' : '✅ FRESH';
+          html += '<div class="status-row"><span>' + f + '</span><span class="' + (age > 120 ? 'status-warn' : 'status-ok') + '">' + status + ' (' + age + 'm)</span></div>';
+        } catch(e) {
+          html += '<div class="status-row"><span>' + f + '</span><span class="status-error">❌ MISSING</span></div>';
+        }
+      }
+      document.getElementById('data-status').innerHTML = html;
+    }
+    
+    async function checkTrading() {
+      try {
+        const res = await fetch('/api/risk?key=' + API_KEY);
+        const data = await res.json();
+        const halted = data.halted ? '⚠️ HALTED: ' + data.halt_reason : '✅ NORMAL';
+        document.getElementById('trading-status').innerHTML = '<div class="status-row"><span>Risk State</span><span>' + halted + '</span></div><div class="status-row"><span>Positions</span><span>' + (data.positions?.length || 0) + '</span></div><div class="status-row"><span>Daily P&L</span><span>' + (data.daily_pnl || 0) + '%</span></div>';
+      } catch(e) {
+        document.getElementById('trading-status').innerHTML = '<div class="status-row"><span>❌ Could not load</span></div>';
+      }
+    }
+    
+    async function checkSeeker() {
+      try {
+        const res = await fetch('/api/seeker/feed?key=' + API_KEY);
+        const data = await res.json();
+        const count = data.articles?.length || 0;
+        document.getElementById('seeker-status').innerHTML = '<div class="status-row"><span>Articles</span><span>' + count + '</span></div>';
+      } catch(e) {
+        document.getElementById('seeker-status').innerHTML = '<div class="status-row"><span>⚠️ Could not load</span></div>';
+      }
+    }
+    
+    async function refresh() {
+      await Promise.all([checkAPI(), checkCron(), checkData(), checkTrading(), checkSeeker()]);
+      document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+    }
+    
+    refresh();
+    setInterval(refresh, 60000);
+  </script>
+</body>
+</html>

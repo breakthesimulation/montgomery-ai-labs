@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEX Monitor | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+        .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+        .stat-value { font-size: 1.25rem; font-weight: 700; margin-top: 8px; }
+        
+        .table { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 12px; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        .mono { font-family: 'IBM Plex Mono'; }
+        .positive { color: var(--green); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌊 DEX Activity</h1>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Volume 24h</div>
+                <div class="stat-value">$3,390,000</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Liquidity</div>
+                <div class="stat-value">$470,000</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Volume Spikes</div>
+                <div class="stat-value">2</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">New Pools</div>
+                <div class="stat-value">2</div>
+            </div>
+        </div>
+        
+        <div class="table">
+            <table>
+                <thead><tr><th>Event</th><th>DEX</th><th>Pair</th><th>Volume</th><th>Change</th></tr></thead>
+                <tbody>
+                    
+            <tr>
+                <td>📈 Volume Spike</td>
+                <td><strong>Raydium</strong></td>
+                <td>SOL/USDC</td>
+                <td class="mono">$2,500,000</td>
+                <td class="positive">+340%</td>
+            </tr>
+        
+            <tr>
+                <td>🆕 New Pool</td>
+                <td><strong>Orca</strong></td>
+                <td>BONK/SOL</td>
+                <td class="mono">$150,000</td>
+                <td class="positive">+100%</td>
+            </tr>
+        
+            <tr>
+                <td>💸 Large Swap</td>
+                <td><strong>Jupiter</strong></td>
+                <td>SOL/USDC</td>
+                <td class="mono">$45,000</td>
+                <td class="positive">+25%</td>
+            </tr>
+        
+            <tr>
+                <td>📈 Volume Spike</td>
+                <td><strong>Raydium</strong></td>
+                <td>JTO/SOL</td>
+                <td class="mono">$890,000</td>
+                <td class="positive">+180%</td>
+            </tr>
+        
+            <tr>
+                <td>🆕 New Pool</td>
+                <td><strong>Orca</strong></td>
+                <td>WIF/SOL</td>
+                <td class="mono">$320,000</td>
+                <td class="positive">+100%</td>
+            </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

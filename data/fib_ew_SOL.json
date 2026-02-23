@@ -1,0 +1,26 @@
+{
+  "symbol": "SOL",
+  "timeframe": "4h",
+  "current_price": 85.82,
+  "swing_high": 91.26,
+  "swing_low": 79.61,
+  "rsi": 83.55,
+  "fib_levels": {
+    "0.0": 91.26,
+    "0.236": 88.5106,
+    "0.382": 86.8097,
+    "0.5": 85.435,
+    "0.618": 84.0603,
+    "0.786": 82.1031,
+    "1.0": 79.61,
+    "1.272": 76.4412,
+    "1.618": 72.4103,
+    "2.0": 67.96
+  },
+  "nearest_fib": "0.5",
+  "nearest_fib_label": "At .5 support",
+  "is_key_level": true,
+  "ew_estimate": "Wave 3 impulse (late)",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:33.536319Z"
+}

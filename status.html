@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="60">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Status | Montgomery AI</title>
+  <style>
+    body { background: #0d1117; color: #c9d1d9; font-family: monospace; padding: 40px 20px; }
+    h1 { color: #58a6ff; margin-bottom: 30px; }
+    table { border-collapse: collapse; width: 100%; max-width: 600px; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #30363d; }
+    th { color: #8b949e; }
+    .up { color: #3fb950; }
+    .stale { color: #d29922; }
+    .down { color: #f85149; }
+    .critical { color: #f85149; font-weight: bold; }
+    .ts { color: #8b949e; font-size: 0.85em; }
+  </style>
+</head>
+<body>
+  <h1>🖥 System Status — 2026-02-23 13:05 UTC</h1>
+  <table>
+    <tr><th>System</th><th>Status</th><th>Details</th></tr>
+    <tr><td>API Server</td><td class="up">✅ UP</td><td class="ts">-</td></tr>
+    <tr><td>Signals</td><td class="up">✅ Fresh</td><td class="ts">4m</td></tr>
+    <tr><td>OHLCV</td><td class="stale">⚠️ Stale</td><td class="ts">34m</td></tr>
+    <tr><td>Seeker News</td><td class="up">✅ Fresh</td><td class="ts">4m</td></tr>
+    <tr><td>Positions</td><td class="stale">0 OK / 0 At Risk / 8 Stale</td><td class="ts">8 total</td></tr>
+  </table>
+</body>
+</html>

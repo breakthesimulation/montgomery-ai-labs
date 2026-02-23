@@ -1,0 +1,95 @@
+{
+  "tweets": [
+    {
+      "id": "17717748550",
+      "text": "Solana just keeps growing \ud83d\udcc8 What's driving the momentum?",
+      "source": "Solana futures data shows panicked bulls: Will $80",
+      "article_url": "https://cointelegraph.com/news/solana-futures-data-shows-panicked-bulls-will-80-sol-hold?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "positive",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347900"
+    },
+    {
+      "id": "17717748551",
+      "text": "DeFi on Solana hitting new highs. The ecosystem is unstoppable.",
+      "source": "Zora debuts attention markets on Solana, betting o",
+      "article_url": "https://cointelegraph.com/news/zora-launches-attention-markets-solana?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "positive",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347919"
+    },
+    {
+      "id": "17717748552",
+      "text": "Jupiter DEX volume up 50% this week. Bullish signals everywhere.",
+      "source": "Solana treasuries sitting on over $1.5B in paper S",
+      "article_url": "https://cointelegraph.com/news/solana-treasury-firms-unrealized-losses-equity-repricing?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "neutral",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347922"
+    },
+    {
+      "id": "17717748553",
+      "text": "Solana just keeps growing \ud83d\udcc8 What's driving the momentum?",
+      "source": "Kyle Samani leaves Multicoin in \u2018bittersweet momen",
+      "article_url": "https://cointelegraph.com/news/multicoin-exec-kyle-samani-steps-down-explore-new-tech?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "neutral",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347925"
+    },
+    {
+      "id": "17717748554",
+      "text": "DeFi on Solana hitting new highs. The ecosystem is unstoppable.",
+      "source": "Crypto funds log fourth week of outflows at $173M ",
+      "article_url": "https://cointelegraph.com/news/crypto-etf-4-week-outflows-173-million-btc-below-70k?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "neutral",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347927"
+    },
+    {
+      "id": "17717748555",
+      "text": "Jupiter DEX volume up 50% this week. Bullish signals everywhere.",
+      "source": "Is Solana headed to $50? These three charts show a",
+      "article_url": "https://cointelegraph.com/news/is-solana-headed-to-50-dollars-three-charts-textbook-bear?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "neutral",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347929"
+    },
+    {
+      "id": "17717748556",
+      "text": "Solana just keeps growing \ud83d\udcc8 What's driving the momentum?",
+      "source": "Anchorage, Kamino let institutions borrow against ",
+      "article_url": "https://cointelegraph.com/news/anchorage-kamino-institutions-borrow-against-sol-without-moving-custody?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "positive",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347931"
+    },
+    {
+      "id": "17717748557",
+      "text": "DeFi on Solana hitting new highs. The ecosystem is unstoppable.",
+      "source": "Price predictions 2/18: BTC, ETH, XRP, BNB, SOL, D",
+      "article_url": "https://cointelegraph.com/news/price-predictions-2-18-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "neutral",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347933"
+    },
+    {
+      "id": "17717748558",
+      "text": "Jupiter DEX volume up 50% this week. Bullish signals everywhere.",
+      "source": "Price predictions 2/11: BTC, ETH, BNB, XRP, SOL, D",
+      "article_url": "https://cointelegraph.com/news/price-predictions-2-11-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "neutral",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347935"
+    },
+    {
+      "id": "17717748559",
+      "text": "Solana just keeps growing \ud83d\udcc8 What's driving the momentum?",
+      "source": "Price predictions 2/4: BTC, ETH, BNB, XRP, SOL, DO",
+      "article_url": "https://cointelegraph.com/news/price-predictions-2-4-btc-eth-bnb-xrp-sol-doge-ada-bch-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "sentiment": "positive",
+      "approved": false,
+      "created": "2026-02-22T15:40:55.347937"
+    }
+  ],
+  "updated": "2026-02-22T15:40:55.348003"
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compare | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    .sparkline { width: 80px; height: 30px; }
+    .best-setup { border: 2px solid var(--green); }
+  </style>
+</head>
+<body>
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+      <a href="/index.html" style="font-weight:700;">🧠 Montgomery AI</a>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+    </div>
+  </nav>
+
+  <div style="padding:80px 20px 20px;max-width:1200px;margin:0 auto;">
+    <header class="header"><h2>⚖️ Compare</h2></header>
+    
+    <!-- Selector -->
+    <div class="glass" style="padding:20px;margin-bottom:20px;">
+      <label class="text-sm text-muted">Select coins (up to 4):</label>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+        <select id="coin1" class="btn"><option value="">Coin 1</option></select>
+        <select id="coin2" class="btn"><option value="">Coin 2</option></select>
+        <select id="coin3" class="btn"><option value="">Coin 3</option></select>
+        <select id="coin4" class="btn"><option value="">Coin 4</option></select>
+        <button class="btn btn-primary" onclick="compare()">Compare</button>
+      </div>
+    </div>
+    
+    <!-- Loading -->
+    <div id="loading" class="glass" style="display:none;padding:40px;text-align:center;">
+      <div class="skeleton" style="height:200px;"></div>
+    </div>
+    
+    <!-- Results -->
+    <div id="results" class="glass" style="display:none;padding:20px;">
+      <div id="best-setup" class="glass" style="padding:16px;margin-bottom:20px;background:var(--green);color:#000;">
+        <strong>🏆 Best Setup:</strong> <span id="best-coin"></span>
+      </div>
+      
+      <table>
+        <thead>
+          <tr><th>Coin</th><th>Price</th><th>24h</th><th>RSI 1h</th><th>RSI 4h</th><th>Score</th><th>Funding</th><th>Fib</th><th>7d</th></tr>
+        </thead>
+        <tbody id="compare-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/compare.html" class="active">⚖️</a>
+  </nav>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    let coins = [];
+    
+    async function loadCoins() {
+      const res = await fetch('/api/prices?key=' + API_KEY);
+      const data = await res.json();
+      coins = (data.prices || []).map(p => p.coin);
+      
+      const opts = '<option value="">--</option>' + coins.map(c => `<option value="${c}">${c}</option>`).join('');
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById('coin' + i).innerHTML = opts;
+      }
+    }
+    
+    async function compare() {
+      const selected = [
+        document.getElementById('coin1').value,
+        document.getElementById('coin2').value,
+        document.getElementById('coin3').value,
+        document.getElementById('coin4').value
+      ].filter(c => c);
+      
+      if (selected.length < 2) { alert('Select at least 2 coins'); return; }
+      
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('results').style.display = 'none';
+      
+      try {
+        const [prices, signals, funding] = await Promise.all([
+          fetch('/api/prices?key=' + API_KEY).then(r => r.json()),
+          fetch('/api/quality?key=' + API_KEY).then(r => r.json()),
+          fetch('/api/funding?key=' + API_KEY).then(r => r.json())
+        ]);
+        
+        const priceMap = {}; (prices.prices || []).forEach(p => priceMap[p.coin] = p);
+        const sigMap = {}; (signals.signals || []).forEach(s => sigMap[s.coin] = s);
+        const fundMap = {}; (funding.rates || []).forEach(f => fundMap[f.coin] = f);
+        
+        let bestCoin = null;
+        let bestScore = -100;
+        
+        const rows = selected.map(coin => {
+          const p = priceMap[coin] || {};
+          const s = sigMap[coin] || {};
+          const f = fundMap[coin] || {};
+          
+          if (s.score > bestScore) { bestScore = s.score; bestCoin = coin; }
+          
+          const ch = p.change_24h_pct || 0;
+          return `<tr>
+            <td style="font-weight:700;">${coin}</td>
+            <td class="mono">$${p.price?.toFixed(2) || '-'}</td>
+            <td class="mono ${ch >= 0 ? 'text-green' : 'text-red'}">${ch >= 0 ? '+' : ''}${ch.toFixed(1)}%</td>
+            <td class="mono">${s.rsi?.toFixed(0) || '-'}</td>
+            <td class="mono">${s.rsi_4h?.toFixed(0) || '-'}</td>
+            <td class="mono" style="font-weight:700;">${s.score || '-'}</td>
+            <td class="mono ${f.rate_pct > 0 ? 'text-red' : 'text-green'}">${f.rate_pct ? f.rate_pct.toFixed(3) + '%' : '-'}</td>
+            <td class="mono">${s.fib_level || '-'}</td>
+            <td><canvas class="sparkline" data-coin="${coin}"></canvas></td>
+          </tr>`;
+        }).join('');
+        
+        document.getElementById('compare-body').innerHTML = rows;
+        document.getElementById('best-coin').textContent = bestCoin + ' (Score: ' + bestScore + ')';
+        
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        
+        // Draw sparklines
+        selected.forEach(coin => {
+          drawSparkline(coin);
+        });
+      } catch(e) {
+        console.error(e);
+        document.getElementById('loading').style.display = 'none';
+        alert('Failed to load data');
+      }
+    }
+    
+    async function drawSparkline(coin) {
+      const canvas = document.querySelector(`canvas[data-coin="${coin}"]`);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.strokeStyle = '#0A84FF';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      // Generate fake sparkline from random data (in real app, fetch historical)
+      for (let i = 0; i < 20; i++) {
+        const x = (i / 19) * canvas.width;
+        const y = canvas.height - (Math.random() * 0.6 + 0.2) * canvas.height;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    
+    loadCoins();
+  </script>
+</body>
+</html>

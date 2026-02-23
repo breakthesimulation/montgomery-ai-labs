@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chirp Calendar | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 1000px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 24px; }
+    .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .day-col { background: var(--bg-tertiary); border-radius: 12px; min-height: 300px; padding: 8px; }
+    .day-col.today { border: 2px solid var(--blue); }
+    .day-header { font-size: 0.9rem; font-weight: 600; text-align: center; padding: 8px; border-bottom: 1px solid var(--glass-border); margin-bottom: 8px; }
+    .day-col.today .day-header { color: var(--blue); }
+    .tweet { background: var(--bg-secondary); border-radius: 8px; padding: 8px; margin-bottom: 8px; font-size: 0.8rem; cursor: grab; }
+    .tweet:active { cursor: grabbing; }
+    .tweet-text { margin-bottom: 4px; line-height: 1.4; }
+    .tweet-meta { font-size: 0.7rem; color: var(--text-tertiary); }
+    .btn { padding: 10px 20px; background: var(--blue); color: white; border: none; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>📅 Chirp Content Calendar</h1>
+  
+  <div class="calendar" id="calendar"></div>
+
+  <script>
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const today = new Date().getDay();
+    const dayMap = [6, 0, 1, 2, 3, 4, 5]; // Convert JS day to Mon=0
+    
+    // Load scheduled tweets from localStorage
+    let scheduled = JSON.parse(localStorage.getItem('chirp_scheduled') || '{}');
+    
+    function render() {
+      const container = document.getElementById('calendar');
+      container.innerHTML = '';
+      
+      days.forEach((day, i) => {
+        const isToday = dayMap[today] === i;
+        const dayTweets = scheduled[day] || [];
+        
+        container.innerHTML += `
+          <div class="day-col ${isToday ? 'today' : ''}" data-day="${day}">
+            <div class="day-header">${day}${isToday ? ' (Today)' : ''}</div>
+            ${dayTweets.map((t, idx) => `
+              <div class="tweet" draggable="true" ondragstart="drag(event)" data-day="${day}" data-idx="${idx}">
+                <div class="tweet-text">${t.text.substring(0, 80)}...</div>
+                <div class="tweet-meta">${t.time || 'Anytime'}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      });
+    }
+    
+    function drag(ev) {
+      ev.dataTransfer.setData('text', ev.target.dataset.day + '|' + ev.target.dataset.idx);
+    }
+    
+    document.addEventListener('dragover', (ev) => ev.preventDefault());
+    document.addEventListener('drop', (ev) => {
+      ev.preventDefault();
+      const [fromDay, fromIdx] = ev.dataTransfer.getData('text').split('|');
+      const toDay = ev.target.closest('.day-col')?.dataset.day;
+      if (!toDay || toDay === fromDay) return;
+      
+      // Move tweet
+      const tweet = scheduled[fromDay].splice(fromIdx, 1)[0];
+      if (!scheduled[toDay]) scheduled[toDay] = [];
+      scheduled[toDay].push(tweet);
+      localStorage.setItem('chirp_scheduled', JSON.stringify(scheduled));
+      render();
+    });
+    
+    // Demo: add some tweets if empty
+    if (Object.keys(scheduled).length === 0) {
+      scheduled = {
+        'Mon': [{text: 'Solana TVL update coming this week', time: '10:00 UTC'}],
+        'Wed': [{text: 'New DeFi protocols launching', time: '14:00 UTC'}],
+        'Fri': [{text: 'Weekend market analysis', time: '12:00 UTC'}]
+      };
+      localStorage.setItem('chirp_scheduled', JSON.stringify(scheduled));
+    }
+    
+    render();
+  </script>
+</body>
+</html>

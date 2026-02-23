@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-width, initial-scale=1.0">
+  <title>Momentum | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 16px; }
+    .coin-row { display: flex; align-items: center; padding: 16px; background: var(--bg-tertiary); border-radius: 12px; margin-bottom: 8px; }
+    .coin-name { font-weight: 600; font-size: 1.2rem; width: 80px; }
+    .momentum-bar { flex: 1; height: 24px; background: var(--bg-secondary); border-radius: 4px; margin: 0 16px; position: relative; }
+    .momentum-fill { height: 100%; border-radius: 4px; position: absolute; left: 50%; }
+    .momentum-fill.positive { background: var(--green); right: 50%; }
+    .momentum-fill.negative { background: var(--red); left: 50%; }
+    .momentum-value { width: 80px; text-align: right; font-weight: 600; }
+    .momentum-value.positive { color: var(--green); }
+    .momentum-value.negative { color: var(--red); }
+    .last-updated { text-align: center; color: var(--text-tertiary); font-size: 0.8rem; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <h1>📈 Momentum</h1>
+  <p style="color: var(--text-tertiary); margin-bottom: 20px;">Rate of RSI change over the last hour</p>
+  
+  <div id="momentum-list"></div>
+  <div class="last-updated" id="last-updated">Updated: --</div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    
+    // Demo momentum data
+    const momentumData = [
+      {coin: 'SOL', change: 8.5},
+      {coin: 'BTC', change: 3.2},
+      {coin: 'ETH', change: -2.1},
+      {coin: 'JUP', change: 12.3},
+      {coin: 'NEAR', change: -5.4},
+      {coin: 'AVAX', change: 1.2},
+      {coin: 'ARB', change: -8.7},
+      {coin: 'OP', change: 4.1},
+    ];
+    
+    function render() {
+      // Sort by momentum
+      momentumData.sort((a, b) => b.change - a.change);
+      
+      const maxChange = Math.max(...momentumData.map(m => Math.abs(m.change)));
+      
+      document.getElementById('momentum-list').innerHTML = momentumData.map(m => {
+        const width = (Math.abs(m.change) / maxChange) * 45;
+        const isPos = m.change >= 0;
+        return `
+          <div class="coin-row">
+            <div class="coin-name">${m.coin}</div>
+            <div class="momentum-bar">
+              <div class="momentum-fill ${isPos ? 'positive' : 'negative'}" style="width: ${width}%"></div>
+            </div>
+            <div class="momentum-value ${isPos ? 'positive' : 'negative'}">${isPos ? '+' : ''}${m.change.toFixed(1)}</div>
+          </div>
+        `;
+      }).join('');
+      
+      document.getElementById('last-updated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+    }
+    
+    render();
+  </script>
+</body>
+</html>

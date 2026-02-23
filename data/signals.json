@@ -1,0 +1,125 @@
+{
+  "signals": [
+    {
+      "coin": "SOL",
+      "price": 82.05,
+      "change_24h": 0.69822,
+      "change_7d": 6.81973,
+      "volatility": 3.29,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-19T21:45:19.328537"
+    },
+    {
+      "coin": "BTC",
+      "price": 66968,
+      "change_24h": 0.85112,
+      "change_7d": 2.43937,
+      "volatility": 2.2,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-19T21:45:19.476712"
+    },
+    {
+      "coin": "ETH",
+      "price": 1948.29,
+      "change_24h": 0.19498,
+      "change_7d": 1.75714,
+      "volatility": 3.58,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-19T21:45:19.741587"
+    },
+    {
+      "coin": "SOL",
+      "price": 82.08,
+      "change_24h": 0.76679,
+      "change_7d": 6.85655,
+      "volatility": 3.29,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-19T21:49:31.878132"
+    },
+    {
+      "coin": "BTC",
+      "price": 66953,
+      "change_24h": 0.80018,
+      "change_7d": 2.41616,
+      "volatility": 2.2,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-19T21:49:32.037489"
+    },
+    {
+      "coin": "ETH",
+      "price": 1948.49,
+      "change_24h": 0.27143,
+      "change_7d": 1.76735,
+      "volatility": 3.58,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-19T21:49:32.255024"
+    },
+    {
+      "coin": "SOL",
+      "price": 83.61,
+      "change_24h": 1.53969,
+      "change_7d": 6.98565,
+      "volatility": 4.57,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-20T07:14:40.189643"
+    },
+    {
+      "coin": "BTC",
+      "price": 67755,
+      "change_24h": 0.93843,
+      "change_7d": 2.43355,
+      "volatility": 3.23,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-20T07:14:40.390027"
+    },
+    {
+      "coin": "SOL",
+      "price": 84.16,
+      "change_24h": 3.6667,
+      "change_7d": 5.7005,
+      "volatility": 5.37,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-20T10:04:30.039950"
+    },
+    {
+      "coin": "BTC",
+      "price": 68172,
+      "change_24h": 2.03674,
+      "change_7d": 1.90832,
+      "volatility": 3.58,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-20T10:04:30.246523"
+    },
+    {
+      "coin": "ETH",
+      "price": 1967.37,
+      "change_24h": 0.2052,
+      "change_7d": 0.54214,
+      "volatility": 2.77,
+      "signals": [],
+      "action": "HOLD",
+      "strength": 0,
+      "timestamp": "2026-02-20T10:04:30.283554"
+    }
+  ]
+}

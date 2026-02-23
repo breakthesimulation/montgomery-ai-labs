@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Trading Intelligence | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/apple.css">
+  <!----> href="design-system.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">
+                    <span>📈</span> Trading Intelligence
+                </h1>
+                <p class="page-subtitle">Montgomery AI Labs — Real-time market signals</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px">
+                <span class="live-indicator">
+                    <span class="live-dot"></span>
+                    Live
+                </span>
+                <span class="last-update">Updated: <span id="time">--:--:--</span></span>
+            </div>
+        </header>
+        
+        <!-- Active Setups -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Active Setups</span>
+            </div>
+            <div class="grid-2" id="setups">
+                <div class="loading">Loading setups...</div>
+            </div>
+        </div>
+        
+        <!-- Trading Signals -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Trading Signals</span>
+            </div>
+            <div class="grid-4" id="signals">
+                <div class="loading">Loading signals...</div>
+            </div>
+        </div>
+        
+        <!-- Top Wallets -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Top Performing Wallets</span>
+            </div>
+            <div class="grid-4" id="wallets">
+                <div class="loading">Loading wallets...</div>
+            </div>
+        </div>
+        
+        <!-- Whale Alerts -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Whale Alerts</span>
+            </div>
+            <div class="grid-3" id="whales">
+                <div class="loading">Loading whale data...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    const API_BASE = '';
+    
+    async function loadJSON(url) {
+        try {
+            const resp = await fetch(url);
+            return await resp.json();
+        } catch(e) {
+            console.error(e);
+            return null;
+        }
+    }
+    
+    function formatSOL(num) {
+        if (Math.abs(num) >= 1000) return (num / 1000).toFixed(1) + 'K';
+        return num.toFixed(0);
+    }
+    
+    function formatTime(ts) {
+        if (!ts) return 'N/A';
+        const d = new Date(ts);
+        return d.toLocaleTimeString();
+    }
+    
+    function getRankClass(i) {
+        if (i === 0) return 'gold';
+        if (i === 1) return 'silver';
+        if (i === 2) return 'bronze';
+        return '';
+    }
+    
+    async function loadSetups() {
+        const data = await loadJSON(API_BASE + '/data/setups.json');
+        if (!data) return;
+        
+        let html = '';
+        
+        // Longs
+        if (data.longs) {
+            for (const s of data.longs) {
+                html += `<div class="setup-card long">
+                    <div class="setup-header">
+                        <span class="setup-token">${s.token}</span>
+                        <span class="badge-timeframe">${s.timeframe || '4h'}</span>
+                    </div>
+                    <div class="setup-prices">
+                        <div class="price-item">
+                            <div class="price-label">Entry</div>
+                            <div class="price-value">$${s.entry}</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Stop</div>
+                            <div class="price-value stop">$${s.stop}</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Target</div>
+                            <div class="price-value target">$${s.target}</div>
+                        </div>
+                    </div>
+                    <div class="setup-meta">
+                        <span class="rr-value">R:R ${s.rr}</span>
+                        <span class="rsi-value buy">RSI ${s.rsi}</span>
+                    </div>
+                </div>`;
+            }
+        }
+        
+        // Shorts
+        if (data.shorts) {
+            for (const s of data.shorts) {
+                html += `<div class="setup-card short">
+                    <div class="setup-header">
+                        <span class="setup-token">${s.token}</span>
+                        <span class="badge-timeframe">${s.timeframe || '4h'}</span>
+                    </div>
+                    <div class="setup-prices">
+                        <div class="price-item">
+                            <div class="price-label">Entry</div>
+                            <div class="price-value">$${s.entry}</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Stop</div>
+                            <div class="price-value stop">$${s.stop}</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Target</div>
+                            <div class="price-value target">$${s.target}</div>
+                        </div>
+                    </div>
+                    <div class="setup-meta">
+                        <span class="rr-value">R:R ${s.rr}</span>
+                        <span class="rsi-value sell">RSI ${s.rsi}</span>
+                    </div>
+                </div>`;
+            }
+        }
+        
+        document.getElementById('setups').innerHTML = html || '<div class="empty-state">No active setups</div>';
+    }
+    
+    async function loadSignals() {
+        const data = await loadJSON(API_BASE + '/data/signals.json');
+        if (!data || !data.signals) {
+            document.getElementById('signals').innerHTML = '<div class="empty-state">No signals available</div>';
+            return;
+        }
+        
+        // Get latest signal per coin
+        const latest = {};
+        for (const s of data.signals) {
+            if (!latest[s.coin]) latest[s.coin] = s;
+        }
+        
+        const icons = { STRONG_BUY: '🚀', BUY: '🟢', HOLD: '⚪', SELL: '🔴', STRONG_SELL: '💀' };
+        
+        let html = '';
+        for (const s of Object.values(latest)) {
+            const actionClass = s.action.toLowerCase().replace('strong_', '');
+            html += `<div class="signal-row">
+                <div class="signal-left">
+                    <div class="signal-icon ${actionClass}">${icons[s.action] || '⚪'}</div>
+                    <div>
+                        <div class="signal-name">${s.coin}</div>
+                        <div class="signal-price">$${s.price?.toLocaleString() || 'N/A'}</div>
+                    </div>
+                </div>
+                <div class="signal-right">
+                    <div class="signal-change ${s.change_24h>=0?'up':'down'}">${s.change_24h>=0?'+':''}${s.change_24h?.toFixed(2) || 0}%</div>
+                    <div class="badge badge-${actionClass}" style="margin-top:4px;font-size:0.6rem;padding:2px 6px">${s.action}</div>
+                </div>
+            </div>`;
+        }
+        
+        document.getElementById('signals').innerHTML = html;
+    }
+    
+    async function loadWallets() {
+        const data = await loadJSON(API_BASE + '/data/wallet_rankings.json');
+        if (!data || !data.ranking) {
+            document.getElementById('wallets').innerHTML = '<div class="empty-state">No wallet data</div>';
+            return;
+        }
+        
+        let html = '';
+        for (let i = 0; i < Math.min(4, data.ranking.top_5.length); i++) {
+            const w = data.ranking.top_5[i];
+            const rankClass = getRankClass(i);
+            html += `<div class="wallet-card">
+                <div class="wallet-rank ${rankClass}">${i+1}</div>
+                <div class="wallet-name">${w.name}</div>
+                <div class="wallet-type">${w.type}</div>
+                <div class="wallet-pnl ${w.total_pnl_sol>=0?'positive':'negative'}">${w.total_pnl_sol>=0?'+':''}${formatSOL(w.total_pnl_sol)} SOL</div>
+                <div class="wallet-meta">
+                    <span>Win: ${w.win_rate}%</span>
+                    <span>${w.trades} trades</span>
+                </div>
+            </div>`;
+        }
+        
+        document.getElementById('wallets').innerHTML = html;
+    }
+    
+    async function loadWhales() {
+        const data = await loadJSON(API_BASE + '/data/whale_alerts.json');
+        if (!data || !data.alerts || data.alerts.length === 0) {
+            document.getElementById('whales').innerHTML = '<div class="empty-state">No whale alerts</div>';
+            return;
+        }
+        
+        let html = '';
+        for (const a of data.alerts.slice(0, 6)) {
+            html += `<div class="whale-row">
+                <div class="whale-amount">${formatSOL(a.amount || a.amount_sol)} SOL</div>
+                <div class="whale-details">
+                    <div class="whale-wallet">${a.wallet || 'Unknown'}</div>
+                    <div class="whale-time">${formatTime(a.timestamp)}</div>
+                </div>
+            </div>`;
+        }
+        
+        document.getElementById('whales').innerHTML = html;
+    }
+    
+    async function loadAll() {
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        
+        await Promise.all([
+            loadSetups(),
+            loadSignals(),
+            loadWallets(),
+            loadWhales()
+        ]);
+    }
+    
+    // Init
+    loadAll();
+    setInterval(loadAll, 60000);
+    </script>
+</body>
+</html>

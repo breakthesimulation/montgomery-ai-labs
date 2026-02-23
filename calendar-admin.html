@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Solana Calendar - Add Event</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-purple: #9945FF;
+            --accent-green: #14F195;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-red: #ef4444;
+            --border-color: #2a2a3a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: var(--accent-purple);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .form-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 32px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        
+        label span {
+            color: var(--accent-pink);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-purple);
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+        
+        .category-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .category-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .category-option:hover {
+            border-color: var(--accent-purple);
+        }
+        
+        .category-option.selected {
+            background: rgba(153, 69, 255, 0.2);
+            border-color: var(--accent-purple);
+        }
+        
+        .category-option input {
+            display: none;
+        }
+        
+        .category-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .category-dot.network_upgrade { background: var(--accent-blue); }
+        .category-dot.token_launch { background: var(--accent-green); }
+        .category-dot.conference { background: var(--accent-purple); }
+        .category-dot.hackathon { background: var(--accent-orange); }
+        .category-dot.validator { background: var(--accent-red); }
+        .category-dot.defi { background: #22c55e; }
+        .category-dot.nft { background: var(--accent-pink); }
+        .category-dot.governance { background: var(--accent-blue); }
+        .category-dot.partnership { background: #8b5cf6; }
+        .category-dot.other { background: var(--text-muted); }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            color: white;
+            width: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(153, 69, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        
+        .message {
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            display: none;
+        }
+        
+        .message.success {
+            display: block;
+            background: rgba(20, 241, 149, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+        }
+        
+        .message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+        }
+        
+        .info-box {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--accent-blue);
+        }
+        
+        .info-box h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--accent-blue);
+        }
+        
+        .info-box p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .info-box code {
+            background: var(--bg-primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row, .category-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="logo">
+                <span class="logo-text">← Back to Calendar</span>
+            </a>
+            <a href="index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Calendar
+            </a>
+        </div>
+
+        <h1>Add New Event</h1>
+        <p class="subtitle">Add a new event to the Solana ecosystem calendar</p>
+        
+        <div class="info-box">
+            <h3>📝 How to add events</h3>
+            <p>Fill in the form below to add a new event. All fields marked with <span style="color: var(--accent-pink)">*</span> are required. 
+            The event will be saved to <code>solana-events.json</code> and will appear on the calendar immediately.</p>
+        </div>
+
+        <div class="message" id="message"></div>
+
+        <div class="form-card">
+            <form id="eventForm">
+                <div class="form-group">
+                    <label>Event Title <span>*</span></label>
+                    <input type="text" id="title" name="title" placeholder="e.g., Jupiter Aggregator - Large Airdrop Claim" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date <span>*</span></label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category <span>*</span></label>
+                        <select id="category" name="category" required>
+                            <option value="">Select category...</option>
+                            <option value="network_upgrade">Network Upgrade</option>
+                            <option value="token_launch">Token Launch</option>
+                            <option value="conference">Conference</option>
+                            <option value="hackathon">Hackathon</option>
+                            <option value="validator">Validator</option>
+                            <option value="defi">DeFi</option>
+                            <option value="nft">NFT</option>
+                            <option value="governance">Governance</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Description <span>*</span></label>
+                    <textarea id="description" name="description" placeholder="Describe the event, its significance, and any relevant details..." required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Source URL</label>
+                        <input type="url" id="url" name="url" placeholder="https://example.com announcement">
+                    </div>
+                    <div class="form-group">
+                        <label>Source Name</label>
+                        <input type="text" id="source" name="source" placeholder="e.g., Official Announcement, Solana Floor">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="verified" name="verified">
+                        <label for="verified">Verified (confirmed date)</label>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button type="submit" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                        Add Event
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                        Clear Form
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let events = [];
+        
+        // Load existing events
+        async function loadEvents() {
+            try {
+                const response = await fetch('solana-events.json');
+                events = await response.json();
+            } catch (error) {
+                console.error('Error loading events:', error);
+                showMessage('Error loading events database', 'error');
+            }
+        }
+        
+        // Save events to JSON file
+        async function saveEvents() {
+            try {
+                // For client-side only, we'll use a different approach
+                // The form data will be shown as JSON to copy/save manually
+                // In a real implementation, you'd need a backend endpoint
+                
+                const newEvent = {
+                    id: Math.max(...events.map(e => e.id), 0) + 1,
+                    title: document.getElementById('title').value,
+                    date: document.getElementById('date').value,
+                    category: document.getElementById('category').value,
+                    description: document.getElementById('description').value,
+                    url: document.getElementById('url').value || null,
+                    source: document.getElementById('source').value || null,
+                    verified: document.getElementById('verified').checked,
+                    manually_added: true,
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                };
+                
+                // Add to local array
+                events.push(newEvent);
+                events.sort((a, b) => new Date(a.date) - new Date(b.date));
+                
+                // Create downloadable JSON
+                const jsonStr = JSON.stringify(events, null, 2);
+                const blob = new Blob([jsonStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'solana-events.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showMessage(`Event "${newEvent.title}" added! Download the updated JSON file and replace solana-events.json in the calendar folder.`, 'success');
+                
+            } catch (error) {
+                console.error('Error saving event:', error);
+                showMessage('Error adding event: ' + error.message, 'error');
+            }
+        }
+        
+        // Show message
+        function showMessage(text, type) {
+            const msgEl = document.getElementById('message');
+            msgEl.textContent = text;
+            msgEl.className = 'message ' + type;
+        }
+        
+        // Reset form
+        function resetForm() {
+            document.getElementById('eventForm').reset();
+            showMessage('', '');
+        }
+        
+        // Handle form submit
+        document.getElementById('eventForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            await saveEvents();
+        });
+        
+        // Initialize
+        loadEvents();
+    </script>
+</body>
+</html>

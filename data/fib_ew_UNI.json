@@ -1,0 +1,26 @@
+{
+  "symbol": "UNI",
+  "timeframe": "4h",
+  "current_price": 3.636,
+  "swing_high": 3.739,
+  "swing_low": 3.293,
+  "rsi": 93.22,
+  "fib_levels": {
+    "0.0": 3.739,
+    "0.236": 3.633744,
+    "0.382": 3.568628,
+    "0.5": 3.516,
+    "0.618": 3.463372,
+    "0.786": 3.388444,
+    "1.0": 3.293,
+    "1.272": 3.171688,
+    "1.618": 3.017372,
+    "2.0": 2.847
+  },
+  "nearest_fib": "0.236",
+  "nearest_fib_label": "At .236 support",
+  "is_key_level": false,
+  "ew_estimate": "Wave 3 impulse (late)",
+  "ew_confidence": "medium",
+  "analyzed_at": "2026-02-21T21:55:39.380127Z"
+}

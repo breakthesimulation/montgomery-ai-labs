@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="  <meta nameUTF-8">
+="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <div class="container">
+    <header class="header"><h2>⚙️ Settings</h2></header>
+    
+    <!-- Export -->
+    <div class="glass" style="padding:20px;margin-bottom:16px;">
+      <h4 style="margin-bottom:16px;">📤 Export Data</h4>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <button class="btn btn-secondary" onclick="exportSignals()">📊 Signals CSV</button>
+        <button class="btn btn-secondary" onclick="exportTrades()">💰 Trades CSV</button>
+        <button class="btn btn-secondary" onclick="exportBacktest()">📈 Backtest JSON</button>
+      </div>
+    </div>
+    
+    <!-- Trading -->
+    <div class="glass" style="padding:24px;margin-bottom:16px;">
+      <h4 style="margin-bottom:16px;">📊 Trading</h4>
+      <div style="margin-bottom:16px;">
+        <label class="text-sm text-muted">Min Signal Score</label>
+        <input type="number" id="min-score" min="0" max="100" style="width:100%;max-width:200px;">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label class="text-sm text-muted">Max Concurrent Positions</label>
+        <input type="number" id="max-positions" min="1" max="20" style="width:100%;max-width:200px;">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label class="text-sm text-muted">Default Stop Loss %</label>
+        <input type="number" id="stop-loss" step="0.1" style="width:100%;max-width:200px;">
+      </div>
+      <div>
+        <label class="text-sm text-muted">Default Take Profit %</label>
+        <input type="number" id="take-profit" step="0.1" style="width:100%;max-width:200px;">
+      </div>
+    </div>
+    
+    <!-- Risk -->
+    <div class="glass" style="padding:24px;margin-bottom:16px;">
+      <h4 style="margin-bottom:16px;">⚠️ Risk Management</h4>
+      <div style="margin-bottom:16px;">
+        <label class="text-sm text-muted">Max Daily Loss %</label>
+        <input type="number" id="max-daily-loss" step="0.1" style="width:100%;max-width:200px;">
+      </div>
+      <div>
+        <label class="text-sm text-muted">Max Drawdown %</label>
+        <input type="number" id="max-drawdown" step="0.1" style="width:100%;max-width:200px;">
+      </div>
+    </div>
+    
+    <!-- Theme -->
+    <div class="glass" style="padding:24px;margin-bottom:16px;">
+      <h4 style="margin-bottom:16px;">🎨 Theme</h4>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-primary" id="theme-dark" onclick="setTheme('dark')">🌙 Dark</button>
+        <button class="btn btn-secondary" id="theme-light" onclick="setTheme('light')">☀️ Light</button>
+      </div>
+    </div>
+    
+    <button class="btn btn-primary" style="width:100%;max-width:300px;display:block;margin:0 auto;" onclick="saveSettings()">Save Settings</button>
+    <p id="save-msg" class="text-sm text-green" style="text-align:center;margin-top:12px;display:none;">Settings saved!</p>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/screener.html">🔍</a>
+    <a href="/settings.html" class="active">⚙️</a>
+  </nav>
+  
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    const STORAGE_KEY = 'trading_settings';
+    const defaults = { minScore: 55, maxPositions: 5, stopLoss: 2.5, takeProfit: 5.0, maxDailyLoss: 3.0, maxDrawdown: 8.0, kelly: 0.25, theme: 'dark', refreshInterval: 30 };
+    let settings = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaults;
+    
+    document.getElementById('min-score').value = settings.minScore;
+    document.getElementById('max-positions').value = settings.maxPositions;
+    document.getElementById('stop-loss').value = settings.stopLoss;
+    document.getElementById('take-profit').value = settings.takeProfit;
+    document.getElementById('max-daily-loss').value = settings.maxDailyLoss;
+    document.getElementById('max-drawdown').value = settings.maxDrawdown;
+    
+    function setTheme(theme) {
+      settings.theme = theme;
+      document.getElementById('theme-dark').className = theme === 'dark' ? 'btn btn-primary' : 'btn btn-secondary';
+      document.getElementById('theme-light').className = theme === 'light' ? 'btn btn-primary' : 'btn btn-secondary';
+      if (theme === 'light') {
+        document.documentElement.style.setProperty('--bg-primary', '#F5F5F7');
+        document.documentElement.style.setProperty('--bg-secondary', '#FFFFFF');
+        document.documentElement.style.setProperty('--text-primary', '#1D1D1F');
+      }
+    }
+    
+    function saveSettings() {
+      settings = {
+        minScore: parseInt(document.getElementById('min-score').value),
+        maxPositions: parseInt(document.getElementById('max-positions').value),
+        stopLoss: parseFloat(document.getElementById('stop-loss').value),
+        takeProfit: parseFloat(document.getElementById('take-profit').value),
+        maxDailyLoss: parseFloat(document.getElementById('max-daily-loss').value),
+        maxDrawdown: parseFloat(document.getElementById('max-drawdown').value),
+        theme: settings.theme
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+      document.getElementById('save-msg').style.display = 'block';
+      setTimeout(() => document.getElementById('save-msg').style.display = 'none', 2000);
+    }
+    
+    function exportSignals() {
+      fetch('/api/quality?key=' + API_KEY).then(r=>r.json()).then(d=>{
+        let csv = 'coin,score,action,rsi,macd,timestamp\n';
+        (d.signals||[]).forEach(s=>csv += s.coin+','+s.score+','+s.action+','+s.rsi+','+(s.macd_signal||'')+','+(s.timestamp||'')+'\n');
+        download(csv,'signals.csv','text/csv');
+      });
+    }
+    function exportTrades() {
+      fetch('/api/trades/closed?key=' + API_KEY).then(r=>r.json()).then(d=>{
+        let csv = 'coin,side,entry,exit,pnl,reason\n';
+        (d.trades||[]).forEach(t=>csv += t.coin+','+t.side+','+t.entry_price+','+t.exit_price+','+t.pnl+','+(t.close_reason||'')+'\n');
+        download(csv,'trades.csv','text/csv');
+      });
+    }
+    function exportBacktest() {
+      fetch('/api/backtest?key=' + API_KEY).then(r=>r.json()).then(d=>download(JSON.stringify(d,null,2),'backtest.json','application/json'));
+    }
+    function download(c,n,t){let b=new Blob([c],{type:t});let u=URL.createObjectURL(b);let a=document.createElement('a');a.href=u;a.download=n;a.click();}
+    
+    if (settings.theme === 'light') setTheme('light');
+  </script>
+</body>
+</html>
+
+<!-- Position Size Calculator -->
+<div class="glass" style="margin: 16px;">
+  <h4 style="padding: 16px; border-bottom: 1px solid var(--glass-border); margin: 0;">🧮 Position Calculator</h4>
+  <div style="padding: 16px;">
+    <div class="input-group" style="margin-bottom: 12px;">
+      <label style="font-size: 0.85rem; color: var(--text-tertiary);">Account Balance ($)</label>
+      <input type="number" id="calc-balance" value="10000" style="width: 100%; padding: 10px; background: var(--bg-tertiary); border: none; border-radius: 8px; color: var(--text-primary);" oninput="calcPosition()">
+    </div>
+    <div class="input-group" style="margin-bottom: 12px;">
+      <label style="font-size: 0.85rem; color: var(--text-tertiary);">Risk per Trade: <span id="risk-val">2</span>%</label>
+      <input type="range" id="calc-risk" min="0.5" max="5" step="0.5" value="2" style="width: 100%;" oninput="calcPosition()">
+    </div>
+    <div class="input-group" style="margin-bottom: 12px;">
+      <label style="font-size: 0.85rem; color: var(--text-tertiary);">Stop Loss: <span id="sl-val">5</span>%</label>
+      <input type="range" id="calc-sl" min="1" max="20" step="1" value="5" style="width: 100%;" oninput="calcPosition()">
+    </div>
+    <div id="calc-result" style="background: var(--bg-secondary); padding: 16px; border-radius: 8px; text-align: center;">
+      <div style="font-size: 1.5rem; font-weight: 700;">$400</div>
+      <div style="font-size: 0.8rem; color: var(--text-tertiary);">Position Size</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function calcPosition() {
+  const balance = parseFloat(document.getElementById('calc-balance').value) || 10000;
+  const risk = parseFloat(document.getElementById('calc-risk').value) || 2;
+  const sl = parseFloat(document.getElementById('calc-sl').value) || 5;
+  
+  document.getElementById('risk-val').textContent = risk;
+  document.getElementById('sl-val').textContent = sl;
+  
+  const position = (balance * risk / 100) / (sl / 100);
+  document.getElementById('calc-result').innerHTML = 
+    '<div style="font-size: 1.5rem; font-weight: 700;">$' + position.toFixed(0) + '</div>' +
+    '<div style="font-size: 0.8rem; color: var(--text-tertiary);">Position Size @ ' + sl + '% SL</div>';
+}
+calcPosition();
+</script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator | validator.com</title>
+  <link rel="stylesheet" href="/seeker/styles.css">
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 700px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 24px; }
+    .calculator { background: var(--bg-tertiary); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .input-group { margin-bottom: 16px; }
+    .input-group label { display: block; font-size: 0.9rem; color: var(--text-tertiary); margin-bottom: 4px; }
+    .input-group input { width: 100%; padding: 12px; background: var(--bg-secondary); border: none; border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
+    .result { background: var(--bg-secondary); padding: 16px; border-radius: 8px; margin-top: 16px; }
+    .result-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--glass-border); }
+    .result-row:last-child { border: none; }
+    .result-value { font-weight: 600; font-size: 1.1rem; }
+    .result-value.green { color: var(--green); }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--glass-border); }
+    th { color: var(--text-tertiary); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <a href="/validator-com/" style="color:var(--blue);text-decoration:none;">← Back to validator.com</a>
+  
+  <h1>🧮 Staking ROI Calculator</h1>
+  
+  <div class="calculator">
+    <div class="input-group">
+      <label>Stake Amount (SOL)</label>
+      <input type="number" id="stakeAmount" value="1000" oninput="calculate()">
+    </div>
+    <div class="input-group">
+      <label>Commission Rate (%)</label>
+      <input type="number" id="commission" value="5" oninput="calculate()">
+    </div>
+    <div class="input-group">
+      <label>Current SOL Price ($)</label>
+      <input type="number" id="solPrice" value="98.50" oninput="calculate()">
+    </div>
+    
+    <div class="result">
+      <div class="result-row">
+        <span>Annual Yield (SOL)</span>
+        <span class="result-value" id="annualSol">--</span>
+      </div>
+      <div class="result-row">
+        <span>After Commission</span>
+        <span class="result-value" id="afterCommission">--</span>
+      </div>
+      <div class="result-row">
+        <span>Annual USD</span>
+        <span class="result-value green" id="annualUsd">--</span>
+      </div>
+      <div class="result-row">
+        <span>Monthly USD</span>
+        <span class="result-value green" id="monthlyUsd">--</span>
+      </div>
+    </div>
+    
+    <h3 style="margin-top: 24px;">Commission Comparison</h3>
+    <table>
+      <tr><th>Commission</th><th>Annual SOL</th><th>Annual USD</th></tr>
+      <tr><td>2%</td><td id="c2-sol">--</td><td id="c2-usd">--</td></tr>
+      <tr><td>5%</td><td id="c5-sol">--</td><td id="c5-usd">--</td></tr>
+      <tr><td>8%</td><td id="c8-sol">--</td><td id="c8-usd">--</td></tr>
+      <tr><td>10%</td><td id="c10-sol">--</td><td id="c10-usd">--</td></tr>
+    </table>
+  </div>
+  
+  <script>
+    function calculate() {
+      const stake = parseFloat(document.getElementById('stakeAmount').value) || 0;
+      const commission = parseFloat(document.getElementById('commission').value) || 0;
+      const price = parseFloat(document.getElementById('solPrice').value) || 0;
+      
+      const baseAPY = 0.07; // 7% base
+      const annualSol = stake * baseAPY;
+      const afterCommission = annualSol * (1 - commission / 100);
+      const annualUsd = afterCommission * price;
+      const monthlyUsd = annualUsd / 12;
+      
+      document.getElementById('annualSol').textContent = annualSol.toFixed(2) + ' SOL';
+      document.getElementById('afterCommission').textContent = afterCommission.toFixed(2) + ' SOL';
+      document.getElementById('annualUsd').textContent = '$' + annualUsd.toFixed(2);
+      document.getElementById('monthlyUsd').textContent = '$' + monthlyUsd.toFixed(2);
+      
+      // Comparison table
+      [2, 5, 8, 10].forEach(c => {
+        const sol = annualSol * (1 - c / 100);
+        const usd = sol * price;
+        document.getElementById('c' + c + '-sol').textContent = sol.toFixed(2);
+        document.getElementById('c' + c + '-usd').textContent = '$' + usd.toFixed(0);
+      });
+    }
+    
+    calculate();
+  </script>
+</body>
+</html>

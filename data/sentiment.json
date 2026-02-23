@@ -1,0 +1,143 @@
+{
+  "signals": [
+    {
+      "coin": "BTC",
+      "sentiment_score": 0.2,
+      "sentiment": "SLIGHTLY_BULLISH",
+      "timestamp": "2026-02-21T04:00:02.386803"
+    },
+    {
+      "coin": "ETH",
+      "sentiment_score": -0.13,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:03.122579"
+    },
+    {
+      "coin": "SOL",
+      "sentiment_score": -0.22,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:03.370915"
+    },
+    {
+      "coin": "BNB",
+      "sentiment_score": 0.08,
+      "sentiment": "NEUTRAL",
+      "timestamp": "2026-02-21T04:00:03.618849"
+    },
+    {
+      "coin": "XRP",
+      "sentiment_score": -0.15,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:03.867574"
+    },
+    {
+      "coin": "ADA",
+      "sentiment_score": -0.15,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:04.115581"
+    },
+    {
+      "coin": "DOGE",
+      "sentiment_score": 0.07,
+      "sentiment": "NEUTRAL",
+      "timestamp": "2026-02-21T04:00:04.363615"
+    },
+    {
+      "coin": "AVAX",
+      "sentiment_score": -0.17,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:04.612410"
+    },
+    {
+      "coin": "DOT",
+      "sentiment_score": -0.12,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:04.861185"
+    },
+    {
+      "coin": "MATIC",
+      "sentiment_score": 0.21,
+      "sentiment": "SLIGHTLY_BULLISH",
+      "timestamp": "2026-02-21T04:00:05.110139"
+    },
+    {
+      "coin": "LINK",
+      "sentiment_score": 0.08,
+      "sentiment": "NEUTRAL",
+      "timestamp": "2026-02-21T04:00:05.358357"
+    },
+    {
+      "coin": "UNI",
+      "sentiment_score": -0.09,
+      "sentiment": "NEUTRAL",
+      "timestamp": "2026-02-21T04:00:05.606635"
+    },
+    {
+      "coin": "ATOM",
+      "sentiment_score": -0.08,
+      "sentiment": "NEUTRAL",
+      "timestamp": "2026-02-21T04:00:05.855365"
+    },
+    {
+      "coin": "LTC",
+      "sentiment_score": -0.2,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:06.103844"
+    },
+    {
+      "coin": "NEAR",
+      "sentiment_score": -0.09,
+      "sentiment": "NEUTRAL",
+      "timestamp": "2026-02-21T04:00:06.840078"
+    },
+    {
+      "coin": "APT",
+      "sentiment_score": 0.1,
+      "sentiment": "SLIGHTLY_BULLISH",
+      "timestamp": "2026-02-21T04:00:07.574853"
+    },
+    {
+      "coin": "ARB",
+      "sentiment_score": 0.02,
+      "sentiment": "NEUTRAL",
+      "timestamp": "2026-02-21T04:00:08.310150"
+    },
+    {
+      "coin": "OP",
+      "sentiment_score": -0.36,
+      "sentiment": "BEARISH",
+      "timestamp": "2026-02-21T04:00:08.558251"
+    },
+    {
+      "coin": "FIL",
+      "sentiment_score": -0.37,
+      "sentiment": "BEARISH",
+      "timestamp": "2026-02-21T04:00:08.807035"
+    },
+    {
+      "coin": "HBAR",
+      "sentiment_score": -0.15,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:09.055160"
+    },
+    {
+      "coin": "BONK",
+      "sentiment_score": -0.39,
+      "sentiment": "BEARISH",
+      "timestamp": "2026-02-21T04:00:09.302950"
+    },
+    {
+      "coin": "WIF",
+      "sentiment_score": -0.24,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:10.037017"
+    },
+    {
+      "coin": "JUP",
+      "sentiment_score": -0.12,
+      "sentiment": "SLIGHTLY_BEARISH",
+      "timestamp": "2026-02-21T04:00:10.774217"
+    }
+  ],
+  "timestamp": "2026-02-21T04:00:10.774854"
+}

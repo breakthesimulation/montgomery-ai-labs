@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backtest | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    .slider-container { display: flex; align-items: center; gap: 12px; }
+    input[type="range"] { flex: 1; }
+  </style>
+</head>
+<body>
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+      <a href="/index.html" style="font-weight:700;">🧠 Montgomery AI</a>
+      <a href="/dashboard.html" class="nav-link">Dashboard</a>
+    </div>
+  </nav>
+
+  <div style="padding:80px 20px 20px;max-width:1000px;margin:0 auto;">
+    <header class="header"><h2>📈 Backtest</h2></header>
+    
+    <!-- Parameters -->
+    <div class="glass" style="padding:24px;margin-bottom:20px;">
+      <h4 style="margin-bottom:16px;">Parameters</h4>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <label class="text-sm text-muted">RSI Threshold (buy below)</label>
+          <div class="slider-container">
+            <input type="range" id="rsi-threshold" min="20" max="50" value="30">
+            <span id="rsi-val" class="mono">30</span>
+          </div>
+        </div>
+        
+        <div>
+          <label class="text-sm text-muted">Min Signal Score</label>
+          <div class="slider-container">
+            <input type="range" id="min-score" min="30" max="80" value="55">
+            <span id="score-val" class="mono">55</span>
+          </div>
+        </div>
+        
+        <div>
+          <label class="text-sm text-muted">Start Date</label>
+          <input type="date" id="start-date" style="width:100%;">
+        </div>
+        
+        <div>
+          <label class="text-sm text-muted">End Date</label>
+          <input type="date" id="end-date" style="width:100%;">
+        </div>
+      </div>
+      
+      <div style="margin-top:16px;">
+        <label class="text-sm text-muted">Coins</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;" id="coin-selector">
+          <label><input type="checkbox" value="BTC" checked> BTC</label>
+          <label><input type="checkbox" value="ETH" checked> ETH</label>
+          <label><input type="checkbox" value="SOL" checked> SOL</label>
+          <label><input type="checkbox" value="BNB"> BNB</label>
+          <label><input type="checkbox" value="XRP"> XRP</label>
+          <label><input type="checkbox" value="ADA"> ADA</label>
+          <label><input type="checkbox" value="DOGE"> DOGE</label>
+          <label><input type="checkbox" value="AVAX"> AVAX</label>
+          <label><input type="checkbox" value="DOT"> DOT</label>
+          <label><input type="checkbox" value="LINK"> LINK</label>
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" style="width:100%;margin-top:20px;" onclick="runBacktest()">🚀 Run Backtest</button>
+    </div>
+    
+    <!-- Running -->
+    <div id="running" class="glass" style="display:none;padding:24px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
+        <span>Running...</span>
+        <span class="mono" id="progress">0 trades</span>
+      </div>
+      <div style="background:var(--bg-tertiary);height:8px;border-radius:4px;overflow:hidden;">
+        <div id="progress-bar" style="width:0%;height:100%;background:var(--accent);transition:width 0.3s;"></div>
+      </div>
+      <div class="mono" style="margin-top:12px;" id="equity">Equity: $1,000</div>
+    </div>
+    
+    <!-- Results -->
+    <div id="results" class="glass" style="display:none;padding:24px;">
+      <h4 style="margin-bottom:16px;">Results</h4>
+      <div class="grid grid-4" style="margin-bottom:20px;">
+        <div class="stat-card"><div class="stat-label">Total Trades</div><div class="stat-value" id="total-trades">-</div></div>
+        <div class="stat-card"><div class="stat-label">Win Rate</div><div class="stat-value" id="win-rate">-</div></div>
+        <div class="stat-card"><div class="stat-label">Total P&L</div><div class="stat-value" id="total-pnl">-</div></div>
+        <div class="stat-card"><div class="stat-label">Best Trade</div><div class="stat-value" id="best-trade">-</div></div>
+      </div>
+      
+      <h5 style="margin-bottom:12px;">Trade Log</h5>
+      <table style="font-size:0.85rem;">
+        <thead><tr><th>Date</th><th>Coin</th><th>Entry</th><th>Exit</th><th>P&L</th></tr></thead>
+        <tbody id="trade-log"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+    <a href="/backtest.html" class="active">📈</a>
+  </nav>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    
+    // Set default dates
+    const now = new Date();
+    document.getElementById('end-date').value = now.toISOString().split('T')[0];
+    now.setDate(now.getDate() - 30);
+    document.getElementById('start-date').value = now.toISOString().split('T')[0];
+    
+    // Slider displays
+    document.getElementById('rsi-threshold').oninput = function() {
+      document.getElementById('rsi-val').textContent = this.value;
+    };
+    document.getElementById('min-score').oninput = function() {
+      document.getElementById('score-val').textContent = this.value;
+    };
+    
+    async function runBacktest() {
+      const coins = Array.from(document.querySelectorAll('#coin-selector input:checked')).map(c => c.value);
+      if (!coins.length) { alert('Select at least one coin'); return; }
+      
+      const params = {
+        rsi_threshold: parseInt(document.getElementById('rsi-threshold').value),
+        min_score: parseInt(document.getElementById('min-score').value),
+        coins: coins,
+        start_date: document.getElementById('start-date').value,
+        end_date: document.getElementById('end-date').value
+      };
+      
+      document.getElementById('running').style.display = 'block';
+      document.getElementById('results').style.display = 'none';
+      
+      try {
+        const res = await fetch('/api/backtest/run?key=' + API_KEY, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(params)
+        });
+        const data = await res.json();
+        
+        document.getElementById('total-trades').textContent = data.trades?.length || 0;
+        document.getElementById('win-rate').textContent = (data.win_rate || 0) + '%';
+        document.getElementById('total-pnl').textContent = (data.total_pnl || 0) + '%';
+        document.getElementById('best-trade').textContent = (data.best_trade || 0) + '%';
+        
+        const logHtml = (data.trades || []).map(t => `
+          <tr>
+            <td class="text-muted">${t.date?.slice(0, 10)}</td>
+            <td>${t.coin}</td>
+            <td class="mono">$${t.entry?.toFixed(2)}</td>
+            <td class="mono">$${t.exit?.toFixed(2)}</td>
+            <td class="mono ${t.pnl >= 0 ? 'text-green' : 'text-red'}">${t.pnl >= 0 ? '+' : ''}${t.pnl?.toFixed(1)}%</td>
+          </tr>
+        `).join('');
+        document.getElementById('trade-log').innerHTML = logHtml || '<tr><td colspan="5" class="text-muted">No trades</td></tr>';
+        
+        document.getElementById('running').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+      } catch(e) {
+        console.error(e);
+        document.getElementById('running').style.display = 'none';
+        alert('Backtest failed');
+      }
+    }
+  </script>
+</body>
+</html>

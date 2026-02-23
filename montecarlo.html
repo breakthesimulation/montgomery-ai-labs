@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monte Carlo | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <script src="https://unpkg.com/lightweight-charts@4.1.0/dist/lightweight-charts.standalone.production.js"></script>
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 24px; }
+    .inputs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; background: var(--bg-tertiary); padding: 20px; border-radius: 12px; margin-bottom: 24px; }
+    .input-group { }
+    .input-group label { display: block; font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 4px; }
+    .input-group input, .input-group select { width: 100%; padding: 10px; background: var(--bg-secondary); border: none; border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
+    .btn { padding: 12px 24px; background: var(--blue); color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; }
+    .results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .result-card { background: var(--bg-tertiary); padding: 16px; border-radius: 12px; text-align: center; }
+    .result-card .value { font-size: 1.5rem; font-weight: 700; }
+    .result-card .label { font-size: 0.8rem; color: var(--text-tertiary); }
+    .result-card.best .value { color: var(--green); }
+    .result-card.worst .value { color: var(--red); }
+    #chart { height: 300px; }
+  </style>
+</head>
+<body>
+  <h1>🎲 Monte Carlo Risk Simulator</h1>
+  
+  <div class="inputs">
+    <div class="input-group">
+      <label>Win Rate (%)</label>
+      <input type="number" id="winRate" value="55" min="1" max="99">
+    </div>
+    <div class="input-group">
+      <label>Average Win ($)</label>
+      <input type="number" id="avgWin" value="100" min="1">
+    </div>
+    <div class="input-group">
+      <label>Average Loss ($)</label>
+      <input type="number" id="avgLoss" value="50" min="1">
+    </div>
+    <div class="input-group">
+      <label>Number of Trades</label>
+      <input type="range" id="numTrades" value="100" min="50" max="500" oninput="this.nextElementSibling.value = this.value">
+      <output>100</output>
+    </div>
+    <div class="input-group">
+      <label>Simulations</label>
+      <input type="range" id="numSims" value="500" min="100" max="1000" step="100" oninput="this.nextElementSibling.value = this.value">
+      <output>500</output>
+    </div>
+  </div>
+  
+  <button class="btn" onclick="runSimulation()">Run Simulation</button>
+  
+  <div class="results" id="results" style="display:none;">
+    <div class="result-card worst">
+      <div class="value" id="p10">--</div>
+      <div class="label">10th Percentile (Worst)</div>
+    </div>
+    <div class="result-card">
+      <div class="value" id="median">--</div>
+      <div class="label">Median</div>
+    </div>
+    <div class="result-card best">
+      <div class="value" id="p90">--</div>
+      <div class="label">90th Percentile (Best)</div>
+    </div>
+  </div>
+  
+  <div id="chart"></div>
+  
+  <script>
+    let chart;
+    
+    function runSimulation() {
+      const winRate = parseInt(document.getElementById('winRate').value) / 100;
+      const avgWin = parseFloat(document.getElementById('avgWin').value);
+      const avgLoss = parseFloat(document.getElementById('avgLoss').value);
+      const numTrades = parseInt(document.getElementById('numTrades').value);
+      const numSims = parseInt(document.getElementById('numSims').value);
+      
+      // Run simulations
+      const results = [];
+      for (let s = 0; s < numSims; s++) {
+        let equity = 1000;
+        for (let t = 0; t < numTrades; t++) {
+          if (Math.random() < winRate) {
+            equity += avgWin;
+          } else {
+            equity -= avgLoss;
+          }
+        }
+        results.push(equity);
+      }
+      
+      // Sort for percentiles
+      results.sort((a, b) => a - b);
+      
+      const p10 = results[Math.floor(numSims * 0.1)];
+      const median = results[Math.floor(numSims * 0.5)];
+      const p90 = results[Math.floor(numSims * 0.9)];
+      
+      // Display
+      document.getElementById('results').style.display = 'grid';
+      document.getElementById('p10').textContent = '$' + p10.toFixed(0);
+      document.getElementById('median').textContent = '$' + median.toFixed(0);
+      document.getElementById('p90').textContent = '$' + p90.toFixed(0);
+      
+      // Draw chart
+      drawChart(results, numTrades);
+    }
+    
+    function drawChart(allResults, numTrades) {
+      if (!chart) {
+        chart = LightweightCharts.createChart(document.getElementById('chart'), {
+          width: document.getElementById('chart').offsetWidth,
+          height: 300,
+          layout: { background: { type: 'solid', color: '#1C1C1E' }, textColor: '#8E8E93' },
+        });
+      }
+      
+      chart.removeAllSeries();
+      
+      // Take a few sample runs to display
+      const sampleIndices = [Math.floor(allResults.length * 0.1), Math.floor(allResults.length * 0.5), Math.floor(allResults.length * 0.9)];
+      const colors = ['#FF453A', '#0A84FF', '#30D158'];
+      const names = ['p10', 'median', 'p90'];
+      
+      sampleIndices.forEach((idx, i) => {
+        // Re-run a single simulation for the line
+        const winRate = parseInt(document.getElementById('winRate').value) / 100;
+        const avgWin = parseFloat(document.getElementById('avgWin').value);
+        const avgLoss = parseFloat(document.getElementById('avgLoss').value);
+        
+        const data = [];
+        let equity = 1000;
+        for (let t = 0; t <= numTrades; t += 10) {
+          data.push({ time: t, value: equity });
+          for (let j = 0; j < 10; j++) {
+            if (Math.random() < winRate) equity += avgWin;
+            else equity -= avgLoss;
+          }
+        }
+        
+        chart.addLineSeries({ color: colors[i], lineWidth: 2 }).setData(data);
+      });
+    }
+  </script>
+</body>
+</html>

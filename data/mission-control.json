@@ -1,0 +1,283 @@
+{
+  "generated_at": "2026-02-21T10:02:12.281927",
+  "agents": [
+    {
+      "name": "Dev",
+      "status": "active",
+      "last_task": null,
+      "last_output": "2026-02-21-proxy-recommendation.md",
+      "error": null,
+      "timestamp": "2026-02-21T09:20:21.889803",
+      "role": "CTO"
+    },
+    {
+      "name": "Scout",
+      "status": "active",
+      "last_task": null,
+      "last_output": "2026-02-21-agent-army-research-v2.md",
+      "error": null,
+      "timestamp": "2026-02-21T08:58:47.779855",
+      "role": "CIO"
+    },
+    {
+      "name": "Quill",
+      "status": "active",
+      "last_task": null,
+      "last_output": "seb-google-summary.md",
+      "error": null,
+      "timestamp": "2026-02-20T13:23:50.692172",
+      "role": "CCO"
+    },
+    {
+      "name": "Shield",
+      "status": "active",
+      "last_task": null,
+      "last_output": "2026-02-19-security-audit.md",
+      "error": null,
+      "timestamp": "2026-02-19T20:16:13.428428",
+      "role": "CQO"
+    },
+    {
+      "name": "Chirp",
+      "status": "active",
+      "last_task": null,
+      "last_output": "twitter-watch-2026-02-21.md",
+      "error": null,
+      "timestamp": "2026-02-21T09:00:44.961490",
+      "role": "CMO"
+    },
+    {
+      "name": "Raoul",
+      "status": "active",
+      "last_task": null,
+      "last_output": "daily-ta-feed-2026-02-21.md",
+      "error": null,
+      "timestamp": "2026-02-21T08:24:45.582577",
+      "role": "VP Bull"
+    },
+    {
+      "name": "Ben",
+      "status": "active",
+      "last_task": null,
+      "last_output": "daily-ta-feed-2026-02-21.md",
+      "error": null,
+      "timestamp": "2026-02-21T08:24:45.582577",
+      "role": "VP Bear"
+    },
+    {
+      "name": "Pixel",
+      "status": "active",
+      "last_task": null,
+      "last_output": "2026-02-18-team-memo-obsidian-standards.md",
+      "error": null,
+      "timestamp": "2026-02-18T19:33:03.681979",
+      "role": "CDO"
+    },
+    {
+      "name": "Hustle",
+      "status": "active",
+      "last_task": null,
+      "last_output": "2026-02-18-team-memo-obsidian-standards.md",
+      "error": null,
+      "timestamp": "2026-02-18T19:33:03.682979",
+      "role": "CRO"
+    }
+  ],
+  "raoul": {
+    "sessions": [
+      {
+        "name": "Pre-New York",
+        "btc_price": null,
+        "eth_price": null,
+        "direction": null,
+        "top_setup": null,
+        "summary": "",
+        "timestamp": "Feb 20, 2026"
+      },
+      {
+        "name": "Pre-London",
+        "btc_price": null,
+        "eth_price": null,
+        "direction": null,
+        "top_setup": null,
+        "summary": "",
+        "timestamp": "Feb 21, 2026"
+      },
+      {
+        "name": "Pre-Tokyo",
+        "btc_price": null,
+        "eth_price": null,
+        "direction": null,
+        "top_setup": null,
+        "summary": "",
+        "timestamp": "Feb 20, 2026"
+      }
+    ],
+    "open_positions": [],
+    "latest_signal": {
+      "direction": null,
+      "token": null,
+      "timestamp": "Feb 20, 2026"
+    },
+    "timestamp": "2026-02-21T10:02:12.284687"
+  },
+  "ben": {
+    "sessions": [
+      {
+        "name": "Pre-London",
+        "btc_price": "67738",
+        "eth_price": "1960",
+        "direction": "bearish",
+        "short_candidates": [],
+        "summary": "YGG (-0.2935%/hr), INJ (-0.0093%/hr), STX (-0.0053%/hr)",
+        "timestamp": "Feb 21, 2026"
+      },
+      {
+        "name": "Pre-London",
+        "btc_price": "67806",
+        "eth_price": "1956",
+        "direction": "bearish",
+        "short_candidates": [],
+        "summary": "SNX (-0.0925%/hr), INJ (-0.042%/hr), OP (-0.0197%/hr), STX (-0.0031%/hr)",
+        "timestamp": "Feb 20, 2026"
+      },
+      {
+        "name": "Pre-Tokyo",
+        "btc_price": "66880",
+        "eth_price": "1943",
+        "direction": "bearish",
+        "short_candidates": [],
+        "summary": "INJ (-0.143%), SNX (-0.060%), OP (-0.043%), APE (-0.018%), STX (-0.008%)",
+        "timestamp": "Feb 19, 2026"
+      }
+    ],
+    "latest_signal": {
+      "direction": "bearish",
+      "candidates": [],
+      "timestamp": "Feb 19, 2026"
+    },
+    "timestamp": "2026-02-21T10:02:12.285988"
+  },
+  "reports": {
+    "scout": [
+      {
+        "name": "2026-02-21-agent-army-research-v2.md",
+        "path": "/home/openclaw/vault/Scout/2026-02-21-agent-army-research-v2.md",
+        "modified": "2026-02-21T08:58:47.779855"
+      },
+      {
+        "name": "2026-02-21-agent-army-research.md",
+        "path": "/home/openclaw/vault/Scout/2026-02-21-agent-army-research.md",
+        "modified": "2026-02-21T08:44:25.933253"
+      },
+      {
+        "name": "daily-ta-feed-2026-02-21.md",
+        "path": "/home/openclaw/vault/Scout/daily-ta-feed-2026-02-21.md",
+        "modified": "2026-02-21T08:24:45.582577"
+      },
+      {
+        "name": "daily-ta-feed-2026-02-20.md",
+        "path": "/home/openclaw/vault/Scout/daily-ta-feed-2026-02-20.md",
+        "modified": "2026-02-20T14:39:10.107189"
+      },
+      {
+        "name": "live-feedback-options-2026-02-20.md",
+        "path": "/home/openclaw/vault/Scout/live-feedback-options-2026-02-20.md",
+        "modified": "2026-02-20T11:25:37.360380"
+      }
+    ],
+    "quill": [
+      {
+        "name": "seb-google-summary.md",
+        "path": "/home/openclaw/vault/Quill/seb-google-summary.md",
+        "modified": "2026-02-20T13:23:50.692172"
+      },
+      {
+        "name": "validator-com-content-strategy.md",
+        "path": "/home/openclaw/vault/Quill/validator-com-content-strategy.md",
+        "modified": "2026-02-20T10:14:41.567936"
+      },
+      {
+        "name": "validator-com-article-template.md",
+        "path": "/home/openclaw/vault/Quill/validator-com-article-template.md",
+        "modified": "2026-02-20T10:14:40.624930"
+      },
+      {
+        "name": "validator-com-writing-standards.md",
+        "path": "/home/openclaw/vault/Quill/validator-com-writing-standards.md",
+        "modified": "2026-02-20T09:52:07.676692"
+      },
+      {
+        "name": "2026-02-19-validator-com-master-content-plan.md",
+        "path": "/home/openclaw/vault/Quill/2026-02-19-validator-com-master-content-plan.md",
+        "modified": "2026-02-20T08:50:02.578310"
+      }
+    ],
+    "chirp": [
+      {
+        "name": "twitter-watch-2026-02-21.md",
+        "path": "/home/openclaw/vault/Chirp/twitter-watch-2026-02-21.md",
+        "modified": "2026-02-21T09:00:44.961490"
+      },
+      {
+        "name": "daily-ta-feed-2026-02-21.md",
+        "path": "/home/openclaw/vault/Chirp/daily-ta-feed-2026-02-21.md",
+        "modified": "2026-02-21T08:24:45.582577"
+      },
+      {
+        "name": "daily-ta-feed-2026-02-20.md",
+        "path": "/home/openclaw/vault/Chirp/daily-ta-feed-2026-02-20.md",
+        "modified": "2026-02-20T14:39:10.108189"
+      }
+    ],
+    "dev_build": {
+      "name": "2026-02-21-build-log.md",
+      "path": "/home/openclaw/vault/Dev/2026-02-21-build-log.md",
+      "modified": "2026-02-21T06:08:28.464842"
+    }
+  },
+  "health": {
+    "timestamp": "2026-02-21T10:02:08.657923",
+    "services": [
+      {
+        "name": "Alert Monitor",
+        "status": "stale",
+        "last_seen": "2026-02-20T14:41:03.681960",
+        "age_seconds": 69664
+      },
+      {
+        "name": "Paper Trading",
+        "status": "stopped",
+        "last_seen": null,
+        "age_seconds": null
+      },
+      {
+        "name": "Token Scanner",
+        "status": "stale",
+        "last_seen": "2026-02-21T04:00:02.030415",
+        "age_seconds": 21726
+      },
+      {
+        "name": "DEX Monitor",
+        "status": "stale",
+        "last_seen": "2026-02-21T04:00:01.956414",
+        "age_seconds": 21726
+      },
+      {
+        "name": "On-Chain Flow",
+        "status": "running",
+        "last_seen": "2026-02-21T10:00:03.167300",
+        "age_seconds": 125
+      },
+      {
+        "name": "Price API",
+        "status": "running",
+        "last_seen": "2026-02-21T10:02:08.656865",
+        "age_seconds": 0
+      }
+    ],
+    "running": 2,
+    "total": 6,
+    "status": "critical"
+  }
+}

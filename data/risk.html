@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Manager | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        
+        .status { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .status.ok { background: rgba(0,255,148,0.15); color: var(--green); }
+        .status.risk { background: rgba(255,71,87,0.15); color: var(--red); }
+        
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+        .label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        .value { font-size: 1.5rem; font-weight: 700; font-family: 'IBM Plex Mono'; margin-top: 8px; }
+        .value.green { color: var(--green); }
+        .value.red { color: var(--red); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Risk Manager</h1>
+            <span class="status ok">OK</span>
+        </header>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="label">Portfolio Value</div>
+                <div class="value">$34,253.47</div>
+            </div>
+            <div class="card">
+                <div class="label">Current P&L</div>
+                <div class="value green">$+1,255.90</div>
+            </div>
+            <div class="card">
+                <div class="label">Portfolio Risk</div>
+                <div class="value green">3.7%</div>
+            </div>
+            <div class="card">
+                <div class="label">Max Drawdown</div>
+                <div class="value red">0.0% / 15%</div>
+            </div>
+            <div class="card">
+                <div class="label">Largest Position</div>
+                <div class="value red">35.2%</div>
+            </div>
+            <div class="card">
+                <div class="label">Total Positions</div>
+                <div class="value">4</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

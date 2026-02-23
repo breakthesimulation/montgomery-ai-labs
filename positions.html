@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <title>Positions | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 24px; }
+    .tab-bar { display: flex; gap: 8px; margin-bottom: 24px; }
+    .tab { padding: 10px 20px; background: var(--bg-tertiary); border-radius: 8px; color: var(--text-secondary); cursor: pointer; }
+    .tab.active { background: var(--blue); color: white; }
+    .position-card { background: var(--bg-tertiary); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+    .pos-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .pos-dir { font-size: 1.4rem; }
+    .pos-dir.long { color: var(--green); }
+    .pos-dir.short { color: var(--red); }
+    .pos-coin { font-size: 1.2rem; font-weight: 600; }
+    .pos-pnl { font-size: 1.2rem; font-weight: 700; }
+    .pos-pnl.positive { color: var(--green); }
+    .pos-pnl.negative { color: var(--red); }
+    .pos-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 0.85rem; }
+    .pos-detail { color: var(--text-tertiary); }
+    .pos-detail span { color: var(--text-primary); font-weight: 500; }
+    .progress-bar { height: 4px; background: var(--bg-secondary); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--blue); }
+    .summary { background: var(--bg-tertiary); border-radius: 12px; padding: 20px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .summary-pnl { font-size: 2rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <nav class="bottom-nav" style="position:fixed;bottom:0;left:0;right:0;background:var(--bg-tertiary);padding:12px;display:flex;justify-content:space-around;border-top:1px solid var(--glass-border);">
+    <a href="/dashboard.html" style="color:var(--text-secondary);text-decoration:none;">🏠 Dashboard</a>
+    <a href="/positions.html" style="color:var(--blue);text-decoration:none;">📊 Positions</a>
+    <a href="/screener.html" style="color:var(--text-secondary);text-decoration:none;">🔍 Screener</a>
+  </nav>
+
+  
+  <!-- Total Portfolio Banner -->
+  <div id="portfolio-banner" style="background: var(--bg-tertiary); padding: 20px; margin: 16px; border-radius: 12px; text-align: center;">
+    <div style="font-size: 0.9rem; color: var(--text-tertiary); margin-bottom: 8px;">Total Portfolio P&L</div>
+    <div id="total-pnl-banner" style="font-size: 2.5rem; font-weight: 700;">$0.00</div>
+    <div id="sparkline" style="display: flex; justify-content: center; align-items: flex-end; gap: 4px; height: 30px; margin-top: 12px;">
+      <!-- CSS bars will be added by JS -->
+    </div>
+  </div>
+
+  <h1>📊 Live Positions</h1>
+  
+  <div class="tab-bar">
+    <div class="tab active" onclick="switchTab('raoul')">🟢 Raoul (Longs)</div>
+    <div class="tab" onclick="switchTab('ben')">🔴 Ben (Shorts)</div>
+  </div>
+  
+  <div class="summary">
+    <div>Total P&L</div>
+    <div class="summary-pnl" id="total-pnl">$0.00</div>
+  </div>
+  
+  <div id="positions-list"></div>
+  
+  <div style="text-align:center;color:var(--text-tertiary);font-size:0.85rem;margin-top:20px;">
+    Last updated: <span id="last-update">--</span>
+  </div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+
+async function loadPositionsFromAPI() {
+  try {
+    const res = await fetch('/api/positions?key=' + API_KEY);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return {
+      raoul: { positions: data.raoul?.open_positions || [] },
+      ben: { positions: data.ben?.open_positions || [] }
+    };
+  } catch { return null; }
+}
+    let currentTab = 'raoul';
+    let positions = [];
+    
+    async function loadPrices() {
+      try {
+        const res = await fetch('/api/prices?key=' + API_KEY);
+        return await res.json();
+      } catch { return {}; }
+    }
+    
+    async function loadBriefs() {
+      try {
+        const res = await fetch('/api/seeker/feed'); // Placeholder - would need briefs API
+        return [];
+      } catch { return []; }
+    }
+    
+    // Demo positions for now
+    
+    // Calculate combined portfolio P&L
+    function getPortfolioPnl() {
+      const allPositions = [...demoPositions.raoul, ...demoPositions.ben];
+      // This would normally come from API
+      return 125.50; // Demo value
+    }
+    
+    // Render sparkline (CSS bars)
+    function renderSparkline() {
+      const data = [100, 110, 105, 120, 125]; // Last 5 equity points
+      const max = Math.max(...data);
+      const min = Math.min(...data);
+      const range = max - min || 1;
+      
+      const container = document.getElementById('sparkline');
+      container.innerHTML = data.map(v => {
+        const height = ((v - min) / range) * 25 + 5;
+        const color = v >= data[0] ? 'var(--green)' : 'var(--red)';
+        return `<div style="width: 20px; height: ${height}px; background: ${color}; border-radius: 2px;"></div>`;
+      }).join('');
+    }
+    
+    // Update banner
+    const totalPnl = getPortfolioPnl();
+    const banner = document.getElementById('total-pnl-banner');
+    banner.textContent = (totalPnl >= 0 ? '+' : '') + '$' + totalPnl.toFixed(2);
+    banner.style.color = totalPnl > 0 ? 'var(--green)' : totalPnl < 0 ? 'var(--red)' : 'var(--text-primary)';
+    renderSparkline();
+
+
+    const demoPositions = {
+      raoul: [
+        {coin:'SOL',dir:'long',entry:95.50,sl:92.00,tp:105.00},
+        {coin:'BTC',dir:'long',entry:42100,sl:40500,tp:45000},
+        {coin:'JUP',dir:'long',entry:0.38,sl:0.35,tp:0.48},
+      ],
+      ben: [
+        {coin:'ETH',dir:'short',entry:2450,sl:2550,tp:2200},
+        {coin:'SOL',dir:'short',entry:99.00,sl:105.00,tp:85.00},
+      ]
+    };
+    
+    async function renderPositions() {
+      const prices = await loadPrices();
+      const apiData = await loadPositionsFromAPI();
+    const posList = apiData?.[currentTab]?.positions || demoPositions[currentTab] || [];
+      const list = document.getElementById('positions-list');
+      let totalPnl = 0;
+      
+      if (!posList.length) {
+        list.innerHTML = '<p style="text-align:center;color:var(--text-tertiary);">No open positions</p>';
+        return;
+      }
+      
+      list.innerHTML = posList.map(p => {
+        const current = (prices.prices || []).find(x => x.coin === p.coin)?.price || p.entry;
+        const pnl = p.dir === 'long' ? (current - p.entry) * p.size : (p.entry - current) * p.size;
+        const pnlPct = (pnl / p.entry) * 100;
+        totalPnl += pnl * (p.coin === 'BTC' ? 1 : (p.coin === 'ETH' ? 1 : 10));
+        
+        const distanceToTp = Math.abs((p.tp - current) / (p.tp - p.entry)) * 100;
+        const progress = Math.min(100, Math.max(0, 100 - distanceToTp));
+        
+        return `
+          <div class="position-card">
+            <div class="pos-header">
+              <div><span class="pos-dir ${p.dir}">${p.dir === 'long' ? '🟢' : '🔴'}</span> <span class="pos-coin">${p.coin}</span></div>
+              <div class="pos-pnl ${pnl >= 0 ? 'positive' : 'negative'}">${pnl >= 0 ? '+' : ''}$${pnl.toFixed(2)} (${pnlPct.toFixed(1)}%)</div>
+            </div>
+            <div class="pos-details">
+              <div class="pos-detail">Entry: <span>$${p.entry}</span></div>
+              <div class="pos-detail">Current: <span>$${current.toFixed(2)}</span></div>
+              <div class="pos-detail">TP: <span>$${p.tp}</span></div>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
+          </div>
+        `;
+      }).join('');
+      
+      document.getElementById('total-pnl').textContent = (totalPnl >= 0 ? '+' : '') + '$' + totalPnl.toFixed(2);
+      document.getElementById('total-pnl').style.color = totalPnl >= 0 ? 'var(--green)' : 'var(--red)';
+      document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+    }
+    
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      renderPositions();
+    }
+    
+    renderPositions();
+    setInterval(renderPositions, 30000);
+  </script>
+</body>
+</html>

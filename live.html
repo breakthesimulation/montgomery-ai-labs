@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Live Mission Control | Montgomery AI Labs</title>
+    <script src="/js/ws-price-feed.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; --yellow: #fbbf24; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 16px; height: 100vh; overflow: hidden; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.2rem; font-weight: 700; }
+        .time { font-family: 'IBM Plex Mono'; font-size: 0.85rem; color: var(--text-muted); }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; height: calc(100vh - 80px); }
+        .panel { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; overflow: hidden; display: flex; flex-direction: column; }
+        .panel-title { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        
+        /* Live Prices */
+        .price-grid { display: grid; gap: 8px; }
+        .price-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: var(--bg); border-radius: 8px; }
+        .price-symbol { font-weight: 700; font-size: 1.1rem; }
+        .price-value { font-family: 'IBM Plex Mono'; font-size: 1.2rem; }
+        .price-change { font-family: 'IBM Plex Mono'; font-size: 0.85rem; }
+        .positive { color: var(--green); }
+        .negative { color: var(--red); }
+        
+        /* Signals */
+        .signal-list { overflow-y: auto; flex: 1; }
+        .signal-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: var(--bg); border-radius: 8px; margin-bottom: 6px; }
+        .signal-coin { font-weight: 700; }
+        .signal-action { font-weight: 600; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; }
+        .signal-action.buy { background: rgba(0,255,148,0.15); color: var(--green); }
+        .signal-action.sell { background: rgba(255,71,87,0.15); color: var(--red); }
+        .signal-action.hold { background: rgba(107,114,128,0.15); color: var(--text-muted); }
+        .signal-score { font-family: 'IBM Plex Mono'; font-size: 0.8rem; color: var(--text-muted); }
+        
+        /* RSI Heatmap */
+        .rsi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; overflow-y: auto; flex: 1; }
+        .rsi-cell { text-align: center; padding: 8px 4px; background: var(--bg); border-radius: 6px; font-family: 'IBM Plex Mono'; font-size: 0.75rem; }
+        .rsi-cell.oversold { background: rgba(0,255,148,0.2); color: var(--green); }
+        .rsi-cell.overbought { background: rgba(255,71,87,0.2); color: var(--red); }
+        
+        /* Alerts */
+        .alerts-list { overflow-y: auto; flex: 1; }
+        .alert-item { padding: 8px 10px; background: var(--bg); border-radius: 6px; margin-bottom: 6px; font-size: 0.85rem; }
+        .alert-item.whale { border-left: 3px solid var(--yellow); }
+        .alert-item.price { border-left: 3px solid var(--green); }
+        .alert-time { font-size: 0.7rem; color: var(--text-muted); }
+        
+        .market-alert { background: rgba(251,191,36,0.15); border: 2px solid var(--yellow); border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 16px; font-weight: 600; color: var(--yellow); animation: pulse-border 2s infinite; }
+        @keyframes pulse-border { 0%, 100% { border-color: var(--yellow); } 50% { border-color: transparent; } }
+        
+        .flash-green { animation: flashGreen 0.3s ease; }
+        .flash-red { animation: flashRed 0.3s ease; }
+        @keyframes flashGreen { 0% { background: rgba(0,255,148,0.3); } 100% { background: transparent; } }
+        @keyframes flashRed { 0% { background: rgba(255,71,87,0.3); } 100% { background: transparent; } }
+    </style>
+</head>
+<body>
+    <div id="market-alert" class="market-alert" style="display:none">
+        ⚠️ MARKET ALERT: <span id="market-count">0</span> of 8 tracked coins overbought (RSI &gt;70)
+    </div>
+    
+    <header>
+        <h1>🎯 Mission Control</h1>
+        <span class="time" id="time"></span>
+    </header>
+    
+    <div class="grid">
+        <!-- Live Prices -->
+        <div class="panel">
+            <div class="panel-title">💹 Live Prices</div>
+            <div class="price-grid" id="prices">
+                <div class="price-item">
+                    <span class="price-symbol">BTC</span>
+                    <span class="price-value" id="price-BTC">--</span>
+                    <span class="price-change" id="change-BTC">--</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-symbol">ETH</span>
+                    <span class="price-value" id="price-ETH">--</span>
+                    <span class="price-change" id="change-ETH">--</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-symbol">SOL</span>
+                    <span class="price-value" id="price-SOL">--</span>
+                    <span class="price-change" id="change-SOL">--</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-symbol">BNB</span>
+                    <span class="price-value" id="price-BNB">--</span>
+                    <span class="price-change" id="change-BNB">--</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-symbol">XRP</span>
+                    <span class="price-value" id="price-XRP">--</span>
+                    <span class="price-change" id="change-XRP">--</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-symbol">NEAR</span>
+                    <span class="price-value" id="price-NEAR">--</span>
+                    <span class="price-change" id="change-NEAR">--</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Top Signals -->
+        <div class="panel">
+            <div class="panel-title">🎯 Top Signals</div>
+            <div class="signal-list" id="signals">
+                <div style="color:var(--text-muted);text-align:center;padding:20px">Loading...</div>
+            </div>
+        </div>
+        
+        <!-- RSI Heatmap -->
+        <div class="panel">
+            <div class="panel-title">📊 RSI Heatmap <a href="/rsi-matrix.html" style="float:right;font-size:0.7rem;color:var(--text-muted)">Matrix</a> / <a href="/rsi-history.html" style="float:right;font-size:0.7rem;color:var(--text-muted)">History</a></div>
+            <div class="rsi-grid" id="rsi">
+                <div style="color:var(--text-muted);text-align:center;padding:20px">Loading...</div>
+            </div>
+        </div>
+        
+        <!-- Alerts -->
+        <div class="panel">
+            <div class="panel-title">🔔 Recent Alerts</div>
+            <div class="alerts-list" id="alerts">
+                <div style="color:var(--text-muted);text-align:center;padding:20px">Loading...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    // Update time
+    document.getElementById('time').textContent = new Date().toLocaleString();
+    setInterval(() => document.getElementById('time').textContent = new Date().toLocaleString(), 1000);
+    
+    // Live price updates
+    const priceEls = {};
+    ['BTC', 'ETH', 'SOL', 'BNB', 'XRP', 'NEAR'].forEach(coin => {
+        priceEls[coin] = document.getElementById('price-' + coin);
+    });
+    
+    window.addEventListener('priceUpdate', function(e) {
+        const symbol = e.detail.symbol;
+        const price = e.detail.price;
+        const el = priceEls[symbol];
+        if (el) {
+            el.textContent = '$' + price.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            el.classList.add('flash-green');
+            setTimeout(() => el.classList.remove('flash-green'), 300);
+        }
+    });
+    
+    // Fetch 24h changes
+    async function load24hChanges() {
+        const coins = ['BTC', 'ETH', 'SOL', 'BNB', 'XRP', 'NEAR'];
+        try {
+            const resp = await fetch('https://api.binance.com/api/v3/ticker/24hr');
+            const data = await resp.json();
+            
+            coins.forEach(coin => {
+                const ticker = data.find(t => t.symbol === coin + 'USDT');
+                if (ticker) {
+                    const el = document.getElementById('change-' + coin);
+                    if (el) {
+                        const change = parseFloat(ticker.priceChangePercent);
+                        el.textContent = (change >= 0 ? '+' : '') + change.toFixed(1) + '%';
+                        el.className = 'price-change ' + (change >= 0 ? 'positive' : 'negative');
+                    }
+                }
+            });
+        } catch(e) {
+            console.error('Failed to load 24h changes:', e);
+        }
+    }
+    
+    load24hChanges();
+    setInterval(load24hChanges, 300000); // 5 min
+    
+    // Load signals
+    async function loadSignals() {
+        try {
+            const resp = await fetch('/data/quality_signals.json');
+            const data = await resp.json();
+            const signals = (data.signals || []).slice(0, 8);
+            
+            document.getElementById('signals').innerHTML = signals.map(s => {
+                const actionClass = s.action === 'BUY' ? 'buy' : s.action === 'SELL' ? 'sell' : 'hold';
+                return `<div class="signal-item">
+                    <span class="signal-coin">${s.coin}</span>
+                    <span class="signal-action ${actionClass}">${s.action}</span>
+                    <span class="signal-score">${s.score}</span>
+                </div>`;
+            }).join('');
+        } catch(e) {}
+    }
+    
+    // Check market overbought count
+    async function checkMarket() {
+        try {
+            const resp = await fetch('/data/rsi_consolidated.json');
+            const data = await resp.json();
+            const readings = data.readings || [];
+            
+            const overbought = readings.filter(r => r.rsi > 70).length;
+            
+            const alert = document.getElementById('market-alert');
+            const count = document.getElementById('market-count');
+            
+            if (overbought >= 3) {
+                alert.style.display = 'block';
+                count.textContent = overbought;
+            } else {
+                alert.style.display = 'none';
+            }
+        } catch(e) {}
+    }
+    
+    checkMarket();
+    
+    // Load funding rates
+    async function loadFunding() {
+        try {
+            const resp = await fetch('/data/funding_rates.json');
+            const data = await resp.json();
+            const rates = data.rates || [];
+            
+            let html = 'Funding: ';
+            rates.forEach(r => {
+                const color = r.rate_pct > 0 ? 'var(--red)' : 'var(--green)';
+                const arrow = r.rate_pct > 0 ? '🔴' : '🟢';
+                html += `<span style="color:${color};margin-right:8px">${r.coin} ${r.rate_pct >= 0 ? '+' : ''}${r.rate_pct.toFixed(3)}%</span>`;
+            });
+            
+            document.getElementById('funding').innerHTML = html;
+        } catch(e) {}
+    }
+    
+    loadFunding();
+    
+    // Load RSI
+    async function loadRSI() {
+        try {
+            const resp = await fetch('/data/rsi_consolidated.json');
+            const data = await resp.json();
+            const readings = data.readings || [];
+            
+            let html = readings.slice(0, 20).map(r => {
+                const rsi = r.rsi || 50;
+                let cls = '';
+                if (rsi < 30) cls = 'oversold';
+                else if (rsi > 70) cls = 'overbought';
+                return `<div class="rsi-cell ${cls}">${r.coin}<br>${rsi.toFixed(0)}</div>`;
+            }).join('');
+            
+            document.getElementById('rsi').innerHTML = html || 'No data';
+        } catch(e) {}
+    }
+    
+    // Load alerts
+    async function loadAlerts() {
+        try {
+            // Try whale alerts
+            const resp = await fetch('/data/whale_alerts.json');
+            const data = await resp.json();
+            const alerts = (data.alerts || []).slice(0, 5);
+            
+            if (alerts.length === 0) {
+                document.getElementById('alerts').innerHTML = '<div style="color:var(--text-muted);text-align:center">No alerts</div>';
+                return;
+            }
+            
+            document.getElementById('alerts').innerHTML = alerts.map(a => {
+                const amt = a.amount_sol || a.amount || 0;
+                return `<div class="alert-item whale">
+                    <div>🐋 ${amt > 1000 ? (amt/1000).toFixed(1) + 'K' : amt.toFixed(0)} SOL</div>
+                    <div class="alert-time">${(a.timestamp || '').slice(11, 16)}</div>
+                </div>`;
+            }).join('');
+        } catch(e) {
+            document.getElementById('alerts').innerHTML = '<div style="color:var(--text-muted)">No data</div>';
+        }
+    }
+    
+    // Initial load
+    loadSignals();
+    loadRSI();
+    loadAlerts();
+    
+    // Refresh
+    setInterval(loadSignals, 60000);
+    setInterval(loadRSI, 60000);
+    setInterval(checkMarket, 60000);
+    setInterval(loadAlerts, 30000);
+    </script>
+</body>
+</html>

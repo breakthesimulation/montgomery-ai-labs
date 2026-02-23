@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/styles/apple.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validators — Validator.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --bg-elevated: #222230;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent-purple: #9945FF;
+            --accent-green: #14F195;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --border-color: #2a2a3a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-text .dot { color: var(--accent-green); }
+        
+        nav { display: flex; gap: 32px; }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover { color: var(--text-primary); }
+        nav a.active { color: var(--accent-green); }
+        
+        .sol-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-tertiary);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .sol-price .label { color: var(--text-muted); }
+        .sol-price .value { color: var(--accent-green); font-weight: 600; }
+        
+        .main {
+            padding: 120px 0 60px;
+        }
+        
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-secondary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .filter-group label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        
+        .filter-group select {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+        
+        .table-container {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: var(--bg-tertiary);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            position: sticky;
+            top: 80px;
+        }
+        
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        
+        tr:last-child td { border-bottom: none; }
+        
+        tr:hover { background: var(--bg-tertiary); }
+        
+        .validator-name {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .validator-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-tertiary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--accent-purple);
+        }
+        
+        .stake-amount {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+        
+        .metric {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .uptime {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .uptime-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .uptime-dot.excellent { background: var(--accent-green); }
+        .uptime-dot.good { background: var(--accent-blue); }
+        .uptime-dot.warning { background: var(--accent-orange); }
+        .uptime-dot.poor { background: var(--accent-red); }
+        
+        .commission {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .commission-bar {
+            width: 60px;
+            height: 6px;
+            background: var(--bg-elevated);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .commission-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: var(--accent-purple);
+        }
+        
+        .apy {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .badge.recommended {
+            background: rgba(20, 241, 149, 0.15);
+            color: var(--accent-green);
+        }
+        
+        .badge.new {
+            background: rgba(153, 69, 255, 0.15);
+            color: var(--accent-purple);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        
+        .pagination button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        
+        .pagination button:hover {
+            border-color: var(--accent-purple);
+            color: var(--text-primary);
+        }
+        
+        .pagination button.active {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+            color: white;
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 1024px) {
+            .table-container { overflow-x: auto; }
+            table { min-width: 900px; }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">V</div>
+                <span class="logo-text">validator<span class="dot">.com</span></span>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="validators.html" class="active">Validators</a>
+                <a href="roi.html">ROI Calculator</a>
+            </nav>
+            <div class="sol-price">
+                <span class="label">SOL</span>
+                <span class="value">$85.82</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Validator Comparison</h1>
+                    <p class="page-subtitle">Compare Solana validators by performance, commission, and APY</p>
+                </div>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Commission:</label>
+                    <select id="commissionFilter">
+                        <option value="all">All</option>
+                        <option value="5">≤5%</option>
+                        <option value="10">≤10%</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Min Uptime:</label>
+                    <select id="uptimeFilter">
+                        <option value="all">All</option>
+                        <option value="99">≥99%</option>
+                        <option value="99.5">≥99.5%</option>
+                        <option value="99.9">≥99.9%</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Sort by:</label>
+                    <select id="sortBy">
+                        <option value="stake">Total Stake</option>
+                        <option value="apy">APY</option>
+                        <option value="commission">Commission</option>
+                        <option value="uptime">Uptime</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search validators...">
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Validator</th>
+                            <th>Stake (SOL)</th>
+                            <th>Commission</th>
+                            <th>Uptime</th>
+                            <th>Skip Rate</th>
+                            <th>APY</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="validatorsBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const validators = [
+            { name: "Coinbase Cloud", stake: 45000000, commission: 8, uptime: 99.98, skip: 0.02, apy: 6.8, recommended: true },
+            { name: "Phantom", stake: 38000000, commission: 7, uptime: 99.97, skip: 0.03, apy: 6.9, recommended: true },
+            { name: "Solflare", stake: 32000000, commission: 6, uptime: 99.96, skip: 0.04, apy: 7.0 },
+            { name: "Ledger", stake: 28000000, commission: 8, uptime: 99.95, skip: 0.05, apy: 6.8 },
+            { name: "Everstake", stake: 25000000, commission: 5, uptime: 99.99, skip: 0.01, apy: 7.1, new: true },
+            { name: "Blockdaemon", stake: 22000000, commission: 7, uptime: 99.94, skip: 0.06, apy: 6.9 },
+            { name: "Ankr", stake: 18000000, commission: 10, uptime: 99.92, skip: 0.08, apy: 6.5 },
+            { name: "QuickNode", stake: 15000000, commission: 6, uptime: 99.97, skip: 0.03, apy: 7.0 },
+            { name: "Triton", stake: 12000000, commission: 5, uptime: 99.99, skip: 0.01, apy: 7.1 },
+            { name: "Genesis Lab", stake: 10000000, commission: 7, uptime: 99.95, skip: 0.05, apy: 6.9 },
+            { name: "Staked", stake: 8500000, commission: 8, uptime: 99.93, skip: 0.07, apy: 6.8 },
+            { name: "P2P Validator", stake: 7200000, commission: 5, uptime: 99.98, skip: 0.02, apy: 7.1 },
+            { name: "Stakefish", stake: 6500000, commission: 6, uptime: 99.96, skip: 0.04, apy: 7.0 },
+            { name: "Staking Rewards", stake: 5500000, commission: 9, uptime: 99.91, skip: 0.09, apy: 6.7 },
+            { name: "Allnodes", stake: 4800000, commission: 10, uptime: 99.90, skip: 0.10, apy: 6.5 },
+            { name: "Stakin", stake: 4200000, commission: 7, uptime: 99.94, skip: 0.06, apy: 6.9 },
+            { name: "Chainlayer", stake: 3800000, commission: 6, uptime: 99.97, skip: 0.03, apy: 7.0 },
+            { name: "HashQuark", stake: 3200000, commission: 8, uptime: 99.92, skip: 0.08, apy: 6.8 },
+            { name: "WeStaking", stake: 2800000, commission: 5, uptime: 99.98, skip: 0.02, apy: 7.1 },
+            { name: "Figment", stake: 2500000, commission: 7, uptime: 99.95, skip: 0.05, apy: 6.9 },
+        ];
+        
+        let filteredValidators = [...validators];
+        const itemsPerPage = 10;
+        let currentPage = 1;
+        
+        function formatNumber(num) {
+            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
+            return num.toString();
+        }
+        
+        function getUptimeClass(uptime) {
+            if (uptime >= 99.9) return 'excellent';
+            if (uptime >= 99.5) return 'good';
+            if (uptime >= 99) return 'warning';
+            return 'poor';
+        }
+        
+        function renderValidators() {
+            const tbody = document.getElementById('validatorsBody');
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageItems = filteredValidators.slice(start, end);
+            
+            tbody.innerHTML = pageItems.map(v => `
+                <tr>
+                    <td>
+                        <div class="validator-name">
+                            <div class="validator-icon">${v.name.charAt(0)}</div>
+                            ${v.name}
+                            ${v.recommended ? '<span class="badge recommended">Recommended</span>' : ''}
+                            ${v.new ? '<span class="badge new">New</span>' : ''}
+                        </div>
+                    </td>
+                    <td class="stake-amount">${formatNumber(v.stake)}</td>
+                    <td>
+                        <div class="commission">
+                            <span class="metric">${v.commission}%</span>
+                            <div class="commission-bar">
+                                <div class="commission-fill" style="width: ${v.commission * 10}%"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="uptime">
+                            <span class="uptime-dot ${getUptimeClass(v.uptime)}"></span>
+                            <span class="metric">${v.uptime}%</span>
+                        </div>
+                    </td>
+                    <td class="metric">${v.skip}%</td>
+                    <td class="apy">${v.apy}%</td>
+                    <td><span class="badge" style="background: rgba(20,241,149,0.1); color: #14F195;">Active</span></td>
+                </tr>
+            `).join('');
+            
+            renderPagination();
+        }
+        
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredValidators.length / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            
+            let html = `<button ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(${currentPage - 1})">← Prev</button>`;
+            
+            for (let i = 1; i <= totalPages; i++) {
+                html += `<button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+            }
+            
+            html += `<button ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${currentPage + 1})">Next →</button>`;
+            
+            pagination.innerHTML = html;
+        }
+        
+        function changePage(page) {
+            currentPage = page;
+            renderValidators();
+        }
+        
+        function applyFilters() {
+            const commission = document.getElementById('commissionFilter').value;
+            const uptime = document.getElementById('uptimeFilter').value;
+            const sort = document.getElementById('sortBy').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            
+            filteredValidators = validators.filter(v => {
+                if (commission !== 'all' && v.commission > parseInt(commission)) return false;
+                if (uptime !== 'all' && v.uptime < parseFloat(uptime)) return false;
+                if (search && !v.name.toLowerCase().includes(search)) return false;
+                return true;
+            });
+            
+            filteredValidators.sort((a, b) => {
+                if (sort === 'stake') return b.stake - a.stake;
+                if (sort === 'apy') return b.apy - a.apy;
+                if (sort === 'commission') return a.commission - b.commission;
+                if (sort === 'uptime') return b.uptime - a.uptime;
+                return 0;
+            });
+            
+            currentPage = 1;
+            renderValidators();
+        }
+        
+        document.getElementById('commissionFilter').addEventListener('change', applyFilters);
+        document.getElementById('uptimeFilter').addEventListener('change', applyFilters);
+        document.getElementById('sortBy').addEventListener('change', applyFilters);
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        
+        renderValidators();
+    </script>
+</body>
+</html>

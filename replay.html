@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <title>Trade Replay | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 600px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 16px; }
+    .cum-pnl { text-align: center; padding: 20px; background: var(--bg-tertiary); border-radius: 12px; margin-bottom: 20px; }
+    .cum-pnl .label { font-size: 0.9rem; color: var(--text-tertiary); }
+    .cum-pnl .value { font-size: 2rem; font-weight: 700; }
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .nav button { padding: 10px 20px; background: var(--blue); color: white; border: none; border-radius: 8px; cursor: pointer; }
+    .trade-card { background: var(--bg-tertiary); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+    .trade-card.profit { border-left: 4px solid var(--green); }
+    .trade-card.loss { border-left: 4px solid var(--red); }
+    .trade-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+    .trade-coin { font-size: 1.4rem; font-weight: 700; }
+    .trade-pnl { font-size: 1.5rem; font-weight: 700; }
+    .trade-pnl.positive { color: var(--green); }
+    .trade-pnl.negative { color: var(--red); }
+    .trade-details { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.9rem; }
+    .trade-detail { color: var(--text-tertiary); }
+    .trade-detail span { color: var(--text-primary); }
+    .jump-btns { display: flex; gap: 8px; justify-content: center; margin-bottom: 20px; }
+    .jump-btns button { padding: 8px 16px; background: var(--bg-tertiary); border: none; border-radius: 6px; cursor: pointer; }
+    .counter { text-align: center; color: var(--text-tertiary); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>📼 Trade Replay</h1>
+  
+  <div class="cum-pnl">
+    <div class="label">Cumulative P&L</div>
+    <div class="value" id="cum-pnl">$0.00</div>
+  </div>
+  
+  <div class="jump-btns">
+    <button onclick="jumpBest()">⬆ Best</button>
+    <button onclick="jumpWorst()">⬇ Worst</button>
+  </div>
+  
+  <div class="nav">
+    <button onclick="prev()">← Prev</button>
+    <span id="counter">0 / 0</span>
+    <button onclick="next()">Next →</button>
+  </div>
+  
+  <div id="trade-card"></div>
+
+  <script>
+    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
+    let trades = [];
+    let idx = 0;
+    
+    // Demo closed trades
+    trades = [
+      {coin:'SOL', side:'LONG', entry:95.50, exit:102.30, pnl:680, pnl_pct:7.12, score:75, hold_time:'2d 4h', close_reason:'TP hit'},
+      {coin:'BTC', side:'LONG', entry:42100, exit:43500, pnl:1400, pnl_pct:3.33, score:82, hold_time:'1d 8h', close_reason:'TP hit'},
+      {coin:'ETH', side:'SHORT', entry:2450, exit:2380, pnl:700, pnl_pct:2.86, score:65, hold_time:'18h', close_reason:'Stop loss'},
+      {coin:'JUP', side:'LONG', entry:0.38, exit:0.35, pnl:-300, pnl_pct:-7.89, score:45, hold_time:'6h', close_reason:'SL hit'},
+    ];
+    
+    function render() {
+      if (!trades.length) {
+        document.getElementById('trade-card').innerHTML = '<p style="text-align:center;color:var(--text-tertiary);">No closed trades yet</p>';
+        return;
+      }
+      
+      const t = trades[idx];
+      const isProfit = t.pnl >= 0;
+      
+      document.getElementById('trade-card').innerHTML = `
+        <div class="trade-card ${isProfit ? 'profit' : 'loss'}">
+          <div class="trade-header">
+            <span class="trade-coin">${t.side === 'LONG' ? '🟢' : '🔴'} ${t.coin}</span>
+            <span class="trade-pnl ${isProfit ? 'positive' : 'negative'}">${isProfit ? '+' : ''}$${t.pnl} (${isProfit ? '+' : ''}${t.pnl_pct.toFixed(1)}%)</span>
+          </div>
+          <div class="trade-details">
+            <div class="trade-detail">Entry: <span>$${t.entry}</span></div>
+            <div class="trade-detail">Exit: <span>$${t.exit}</span></div>
+            <div class="trade-detail">Score: <span>${t.score}/100</span></div>
+            <div class="trade-detail">Hold: <span>${t.hold_time}</span></div>
+            <div class="trade-detail" style="grid-column:span 2">Close: <span>${t.close_reason}</span></div>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('counter').textContent = '${idx + 1} / ${trades.length}';
+      
+      // Cumulative
+      let cum = 0;
+      for (let i = 0; i <= idx; i++) cum += trades[i].pnl;
+      const cumEl = document.getElementById('cum-pnl');
+      cumEl.textContent = (cum >= 0 ? '+' : '') + '$' + cum.toFixed(2);
+      cumEl.style.color = cum >= 0 ? 'var(--green)' : 'var(--red)';
+    }
+    
+    function prev() { if (idx > 0) { idx--; render(); } }
+    function next() { if (idx < trades.length - 1) { idx++; render(); } }
+    function jumpBest() { idx = trades.reduce((best, t, i) => t.pnl > trades[best].pnl ? i : best, 0); render(); }
+    function jumpWorst() { idx = trades.reduce((worst, t, i) => t.pnl < trades[worst].pnl ? i : worst, 0); render(); }
+    
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+    
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+{
+  "timestamp": "2026-02-21T21:08:12.495249",
+  "max_age_minutes": 90,
+  "required_files": {
+    "quality_signals.json": {
+      "exists": true,
+      "age_minutes": 1.8,
+      "fresh": true
+    },
+    "rsi_consolidated.json": {
+      "exists": true,
+      "age_minutes": 0.4,
+      "fresh": true
+    },
+    "whale_alerts.json": {
+      "exists": true,
+      "age_minutes": 419.0,
+      "fresh": false
+    },
+    "confluence.json": {
+      "exists": true,
+      "age_minutes": 7.8,
+      "fresh": true
+    },
+    "portfolio.json": {
+      "exists": true,
+      "age_minutes": 417.7,
+      "fresh": false
+    },
+    "health.json": {
+      "exists": true,
+      "age_minutes": 0.1,
+      "fresh": true
+    }
+  },
+  "all_files": [
+    {
+      "name": "agents.json",
+      "age_minutes": 1742.2,
+      "fresh": false
+    },
+    {
+      "name": "api_benchmark.json",
+      "age_minutes": 1021.1,
+      "fresh": false
+    },
+    {
+      "name": "arbitrage.json",
+      "age_minutes": 1827.9,
+      "fresh": false
+    },
+    {
+      "name": "best_params.json",
+      "age_minutes": 1563.4,
+      "fresh": false
+    },
+    {
+      "name": "confluence.json",
+      "age_minutes": 7.8,
+      "fresh": true
+    },
+    {
+      "name": "correlation.json",
+      "age_minutes": 1738.4,
+      "fresh": false
+    },
+    {
+      "name": "dex_alerts.json",
+      "age_minutes": 1028.2,
+      "fresh": false
+    },
+    {
+      "name": "funding.json",
+      "age_minutes": 1028.0,
+      "fresh": false
+    },
+    {
+      "name": "funding_rates.json",
+      "age_minutes": 3.9,
+      "fresh": true
+    },
+    {
+      "name": "health.json",
+      "age_minutes": 0.1,
+      "fresh": true
+    },
+    {
+      "name": "hl_paper_trades.json",
+      "age_minutes": 1.1,
+      "fresh": true
+    },
+    {
+      "name": "journal.json",
+      "age_minutes": 1739.7,
+      "fresh": false
+    },
+    {
+      "name": "liquidations.json",
+      "age_minutes": 1736.5,
+      "fresh": false
+    },
+    {
+      "name": "mission-control.json",
+      "age_minutes": 666.0,
+      "fresh": false
+    },
+    {
+      "name": "new_tokens.json",
+      "age_minutes": 1028.2,
+      "fresh": false
+    },
+    {
+      "name": "onchain_flow.json",
+      "age_minutes": 8.2,
+      "fresh": true
+    },
+    {
+      "name": "pipeline_health.json",
+      "age_minutes": 0.2,
+      "fresh": true
+    },
+    {
+      "name": "polymarket_correlation.json",
+      "age_minutes": 1562.2,
+      "fresh": false
+    },
+    {
+      "name": "polymarket_live.json",
+      "age_minutes": 762.4,
+      "fresh": false
+    },
+    {
+      "name": "portfolio.json",
+      "age_minutes": 417.7,
+      "fresh": false
+    },
+    {
+      "name": "positions.json",
+      "age_minutes": 1441.8,
+      "fresh": false
+    },
+    {
+      "name": "quality_signals.json",
+      "age_minutes": 1.8,
+      "fresh": true
+    },
+    {
+      "name": "rebalance.json",
+      "age_minutes": 1680.1,
+      "fresh": false
+    },
+    {
+      "name": "reddit_correlation.json",
+      "age_minutes": 188.2,
+      "fresh": false
+    },
+    {
+      "name": "reddit_posts.json",
+      "age_minutes": 1800.4,
+      "fresh": false
+    },
+    {
+      "name": "risk.json",
+      "age_minutes": 1680.9,
+      "fresh": false
+    },
+    {
+      "name": "rsi_consolidated.json",
+      "age_minutes": 0.4,
+      "fresh": true
+    },
+    {
+      "name": "rsi_history.json",
+      "age_minutes": 8.1,
+      "fresh": true
+    },
+    {
+      "name": "scan-1900.json",
+      "age_minutes": 122.7,
+      "fresh": false
+    },
+    {
+      "name": "scan-2026-02-21-1100.json",
+      "age_minutes": 603.7,
+      "fresh": false
+    },
+    {
+      "name": "sentiment.json",
+      "age_minutes": 1028.0,
+      "fresh": false
+    },
+    {
+      "name": "setups.json",
+      "age_minutes": 2146.2,
+      "fresh": false
+    },
+    {
+      "name": "signal_backtest.json",
+      "age_minutes": 962.2,
+      "fresh": false
+    },
+    {
+      "name": "signal_history.json",
+      "age_minutes": 8.2,
+      "fresh": true
+    },
+    {
+      "name": "signals.json",
+      "age_minutes": 2100.0,
+      "fresh": false
+    },
+    {
+      "name": "strategy_comparison.json",
+      "age_minutes": 1441.6,
+      "fresh": false
+    },
+    {
+      "name": "wallet_rankings.json",
+      "age_minutes": 2100.0,
+      "fresh": false
+    },
+    {
+      "name": "whale_alerts.json",
+      "age_minutes": 419.0,
+      "fresh": false
+    },
+    {
+      "name": "win_rate.json",
+      "age_minutes": 183.9,
+      "fresh": false
+    }
+  ],
+  "status": "degraded"
+}

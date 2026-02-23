@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+  <title>Signal History | Montgomery AI Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg: #0a0a0c; --card: #121216; --border: #1e1e24; --text: #fff; --text-muted: #6b7280; --green: #00ff94; --red: #ff4757; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        header { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 1.3rem; margin-bottom: 4px; }
+        .subtitle { color: var(--text-muted); font-size: 0.85rem; }
+        
+        .section { margin-bottom: 24px; }
+        .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+        
+        .table { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        td { padding: 10px 12px; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+        .mono { font-family: 'IBM Plex Mono'; }
+        
+        .tag { font-size: 0.65rem; font-weight: 600; padding: 3px 8px; border-radius: 4px; }
+        .tag.buy { background: rgba(0,255,148,0.15); color: var(--green); }
+        .tag.sell { background: rgba(255,71,87,0.15); color: var(--red); }
+        .tag.hold { background: rgba(107,114,128,0.15); color: var(--text-muted); }
+        
+        .timestamp { font-size: 0.75rem; color: var(--text-muted); }
+        .coin { font-weight: 600; }
+        
+        .empty { padding: 40px; text-align: center; color: var(--text-muted); }
+        
+        .filter-bar { margin-bottom: 20px; }
+        #coin-filter { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; }
+        
+        .sparkline { height: 30px; width: 100px; }
+        .sparkline line { stroke: var(--green); stroke-width: 2; fill: none; }
+        
+        .consistency { font-size: 0.7rem; padding: 2px 6px; border-radius: 3px; }
+        .consistency.high { background: rgba(255,71,87,0.2); color: var(--red); }
+        
+        .footer { margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 0.75rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📈 Signal History</h1>
+            <p class="subtitle">Timeline of trading signals over time</p>
+        </header>
+        
+        <div class="filter-bar">
+            <select id="coin-filter" onchange="filterByCoin()">
+                <option value="">All Coins</option>
+            </select>
+        </div>
+        
+        <div id="content">
+            <div class="empty">Loading...</div>
+        </div>
+        
+        <p class="footer" id="updated"></p>
+    </div>
+    
+    <script>
+    let allHistory = [];
+    let selectedCoin = '';
+    
+    async function load() {
+        try {
+            const resp = await fetch('/data/signal_history.json');
+            const data = await resp.json();
+            
+            allHistory = (data.history || []).reverse();
+            
+            // Populate filter
+            const coins = new Set();
+            allHistory.forEach(entry => {
+                (entry.signals || []).forEach(s => coins.add(s.coin));
+            });
+            
+            const select = document.getElementById('coin-filter');
+            const current = select.value;
+            select.innerHTML = '<option value="">All Coins</option>';
+            Array.from(coins).sort().forEach(coin => {
+                select.innerHTML += `<option value="${coin}">${coin}</option>`;
+            });
+            select.value = current;
+            
+            render();
+            
+        } catch(e) {
+            document.getElementById('content').innerHTML = '<div class="empty">Error loading data</div>';
+        }
+    }
+    
+    function render() {
+        if (allHistory.length === 0) {
+            document.getElementById('content').innerHTML = '<div class="empty">No signal history yet</div>';
+            return;
+        }
+        
+        // Filter by coin if selected
+        let filtered = allHistory;
+        if (selectedCoin) {
+            filtered = allHistory.filter(entry => 
+                entry.signals && entry.signals.some(s => s.coin === selectedCoin)
+            );
+        }
+        
+        // Check consistency for each coin
+        const coinCounts = {};
+        filtered.forEach(entry => {
+            (entry.signals || []).forEach(s => {
+                if (!coinCounts[s.coin]) coinCounts[s.coin] = { SELL: 0, BUY: 0 };
+                if (s.action === 'SELL') coinCounts[s.coin].SELL++;
+                if (s.action === 'BUY') coinCounts[s.coin].BUY++;
+            });
+        });
+        
+        let html = '';
+        
+        filtered.forEach(entry => {
+            const time = new Date(entry.timestamp).toLocaleString();
+            
+            html += `<div class="section-title">${time}</div>`;
+            html += `<div class="table"><table><thead><tr><th>Coin</th><th>Signal</th><th>RSI</th><th>Score</th><th>Trend</th></tr></thead><tbody>`;
+            
+            (entry.signals || []).forEach(s => {
+                if (selectedCoin && s.coin !== selectedCoin) return;
+                
+                const tagClass = s.action === 'BUY' ? 'buy' : s.action === 'SELL' ? 'sell' : 'hold';
+                
+                // Check consistency
+                let trend = '';
+                const counts = coinCounts[s.coin];
+                if (counts) {
+                    if (counts.SELL >= 3) trend = '<span class="consistency high">SELL streak</span>';
+                    else if (counts.BUY >= 3) trend = '<span class="consistency" style="background:rgba(0,255,148,0.2);color:var(--green)">BUY streak</span>';
+                }
+                
+                // Simple sparkline (just score dots for now)
+                let sparkline = '';
+                const prevEntry = allHistory[allHistory.indexOf(entry) - 1];
+                if (prevEntry) {
+                    const prevSig = prevEntry.signals?.find(ps => ps.coin === s.coin);
+                    if (prevSig && s.score && prevSig.score) {
+                        const delta = s.score - prevSig.score;
+                        sparkline = delta > 0 ? '↗' : delta < 0 ? '↘' : '→';
+                    }
+                }
+                
+                html += `<tr>
+                    <td class="coin">${s.coin}</td>
+                    <td><span class="tag ${tagClass}">${s.action}</span></td>
+                    <td class="mono">${s.rsi?.toFixed(1) || '--'}</td>
+                    <td class="mono">${s.score || '--'} ${sparkline}</td>
+                    <td>${trend}</td>
+                </tr>`;
+            });
+            
+            html += '</tbody></table></div>';
+        });
+        
+        document.getElementById('content').innerHTML = html || '<div class="empty">No matching signals</div>';
+    }
+    
+    function filterByCoin() {
+        selectedCoin = document.getElementById('coin-filter').value;
+        render();
+    }
+    
+    load();
+    setInterval(load, 60000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-02-22T18:00:01.929318",
+  "analysis": [
+    {
+      "coin": "SOL",
+      "sentiment": "BULLISH",
+      "sentiment_strength": 1.0,
+      "post_count": 1,
+      "price_change_24h": -3.69,
+      "correlation": "NEGATIVE"
+    }
+  ],
+  "summary": {
+    "coins_analyzed": 1,
+    "positive_correlation": 0,
+    "negative_correlation": 1,
+    "neutral": 0,
+    "predictive_accuracy": 0.0
+  }
+}

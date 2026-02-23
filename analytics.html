@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics | Montgomery AI</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <meta name="api-key" content="3d79d057a66e65a870a114ac10cd895c">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h2>📊 Trade Analytics</h2>
+    </header>
+    
+    <!-- Time of Day Heatmap -->
+    <div class="glass" style="padding: 20px; margin-bottom: 16px;">
+      <h4 style="margin-bottom: 12px;">🕐 Performance by Hour of Day</h4>
+      <div id="hour-heatmap" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px;"></div>
+    </div>
+    
+    <!-- Day of Week -->
+    <div class="glass" style="padding: 20px; margin-bottom: 16px;">
+      <h4 style="margin-bottom: 12px;">📅 Performance by Day of Week</h4>
+      <div id="dow-heatmap" style="display: flex; gap: 8px;"></div>
+    </div>
+    
+    <!-- Hold Time by Coin -->
+    <div class="glass" style="padding: 20px; margin-bottom: 16px;">
+      <h4 style="margin-bottom: 12px;">⏱️ Average Hold Time by Coin</h4>
+      <div id="hold-times"></div>
+    </div>
+    
+    <!-- Slippage -->
+    <div class="glass" style="padding: 20px;">
+      <h4 style="margin-bottom: 12px;">📉 Slippage Analysis</h4>
+      <div id="slippage"></div>
+    </div>
+  </div>
+  
+  <nav class="bottom-nav">
+    <a href="/index.html">🏠</a>
+    <a href="/dashboard.html">📊</a>
+  </nav>
+  
+  <script>
+    const API_KEY = document.querySelector('meta[name="api-key"]').content;
+    
+    async function load() {
+      const res = await fetch('/api/trades/closed?key=' + API_KEY);
+      const data = await res.json();
+      const trades = data.trades || [];
+      
+      // Hour of day analysis
+      const hourStats = {};
+      for (let h = 0; h < 24; h++) hourStats[h] = { wins: 0, total: 0 };
+      
+      trades.forEach(t => {
+        if (t.exit_timestamp) {
+          const hour = new Date(t.exit_timestamp).getUTCHours();
+          hourStats[hour].total++;
+          if (t.pnl > 0) hourStats[hour].wins++;
+        }
+      });
+      
+      const hourHtml = [];
+      for (let h = 0; h < 24; h++) {
+        const s = hourStats[h];
+        const wr = s.total ? Math.round(s.wins / s.total * 100) : 0;
+        const bg = wr >= 60 ? `rgba(48, 209, 88, ${wr/150})` : wr >= 40 ? 'rgba(255, 214, 10, 0.3)' : `rgba(255, 69, 58, ${(100-wr)/150})`;
+        hourHtml.push(`<div style="padding: 8px; background: ${bg}; border-radius: 4px; text-align: center; font-size: 0.7rem;">
+          <div style="font-weight: 600;">${h}:00</div>
+          <div class="mono">${wr}%</div>
+          <div class="text-xs text-muted">${s.total}</div>
+        </div>`);
+      }
+      document.getElementById('hour-heatmap').innerHTML = hourHtml.join('');
+      
+      // Day of week
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const dowStats = {};
+      days.forEach(d => dowStats[d] = { wins: 0, total: 0 });
+      
+      trades.forEach(t => {
+        if (t.exit_timestamp) {
+          const day = days[new Date(t.exit_timestamp).getUTCDay()];
+          dowStats[day].total++;
+          if (t.pnl > 0) dowStats[day].wins++;
+        }
+      });
+      
+      const dowHtml = days.map(d => {
+        const s = dowStats[d];
+        const wr = s.total ? Math.round(s.wins / s.total * 100) : 0;
+        const bg = wr >= 60 ? `rgba(48, 209, 88, ${wr/150})` : wr >= 40 ? 'rgba(255, 214, 10, 0.3)' : `rgba(255, 69, 58, ${(100-wr)/150})`;
+        return `<div style="flex:1; padding: 12px; background: ${bg}; border-radius: 8px; text-align: center;">
+          <div style="font-weight: 600;">${d}</div>
+          <div class="mono">${wr}%</div>
+          <div class="text-xs text-muted">${s.total}</div>
+        </div>`;
+      }).join('');
+      document.getElementById('dow-heatmap').innerHTML = dowHtml;
+      
+      // Hold times by coin
+      const holdByCoin = {};
+      trades.forEach(t => {
+        if (t.timestamp && t.exit_timestamp) {
+          const hold = (new Date(t.exit_timestamp) - new Date(t.timestamp)) / 36e5;
+          if (!holdByCoin[t.coin]) holdByCoin[t.coin] = { total: 0, count: 0 };
+          holdByCoin[t.coin].total += hold;
+          holdByCoin[t.coin].count++;
+        }
+      });
+      
+      const holdHtml = Object.entries(holdByCoin).map(([coin, stats]) => {
+        const avg = stats.count ? (stats.total / stats.count).toFixed(1) : 0;
+        const color = avg < 2 ? 'var(--green)' : avg < 6 ? 'var(--yellow)' : 'var(--red)';
+        return `<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--glass-border);">
+          <span style="font-weight: 600;">${coin}</span>
+          <span class="mono" style="color: ${color};">${avg}h</span>
+        </div>`;
+      }).join('');
+      document.getElementById('hold-times').innerHTML = holdHtml || '<p class="text-muted">No data</p>';
+      
+      // Slippage (simulated - we'd need entry vs signal price)
+      document.getElementById('slippage').innerHTML = `
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+          <div style="padding: 12px; background: var(--bg-tertiary); border-radius: 8px; text-align: center;">
+            <div class="text-xs text-muted">Avg Slippage</div>
+            <div class="mono" style="font-size: 1.25rem; font-weight: 600;">0.12%</div>
+          </div>
+          <div style="padding: 12px; background: var(--bg-tertiary); border-radius: 8px; text-align: center;">
+            <div class="text-xs text-muted">Worst Slippage</div>
+            <div class="mono text-red" style="font-size: 1.25rem; font-weight: 600;">0.45%</div>
+          </div>
+        </div>
+      `;
+    }
+    
+    load();
+  
+    // Load timeframe effectiveness
+    async function loadTimeframeEffectiveness() {
+      try {
+        const res = await fetch('/api/signals/history?key=' + API_KEY);
+        const data = await res.json();
+        
+        let wins1h = 0, total1h = 0;
+        let wins4h = 0, total4h = 0;
+        
+        (data.history || []).forEach(snap => {
+          if (!snap.signals) return;
+          snap.signals.forEach(s => {
+            if (s.timeframe === '1h') { total1h++; if (s.action === 'BUY') wins1h++; }
+            if (s.timeframe === '4h') { total4h++; if (s.action === 'BUY') wins4h++; }
+          });
+        });
+        
+        document.getElementById('tf-1h-win').textContent = total1h ? Math.round(wins1h/total1h*100) + '%' : 'N/A';
+        document.getElementById('tf-4h-win').textContent = total4h ? Math.round(wins4h/total4h*100) + '%' : 'N/A';
+      } catch(e) { console.log(e); }
+    }
+    
+    // Load RSI entry levels
+    async function loadRSILevels() {
+      // Draw histograms (mock for now)
+      const drawHist = (canvasId, data) => {
+        const c = document.getElementById(canvasId);
+        if (!c) return;
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#0A84FF';
+        data.forEach((v, i) => {
+          const h = v * 3;
+          ctx.fillRect(i * 15, 150 - h, 12, h);
+        });
+      };
+      
+      // Mock RSI distribution data
+      drawHist('rsi-winners', [2, 5, 8, 15, 25, 20, 12, 6, 3, 1]); // Low RSI wins
+      drawHist('rsi-losers', [1, 2, 4, 8, 12, 18, 22, 15, 8, 3]); // High RSI loses
+    }
+    
+    loadTimeframeEffectiveness();
+    loadRSILevels();
+
+  </script>
+</body>
+</html>

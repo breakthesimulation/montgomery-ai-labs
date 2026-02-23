@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Book | Montgomery AI Labs</title>
+  <link rel="stylesheet" href="/styles/apple.css">
+  <style>
+    body { background: var(--bg-primary); padding: 60px 16px 100px; max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 16px; }
+    .controls { display: flex; gap: 12px; margin-bottom: 20px; }
+    select { padding: 10px; background: var(--bg-tertiary); border: none; border-radius: 8px; color: var(--text-primary); font-size: 1rem; }
+    .spread { text-align: center; padding: 12px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 20px; }
+    .orderbook { display: flex; gap: 8px; }
+    .side { flex: 1; }
+    .side.bids .row { background: rgba(48, 209, 88, 0.1); }
+    .side.asks .row { background: rgba(255, 69, 58, 0.1); }
+    .row { display: flex; justify-content: space-between; padding: 8px; border-radius: 4px; margin-bottom: 2px; position: relative; }
+    .row .bar { position: absolute; top: 0; bottom: 0; opacity: 0.3; }
+    .side.bids .bar { right: 0; background: var(--green); }
+    .side.asks .bar { left: 0; background: var(--red); }
+    .row span { position: relative; z-index: 1; }
+    .price { font-weight: 600; }
+    .size { color: var(--text-tertiary); }
+    .header { font-size: 0.8rem; color: var(--text-tertiary); padding: 8px; }
+    .mid-price { font-size: 1.5rem; font-weight: 700; text-align: center; padding: 20px; }
+  </style>
+</head>
+<body>
+  <h1>📊 Order Book</h1>
+  
+  <div class="controls">
+    <select id="coin" onchange="loadOrderBook()">
+      <option value="SOL">SOL</option>
+      <option value="BTC">BTC</option>
+      <option value="ETH">ETH</option>
+    </select>
+    <span id="last-update" style="align-self:center;color:var(--text-tertiary);font-size:0.85rem;"></span>
+  </div>
+  
+  <div class="spread">
+    Spread: <span id="spread-value">--</span> (<span id="spread-pct">--</span>%)
+  </div>
+  
+  <div class="orderbook">
+    <div class="side bids">
+      <div class="header">Bids</div>
+      <div id="bids"></div>
+    </div>
+    <div class="side asks">
+      <div class="header">Asks</div>
+      <div id="asks"></div>
+    </div>
+  </div>
+
+  <script>
+    async function loadOrderBook() {
+      const coin = document.getElementById('coin').value;
+      
+      try {
+        const resp = await fetch('https://api.hyperliquid.xyz/info', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({type: 'l2Book', coin: coin})
+        });
+        
+        const data = await resp.json();
+        const bids = (data.bids || []).slice(0, 10);
+        const asks = (data.asks || []).slice(0, 10);
+        
+        // Calculate max for bar width
+        const maxBid = Math.max(...bids.map(b => parseFloat(b.n || 0)));
+        const maxAsk = Math.max(...asks.map(a => parseFloat(a.n || 0)));
+        const max = Math.max(maxBid, maxAsk);
+        
+        // Render bids
+        document.getElementById('bids').innerHTML = bids.map(b => {
+          const px = parseFloat(b.p);
+          const sz = parseFloat(b.n);
+          const pct = (sz / max) * 100;
+          return `<div class="row"><div class="bar" style="width:${pct}%"></div><span class="price">$${px.toFixed(2)}</span><span class="size">${sz.toFixed(4)}</span></div>`;
+        }).join('');
+        
+        // Render asks
+        document.getElementById('asks').innerHTML = asks.map(a => {
+          const px = parseFloat(a.p);
+          const sz = parseFloat(a.n);
+          const pct = (sz / max) * 100;
+          return `<div class="row"><div class="bar" style="width:${pct}%"></div><span class="size">${sz.toFixed(4)}</span><span class="price">$${px.toFixed(2)}</span></div>`;
+        }).join('');
+        
+        // Spread
+        if (bids.length && asks.length) {
+          const bestBid = parseFloat(bids[0].p);
+          const bestAsk = parseFloat(asks[0].p);
+          const spread = bestAsk - bestBid;
+          const spreadPct = (spread / bestAsk) * 100;
+          document.getElementById('spread-value').textContent = spread.toFixed(2);
+          document.getElementById('spread-pct').textContent = spreadPct.toFixed(3);
+        }
+        
+        document.getElementById('last-update').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+        
+      } catch(e) {
+        console.log(e);
+        // Fallback demo
+        document.getElementById('bids').innerHTML = '<div style="padding:8px;color:var(--text-tertiary)">Loading...</div>';
+        document.getElementById('asks').innerHTML = '<div style="padding:8px;color:var(--text-tertiary)">Loading...</div>';
+      }
+    }
+    
+    loadOrderBook();
+    setInterval(loadOrderBook, 5000);
+  </script>
+</body>
+</html>
