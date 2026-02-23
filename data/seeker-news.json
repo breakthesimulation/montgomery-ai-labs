@@ -1,7 +1,7 @@
 {
   "articles": [
     {
-      "id": "666430933889",
+      "id": "704057838710",
       "title": "Solana futures data shows panicked bulls: Will $80 SOL hold?",
       "url": "https://cointelegraph.com/news/solana-futures-data-shows-panicked-bulls-will-80-sol-hold?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -24,7 +24,7 @@
       "related": []
     },
     {
-      "id": "353650621275",
+      "id": "166276511617",
       "title": "Zora debuts attention markets on Solana, betting on social trends",
       "url": "https://cointelegraph.com/news/zora-launches-attention-markets-solana?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -46,7 +46,7 @@
       "related": []
     },
     {
-      "id": "104851657782",
+      "id": "816168316040",
       "title": "Solana treasuries sitting on over $1.5B in paper SOL losses",
       "url": "https://cointelegraph.com/news/solana-treasury-firms-unrealized-losses-equity-repricing?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -67,7 +67,32 @@
       "related": []
     },
     {
-      "id": "189193388326",
+      "id": "682404859523",
+      "title": "Solana Company starts building high-speed infrastructure to prepare SOL for next 'super cycle'",
+      "url": "https://www.coindesk.com/business/2026/02/23/solana-company-starts-building-high-speed-infrastructure-to-prepare-sol-for-next-super-cycle",
+      "source": "CoinDesk",
+      "published": "Mon, 23 Feb 2026 17:47:42 +0000",
+      "image": "https://cdn.sanity.io/images/s3y3vcno/production/3658207b99384c726a853ad861bcde5a7fa522e0-1920x1080.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
+      "teaser": "The initiative targets institutional demand across Asia-Pacific, offering DeFi tools, liquid staking, and execution services designed for traditional",
+      "content": "The company said the project will begin immediately, with performance optimization and additional product launches expected in the next 12 to 18 months. These include DeFi tools, liquid staking, automated market makers and execution services tailored to traditional finance firms entering the space. Solana, the firm said, processes over 3,500 transactions per second and supports millions of daily active wallets. Solana Company is currently the second-largest Solana treasury firm, with 2.3 million SOL, or over $180 million, in its treasury. Solana Company\u2019s shares are down 13.3% in today\u2019s trading session to $1.76, amid a wider cryptocurrency market drawdown. Solana itself is down nearly 6% in the last 24-hour period, while BTC is down more than 4%. The initiative, called the \u201cPacific Backbone,\u201d will connect Seoul, Tokyo, Singapore and Hong Kong with a low-latency cluster designed to support staking, validation and trading services on Solana. Solana Company (HSDT) said it plans to build a high-speed infrastructure network across the Asia-Pacific region to support the growth of the Solana blockchain and diversify its revenue streams.",
+      "categories": [
+        "DeFi",
+        "Validator",
+        "Dev"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "562332442906"
+      ]
+    },
+    {
+      "id": "874792286535",
       "title": "AI agent sends $441K in tokens after decimal error",
       "url": "https://cointelegraph.com/news/openai-employee-s-ai-agent-accidentally-sent-442k-to-beggar?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -87,11 +112,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "609215852326"
+        "137997781142"
       ]
     },
     {
-      "id": "152410775386",
+      "id": "909064145327",
       "title": "Crypto funds log fourth week of outflows at $173M as BTC dips below $70K",
       "url": "https://cointelegraph.com/news/crypto-etf-4-week-outflows-173-million-btc-below-70k?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -110,10 +135,12 @@
       "quality_score": 90,
       "ai_summary": "",
       "key_takeaways": [],
-      "related": []
+      "related": [
+        "254790962375"
+      ]
     },
     {
-      "id": "178346663221",
+      "id": "503613455597",
       "title": "Is Solana headed to $50? These three charts show a textbook bear pattern",
       "url": "https://cointelegraph.com/news/is-solana-headed-to-50-dollars-three-charts-textbook-bear?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -132,13 +159,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "388749108630",
-        "388749108630",
-        "839543280041"
+        "848846048098",
+        "848846048098",
+        "729486142582"
       ]
     },
     {
-      "id": "685797941694",
+      "id": "711934562766",
       "title": "Anchorage, Kamino let institutions borrow against SOL without moving custody",
       "url": "https://cointelegraph.com/news/anchorage-kamino-institutions-borrow-against-sol-without-moving-custody?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -161,10 +188,12 @@
       "quality_score": 90,
       "ai_summary": "",
       "key_takeaways": [],
-      "related": []
+      "related": [
+        "730074638240"
+      ]
     },
     {
-      "id": "772109586301",
+      "id": "616966207120",
       "title": "Price predictions 2/18: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-18-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -184,13 +213,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "671015584429",
-        "583883669100",
-        "484616463788"
+        "851630588043",
+        "686827937043",
+        "368203215663"
       ]
     },
     {
-      "id": "129625280619",
+      "id": "707453765838",
       "title": "Price predictions 2/11: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-11-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -210,26 +239,29 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "759879499940",
-        "671015584429",
-        "583883669100"
+        "497941346779",
+        "851630588043",
+        "686827937043"
       ]
     },
     {
-      "id": "884796198518",
-      "title": "Santiment: Solana Growth Signals Hope Despite Woes",
-      "url": "https://cryptopotato.com/santiment-solana-growth-signals-hope-despite-woes/",
-      "source": "CryptoPotato",
-      "published": "Sat, 21 Feb 2026 20:19:52 +0000",
-      "image": "https://cryptopotato.com/wp-content/uploads/2025/03/solana_news_cover.jpg",
-      "teaser": "Data from Santiment shows new wallet creation rising even as prices slump, hinting network curiosity hasn\u2019t faded with sentiment yet.",
-      "content": "Wayne is a dynamic part-time trader with an impressive eye for detail. His passion for understanding financial systems has led to an intriguing interest in blockchain technology, and he enjoys exploring and writing about cryptocurrencies. Possessing a keen intellect and diligent work ethic, he stays up-to-date on the latest industry trends, regularly sharing his insights in articles and professional presentations. This operational friction resurfaced in February when a network disruption rerouted U.S. traffic through Europe and Asia. While infrastructure providers like DoubleZero noted that such rerouting is a normal part of internet networking, for validators operating a high-speed chain, milliseconds matter. Nevertheless, the current mood contrasts with earlier cycles that defined Solana\u2019s culture. According to Santiment, traders still reference past events such as NFT booms, meme coin launches, and exchange-related shocks that once dominated online discussion. At the time of writing, the asset was trading around the $84 level, down about 35% over the past month and more than 51% year-on-year. Shorter time frames show mild relief, with gains near 3% in 24 hours and about 6% in seven days, per CoinGecko data. The price of Solana\u2019s native SOL token is near $84, after a steep, multi-month slide that erased nearly 67% from its September 2025 all-time high, with new on-chain data and community debates pointing to a network under strain.",
+      "id": "794501251478",
+      "title": "3 Token Unlocks to Watch in the Final Week of February 2026",
+      "url": "https://beincrypto.com/crypto-token-unlocks-in-the-final-week-of-february-2026/",
+      "source": "BeInCrypto",
+      "published": "Mon, 23 Feb 2026 19:00:00 +0000",
+      "image": "https://assets.beincrypto.com/img/cD1QC5VbiTr4K6edljUEaS_q0kw=/smart/9e33744c81f84686988970501214cb8f",
+      "teaser": "The crypto market will welcome tokens worth more than $317 million in the final week of February 2026. Three major projects, Jupiter (JUP), Humanity (",
+      "content": "The team will split the released supply three ways. The ecosystem fund will receive 50 million H. Furthermore, Humanity will allocate 42.86 million altcoins to identity verification rewards and 12.50 million to the foundation operations treasury. Token unlocks are crucial events in the crypto market, influencing liquidity, price volatility, and overall investor sentiment. So, here\u2019s a breakdown of what to watch. The project will release 55 million tokens on February 28. The supply is worth approximately $9.33 million. It represents 13.15% of the released supply.\u00a0\u00a0 On February 25, the protocol will unlock 105.36 million tokens. The tokens are worth $16.74 million and account for 4.37% of the released supply. Jupiter will direct 38.89 million JUP to the team. Furthermore, mercurial stakeholders will get 14.58 million JUP altcoins.\u00a0",
       "categories": [
+        "DeFi",
         "Market"
       ],
       "sentiment": "positive",
       "breaking": false,
-      "watchlist_matches": [],
+      "watchlist_matches": [
+        "Jupiter"
+      ],
       "reading_time": 1,
       "quality_score": 70,
       "ai_summary": "",
@@ -237,14 +269,40 @@
       "related": []
     },
     {
-      "id": "461208465711",
+      "id": "686827937043",
+      "title": "Price predictions 2/23: SPX, DXY, BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA",
+      "url": "https://cointelegraph.com/news/price-predictions-2-23-spx-dxy-btc-eth-xrp-bnb-sol-doge-bch-ada?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Mon, 23 Feb 2026 18:36:00 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzhiNzItYzVhMi03MGI4LTg1YWItNmYyMTcyMTM2YzQ5LmpwZw==.jpg",
+      "teaser": "Bitcoin and altcoins sold-off as US stock markets digested US President Donald Trump\u2019s fresh 15% global tariff. Are new 2026 lows in store?",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The bulls will attempt to start a recovery, which is expected to face selling at the 20-day EMA ($651). If the price turns down from the 20-day EMA, the bears will again strive to pull the BNB/USDT pair below the $570 level. If they manage to do that, the BNB price may start the next leg of the downtrend to psychological support at $500. Any relief rally is expected to face selling at the 20-day EMA ($70,185). If the Bitcoin price turns down sharply from the 20-day EMA, it increases the likelihood of a drop to the vital $60,000 support. Buyers will have to defend the $60,000 level with all their might, as a break below it may sink the BTC/USDT pair to $52,500. The bears sold aggressively and have pulled the Bitcoin Cash price below the 20-day EMA ($551). If the price maintains below $538, the BCH/USDT pair might plummet to the strong support at $500. Buyers are expected to aggressively defend the $500 level, as a close below it may sink the pair to $443. The flat moving averages and the relative strength index (RSI) near the midpoint do not give a clear advantage either to the bulls or the bears. Buyers will have to achieve a close above the 7,002 resistance to signal the resumption of the uptrend. The index may then ascend to the 7,290 level.",
+      "categories": [
+        "Market",
+        "Macro"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "368203215663",
+        "616966207120",
+        "252916099574"
+      ]
+    },
+    {
+      "id": "662165000161",
       "title": "AI bot's tipping blunder hands $450,000 memecoin pile to X sad story poster",
       "url": "https://www.coindesk.com/markets/2026/02/23/ai-bot-s-tipping-blunder-hands-usd250-000-memecoin-pile-to-x-sad-story-poster",
       "source": "CoinDesk",
       "published": "Mon, 23 Feb 2026 06:15:37 +0000",
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/adabcce76fb8ee846276f29b7497cab66e76a988-1280x717.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
       "teaser": "AI trading bot \"Lobstar Wilde\" accidentally sent a large coin stash to an X user in need of 4 SOL for medical treatment.",
-      "content": "On Sunday, OpenAI engineer Nick Pash&#x27;s automated artificial intelligence trading bot &quot;Lobstar Wilde&quot; tried tipping an X handle, called &quot;treasure David,&quot; 4 solana (SOL) for his uncle&#x27;s tetanus treatment, but accidentally sent its entire Lobstar memecoin stash worth $450,000, or 5% of the token&#x27;s total supply. Some X users call this a publicity stunt to boost Lobstar&#x27;s fame and token price. LilWhaLe\u2122 (@Chandio_Pablito) said it&#x27;s &quot;a wild publicity,&quot; noting that the wallet got the stash, sold it fast for $40,000, then sent the money to another wallet that already had $50,000 from before. AI trading bots are touted as smarter than humans in many ways, but they&#x27;re still vulnerable to fat-finger blunders just like us. Mexican billionaire Ricardo Salinas remains bullish on bitcoin after plunge Salinas has previously said he has 70% of his liquid assets in bitcoin.",
+      "content": "On Sunday, OpenAI engineer Nick Pash&#x27;s automated artificial intelligence trading bot &quot;Lobstar Wilde&quot; tried tipping an X handle, called &quot;treasure David,&quot; 4 solana (SOL) for his uncle&#x27;s tetanus treatment, but accidentally sent its entire Lobstar memecoin stash worth $450,000, or 5% of the token&#x27;s total supply. Some X users call this a publicity stunt to boost Lobstar&#x27;s fame and token price. LilWhaLe\u2122 (@Chandio_Pablito) said it&#x27;s &quot;a wild publicity,&quot; noting that the wallet got the stash, sold it fast for $40,000, then sent the money to another wallet that already had $50,000 from before. AI trading bots are touted as smarter than humans in many ways, but they&#x27;re still vulnerable to fat-finger blunders just like us. Artificial intelligence company Anthropic announced that its Claude platform can streamline COBOL code, a key profit center for IBM. Crypto suffers deeper declines as AI fears send IBM plunging 11%",
       "categories": [
         "Market",
         "Meme",
@@ -260,7 +318,7 @@
       "related": []
     },
     {
-      "id": "484616463788",
+      "id": "252916099574",
       "title": "Price predictions 2/16: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
       "url": "https://cointelegraph.com/news/price-predictions-2-16-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -281,13 +339,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "583883669100",
-        "772109586301",
-        "546263185274"
+        "686827937043",
+        "368203215663",
+        "616966207120"
       ]
     },
     {
-      "id": "725613826356",
+      "id": "634015462367",
       "title": "Price predictions 2/9: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
       "url": "https://cointelegraph.com/news/price-predictions-2-9-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -307,13 +365,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "583883669100",
-        "772109586301",
-        "484616463788"
+        "686827937043",
+        "368203215663",
+        "616966207120"
       ]
     },
     {
-      "id": "583883669100",
+      "id": "368203215663",
       "title": "Price predictions 2/20: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-20-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -334,13 +392,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "772109586301",
-        "484616463788",
-        "546263185274"
+        "686827937043",
+        "616966207120",
+        "252916099574"
       ]
     },
     {
-      "id": "546263185274",
+      "id": "558452934654",
       "title": "Price predictions 2/13: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-13-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -360,13 +418,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "583883669100",
-        "772109586301",
-        "484616463788"
+        "686827937043",
+        "368203215663",
+        "616966207120"
       ]
     },
     {
-      "id": "245226773708",
+      "id": "449919602876",
       "title": "Price predictions 2/6: BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH, HYPE, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-6-btc-eth-bnb-xrp-sol-doge-ada-bch-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -387,13 +445,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "759879499940",
-        "671015584429",
-        "583883669100"
+        "497941346779",
+        "851630588043",
+        "686827937043"
       ]
     },
     {
-      "id": "839543280041",
+      "id": "729486142582",
       "title": "SOL\u2019s path of least resistance tilts toward $50, but onchain data hints at bottom",
       "url": "https://cointelegraph.com/news/sol-s-path-of-least-resistance-tilts-toward-dollar50-but-onchain-data-hints-at-a-bottom?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -414,11 +472,35 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "178346663221"
+        "503613455597"
       ]
     },
     {
-      "id": "912176995415",
+      "id": "730074638240",
+      "title": "Crypto.com wins initial approval for U.S. federally regulated crypto custodian bank",
+      "url": "https://www.coindesk.com/policy/2026/02/23/crypto-com-approved-for-u-s-federally-regulated-crypto-custodian-bank",
+      "source": "CoinDesk",
+      "published": "Mon, 23 Feb 2026 15:21:25 +0000",
+      "image": "https://cdn.sanity.io/images/s3y3vcno/production/2e0ee519ba3b48809d54ea2eb980a783f3ec03ce-1920x1080.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
+      "teaser": "The national trust charter institution would consolidate custody services under a single framework under federal oversight.",
+      "content": "Crypto.com said it received conditional approval from the U.S. Office of the Comptroller of the Currency (OCC) to establish a national trust bank, setting the stage for the exchange to expand its custody services under federal oversight. That matters for issuers of exchange-traded funds (ETFs), asset managers and other institutional clients, who often prefer custodians with national oversight, which can streamline compliance and operational processes. While Crypto.com already runs a qualified custodian, Crypto.com Custody Trust Co., regulated by New Hampshire\u2019s banking department, the OCC charter brings its institutional offerings under a single federal framework. Austria&#x27;s financial regulator said KuCoin EU must appoint an anti-money-laundering officer and deputy officer, as well as a sanctions compliance officer and deputy.  The national charter offers that one-stop-shop structure, though only for trust services, not for traditional banking.",
+      "categories": [
+        "Dev",
+        "Macro"
+      ],
+      "sentiment": "neutral",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "711934562766"
+      ]
+    },
+    {
+      "id": "296562130247",
       "title": "Solana (SOL) Price Alert: 95% Crash on the Way?",
       "url": "https://cryptopotato.com/solana-sol-price-alert-95-crash-on-the-way/",
       "source": "CryptoPotato",
@@ -437,44 +519,18 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "671015584429",
-        "649700436404"
+        "851630588043"
       ]
     },
     {
-      "id": "649700436404",
-      "title": "Whales Go Long on Solana Despite the 40% Price Crash \u2014 What Are They Seeing?",
-      "url": "https://beincrypto.com/solana-price-whale-long-positioning-analysis/",
-      "source": "BeInCrypto",
-      "published": "Mon, 23 Feb 2026 11:00:00 +0000",
-      "image": "https://assets.beincrypto.com/img/F2QvOd7esWUcVqN3riqaNRwY9D8=/smart/c2aeccda6b5f432b8d2fae96ff24d1ce",
-      "teaser": "Solana price has fallen sharply in recent weeks, losing nearly 40% in a month and more than 54% since its January peak. The trend still looks weak, an",
-      "content": "This accumulation becomes more important when combined with the weekly VWAP, or Volume Weighted Average Price. VWAP reflects the average price weighted by volume and is widely used as a proxy for institutional positioning. Solana recently reclaimed this level briefly, with a 10% upside. The same reclaim also happened in early January, and the price rallied nearly 20%. Currently, the VWAP line is over $79, closer to the current trading price.  This is why the current level is so important. The broader market is still betting against the Solana price, as shown by rising short positions and deeply negative funding rates. But whales and long-term holders are positioning early for a different outcome. The next few candles and the RSI 30 hold \u2014 will determine who is right. Second, the RSI must remain above 30, the previous low hit on November 21. If RSI drops under 30, it would invalidate the bullish divergence and confirm continued weakness. As long as $77 holds and RSI stays above 30 (the second confirmation is more important), the early reversal structure remains intact. Since November 21, the Solana price has continued making lower lows. However, RSI has started forming a higher low. This creates a bullish divergence, which often signals that sellers are losing strength. However, this reversal signal is not confirmed yet. For confirmation, two conditions must hold. Long-term holder behavior provides important clues. The Hodler Net Position Change, which tracks whether long-term investors are buying or selling, shows a sharp increase in accumulation. Long-term holders increased their net buying from 786,539 SOL to 972,417 SOL in one day, a 23.6% rise.",
-      "categories": [
-        "Market",
-        "AI"
-      ],
-      "sentiment": "negative",
-      "breaking": true,
-      "watchlist_matches": [],
-      "reading_time": 1,
-      "quality_score": 70,
-      "ai_summary": "",
-      "key_takeaways": [],
-      "related": [
-        "671015584429",
-        "912176995415"
-      ]
-    },
-    {
-      "id": "295273184699",
+      "id": "150487275294",
       "title": "Bitdeer sold all its bitcoin to fund its move into AI data centers",
       "url": "https://www.coindesk.com/markets/2026/02/23/bitdeer-empties-bitcoin-treasury-as-miners-accelerate-industry-wide-ai-pivot",
       "source": "CoinDesk",
       "published": "Mon, 23 Feb 2026 09:58:57 +0000",
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/a944f5c40b9f1fece6ecb4c387377f37ae7134cc-1920x1080.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
       "teaser": "Singapore based BTC and AI miner sells all holdings to build liquidity for expansion, signaling a broader shift in capital strategy across the sector.",
-      "content": "Unlike bitcoin mining, which is tied to price cycles and halvings, AI and HPC contracts can offer more predictable revenue streams. The pivot also represents an attempt by miners to be valued less as leveraged bitcoin proxies and more as digital infrastructure and AI plays. Bitdeer (BTDR) a Singapore-based bitcoin mining and AI infrastructure company has reduced its bitcoin treasury stash to zero, marking a sharp break from the  miner playbook of hoarding coins as a signal of conviction seen by the likes of Strategy (MSTR).  Bitdeer is accelerating its push into AI infrastructure, rolling out NVIDIA GB200 NVL72 systems in Malaysia and advancing conversions of several sites in the U.S. and Europe from crypto mining to AI data centers.  AI expansion is far more capital intensive than incremental mining buildouts, requiring large scale GPU clusters and data center upgrades.  Mexican billionaire Ricardo Salinas remains bullish on bitcoin after plunge",
+      "content": "Unlike bitcoin mining, which is tied to price cycles and halvings, AI and HPC contracts can offer more predictable revenue streams. The pivot also represents an attempt by miners to be valued less as leveraged bitcoin proxies and more as digital infrastructure and AI plays. Bitdeer (BTDR) a Singapore-based bitcoin mining and AI infrastructure company has reduced its bitcoin treasury stash to zero, marking a sharp break from the  miner playbook of hoarding coins as a signal of conviction seen by the likes of Strategy (MSTR).  Bitdeer is accelerating its push into AI infrastructure, rolling out NVIDIA GB200 NVL72 systems in Malaysia and advancing conversions of several sites in the U.S. and Europe from crypto mining to AI data centers.  AI expansion is far more capital intensive than incremental mining buildouts, requiring large scale GPU clusters and data center upgrades.  Artificial intelligence company Anthropic announced that its Claude platform can streamline COBOL code, a key profit center for IBM.",
       "categories": [
         "DeFi",
         "Market",
@@ -489,11 +545,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "615276179068"
+        "521227908097"
       ]
     },
     {
-      "id": "121000249284",
+      "id": "538338069487",
       "title": "When Will Ripple\u2019s (XRP) Bull Run Resume? We Asked 4 AIs (And Their Answers Surprised Us)",
       "url": "https://cryptopotato.com/when-will-ripples-xrp-bull-run-resume-we-asked-4-ais-and-their-answers-surprised-us/",
       "source": "CryptoPotato",
@@ -515,7 +571,53 @@
       "related": []
     },
     {
-      "id": "196618525538",
+      "id": "422099435026",
+      "title": "Solana: 67% of total supply now staked \u2013 SOL price squeeze possible IF\u2026",
+      "url": "https://ambcrypto.com/solana-67-of-total-supply-now-staked-sol-price-squeeze-possible-if/",
+      "source": "AMB Crypto",
+      "published": "Mon, 23 Feb 2026 18:00:57 +0000",
+      "image": "",
+      "teaser": "Solana\u2019s locked supply forces a serious reassessment of liquidity dynamics.",
+      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. That shift moved the conversation beyond short-term price action. Liquidity compression emerged as the dominant theme. When supply contracts at scale, structural implications follow. Conviction appeared established. What remained was broader market strength and clearer macro direction. If liquidity returned, the setup could respond quickly. At the same time, Treasury Companies increased strategic allocations. Circulating supply tightened as more tokens moved into long-term holdings. Solana remained one of the market\u2019s most watched altcoins, drawing sustained attention from Wall Street and global investors.",
+      "categories": [
+        "DeFi",
+        "Validator",
+        "Market"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "562332442906",
+      "title": "Pantera-backed Solana Company kicks off APAC staking infrastructure buildout",
+      "url": "https://www.theblock.co/post/390851/pantera-solana-company-apac-staking-infrastructure-buildout?utm_source=rss&utm_medium=rss",
+      "source": "The Block",
+      "published": "Mon, 23 Feb 2026 11:07:55 -0500",
+      "image": "https://www.tbstat.com/wp/uploads/2023/10/20230810_Solana_News2-800x450.jpg",
+      "teaser": "Pacific Backbone initiative will develop a high-speed, low-latency network connecting Seoul, Tokyo, Singapore, and Hong Kong.",
+      "content": "This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.",
+      "categories": [
+        "Validator"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "682404859523"
+      ]
+    },
+    {
+      "id": "178286513993",
       "title": "South Korea\u2019s Hanwha taps Jito Foundation for liquidity staking ETPs",
       "url": "https://www.theblock.co/post/390769/south-korea-hanwha-jito?utm_source=rss&utm_medium=rss",
       "source": "The Block",
@@ -540,7 +642,7 @@
       "related": []
     },
     {
-      "id": "388749108630",
+      "id": "848846048098",
       "title": "Leading AI Claude Predicts the Price of XRP, Solana and Dogecoin By the End of 2026",
       "url": "https://cryptonews.com/news/leading-ai-claude-predicts-the-price-of-xrp-solana-and-dogecoin-by-the-end-of-2026/",
       "source": "CryptoNews",
@@ -561,11 +663,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "178346663221"
+        "503613455597"
       ]
     },
     {
-      "id": "671015584429",
+      "id": "851630588043",
       "title": "Whales Sold $60 Billion Worth of Bitcoin: Could This Trigger a Crash to $60,000?",
       "url": "https://beincrypto.com/could-bitcoin-whale-selling-trigger-crash/",
       "source": "BeInCrypto",
@@ -586,13 +688,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "759879499940",
-        "649700436404",
-        "912176995415"
+        "497941346779",
+        "296562130247",
+        "616966207120"
       ]
     },
     {
-      "id": "609215852326",
+      "id": "137997781142",
       "title": "AI agent created by OpenAI dev \u2018accidentally\u2019 sends entire memecoin holdings to reply guy",
       "url": "https://www.theblock.co/post/390722/ai-agent-created-by-openai-dev-accidentally-sends-entire-memecoin-holdings-to-reply-guy?utm_source=rss&utm_medium=rss",
       "source": "The Block",
@@ -612,11 +714,56 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "189193388326"
+        "874792286535"
       ]
     },
     {
-      "id": "615276179068",
+      "id": "659044677809",
+      "title": "Binance Coin: Can BNB reclaim $600 or is $576 next?",
+      "url": "https://ambcrypto.com/binance-coin-can-bnb-reclaim-600-or-is-576-next/",
+      "source": "AMB Crypto",
+      "published": "Mon, 23 Feb 2026 16:00:11 +0000",
+      "image": "",
+      "teaser": "Binance Coin fell below its short term moving averages as holders panic sold",
+      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. Binance Coin further slipped and held below $600 amid intensified selling pressure. As a result, the altcoin\u2019s Relative Strength Index (RSI) fell deeper into the bearish territory at 30, closing into the oversold zone. The token broke below the $600 support, printing a low near $583 before a mild rebound. In doing so, BNB fell beneath its short-term 9 and 21 Moving Averages, reflecting sustained bearish pressure. If these sentiments persist, BNB could remain below $600, with $576 as critical support. However, if short-term sell pressure cools, BNB will see a daily close above $600 and flip $632 resistance. Historically, combined Spot selling and Futures deleveraging have aligned with extended downside phases. However, confirmation depends on sustained pressure rather than a single-day spike.",
+      "categories": [
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 30,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "793226280537",
+      "title": "How to Choose a Reliable Solana Validator: Why It Matters for Every SOL Holder",
+      "url": "https://ambcrypto.com/how-to-choose-a-reliable-solana-validator-why-it-matters-for-every-sol-holder/",
+      "source": "AMB Crypto",
+      "published": "Mon, 23 Feb 2026 15:25:11 +0000",
+      "image": "",
+      "teaser": "Within the Solana ecosystem, staking remains one of the most efficient ways to participate in [&#8230;]",
+      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. &copy; 2026 AMBCrypto",
+      "categories": [
+        "Validator",
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [
+        "validator"
+      ],
+      "reading_time": 1,
+      "quality_score": 30,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "521227908097",
       "title": "Bitdeer CEO says bitcoin balance \u2018will not always be zero\u2019 as miner eyes land acquisitions after liquidating entire treasury",
       "url": "https://www.theblock.co/post/390785/bitdeer-ceo-says-bitcoin-balance-will-not-always-be-zero-as-miner-eyes-land-acquisitions-after-liquidating-entire-treasury?utm_source=rss&utm_medium=rss",
       "source": "The Block",
@@ -637,33 +784,36 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "295273184699"
+        "150487275294"
       ]
     },
     {
-      "id": "324366641250",
-      "title": "White House, Banks and Crypto Groups Resume Talks on Stablecoin Rewards",
-      "url": "https://decrypt.co/358688/white-house-banks-crypto-groups-resume-talks-stablecoin",
-      "source": "Decrypt",
-      "published": "Fri, 20 Feb 2026 01:01:28 +0000",
-      "image": "https://cdn.decrypt.co/wp-content/uploads/2025/07/White-House-decrypt-style-02-gID_7.png",
-      "teaser": "Stablecoin incentives remain a key unresolved issue as lawmakers seek to advance digital-asset market-structure legislation.",
-      "content": "White House, Banks and Crypto Groups Resume Talks on Stablecoin Rewards The latest news, articles, and resources, sent to your inbox weekly. Your gateway into the world of Web3 $0.00958689 $0.00000614",
+      "id": "254790962375",
+      "title": "Bitcoin ETFs Bleed $316 Million in 5th Straight Weekly Outflow",
+      "url": "https://news.bitcoin.com/bitcoin-etfs-bleed-316-million-in-5th-straight-weekly-outflow/",
+      "source": "Bitcoin.com",
+      "published": "Mon, 23 Feb 2026 15:15:02 +0000",
+      "image": "",
+      "teaser": "Bitcoin exchange-traded funds (ETFs) posted $316 million in weekly outflows, extending a five-week slide. Ether funds also remained under pressure, wh",
+      "content": "Bitcoin exchange-traded funds (ETFs) posted $316 million in weekly outflows, extending a five-week slide. Ether funds also remained under pressure, wh",
       "categories": [
         "Market",
+        "Macro",
         "AI"
       ],
-      "sentiment": "neutral",
-      "breaking": true,
+      "sentiment": "positive",
+      "breaking": false,
       "watchlist_matches": [],
       "reading_time": 1,
-      "quality_score": 30,
+      "quality_score": 10,
       "ai_summary": "",
       "key_takeaways": [],
-      "related": []
+      "related": [
+        "909064145327"
+      ]
     },
     {
-      "id": "759879499940",
+      "id": "497941346779",
       "title": "Beneath the Surface: Why Bitcoin\u2019s Recovery Still Lacks Structural Confirmation",
       "url": "https://news.bitcoin.com/beneath-the-surface-why-bitcoins-recovery-still-lacks-structural-confirmation/",
       "source": "Bitcoin.com",
@@ -684,12 +834,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "671015584429",
-        "129625280619",
-        "245226773708"
+        "851630588043",
+        "707453765838",
+        "449919602876"
       ]
     }
   ],
-  "updated": "2026-02-23T15:00:20.052677",
-  "count": 28
+  "updated": "2026-02-23T21:00:21.593631",
+  "count": 34
 }

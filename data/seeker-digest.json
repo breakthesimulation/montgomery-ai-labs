@@ -1,8 +1,8 @@
 {
-  "ny": {
-    "name": "New York",
-    "generated": "2026-02-23T13:00:01.516355",
-    "summary": "Top 10 stories from New York.",
+  "morning": {
+    "name": "Morning UTC",
+    "generated": "2026-02-23T20:06:29.816434",
+    "summary": "Top 10 stories from Morning UTC.",
     "stories": [
       {
         "title": "Solana futures data shows panicked bulls: Will $80 SOL hold?",
@@ -17,6 +17,11 @@
       {
         "title": "Solana treasuries sitting on over $1.5B in paper SOL losses",
         "url": "https://cointelegraph.com/news/solana-treasury-firms-unrealized-losses-equity-repricing?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+        "category": "News"
+      },
+      {
+        "title": "Solana Company starts building high-speed infrastructure to prepare SOL for next 'super cycle'",
+        "url": "https://www.coindesk.com/business/2026/02/23/solana-company-starts-building-high-speed-infrastructure-to-prepare-sol-for-next-super-cycle",
         "category": "News"
       },
       {
@@ -47,11 +52,6 @@
       {
         "title": "Price predictions 2/11: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
         "url": "https://cointelegraph.com/news/price-predictions-2-11-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
-        "category": "News"
-      },
-      {
-        "title": "Santiment: Solana Growth Signals Hope Despite Woes",
-        "url": "https://cryptopotato.com/santiment-solana-growth-signals-hope-despite-woes/",
         "category": "News"
       }
     ],

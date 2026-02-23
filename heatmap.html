@@ -1,85 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
-  <title>Signal Heatmap | Montgomery AI Labs</title>
+  <meta http-equiv="refresh" content="600">
+  <title>Signal Heatmap | Montgomery AI</title>
   <link rel="stylesheet" href="/styles/apple.css">
-  <style>
-    body { background: var(--bg-primary); padding: 60px 16px 100px; overflow-x: auto; }
-    h1 { font-size: 1.8rem; margin-bottom: 8px; }
-    .heatmap { display: flex; flex-direction: column; gap: 2px; }
-    .heatmap-row { display: flex; gap: 2px; }
-    .heatmap-cell { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; cursor: pointer; border-radius: 4px; transition: transform 0.1s; }
-    .heatmap-cell:hover { transform: scale(1.1); z-index: 10; }
-    .heatmap-cell.header { background: none; color: var(--text-tertiary); font-size: 0.55rem; }
-    .heatmap-cell.coin { width: 56px; justify-content: flex-start; padding-left: 4px; background: none; font-weight: 600; }
-    .tooltip { position: fixed; background: var(--bg-tertiary); border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; display: none; z-index: 1000; font-size: 0.85rem; }
-  </style>
 </head>
-<body>
-  <h1>🗺 Signal Heatmap</h1>
-  <p style="color:var(--text-tertiary);margin-bottom:20px;">Last 24 hours — click any cell for details</p>
+<body style="background:var(--bg-primary);color:var(--text-primary);padding:60px 20px;font-family:'Inter',sans-serif;">
+  <h1>🗺 Signal Heatmap — 2026-02-23 21:20</h1>
   
-  <div id="heatmap" class="heatmap"></div>
-  <div id="tooltip" class="tooltip"></div>
-
-  <script>
-    const API_KEY = '3d79d057a66e65a870a114ac10cd895c';
-    
-    async function loadHeatmap() {
-      try {
-        const res = await fetch('/api/signals/history?key=' + API_KEY);
-        const data = await res.json();
-        
-        const coins = ['BTC','ETH','SOL','JUP','ARB','OP','AVAX','NEAR','MATIC','LINK','BNB','XRP'];
-        const snapshots = data.slice(-24) || [];
-        
-        let html = '<div class="heatmap-row"><div class="heatmap-cell header"></div>';
-        
-        // Header: hours
-        snapshots.forEach(s => {
-          const d = new Date(s.timestamp * 1000);
-          html += '<div class="heatmap-cell header">' + d.getHours() + ':00</div>';
-        });
-        html += '</div>';
-        
-        // Rows: each coin
-        coins.forEach(coin => {
-          html += '<div class="heatmap-row"><div class="heatmap-cell coin">' + coin + '</div>';
-          snapshots.forEach(s => {
-            const sig = (s.signals || []).find(x => x.coin === coin);
-            const score = sig?.score || 50;
-            const hue = score > 50 ? 120 : 0;
-            const sat = Math.abs(score - 50) * 2;
-            const bg = `hsl(${hue}, ${sat}%, 25%)`;
-            
-            html += '<div class="heatmap-cell" style="background:' + bg + ';" onclick="showTooltip(event,\'' + coin + '\',' + s.timestamp + ',' + score + ',' + (sig?.rsi || 50) + ',\'' + (sig?.action || 'HOLD') + '\')">' + score + '</div>';
-          });
-          html += '</div>';
-        });
-        
-        document.getElementById('heatmap').innerHTML = html;
-      } catch(e) { console.log(e); }
-    }
-    
-    function showTooltip(e, coin, ts, score, rsi, action) {
-      const t = document.getElementById('tooltip');
-      const d = new Date(ts * 1000);
-      t.style.display = 'block';
-      t.style.left = e.pageX + 10 + 'px';
-      t.style.top = e.pageY + 10 + 'px';
-      t.innerHTML = '<strong>' + coin + '</strong> @ ' + d.toLocaleTimeString() + '<br>Score: ' + score + '<br>RSI: ' + rsi + '<br>Action: ' + action;
-    }
-    
-    document.addEventListener('click', e => {
-      if (!e.target.classList.contains('heatmap-cell')) {
-        document.getElementById('tooltip').style.display = 'none';
-      }
-    });
-    
-    loadHeatmap();
-  </script>
+  <div class="glass" style="padding:20px;overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;">
+      <tr>
+        <th style="padding:10px;text-align:left;border-bottom:1px solid var(--glass-border);">Coin</th>
+        <th style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">Score</th>
+        <th style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">Signal</th>
+        <th style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">RSI</th>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">XRP</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">61</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">SELL</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">61</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">APT</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">61</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">SELL</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">62</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">DOGE</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">51</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">SELL</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">61</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">BNB</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">50</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">54</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">AVAX</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">50</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">51</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">LINK</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">50</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">51</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">BONK</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">50</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">56</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">BTC</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">47</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">ETH</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">51</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">SOL</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">47</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">ADA</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">59</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">DOT</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">54</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">UNI</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">52</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">ATOM</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">45</td>
+      </tr>
+      <tr>
+        <td style="padding:10px;border-bottom:1px solid var(--glass-border);font-weight:600;">LTC</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);background:var(--neutral);color:#000;border-radius:4px;">40</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">HOLD</td>
+        <td style="padding:10px;text-align:center;border-bottom:1px solid var(--glass-border);">51</td>
+      </tr>
+    </table>
+  </div>
+  
+  <p style="color:var(--text-tertiary);margin-top:20px;">
+    <span style="background:var(--bull);color:#000;padding:2px 8px;border-radius:4px;">70+</span> Bullish
+    <span style="background:var(--neutral);color:#000;padding:2px 8px;border-radius:4px;margin-left:10px;">40-70</span> Neutral  
+    <span style="background:var(--bear);color:#fff;padding:2px 8px;border-radius:4px;margin-left:10px;">&lt;40</span> Bearish
+  </p>
 </body>
 </html>

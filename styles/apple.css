@@ -1,40 +1,91 @@
-/* Montgomery AI Labs - Brand Kit */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --color-bg-primary: #121217;
-  --color-bg-secondary: #1e1e24;
-  --color-accent-primary: #7bffb1;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #d4d4d8;
-  --color-text-muted: #a1a1aa;
-  --color-status-bull: #26a69a;
-  --color-status-bear: #ef5350;
-  --color-status-neutral: #fdd835;
-  --color-border-glass: rgba(255, 255, 255, 0.08);
-
-  /* Typography */
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* Default spacing values (optional, adjust as needed) */
-  --space-xxs: 2px;
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
+  /* Brand Colors */
+  --bg-primary: #121217;
+  --bg-secondary: #1e1e24;
+  --bg-tertiary: #252530;
+  --accent: #7bffb1;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-tertiary: #a1a1aa;
+  
+  /* Trading Colors */
+  --bull: #26a69a;
+  --bear: #ef5350;
+  --neutral: #fdd835;
+  --green: #26a69a;
+  --red: #ef5350;
+  --yellow: #fdd835;
+  
+  /* UI */
+  --glass-border: rgba(255,255,255,0.08);
+  --nav-bg: rgba(18,18,23,0.95);
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
 }
 
-h1 {
-  color: var(--color-accent-primary);
+.mono, code, .price { font-family: 'JetBrains Mono', monospace; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+.glass {
+  background: rgba(30,30,36,0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.btn {
+  background: var(--accent);
+  color: var(--bg-primary);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover { opacity: 0.9; }
+
+/* Nav */
+nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 12px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+nav a { color: var(--text-secondary); margin-right: 20px; }
+nav a:hover { color: var(--accent); }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--glass-border); }
+th { color: var(--text-tertiary); font-weight: 500; }
+
+/* Utility */
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }
+.text-yellow { color: var(--yellow); }
+.text-muted { color: var(--text-tertiary); }
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
 }

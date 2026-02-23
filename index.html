@@ -3,49 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Montgomery AI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Montgomery AI | Trading System</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-primary: #121217;
+      --bg-secondary: #1e1e24;
+      --accent: #7bffb1;
+      --text-primary: #ffffff;
+      --text-secondary: #d4d4d8;
+      --text-tertiary: #a1a1aa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #121217;
-      color: #fff;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       font-family: 'Inter', sans-serif;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 60px 20px;
     }
-    h1 {
-      color: #7bffb1;
-      margin-bottom: 20px;
-    }
-    .links a {
-      color: #7bffb1;
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
+    h1 span { color: var(--accent); }
+    .subtitle { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 40px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(123,255,177,0.1);
+      border-radius: 12px;
+      padding: 24px;
       text-decoration: none;
-      margin: 10px 20px;
-      font-size: 1.2em;
-      padding: 10px 20px;
-      border: 1px solid #7bffb1;
-      border-radius: 5px;
-      display: inline-block;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
     }
-    .links a:hover {
-      background-color: #7bffb1;
-      color: #121217;
-    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--accent); }
+    .card p { color: var(--text-secondary); font-size: 0.9rem; }
+    .card .icon { font-size: 1.5rem; margin-bottom: 12px; }
+    footer { margin-top: 60px; color: var(--text-tertiary); font-size: 0.85rem; }
   </style>
 </head>
 <body>
-  <h1>Montgomery AI</h1>
-  <div class="links">
-    <a href="/dashboard.html">Dashboard</a>
-    <a href="/seeker/index.html">Seeker</a>
-    <a href="/screener.html">Screener</a>
-    <a href="/positions.html">Positions</a>
+  <div class="container">
+    <h1>Montgomery <span>AI</span></h1>
+    <p class="subtitle">Algorithmic Trading System</p>
+    
+    <div class="grid">
+      <a href="/dashboard.html" class="card">
+        <div class="icon">📈</div>
+        <h3>Dashboard</h3>
+        <p>Live trading positions, P/L, and market data</p>
+      </a>
+      
+      <a href="/seeker/index.html" class="card">
+        <div class="icon">🔮</div>
+        <h3>Solana Seeker</h3>
+        <p>AI-curated news feed with digest summaries</p>
+      </a>
+      
+      <a href="/screener.html" class="card">
+        <div class="icon">🎯</div>
+        <h3>Screener</h3>
+        <p>Stock & crypto signals with RSI analysis</p>
+      </a>
+      
+      <a href="/positions.html" class="card">
+        <div class="icon">💼</div>
+        <h3>Positions</h3>
+        <p>Current open positions and recent trades</p>
+      </a>
+      
+      <a href="/daily-report.html" class="card">
+      <div class="icon">📋</div>
+      <h3>Daily Report</h3>
+      <p>Today's trade summary, P/L, and signals</p>
+    </a>
+
+    <a href="/calendar.html" class="card">
+      <div class="icon">📅</div>
+      <h3>Calendar</h3>
+      <p>Solana network events and upgrades</p>
+    </a>
+
+    <a href="/heatmap.html" class="card">
+        <div class="icon">🗺</div>
+        <h3>Heatmap</h3>
+        <p>24-hour signal history visualization</p>
+      </a>
+      
+      <a href="/status.html" class="card">
+        <div class="icon">🩺</div>
+        <h3>System Status</h3>
+        <p>API, signals, and pipeline health</p>
+      </a>
+    </div>
+    
+    <footer>
+      <p>Montgomery AI v0.1 | Last updated: <span id="ts">--</span></p>
+    </footer>
   </div>
+  <script>document.getElementById('ts').textContent = new Date().toLocaleString();</script>
 </body>
 </html>
