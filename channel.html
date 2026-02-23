@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Seb's AI Channel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font: 'Outfit', sans-serif;
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #13131a;
+      --bg-card: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.08);
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1aa;
+      --accent: #a78bfa;
+      --accent-glow: rgba(167,139,250,0.3);
+    }
+    
+    [data-theme="light"] {
+      --bg-primary: #f8f8fc;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.06);
+      --text-primary: #18181b;
+      --text-secondary: #52525b;
+      --accent: #7c3aed;
+      --accent-glow: rgba(124,58,237,0.15);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: var(--font);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      transition: all 0.3s ease;
+    }
+    
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(10,10,15,0.8);
+      backdrop-filter: blur(20px);
+    }
+    
+    .logo { font-weight: 700; font-size: 1.2rem; }
+    
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      cursor: pointer;
+      font-size: 18px;
+    }
+    
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    
+    .hero-content { position: relative; z-index: 1; }
+    
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+    
+    .email-form {
+      display: flex;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .email-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: var(--font);
+    }
+    
+    .email-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .notify-btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: transform 0.2s;
+    }
+    
+    .notify-btn:hover { transform: scale(1.02); }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin-top: 60px;
+    }
+    
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: left;
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .feature-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .feature-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .social {
+      display: flex;
+      gap: 16px;
+      margin-top: 60px;
+    }
+    
+    .social a {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .social a:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .success-msg {
+      color: #10b981;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      display: none;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <header class="header">
+    <div class="logo">Montgomery AI</div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </header>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">Coming Soon</span>
+      <h1>Seb's AI Channel</h1>
+      <p class="subtitle">No fluff. No hype. Just real AI tools, tutorials, and how-tos for builders who ship.</p>
+      
+      <form class="email-form" onsubmit="saveEmail(event)">
+        <input type="email" class="email-input" placeholder="your@email.com" required>
+        <button type="submit" class="notify-btn">Notify Me</button>
+      </form>
+      <p class="success-msg" id="success">✓ You're on the list!</p>
+      
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <div class="feature-title">AI Tools Deep Dives</div>
+          <div class="feature-desc">Real tutorials on building with Claude, GPT, and open-source models.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">No-BS Reviews</div>
+          <div class="feature-desc">Honest breakdowns of AI products that actually ship.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛠️</div>
+          <div class="feature-title">Build in Public</div>
+          <div class="feature-desc">Watch me ship real products, make mistakes, and figure it out.</div>
+        </div>
+      </div>
+      
+      <div class="social">
+        <a href="#" title="YouTube">▶</a>
+        <a href="#" title="Twitter">𝕏</a>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      localStorage.setItem('channel-theme', next);
+      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '🌙' : '☀️';
+    }
+    
+    const saved = localStorage.getItem('channel-theme') || 'dark';
+    document.body.setAttribute('data-theme', saved);
+    
+    function saveEmail(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input').value;
+      const emails = JSON.parse(localStorage.getItem('notify-emails') || '[]');
+      if (!emails.includes(email)) {
+        emails.push(email);
+        localStorage.setItem('notify-emails', JSON.stringify(emails));
+      }
+      document.getElementById('success').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
