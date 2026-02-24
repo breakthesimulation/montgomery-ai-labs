@@ -1,7 +1,7 @@
 {
   "articles": [
     {
-      "id": "333383872148",
+      "id": "502932047767",
       "title": "Solana futures data shows panicked bulls: Will $80 SOL hold?",
       "url": "https://cointelegraph.com/news/solana-futures-data-shows-panicked-bulls-will-80-sol-hold?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -24,7 +24,7 @@
       "related": []
     },
     {
-      "id": "841066356537",
+      "id": "681077029935",
       "title": "Zora debuts attention markets on Solana, betting on social trends",
       "url": "https://cointelegraph.com/news/zora-launches-attention-markets-solana?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -46,7 +46,7 @@
       "related": []
     },
     {
-      "id": "669738607030",
+      "id": "637292443678",
       "title": "Solana treasuries sitting on over $1.5B in paper SOL losses",
       "url": "https://cointelegraph.com/news/solana-treasury-firms-unrealized-losses-equity-repricing?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -67,7 +67,7 @@
       "related": []
     },
     {
-      "id": "417598054572",
+      "id": "304231860400",
       "title": "Solana Company starts building high-speed infrastructure to prepare SOL for next 'super cycle'",
       "url": "https://www.coindesk.com/business/2026/02/23/solana-company-starts-building-high-speed-infrastructure-to-prepare-sol-for-next-super-cycle",
       "source": "CoinDesk",
@@ -88,11 +88,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "258534912184"
+        "574313512176",
+        "641889279258"
       ]
     },
     {
-      "id": "560548840413",
+      "id": "225318734345",
       "title": "AI agent sends $441K in tokens after decimal error",
       "url": "https://cointelegraph.com/news/openai-employee-s-ai-agent-accidentally-sent-442k-to-beggar?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -114,7 +115,7 @@
       "related": []
     },
     {
-      "id": "512509574717",
+      "id": "877181611138",
       "title": "Crypto funds log fourth week of outflows at $173M as BTC dips below $70K",
       "url": "https://cointelegraph.com/news/crypto-etf-4-week-outflows-173-million-btc-below-70k?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -134,11 +135,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "226962429944"
+        "186381286577"
       ]
     },
     {
-      "id": "460638789456",
+      "id": "180651742230",
       "title": "Is Solana headed to $50? These three charts show a textbook bear pattern",
       "url": "https://cointelegraph.com/news/is-solana-headed-to-50-dollars-three-charts-textbook-bear?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -157,13 +158,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "508663453371",
-        "508663453371",
-        "120578289936"
+        "866819155958",
+        "866819155958",
+        "627119625633"
       ]
     },
     {
-      "id": "107772664047",
+      "id": "813694180579",
       "title": "Anchorage, Kamino let institutions borrow against SOL without moving custody",
       "url": "https://cointelegraph.com/news/anchorage-kamino-institutions-borrow-against-sol-without-moving-custody?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -187,11 +188,34 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "168016611648"
+        "747364021403"
       ]
     },
     {
-      "id": "788458042565",
+      "id": "138597299925",
+      "title": "3 Solana platforms to shutter following devastating $27M hack",
+      "url": "https://cointelegraph.com/news/step-finance-solanafloor-remora-markets-wind-down-operations?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
+      "source": "Cointelegraph",
+      "published": "Tue, 24 Feb 2026 02:51:01 +0000",
+      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjA5NjEtM2E2MC03OTdiLWFiZTAtYzllZjUxMjA1ZDE3.jpg",
+      "teaser": "Solana DeFi aggregator Step Finance says it was \"unable to secure a viable outcome\u201d after being hacked $27 million in January.",
+      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. \u201cFollowing the hack at the end of January, we explored every possible path forward, including financing and acquisition opportunities,\u201d it stated, referring to a $27 million security breach of its treasury wallets in January.\u00a0 The platform\u2019s native STEP token tanked 96% in the days following the hack. It slumped a further 36% following the announcement of the closure on Monday and is currently trading at $0.00057, according to CoinGecko.\u00a0 The DeFi platform said it is working on a buyback for holders of its native token, STEP, based on a snapshot taken before the incident. There will also be a redemption process for Remora rToken holders, they said.\u00a0 All sponsored and commercial content, including press releases, is clearly labeled and reviewed for accuracy, disclosure and compliance. All partners are reviewed prior to entering any paid partnership.",
+      "categories": [
+        "DeFi"
+      ],
+      "sentiment": "negative",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "382914044177"
+      ]
+    },
+    {
+      "id": "286222152935",
       "title": "Price predictions 2/18: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-18-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -211,13 +235,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "360319605945",
-        "892385028629",
-        "404286256760"
+        "331999303290",
+        "327617508379",
+        "608574731792"
       ]
     },
     {
-      "id": "634874309828",
+      "id": "203232743547",
       "title": "Price predictions 2/11: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-11-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -237,13 +261,36 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "459802728644",
-        "360319605945",
-        "892385028629"
+        "331999303290",
+        "327617508379",
+        "286222152935"
       ]
     },
     {
-      "id": "668587122275",
+      "id": "186381286577",
+      "title": "Crypto Funds Bleed Again: 5 Weeks of Outflows Show Deepening Investor Fatigue",
+      "url": "https://cryptopotato.com/crypto-funds-bleed-again-5-weeks-of-outflows-show-deepening-investor-fatigue/",
+      "source": "CryptoPotato",
+      "published": "Tue, 24 Feb 2026 04:35:20 +0000",
+      "image": "https://cryptopotato.com/wp-content/uploads/2023/08/Bitcoin_price_Cover.jpg",
+      "teaser": "XRP, Solana, and Chainlink recorded small inflows, but these were insufficient to offset broader, persistent altcoin outflows.",
+      "content": "With BTC on pace for a fifth red monthly close, historically a late-stage signal, all eyes are now on upcoming catalysts, including progress on the Clarity Act and US-Iran talks. But QCP added that a reclaim of $74,000 remains critical for a durable recovery. Investor appetite for digital asset funds remains muted after $288 million in weekly outflows. This is the fifth week in a row of redemptions, which propelled aggregate withdrawals to $4 billion, still trailing the $6 billion logged last year. Chayanika has been working as a financial journalist for seven years. A graduate in Political Science and Journalism, her interest lies in regulatory implications with a focus on technological evolution in the crypto realm. Market participation has thinned significantly, as ETP trading slid to $17 billion, the weakest level since July 2025, amidst signs of disengagement among institutions and retail allocators alike globally this quarter. While XRP, Solana, and Chainlink attracted limited inflows ranging between $1.2 million and $3.5 million, these gains did little to offset persistent net outflows across altcoins.",
+      "categories": [
+        "AI"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "877181611138"
+      ]
+    },
+    {
+      "id": "183538825486",
       "title": "3 Token Unlocks to Watch in the Final Week of February 2026",
       "url": "https://beincrypto.com/crypto-token-unlocks-in-the-final-week-of-february-2026/",
       "source": "BeInCrypto",
@@ -264,10 +311,13 @@
       "quality_score": 70,
       "ai_summary": "",
       "key_takeaways": [],
-      "related": []
+      "related": [
+        "412598860784",
+        "412598860784"
+      ]
     },
     {
-      "id": "892385028629",
+      "id": "331999303290",
       "title": "Price predictions 2/23: SPX, DXY, BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA",
       "url": "https://cointelegraph.com/news/price-predictions-2-23-spx-dxy-btc-eth-xrp-bnb-sol-doge-bch-ada?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -287,13 +337,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "404286256760",
-        "788458042565",
-        "372120304108"
+        "327617508379",
+        "286222152935",
+        "608574731792"
       ]
     },
     {
-      "id": "372120304108",
+      "id": "608574731792",
       "title": "Price predictions 2/16: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
       "url": "https://cointelegraph.com/news/price-predictions-2-16-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -314,13 +364,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "892385028629",
-        "404286256760",
-        "788458042565"
+        "582580568757",
+        "582580568757",
+        "331999303290"
       ]
     },
     {
-      "id": "791328094424",
+      "id": "234323106472",
       "title": "Price predictions 2/9: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
       "url": "https://cointelegraph.com/news/price-predictions-2-9-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -340,13 +390,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "892385028629",
-        "404286256760",
-        "788458042565"
+        "582580568757",
+        "582580568757",
+        "331999303290"
       ]
     },
     {
-      "id": "404286256760",
+      "id": "327617508379",
       "title": "Price predictions 2/20: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-20-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -367,13 +417,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "892385028629",
-        "788458042565",
-        "372120304108"
+        "582580568757",
+        "582580568757",
+        "331999303290"
       ]
     },
     {
-      "id": "196091215173",
+      "id": "223497575881",
       "title": "Price predictions 2/13: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-13-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -393,40 +443,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "892385028629",
-        "404286256760",
-        "788458042565"
+        "582580568757",
+        "582580568757",
+        "331999303290"
       ]
     },
     {
-      "id": "709738154078",
-      "title": "Price predictions 2/6: BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH, HYPE, XMR",
-      "url": "https://cointelegraph.com/news/price-predictions-2-6-btc-eth-bnb-xrp-sol-doge-ada-bch-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
-      "source": "Cointelegraph",
-      "published": "Fri, 06 Feb 2026 18:47:21 +0000",
-      "image": "https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzMzZDItOWU3OC03OGY5LWJlYWYtYzU5OGRmNzkzMjk3LmpwZw==.jpg",
-      "teaser": "Bitcoin and altcoins saw strong double-digit price rebounds after this week\u2019s brutal sell-off, but do technical charts forecast a longer-term recovery",
-      "content": "Cointelegraph is committed to providing independent, high-quality journalism across the crypto, blockchain, AI, and fintech industries. To support open access to our website and sustain editorial operations, certain commercial or partner references may appear on our site. These arrangements help maintain an accessible platform and do not result in additional costs to readers. The bulls are attempting to start a recovery off the $1,750 level, which is expected to face significant selling at the breakdown level of $2,111. If the Ether price turns down sharply from $2,111, it suggests that the bears have flipped the level into resistance. That heightens the risk of a break below the $1,750 level. The next support on the downside is at $1,537. The bulls are attempting to start a relief rally, but the up move is expected to face selling at the 38.2% Fibonacci retracement level of $361. If the price turns down from the overhead resistance, the bears will again try to resume the downtrend. If the $276 level gives way, the XMR/USDT pair may slump to $231. On the upside, the bears will attempt to defend the $74,508 level and flip it into resistance. If they succeed, the BTC/USDT pair may again tumble toward $60,000. The first sign of strength will be a close above $74,508. The Bitcoin price may then ascend to the 20-day exponential moving average (EMA) ($80,899). The upsloping 20-day EMA ($29.78) and the RSI in positive territory indicate an advantage to buyers. If the price turns up from the current level or the 20-day EMA, the bulls will again attempt to clear the overhead hurdle at $35.50. If they can pull it off, the HYPE/USDT pair is likely to soar to $44.",
-      "categories": [
-        "Market",
-        "Macro",
-        "Meme"
-      ],
-      "sentiment": "positive",
-      "breaking": false,
-      "watchlist_matches": [],
-      "reading_time": 1,
-      "quality_score": 70,
-      "ai_summary": "",
-      "key_takeaways": [],
-      "related": [
-        "459802728644",
-        "360319605945",
-        "892385028629"
-      ]
-    },
-    {
-      "id": "120578289936",
+      "id": "627119625633",
       "title": "SOL\u2019s path of least resistance tilts toward $50, but onchain data hints at bottom",
       "url": "https://cointelegraph.com/news/sol-s-path-of-least-resistance-tilts-toward-dollar50-but-onchain-data-hints-at-a-bottom?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -447,11 +470,35 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "460638789456"
+        "180651742230"
       ]
     },
     {
-      "id": "168016611648",
+      "id": "382914044177",
+      "title": "Step Finance and SolanaFloor Shut Down After Devastating Hack",
+      "url": "https://beincrypto.com/solana-early-pillars-step-finance-solanafloor-shut-down/",
+      "source": "BeInCrypto",
+      "published": "Tue, 24 Feb 2026 02:16:11 +0000",
+      "image": "https://assets.beincrypto.com/img/F2QvOd7esWUcVqN3riqaNRwY9D8=/smart/c2aeccda6b5f432b8d2fae96ff24d1ce",
+      "teaser": "Step Finance and SolanaFloor, two early Solana ecosystem platforms, have announced they are shutting down operations effective immediately after the t",
+      "content": "Step Finance was one of Solana\u2019s original DeFi infrastructure names. It built a widely used portfolio dashboard that helped users track wallets, yield positions, LPs, and broader on-chain activity across Solana in one place.\u00a0 Step said it is working on a buyback for STEP holders using a pre-incident snapshot and a redemption process for Remora rToken holders, adding that Remora tokens remain backed 1:1. The attack reportedly compromised devices linked to executives, giving attackers access to treasury wallets and leading to a multimillion-dollar loss in SOL. The media outlet said it tried to continue operating after the events affecting its parent company, Step Finance, but could not find a sustainable route. After the hack, STEP token value collapsed, and the company faced mounting pressure to stabilize finances while maintaining multiple products.",
+      "categories": [
+        "Macro",
+        "AI"
+      ],
+      "sentiment": "negative",
+      "breaking": true,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 70,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "138597299925"
+      ]
+    },
+    {
+      "id": "747364021403",
       "title": "Crypto.com wins initial approval for U.S. federally regulated crypto custodian bank",
       "url": "https://www.coindesk.com/policy/2026/02/23/crypto-com-approved-for-u-s-federally-regulated-crypto-custodian-bank",
       "source": "CoinDesk",
@@ -471,11 +518,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "107772664047"
+        "813694180579"
       ]
     },
     {
-      "id": "911569179724",
+      "id": "599446865124",
       "title": "Solana (SOL) Price Alert: 95% Crash on the Way?",
       "url": "https://cryptopotato.com/solana-sol-price-alert-95-crash-on-the-way/",
       "source": "CryptoPotato",
@@ -493,38 +540,10 @@
       "quality_score": 70,
       "ai_summary": "",
       "key_takeaways": [],
-      "related": [
-        "360319605945"
-      ]
+      "related": []
     },
     {
-      "id": "662139831146",
-      "title": "Bitdeer sold all its bitcoin to fund its move into AI data centers",
-      "url": "https://www.coindesk.com/markets/2026/02/23/bitdeer-empties-bitcoin-treasury-as-miners-accelerate-industry-wide-ai-pivot",
-      "source": "CoinDesk",
-      "published": "Mon, 23 Feb 2026 09:58:57 +0000",
-      "image": "https://cdn.sanity.io/images/s3y3vcno/production/a944f5c40b9f1fece6ecb4c387377f37ae7134cc-1920x1080.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
-      "teaser": "Singapore based BTC and AI miner sells all holdings to build liquidity for expansion, signaling a broader shift in capital strategy across the sector.",
-      "content": "Unlike bitcoin mining, which is tied to price cycles and halvings, AI and HPC contracts can offer more predictable revenue streams. The pivot also represents an attempt by miners to be valued less as leveraged bitcoin proxies and more as digital infrastructure and AI plays. Bitdeer (BTDR) a Singapore-based bitcoin mining and AI infrastructure company has reduced its bitcoin treasury stash to zero, marking a sharp break from the  miner playbook of hoarding coins as a signal of conviction seen by the likes of Strategy (MSTR).  Bitdeer is accelerating its push into AI infrastructure, rolling out NVIDIA GB200 NVL72 systems in Malaysia and advancing conversions of several sites in the U.S. and Europe from crypto mining to AI data centers.  AI expansion is far more capital intensive than incremental mining buildouts, requiring large scale GPU clusters and data center upgrades.  Artificial intelligence company Anthropic announced that its Claude platform can streamline COBOL code, a key profit center for IBM.",
-      "categories": [
-        "DeFi",
-        "Market",
-        "Macro",
-        "AI"
-      ],
-      "sentiment": "neutral",
-      "breaking": true,
-      "watchlist_matches": [],
-      "reading_time": 1,
-      "quality_score": 70,
-      "ai_summary": "",
-      "key_takeaways": [],
-      "related": [
-        "223019056790"
-      ]
-    },
-    {
-      "id": "708340008311",
+      "id": "326542638921",
       "title": "When Will Ripple\u2019s (XRP) Bull Run Resume? We Asked 4 AIs (And Their Answers Surprised Us)",
       "url": "https://cryptopotato.com/when-will-ripples-xrp-bull-run-resume-we-asked-4-ais-and-their-answers-surprised-us/",
       "source": "CryptoPotato",
@@ -546,7 +565,55 @@
       "related": []
     },
     {
-      "id": "962163638834",
+      "id": "610681556305",
+      "title": "$1.7B in RWAs: Mapping Solana\u2019s treasury\u2011led institutional breakout",
+      "url": "https://ambcrypto.com/1-7b-in-rwas-mapping-solanas-treasury-led-institutional-breakout/",
+      "source": "AMB Crypto",
+      "published": "Mon, 23 Feb 2026 23:00:30 +0000",
+      "image": "",
+      "teaser": "Solana\u2019s RWA value hits $1.7B as treasury issuance and institutional yield demand drive share capture.",
+      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. Solana\u2019s [SOL] rise within the RWA sector unfolded as a sustained expansion rather than a one-time liquidity spike. Distributed value climbed to $1.7 billion by the 23rd of February, marking a 46% monthly surge. Solana\u2019s RWA expansion reflects a product-led acceleration rather than diffuse capital inflows. Distributed value climbed to roughly $1.71 billion by the 23rd of February,\u00a0anchored by treasury dominance. At the same time, nearby ecosystems took advantage of the extra resources, as increased processing speed and lower costs boosted trading and investment activities. At the same time, the memecoin ecosystem gained advantages because more money was moving around, more users were joining, and lower costs made it easier to trade.",
+      "categories": [
+        "DeFi",
+        "Macro"
+      ],
+      "sentiment": "positive",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": []
+    },
+    {
+      "id": "412598860784",
+      "title": "Crypto Price Prediction Today 23 February \u2013 XRP, Solana, Shiba Inu",
+      "url": "https://cryptonews.com/news/crypto-price-prediction-today-23-february-xrp-solana-shiba-inu/",
+      "source": "CryptoNews",
+      "published": "Mon, 23 Feb 2026 22:35:00 +0000",
+      "image": "https://cimg.co/wp-content/uploads/2026/02/23095850/cryptopricefeb23_optimized.jpg",
+      "teaser": "Bitcoin&#8217;s failure to achieve a price breakthrough has kept the crypto market in a state of suspense. Below is an overview of the dominant media",
+      "content": "Bitcoin&#8217;s failure to achieve a price breakthrough has kept the crypto market in a state of suspense. Below is an overview of the dominant media",
+      "categories": [
+        "Market",
+        "Macro",
+        "Meme",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 50,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "183538825486"
+      ]
+    },
+    {
+      "id": "144871303407",
       "title": "Solana: 67% of total supply now staked \u2013 SOL price squeeze possible IF\u2026",
       "url": "https://ambcrypto.com/solana-67-of-total-supply-now-staked-sol-price-squeeze-possible-if/",
       "source": "AMB Crypto",
@@ -569,7 +636,7 @@
       "related": []
     },
     {
-      "id": "258534912184",
+      "id": "641889279258",
       "title": "Pantera-backed Solana Company kicks off APAC staking infrastructure buildout",
       "url": "https://www.theblock.co/post/390851/pantera-solana-company-apac-staking-infrastructure-buildout?utm_source=rss&utm_medium=rss",
       "source": "The Block",
@@ -588,36 +655,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "417598054572"
+        "574313512176",
+        "304231860400"
       ]
     },
     {
-      "id": "770158791742",
-      "title": "South Korea\u2019s Hanwha taps Jito Foundation for liquidity staking ETPs",
-      "url": "https://www.theblock.co/post/390769/south-korea-hanwha-jito?utm_source=rss&utm_medium=rss",
-      "source": "The Block",
-      "published": "Mon, 23 Feb 2026 05:12:14 -0500",
-      "image": "https://www.tbstat.com/wp/uploads/2024/02/20240220_SouthKorea_News-800x450.jpg",
-      "teaser": "Hanwha Asset Management has partnered with the Jito Foundation to explore JitoSOL-based exchange-traded products in South Korea.",
-      "content": "This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.",
-      "categories": [
-        "DeFi",
-        "Validator",
-        "Market"
-      ],
-      "sentiment": "neutral",
-      "breaking": false,
-      "watchlist_matches": [
-        "Jito"
-      ],
-      "reading_time": 1,
-      "quality_score": 50,
-      "ai_summary": "",
-      "key_takeaways": [],
-      "related": []
-    },
-    {
-      "id": "508663453371",
+      "id": "866819155958",
       "title": "Leading AI Claude Predicts the Price of XRP, Solana and Dogecoin By the End of 2026",
       "url": "https://cryptonews.com/news/leading-ai-claude-predicts-the-price-of-xrp-solana-and-dogecoin-by-the-end-of-2026/",
       "source": "CryptoNews",
@@ -638,83 +681,63 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "460638789456"
+        "180651742230"
       ]
     },
     {
-      "id": "360319605945",
-      "title": "Whales Sold $60 Billion Worth of Bitcoin: Could This Trigger a Crash to $60,000?",
-      "url": "https://beincrypto.com/could-bitcoin-whale-selling-trigger-crash/",
-      "source": "BeInCrypto",
-      "published": "Mon, 23 Feb 2026 14:10:32 +0000",
-      "image": "https://assets.beincrypto.com/img/rPy1EGQ8xgp6ZJ_qKadLdQ4gYsg=/smart/2557b8e976c440f3a8623de5ed634ebe",
-      "teaser": "Bitcoin price is consolidating after recent volatility, trading within a neutral structure. The crypto king has struggled to establish a decisive tren",
-      "content": "While some holders\u2019 behavior appears stable, whale activity presents a contrasting dynamic. Since February 13, large holders have moved approximately 900,000 BTC, valued at $60 billion. This transfer activity suggests that significant capital may be preparing to exit positions following limited price appreciation. Bitcoin is trading at $66,188 at the time of writing after slipping below the $67,394 support level. The asset remains confined between $65,000 and $70,000. This consolidation range reflects ongoing equilibrium. A decisive breakout or breakdown will likely define the next major move in Bitcoin price. On-chain data indicates that younger holders are choosing to HODL rather than exit positions. HODL waves show that the supply held by investors aged one to three months has declined by 5%. This supply has matured into the three- to six-month cohort, signaling reduced short-term selling. Currently, Bitcoin remains rangebound, reflecting balanced pressure between buyers and sellers. This equilibrium suggests that investor behavior from here will likely determine the next directional move. Insights, news and analysis of the crypto market straight to your inbox",
+      "id": "574313512176",
+      "title": "Solana Company Maps Out \u2018Pacific Backbone\u2019 Roadmap to Boost Asia-Pacific Infrastructure",
+      "url": "https://news.bitcoin.com/solana-company-maps-out-pacific-backbone-roadmap-to-boost-asia-pacific-infrastructure/",
+      "source": "Bitcoin.com",
+      "published": "Tue, 24 Feb 2026 01:30:48 +0000",
+      "image": "",
+      "teaser": "Solana Company unveiled plans for the \u201cPacific Backbone,\u201d a high-speed infrastructure expansion across Asia-Pacific aimed at strengthening staking, va",
+      "content": "Solana Company unveiled plans for the \u201cPacific Backbone,\u201d a high-speed infrastructure expansion across Asia-Pacific aimed at strengthening staking, va",
       "categories": [
-        "Market",
+        "Validator",
         "Macro",
         "AI"
       ],
-      "sentiment": "negative",
-      "breaking": true,
+      "sentiment": "positive",
+      "breaking": false,
       "watchlist_matches": [],
       "reading_time": 1,
-      "quality_score": 50,
+      "quality_score": 30,
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "459802728644",
-        "911569179724",
-        "788458042565"
+        "304231860400",
+        "641889279258"
       ]
     },
     {
-      "id": "450086776051",
-      "title": "Binance Coin: Can BNB reclaim $600 or is $576 next?",
-      "url": "https://ambcrypto.com/binance-coin-can-bnb-reclaim-600-or-is-576-next/",
-      "source": "AMB Crypto",
-      "published": "Mon, 23 Feb 2026 16:00:11 +0000",
-      "image": "",
-      "teaser": "Binance Coin fell below its short term moving averages as holders panic sold",
-      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. Binance Coin further slipped and held below $600 amid intensified selling pressure. As a result, the altcoin\u2019s Relative Strength Index (RSI) fell deeper into the bearish territory at 30, closing into the oversold zone. The token broke below the $600 support, printing a low near $583 before a mild rebound. In doing so, BNB fell beneath its short-term 9 and 21 Moving Averages, reflecting sustained bearish pressure. If these sentiments persist, BNB could remain below $600, with $576 as critical support. However, if short-term sell pressure cools, BNB will see a daily close above $600 and flip $632 resistance. Historically, combined Spot selling and Futures deleveraging have aligned with extended downside phases. However, confirmation depends on sustained pressure rather than a single-day spike.",
+      "id": "582580568757",
+      "title": "Bitcoin Price Prediction: A Major Bitcoin Mining Company Just Sold All Its BTC \u2014 Should Investors Be Nervous?",
+      "url": "https://cryptonews.com/news/bitcoin-price-prediction-a-major-bitcoin-mining-company-just-sold-all-its-btc-should-investors-be-nervous/",
+      "source": "CryptoNews",
+      "published": "Mon, 23 Feb 2026 22:30:00 +0000",
+      "image": "https://cimg.co/wp-content/uploads/2026/02/23155117/1771861876-chatgpt-image-feb-23-2026-06_50_42-pm_optimized.jpg",
+      "teaser": "A major Bitcoin miner just wiped its balance sheet clean.Bitdeer has reduced its corporate Bitcoin holdings to zero, selling both newly mined coins an",
+      "content": "A major Bitcoin miner just wiped its balance sheet clean.Bitdeer has reduced its corporate Bitcoin holdings to zero, selling both newly mined coins an",
       "categories": [
-        "AI"
+        "Market",
+        "Macro"
       ],
-      "sentiment": "positive",
+      "sentiment": "negative",
       "breaking": false,
       "watchlist_matches": [],
       "reading_time": 1,
       "quality_score": 30,
       "ai_summary": "",
       "key_takeaways": [],
-      "related": []
+      "related": [
+        "327617508379",
+        "608574731792",
+        "223497575881"
+      ]
     },
     {
-      "id": "285212887879",
-      "title": "How to Choose a Reliable Solana Validator: Why It Matters for Every SOL Holder",
-      "url": "https://ambcrypto.com/how-to-choose-a-reliable-solana-validator-why-it-matters-for-every-sol-holder/",
-      "source": "AMB Crypto",
-      "published": "Mon, 23 Feb 2026 15:25:11 +0000",
-      "image": "",
-      "teaser": "Within the Solana ecosystem, staking remains one of the most efficient ways to participate in [&#8230;]",
-      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. &copy; 2026 AMBCrypto",
-      "categories": [
-        "Validator",
-        "AI"
-      ],
-      "sentiment": "positive",
-      "breaking": false,
-      "watchlist_matches": [
-        "validator"
-      ],
-      "reading_time": 1,
-      "quality_score": 30,
-      "ai_summary": "",
-      "key_takeaways": [],
-      "related": []
-    },
-    {
-      "id": "223019056790",
+      "id": "368451016345",
       "title": "Bitdeer CEO says bitcoin balance \u2018will not always be zero\u2019 as miner eyes land acquisitions after liquidating entire treasury",
       "url": "https://www.theblock.co/post/390785/bitdeer-ceo-says-bitcoin-balance-will-not-always-be-zero-as-miner-eyes-land-acquisitions-after-liquidating-entire-treasury?utm_source=rss&utm_medium=rss",
       "source": "The Block",
@@ -735,62 +758,33 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "662139831146"
+        "582580568757",
+        "582580568757"
       ]
     },
     {
-      "id": "226962429944",
-      "title": "Bitcoin ETFs Bleed $316 Million in 5th Straight Weekly Outflow",
-      "url": "https://news.bitcoin.com/bitcoin-etfs-bleed-316-million-in-5th-straight-weekly-outflow/",
-      "source": "Bitcoin.com",
-      "published": "Mon, 23 Feb 2026 15:15:02 +0000",
-      "image": "",
-      "teaser": "Bitcoin exchange-traded funds (ETFs) posted $316 million in weekly outflows, extending a five-week slide. Ether funds also remained under pressure, wh",
-      "content": "Bitcoin exchange-traded funds (ETFs) posted $316 million in weekly outflows, extending a five-week slide. Ether funds also remained under pressure, wh",
+      "id": "634537893850",
+      "title": "XRP Price Prediction: Pro-Ripple Lawyer Slams Sam Bankman-Fried Pardon \u2014 Could XRP React?",
+      "url": "https://cryptonews.com/news/xrp-price-prediction-pro-ripple-lawyer-slams-sam-bankman-fried-pardon-could-xrp-react/",
+      "source": "CryptoNews",
+      "published": "Mon, 23 Feb 2026 22:00:00 +0000",
+      "image": "https://cimg.co/wp-content/uploads/2026/02/23154822/1771861701-chatgpt-image-feb-23-2026-06_47_53-pm_optimized.jpg",
+      "teaser": "Pro-Ripple attorney John Deaton is not holding back.As renewed chatter about a potential pardon for Sam Bankman-Fried circulates, Deaton has sharply r",
+      "content": "Pro-Ripple attorney John Deaton is not holding back.As renewed chatter about a potential pardon for Sam Bankman-Fried circulates, Deaton has sharply r",
       "categories": [
         "Market",
-        "Macro",
         "AI"
       ],
       "sentiment": "positive",
-      "breaking": false,
+      "breaking": true,
       "watchlist_matches": [],
       "reading_time": 1,
-      "quality_score": 10,
+      "quality_score": 30,
       "ai_summary": "",
       "key_takeaways": [],
-      "related": [
-        "512509574717"
-      ]
-    },
-    {
-      "id": "459802728644",
-      "title": "Beneath the Surface: Why Bitcoin\u2019s Recovery Still Lacks Structural Confirmation",
-      "url": "https://news.bitcoin.com/beneath-the-surface-why-bitcoins-recovery-still-lacks-structural-confirmation/",
-      "source": "Bitcoin.com",
-      "published": "Mon, 23 Feb 2026 14:00:34 +0000",
-      "image": "",
-      "teaser": "Bitcoin is trading at $66,304 at 8:45 a.m. EST on Feb. 23, 2026, carving out a consolidation range after a violent macro unwind. The market is stabili",
-      "content": "Bitcoin is trading at $66,304 at 8:45 a.m. EST on Feb. 23, 2026, carving out a consolidation range after a violent macro unwind. The market is stabili",
-      "categories": [
-        "Market",
-        "Macro",
-        "AI"
-      ],
-      "sentiment": "positive",
-      "breaking": false,
-      "watchlist_matches": [],
-      "reading_time": 1,
-      "quality_score": 10,
-      "ai_summary": "",
-      "key_takeaways": [],
-      "related": [
-        "360319605945",
-        "634874309828",
-        "709738154078"
-      ]
+      "related": []
     }
   ],
-  "updated": "2026-02-23T22:00:19.658060",
+  "updated": "2026-02-24T05:00:19.734452",
   "count": 32
 }

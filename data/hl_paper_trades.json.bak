@@ -86,13 +86,11 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T10:15:01.494924",
       "status": "CLOSED",
-      "current_price": 0.865,
+      "current_price": 0.815,
       "price_change_24h": 0,
-      "pnl": -387.81,
-      "pnl_pct": -91.25,
-      "exit_price": 0.865,
-      "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:00.733277"
+      "pnl": -91.26,
+      "exit_price": 0.815,
+      "close_reason": "FORCE_CLOSE"
     },
     {
       "id": "paper_1771760701",
@@ -109,13 +107,11 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T11:45:01.681613",
       "status": "CLOSED",
-      "current_price": 0.1249,
+      "current_price": 0.1198,
       "price_change_24h": 0,
-      "pnl": -419.59,
-      "pnl_pct": -98.73,
-      "exit_price": 0.1249,
-      "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:01.015000"
+      "pnl": -98.73,
+      "exit_price": 0.1198,
+      "close_reason": "FORCE_CLOSE"
     },
     {
       "id": "paper_1771762501",
@@ -132,13 +128,11 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.289982",
       "status": "CLOSED",
-      "current_price": 0.907,
+      "current_price": 0.89,
       "price_change_24h": 0,
-      "pnl": -437.26,
-      "pnl_pct": -90.86,
-      "exit_price": 0.907,
-      "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:01.317551"
+      "pnl": -90.86,
+      "exit_price": 0.89,
+      "close_reason": "FORCE_CLOSE"
     },
     {
       "id": "paper_1771762501",
@@ -155,13 +149,11 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290024",
       "status": "CLOSED",
-      "current_price": 0.2738,
+      "current_price": 0.2652,
       "price_change_24h": 0,
-      "pnl": -181.29,
-      "pnl_pct": -39.2,
-      "exit_price": 0.2738,
-      "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:01.606321"
+      "pnl": -39.24,
+      "exit_price": 0.2652,
+      "close_reason": "FORCE_CLOSE"
     },
     {
       "id": "paper_1771762501",
@@ -178,13 +170,11 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290046",
       "status": "CLOSED",
-      "current_price": 6.12e-06,
+      "current_price": 5.92e-06,
       "price_change_24h": 0,
-      "pnl": -462.5,
-      "pnl_pct": -100.0,
-      "exit_price": 6.12e-06,
-      "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:01.896474"
+      "pnl": -100.0,
+      "exit_price": 5.92e-06,
+      "close_reason": "FORCE_CLOSE"
     },
     {
       "id": "paper_1771762501",
@@ -201,13 +191,11 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290070",
       "status": "CLOSED",
-      "current_price": 0.0953,
+      "current_price": 0.0924,
       "price_change_24h": 0,
-      "pnl": -439.55,
-      "pnl_pct": -99.05,
-      "exit_price": 0.0953,
-      "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:02.203038"
+      "pnl": -99.05,
+      "exit_price": 0.0924,
+      "close_reason": "FORCE_CLOSE"
     },
     {
       "id": "paper_1771762501",
@@ -224,13 +212,11 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290087",
       "status": "CLOSED",
-      "current_price": 8.73,
+      "current_price": 8.5,
       "price_change_24h": 0,
-      "pnl": -320.96,
-      "pnl_pct": -75.52,
-      "exit_price": 8.73,
-      "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:02.488445"
+      "pnl": -75.49,
+      "exit_price": 8.5,
+      "close_reason": "FORCE_CLOSE"
     },
     {
       "id": "paper_1771762501",
@@ -247,20 +233,41 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-22T12:15:01.290132",
       "status": "CLOSED",
-      "current_price": 1.015,
+      "current_price": 0.982,
       "price_change_24h": 0,
-      "pnl": -364.8,
-      "pnl_pct": -89.8,
-      "exit_price": 1.015,
+      "pnl": -89.81,
+      "exit_price": 0.982,
+      "close_reason": "FORCE_CLOSE"
+    },
+    {
+      "id": "paper_1771866641",
+      "coin": "XRP",
+      "side": "SELL",
+      "entry_price": 0.5513,
+      "size": 906.9232,
+      "notional": 500.0,
+      "confidence": "MEDIUM",
+      "score": 61,
+      "position_pct": 5.0,
+      "size_usdc": 500.0,
+      "kelly_fraction": 0.5,
+      "signal_source": "confluence",
+      "timestamp": "2026-02-23T17:10:41.743965",
+      "status": "CLOSED",
+      "current_price": 1.353,
+      "price_change_24h": 0,
+      "pnl": -727.08,
+      "pnl_pct": -145.42,
+      "exit_price": 1.353,
       "close_reason": "STOP_LOSS",
-      "exit_timestamp": "2026-02-23T13:06:02.770554"
+      "exit_timestamp": "2026-02-23T21:05:20.745451"
     }
   ],
   "summary": {
-    "total_trades": 12,
+    "total_trades": 13,
     "open_trades": 9,
-    "closed_trades": 3,
-    "win_rate": 66.7,
-    "total_pnl": 1.82
+    "closed_trades": 4,
+    "win_rate": 75.0,
+    "total_pnl": 8.05
   }
 }
