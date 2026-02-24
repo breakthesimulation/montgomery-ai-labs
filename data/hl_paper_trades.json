@@ -252,165 +252,165 @@
       "coin": "BTC",
       "side": "BUY",
       "entry_price": 63163.99,
-      "current_price": 64028.16,
+      "current_price": 64198.34,
       "size": 0.003166,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": 1.37,
-      "pnl": 2.74
+      "pnl_pct": 1.64,
+      "pnl": 3.27
     },
     {
       "id": "ETH-1771920576",
       "coin": "ETH",
       "side": "BUY",
       "entry_price": 1824.02,
-      "current_price": 1848.53,
+      "current_price": 1860.3,
       "size": 0.109648,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": 1.34,
-      "pnl": 2.69
+      "pnl_pct": 1.99,
+      "pnl": 3.98
     },
     {
       "id": "SOL-1771920576",
       "coin": "SOL",
       "side": "BUY",
       "entry_price": 76.71,
-      "current_price": 78.26,
+      "current_price": 79.02,
       "size": 2.607222,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": 2.02,
-      "pnl": 4.04
+      "pnl_pct": 3.01,
+      "pnl": 6.02
     },
     {
       "id": "XRP-1771920576",
       "coin": "XRP",
       "side": "SELL",
       "entry_price": 1.325,
-      "current_price": 1.3529,
+      "current_price": 1.3575,
       "size": 150.943396,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": -2.11,
-      "pnl": -4.21
+      "pnl_pct": -2.45,
+      "pnl": -4.91
     },
     {
       "id": "HBAR-1771920576",
       "coin": "HBAR",
       "side": "BUY",
       "entry_price": 0.0933,
-      "current_price": 0.09548,
+      "current_price": 0.09594,
       "size": 2144.54214,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": 2.34,
-      "pnl": 4.68
+      "pnl_pct": 2.83,
+      "pnl": 5.66
     },
     {
       "id": "ATOM-1771920576",
       "coin": "ATOM",
       "side": "BUY",
       "entry_price": 2.055,
-      "current_price": 1.99,
+      "current_price": 2.001,
       "size": 97.323601,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": -3.16,
-      "pnl": -6.33
+      "pnl_pct": -2.63,
+      "pnl": -5.26
     },
     {
       "id": "WIF-1771920576",
       "coin": "WIF",
       "side": "BUY",
       "entry_price": 0.198,
-      "current_price": 0.195,
+      "current_price": 0.196,
       "size": 1010.10101,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": -1.52,
-      "pnl": -3.03
+      "pnl_pct": -1.01,
+      "pnl": -2.02
     },
     {
       "id": "ADA-1771920576",
       "coin": "ADA",
       "side": "BUY",
       "entry_price": 0.2573,
-      "current_price": 0.2593,
+      "current_price": 0.2602,
       "size": 777.302759,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": 0.78,
-      "pnl": 1.55
+      "pnl_pct": 1.13,
+      "pnl": 2.25
     },
     {
       "id": "AVAX-1771920576",
       "coin": "AVAX",
       "side": "BUY",
       "entry_price": 8.26,
-      "current_price": 8.29,
+      "current_price": 8.34,
       "size": 24.213075,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": 0.36,
-      "pnl": 0.73
+      "pnl_pct": 0.97,
+      "pnl": 1.94
     },
     {
       "id": "NEAR-1771920576",
       "coin": "NEAR",
       "side": "BUY",
       "entry_price": 0.971,
-      "current_price": 0.968,
+      "current_price": 0.973,
       "size": 205.973223,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": -0.31,
-      "pnl": -0.62
+      "pnl_pct": 0.21,
+      "pnl": 0.41
     },
     {
       "id": "LINK-1771920576",
       "coin": "LINK",
       "side": "BUY",
       "entry_price": 8.13,
-      "current_price": 8.18,
+      "current_price": 8.23,
       "size": 24.600246,
       "status": "OPEN",
       "opened_at": "2026-02-24T08:09:36.652149+00:00",
       "timestamp": "2026-02-24T08:09:36.652149+00:00",
       "stop_loss_pct": 3.0,
       "take_profit_pct": 6.0,
-      "pnl_pct": 0.62,
-      "pnl": 1.23
+      "pnl_pct": 1.23,
+      "pnl": 2.46
     },
     {
       "id": "paper_1771926649",
@@ -427,10 +427,10 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-24T09:50:49.600502",
       "status": "OPEN",
-      "current_price": 0.09167,
+      "current_price": 0.09216,
       "price_change_24h": 0,
-      "pnl": 73.18,
-      "pnl_pct": 16.48
+      "pnl": 75.94,
+      "pnl_pct": 17.1
     },
     {
       "id": "paper_1771926649",
@@ -539,10 +539,10 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-24T13:03:53.880769",
       "status": "OPEN",
-      "current_price": 584.74,
+      "current_price": 586.37,
       "price_change_24h": 0,
-      "pnl": 323.2,
-      "pnl_pct": 79.56
+      "pnl": 325.24,
+      "pnl_pct": 80.06
     },
     {
       "id": "paper_1771941998",
@@ -582,10 +582,10 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-24T14:16:33.503641",
       "status": "OPEN",
-      "current_price": 0.88,
+      "current_price": 0.886,
       "price_change_24h": -3.67,
-      "pnl": 7.22,
-      "pnl_pct": 1.5
+      "pnl": 10.55,
+      "pnl_pct": 2.19
     },
     {
       "id": "paper_1771942594",
@@ -602,10 +602,10 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-24T14:16:34.134224",
       "status": "OPEN",
-      "current_price": 1.239,
+      "current_price": 1.242,
       "price_change_24h": -5.24,
-      "pnl": 3.25,
-      "pnl_pct": 0.73
+      "pnl": 4.33,
+      "pnl_pct": 0.98
     },
     {
       "id": "paper_1771942599",
@@ -622,10 +622,10 @@
       "signal_source": "confluence",
       "timestamp": "2026-02-24T14:16:39.476923",
       "status": "OPEN",
-      "current_price": 0.0921,
+      "current_price": 0.0929,
       "price_change_24h": 0,
-      "pnl": 9.43,
-      "pnl_pct": 2.22
+      "pnl": 13.21,
+      "pnl_pct": 3.11
     }
   ],
   "last_price_update": "2026-02-24T08:09:50.483022+00:00",
