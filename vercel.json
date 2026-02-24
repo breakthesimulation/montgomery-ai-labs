@@ -1,6 +1,7 @@
 {
-  "outputDirectory": ".",
   "rewrites": [
+    { "source": "/api/news.json", "destination": "/api/news.json" },
+    { "source": "/api/leaders.json", "destination": "/api/leaders.json" },
     { "source": "/api/:path*", "destination": "/api/proxy?path=:path*" }
   ]
 }
