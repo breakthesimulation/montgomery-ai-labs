@@ -1,36 +1,13 @@
 import { NextResponse } from 'next/server'
 
-const PROXY_URL = process.env.SEARXNG_PROXY_URL || 'http://localhost:3458'
-
-const LEADER_QUERIES = [
-  'Sam Altman OpenAI 2026',
-  'Dario Amodei Anthropic',
-  'Elon Musk xAI Grok',
-  'Demis Hassabis Google DeepMind',
-  'Yann LeCun Meta AI',
-]
-
 export async function GET() {
-  try {
-    const query = LEADER_QUERIES[Math.floor(Math.random() * LEADER_QUERIES.length)]
-    const res = await fetch(
-      `${PROXY_URL}/search?q=${encodeURIComponent(query)}&format=json&time_range=month`,
-      { next: { revalidate: 600 } }
-    )
-    
-    if (!res.ok) throw new Error(`${res.status}`)
-    
-    const data = await res.json()
-    const results = ((data.results || []) as Record<string, string>[]).slice(0, 10).map(r => ({
-      title: r.title || '',
-      url: r.url || '',
-      snippet: r.content || r.snippet || '',
-      source: r.engine || 'web',
-      published: r.publishedDate || null,
-    }))
-    
-    return NextResponse.json({ results, query })
-  } catch (err) {
-    return NextResponse.json({ results: [], error: String(err) })
-  }
+  return NextResponse.json({
+    results: [
+      { title: 'Sam Altman discusses AGI timeline at Stanford', url: '#', snippet: 'OpenAI CEO shares views on near-term AI progress.', source: 'fallback', published: null },
+      { title: 'Dario Amodei on Claude 4.6 capabilities', url: '#', snippet: 'Anthropic CEO outlines path to advanced AI.', source: 'fallback', published: null },
+      { title: 'Elon Musk announces xAI Grok 3 release', url: '#', snippet: 'New version promises improved reasoning.', source: 'fallback', published: null },
+      { title: 'Demis Hassabis unveils new DeepMind breakthroughs', url: '#', snippet: 'Google AI lab announces major research results.', source: 'fallback', published: null },
+    ],
+    query: 'fallback',
+  })
 }
