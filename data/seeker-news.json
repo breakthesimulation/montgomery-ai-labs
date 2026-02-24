@@ -1,7 +1,7 @@
 {
   "articles": [
     {
-      "id": "423209462477",
+      "id": "679194923188",
       "title": "Solana futures data shows panicked bulls: Will $80 SOL hold?",
       "url": "https://cointelegraph.com/news/solana-futures-data-shows-panicked-bulls-will-80-sol-hold?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -24,7 +24,7 @@
       "related": []
     },
     {
-      "id": "587515294563",
+      "id": "465746582344",
       "title": "Zora debuts attention markets on Solana, betting on social trends",
       "url": "https://cointelegraph.com/news/zora-launches-attention-markets-solana?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -46,7 +46,32 @@
       "related": []
     },
     {
-      "id": "741919692135",
+      "id": "387390330345",
+      "title": "Polymarket bettors put $3 million on which crypto firm ZachXBT will expose next",
+      "url": "https://www.coindesk.com/markets/2026/02/24/polymarket-bettors-put-usd3-million-on-which-crypto-firm-zachxbt-will-expose-next",
+      "source": "CoinDesk",
+      "published": "Tue, 24 Feb 2026 06:37:31 +0000",
+      "image": "https://cdn.sanity.io/images/s3y3vcno/production/56a4c15b5193f534a64f932d3e14fdd33fafac55-1919x1080.jpg?fm=jpg&w=1920&h=1080&crop=focalpoint&fit=clip",
+      "teaser": "Solana app Meteora leads the odds at 43% after the blockchain investigator teased a \"major\" insider-trading probe set for release on Wednesday.",
+      "content": "Polymarket is a blockchain-based prediction platform where users trade contracts on real-world outcomes using real money. The odds tend to reflect genuine conviction because bettors risk capital rather than just opinions. The platform gained mainstream credibility during the 2024 U.S. election cycle and has since become crypto&#x27;s de facto sentiment gauge for unresolved events. As of Asian morning hours Tuesday, Meteora is the heavy favorite at 43%, with $319,000 in volume on that outcome alone. The Solana-based liquidity layer has been a recurring name in community discussions around meme coin market structure \u2014 particularly around how launch liquidity gets seeded and who ends up on the right side of early price moves.  The odds have shifted notably since the market opened. Axiom, Pump.fun, and Jupiter have all fallen 37-42% from their initial readings, while Meteora has consolidated its lead \u2014 a pattern that suggests early speculation has given way to more directional conviction as bettors parse ZachXBT&#x27;s prior work and posting patterns for clues. Axiom sits at 13%, followed by Pump.fun at 12% with the highest single-outcome volume at $332,000 \u2014 suggesting heavy two-way action rather than consensus. Pump.fun&#x27;s inclusion tracks with months of scrutiny over early-wallet sniping on the platform, though the project has denied allegations of insider advantages. Jupiter rounds out at 8% and MEXC at 7%. Jupiter&#x27;s presence reflects broader questions about Solana DeFi routing and fee extraction, while MEXC has faced persistent social media chatter about listing behavior and whale-friendly timing on meme coin markets.",
+      "categories": [
+        "Market",
+        "AI"
+      ],
+      "sentiment": "neutral",
+      "breaking": false,
+      "watchlist_matches": [],
+      "reading_time": 1,
+      "quality_score": 90,
+      "ai_summary": "",
+      "key_takeaways": [],
+      "related": [
+        "743583184064",
+        "120567335008"
+      ]
+    },
+    {
+      "id": "836110369980",
       "title": "Solana treasuries sitting on over $1.5B in paper SOL losses",
       "url": "https://cointelegraph.com/news/solana-treasury-firms-unrealized-losses-equity-repricing?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -67,7 +92,7 @@
       "related": []
     },
     {
-      "id": "734018874808",
+      "id": "624421928632",
       "title": "Solana Company starts building high-speed infrastructure to prepare SOL for next 'super cycle'",
       "url": "https://www.coindesk.com/business/2026/02/23/solana-company-starts-building-high-speed-infrastructure-to-prepare-sol-for-next-super-cycle",
       "source": "CoinDesk",
@@ -88,12 +113,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "641029409579",
-        "246794994945"
+        "434976533487",
+        "162716898004"
       ]
     },
     {
-      "id": "258375884354",
+      "id": "192681033459",
       "title": "AI agent sends $441K in tokens after decimal error",
       "url": "https://cointelegraph.com/news/openai-employee-s-ai-agent-accidentally-sent-442k-to-beggar?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -115,7 +140,7 @@
       "related": []
     },
     {
-      "id": "210847309506",
+      "id": "120567335008",
       "title": "Crypto funds log fourth week of outflows at $173M as BTC dips below $70K",
       "url": "https://cointelegraph.com/news/crypto-etf-4-week-outflows-173-million-btc-below-70k?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -135,11 +160,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "769388512529"
+        "353653548183",
+        "387390330345"
       ]
     },
     {
-      "id": "574627679841",
+      "id": "130844454992",
       "title": "Is Solana headed to $50? These three charts show a textbook bear pattern",
       "url": "https://cointelegraph.com/news/is-solana-headed-to-50-dollars-three-charts-textbook-bear?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -158,13 +184,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "469514096276",
-        "469514096276",
-        "763925187091"
+        "336100849936",
+        "336100849936",
+        "556463361555"
       ]
     },
     {
-      "id": "135487923963",
+      "id": "201722635544",
       "title": "Anchorage, Kamino let institutions borrow against SOL without moving custody",
       "url": "https://cointelegraph.com/news/anchorage-kamino-institutions-borrow-against-sol-without-moving-custody?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -188,11 +214,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "240487837524"
+        "601946834974"
       ]
     },
     {
-      "id": "486741894791",
+      "id": "743583184064",
       "title": "3 Solana platforms to shutter following devastating $27M hack",
       "url": "https://cointelegraph.com/news/step-finance-solanafloor-remora-markets-wind-down-operations?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -211,11 +237,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "809238101636"
+        "864716709624",
+        "387390330345"
       ]
     },
     {
-      "id": "781776573029",
+      "id": "140340358151",
       "title": "Price predictions 2/18: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-18-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -235,13 +262,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "332313665573",
-        "498795940802",
-        "137863515825"
+        "728479746511",
+        "452935622482",
+        "412348720026"
       ]
     },
     {
-      "id": "152068190471",
+      "id": "522992530632",
       "title": "Price predictions 2/11: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-11-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -261,13 +288,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "332313665573",
-        "498795940802",
-        "781776573029"
+        "728479746511",
+        "452935622482",
+        "140340358151"
       ]
     },
     {
-      "id": "770463361189",
+      "id": "175426285326",
       "title": "ETH, SOL, XRP extend losses as AI scare trade unsettles risk markets",
       "url": "https://www.coindesk.com/markets/2026/02/24/eth-sol-xrp-extend-losses-as-ai-scare-trade-unsettles-risk-markets",
       "source": "CoinDesk",
@@ -290,7 +317,7 @@
       "related": []
     },
     {
-      "id": "769388512529",
+      "id": "353653548183",
       "title": "Crypto Funds Bleed Again: 5 Weeks of Outflows Show Deepening Investor Fatigue",
       "url": "https://cryptopotato.com/crypto-funds-bleed-again-5-weeks-of-outflows-show-deepening-investor-fatigue/",
       "source": "CryptoPotato",
@@ -309,11 +336,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "210847309506"
+        "120567335008"
       ]
     },
     {
-      "id": "415930553149",
+      "id": "713493617256",
       "title": "3 Token Unlocks to Watch in the Final Week of February 2026",
       "url": "https://beincrypto.com/crypto-token-unlocks-in-the-final-week-of-february-2026/",
       "source": "BeInCrypto",
@@ -335,12 +362,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "745568872496",
-        "745568872496"
+        "276379152654",
+        "276379152654"
       ]
     },
     {
-      "id": "332313665573",
+      "id": "728479746511",
       "title": "Price predictions 2/23: SPX, DXY, BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA",
       "url": "https://cointelegraph.com/news/price-predictions-2-23-spx-dxy-btc-eth-xrp-bnb-sol-doge-bch-ada?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -360,13 +387,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "498795940802",
-        "781776573029",
-        "137863515825"
+        "452935622482",
+        "140340358151",
+        "412348720026"
       ]
     },
     {
-      "id": "137863515825",
+      "id": "412348720026",
       "title": "Price predictions 2/16: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
       "url": "https://cointelegraph.com/news/price-predictions-2-16-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -387,13 +414,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "507510137162",
-        "507510137162",
-        "332313665573"
+        "249739047363",
+        "249739047363",
+        "728479746511"
       ]
     },
     {
-      "id": "859924471114",
+      "id": "287038565252",
       "title": "Price predictions 2/9: SPX, DXY, BTC, ETH, BNB, XRP, SOL, DOGE, ADA, BCH",
       "url": "https://cointelegraph.com/news/price-predictions-2-9-spx-dxy-btc-eth-bnb-xrp-sol-doge-ada-bch?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -413,13 +440,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "507510137162",
-        "507510137162",
-        "332313665573"
+        "249739047363",
+        "249739047363",
+        "728479746511"
       ]
     },
     {
-      "id": "498795940802",
+      "id": "452935622482",
       "title": "Price predictions 2/20: BTC, ETH, XRP, BNB, SOL, DOGE, BCH, ADA, HYPE, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-20-btc-eth-xrp-bnb-sol-doge-bch-ada-hype-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -440,13 +467,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "507510137162",
-        "507510137162",
-        "332313665573"
+        "249739047363",
+        "249739047363",
+        "728479746511"
       ]
     },
     {
-      "id": "492530223950",
+      "id": "553918817903",
       "title": "Price predictions 2/13: BTC, ETH, BNB, XRP, SOL, DOGE, BCH, HYPE, ADA, XMR",
       "url": "https://cointelegraph.com/news/price-predictions-2-13-btc-eth-bnb-xrp-sol-doge-bch-hype-ada-xmr?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -466,13 +493,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "507510137162",
-        "507510137162",
-        "332313665573"
+        "249739047363",
+        "249739047363",
+        "728479746511"
       ]
     },
     {
-      "id": "763925187091",
+      "id": "556463361555",
       "title": "SOL\u2019s path of least resistance tilts toward $50, but onchain data hints at bottom",
       "url": "https://cointelegraph.com/news/sol-s-path-of-least-resistance-tilts-toward-dollar50-but-onchain-data-hints-at-a-bottom?utm_source=rss_feed&utm_medium=rss_tag_solana&utm_campaign=rss_partner_inbound",
       "source": "Cointelegraph",
@@ -493,11 +520,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "574627679841"
+        "130844454992"
       ]
     },
     {
-      "id": "809238101636",
+      "id": "864716709624",
       "title": "Step Finance and SolanaFloor Shut Down After Devastating Hack",
       "url": "https://beincrypto.com/solana-early-pillars-step-finance-solanafloor-shut-down/",
       "source": "BeInCrypto",
@@ -517,11 +544,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "486741894791"
+        "743583184064"
       ]
     },
     {
-      "id": "240487837524",
+      "id": "601946834974",
       "title": "Crypto.com wins initial approval for U.S. federally regulated crypto custodian bank",
       "url": "https://www.coindesk.com/policy/2026/02/23/crypto-com-approved-for-u-s-federally-regulated-crypto-custodian-bank",
       "source": "CoinDesk",
@@ -541,11 +568,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "135487923963"
+        "201722635544"
       ]
     },
     {
-      "id": "735242696428",
+      "id": "192148442473",
       "title": "Solana (SOL) Price Alert: 95% Crash on the Way?",
       "url": "https://cryptopotato.com/solana-sol-price-alert-95-crash-on-the-way/",
       "source": "CryptoPotato",
@@ -566,7 +593,7 @@
       "related": []
     },
     {
-      "id": "137060625387",
+      "id": "239751457403",
       "title": "When Will Ripple\u2019s (XRP) Bull Run Resume? We Asked 4 AIs (And Their Answers Surprised Us)",
       "url": "https://cryptopotato.com/when-will-ripples-xrp-bull-run-resume-we-asked-4-ais-and-their-answers-surprised-us/",
       "source": "CryptoPotato",
@@ -588,7 +615,7 @@
       "related": []
     },
     {
-      "id": "908227025963",
+      "id": "915681110847",
       "title": "$1.7B in RWAs: Mapping Solana\u2019s treasury\u2011led institutional breakout",
       "url": "https://ambcrypto.com/1-7b-in-rwas-mapping-solanas-treasury-led-institutional-breakout/",
       "source": "AMB Crypto",
@@ -610,7 +637,7 @@
       "related": []
     },
     {
-      "id": "745568872496",
+      "id": "276379152654",
       "title": "Crypto Price Prediction Today 23 February \u2013 XRP, Solana, Shiba Inu",
       "url": "https://cryptonews.com/news/crypto-price-prediction-today-23-february-xrp-solana-shiba-inu/",
       "source": "CryptoNews",
@@ -632,34 +659,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "415930553149"
+        "713493617256"
       ]
     },
     {
-      "id": "576742853053",
-      "title": "Solana: 67% of total supply now staked \u2013 SOL price squeeze possible IF\u2026",
-      "url": "https://ambcrypto.com/solana-67-of-total-supply-now-staked-sol-price-squeeze-possible-if/",
-      "source": "AMB Crypto",
-      "published": "Mon, 23 Feb 2026 18:00:57 +0000",
-      "image": "",
-      "teaser": "Solana\u2019s locked supply forces a serious reassessment of liquidity dynamics.",
-      "content": "AMBCrypto's content is meant to be informational in nature and should not be interpreted as investment advice. Trading, buying or selling cryptocurrencies should be considered a high-risk investment and every reader is advised to do their own research before making any decisions. That shift moved the conversation beyond short-term price action. Liquidity compression emerged as the dominant theme. When supply contracts at scale, structural implications follow. Conviction appeared established. What remained was broader market strength and clearer macro direction. If liquidity returned, the setup could respond quickly. At the same time, Treasury Companies increased strategic allocations. Circulating supply tightened as more tokens moved into long-term holdings. Solana remained one of the market\u2019s most watched altcoins, drawing sustained attention from Wall Street and global investors.",
-      "categories": [
-        "DeFi",
-        "Validator",
-        "Market"
-      ],
-      "sentiment": "positive",
-      "breaking": false,
-      "watchlist_matches": [],
-      "reading_time": 1,
-      "quality_score": 50,
-      "ai_summary": "",
-      "key_takeaways": [],
-      "related": []
-    },
-    {
-      "id": "246794994945",
+      "id": "162716898004",
       "title": "Pantera-backed Solana Company kicks off APAC staking infrastructure buildout",
       "url": "https://www.theblock.co/post/390851/pantera-solana-company-apac-staking-infrastructure-buildout?utm_source=rss&utm_medium=rss",
       "source": "The Block",
@@ -678,12 +682,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "641029409579",
-        "734018874808"
+        "434976533487",
+        "624421928632"
       ]
     },
     {
-      "id": "469514096276",
+      "id": "336100849936",
       "title": "Leading AI Claude Predicts the Price of XRP, Solana and Dogecoin By the End of 2026",
       "url": "https://cryptonews.com/news/leading-ai-claude-predicts-the-price-of-xrp-solana-and-dogecoin-by-the-end-of-2026/",
       "source": "CryptoNews",
@@ -704,11 +708,11 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "574627679841"
+        "130844454992"
       ]
     },
     {
-      "id": "641029409579",
+      "id": "434976533487",
       "title": "Solana Company Maps Out \u2018Pacific Backbone\u2019 Roadmap to Boost Asia-Pacific Infrastructure",
       "url": "https://news.bitcoin.com/solana-company-maps-out-pacific-backbone-roadmap-to-boost-asia-pacific-infrastructure/",
       "source": "Bitcoin.com",
@@ -729,12 +733,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "734018874808",
-        "246794994945"
+        "624421928632",
+        "162716898004"
       ]
     },
     {
-      "id": "507510137162",
+      "id": "249739047363",
       "title": "Bitcoin Price Prediction: A Major Bitcoin Mining Company Just Sold All Its BTC \u2014 Should Investors Be Nervous?",
       "url": "https://cryptonews.com/news/bitcoin-price-prediction-a-major-bitcoin-mining-company-just-sold-all-its-btc-should-investors-be-nervous/",
       "source": "CryptoNews",
@@ -754,13 +758,13 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "498795940802",
-        "137863515825",
-        "492530223950"
+        "452935622482",
+        "412348720026",
+        "553918817903"
       ]
     },
     {
-      "id": "368538398094",
+      "id": "839934660856",
       "title": "Bitdeer CEO says bitcoin balance \u2018will not always be zero\u2019 as miner eyes land acquisitions after liquidating entire treasury",
       "url": "https://www.theblock.co/post/390785/bitdeer-ceo-says-bitcoin-balance-will-not-always-be-zero-as-miner-eyes-land-acquisitions-after-liquidating-entire-treasury?utm_source=rss&utm_medium=rss",
       "source": "The Block",
@@ -781,12 +785,12 @@
       "ai_summary": "",
       "key_takeaways": [],
       "related": [
-        "507510137162",
-        "507510137162"
+        "249739047363",
+        "249739047363"
       ]
     },
     {
-      "id": "632613829784",
+      "id": "873857592213",
       "title": "XRP Price Prediction: Pro-Ripple Lawyer Slams Sam Bankman-Fried Pardon \u2014 Could XRP React?",
       "url": "https://cryptonews.com/news/xrp-price-prediction-pro-ripple-lawyer-slams-sam-bankman-fried-pardon-could-xrp-react/",
       "source": "CryptoNews",
@@ -808,6 +812,6 @@
       "related": []
     }
   ],
-  "updated": "2026-02-24T06:00:23.120082",
+  "updated": "2026-02-24T08:00:20.816518",
   "count": 33
 }
