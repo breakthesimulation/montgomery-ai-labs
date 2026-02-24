@@ -1,7 +1,5 @@
 {
   "rewrites": [
-    { "source": "/api/ai-news", "destination": "/api/ai-news.json" },
-    { "source": "/api/ai-leaders", "destination": "/api/ai-leaders.json" },
     { "source": "/api/:path*", "destination": "/api/proxy?path=:path*" }
   ]
 }
