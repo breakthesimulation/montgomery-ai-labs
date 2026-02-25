@@ -2,53 +2,53 @@
   "prices": [
     {
       "coin": "BTC",
-      "price": 64450.08,
-      "change_24h_pct": 0.233
+      "price": 65116.59,
+      "change_24h_pct": 2.911
     },
     {
       "coin": "ETH",
-      "price": 1853.48,
-      "change_24h_pct": -0.19
+      "price": 1891.85,
+      "change_24h_pct": 3.376
     },
     {
       "coin": "SOL",
-      "price": 78.51,
-      "change_24h_pct": 0.217
+      "price": 82.17,
+      "change_24h_pct": 6.479
     },
     {
       "coin": "NEAR",
-      "price": 0.976,
-      "change_24h_pct": 0.515
+      "price": 0.991,
+      "change_24h_pct": 1.641
     },
     {
       "coin": "BNB",
-      "price": 588.84,
-      "change_24h_pct": -0.604
+      "price": 595.47,
+      "change_24h_pct": 0.925
     },
     {
       "coin": "XRP",
-      "price": 1.3563,
-      "change_24h_pct": -0.044
+      "price": 1.3661,
+      "change_24h_pct": 2.768
     },
     {
       "coin": "ADA",
-      "price": 0.2605,
-      "change_24h_pct": -0.535
+      "price": 0.2655,
+      "change_24h_pct": 2.987
     },
     {
       "coin": "AVAX",
-      "price": 8.36,
-      "change_24h_pct": -0.119
+      "price": 8.56,
+      "change_24h_pct": 3.632
     },
     {
       "coin": "LINK",
-      "price": 8.23,
-      "change_24h_pct": -0.121
+      "price": 8.46,
+      "change_24h_pct": 3.676
     },
     {
       "coin": "DOT",
-      "price": 1.246,
-      "change_24h_pct": -1.033
+      "price": 1.267,
+      "change_24h_pct": 1.198
     },
     {
       "coin": "MATIC",
@@ -57,63 +57,63 @@
     },
     {
       "coin": "UNI",
-      "price": 3.347,
-      "change_24h_pct": 0.571
+      "price": 3.477,
+      "change_24h_pct": 4.887
     },
     {
       "coin": "FIL",
-      "price": 0.886,
-      "change_24h_pct": 0.226
+      "price": 0.902,
+      "change_24h_pct": 2.968
     },
     {
       "coin": "OP",
-      "price": 0.1171,
-      "change_24h_pct": 0.085
+      "price": 0.1178,
+      "change_24h_pct": 0.598
     },
     {
       "coin": "ARB",
-      "price": 0.0929,
-      "change_24h_pct": 0.869
+      "price": 0.0925,
+      "change_24h_pct": 1.093
     },
     {
       "coin": "DOGE",
-      "price": 0.09209,
-      "change_24h_pct": -0.925
+      "price": 0.09269,
+      "change_24h_pct": 1.4
     },
     {
       "coin": "LTC",
-      "price": 51.7,
-      "change_24h_pct": 0.898
+      "price": 52.58,
+      "change_24h_pct": 3.443
     },
     {
       "coin": "ATOM",
-      "price": 2.007,
-      "change_24h_pct": -5.241
+      "price": 2.034,
+      "change_24h_pct": -0.877
     },
     {
       "coin": "APT",
-      "price": 0.827,
-      "change_24h_pct": 2.099
+      "price": 0.847,
+      "change_24h_pct": 5.479
     },
     {
       "coin": "HBAR",
-      "price": 0.09617,
-      "change_24h_pct": 1.746
+      "price": 0.09672,
+      "change_24h_pct": 3.4
     },
     {
       "coin": "BONK",
-      "price": 5.83e-06,
-      "change_24h_pct": -0.342
+      "price": 5.84e-06,
+      "change_24h_pct": 1.565
     },
     {
       "coin": "JUP",
-      "price": 0.1452,
-      "change_24h_pct": 0.763
+      "price": 0.1469,
+      "change_24h_pct": 3.16
     },
     {
       "coin": "INJ",
-      "price": 3.17,
-      "change_24h_pct": -5.486
+      "price": 3.145,
+      "change_24h_pct": -1.903
     },
     {
       "coin": "RNDR",
@@ -122,9 +122,9 @@
     },
     {
       "coin": "SUI",
-      "price": 0.8689,
-      "change_24h_pct": -0.149
+      "price": 0.8756,
+      "change_24h_pct": 1.767
     }
   ],
-  "updated": "2026-02-24T20:01:08.467514"
+  "updated": "2026-02-25T07:30:10.180523"
 }
