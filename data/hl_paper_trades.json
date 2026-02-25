@@ -5,78 +5,78 @@
       "coin": "BTC",
       "side": "BUY",
       "entry_price": 65022.59,
-      "current_price": 65552.01,
+      "current_price": 65578.91,
       "size": 0.001538,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.81,
-      "pnl": 0.81
+      "pnl_pct": 0.86,
+      "pnl": 0.86
     },
     {
       "id": "ETH-fresh",
       "coin": "ETH",
       "side": "BUY",
       "entry_price": 1892.63,
-      "current_price": 1913.99,
+      "current_price": 1914.46,
       "size": 0.052837,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.99,
-      "pnl": 0.99
+      "pnl_pct": 1.15,
+      "pnl": 1.15
     },
     {
       "id": "SOL-fresh",
       "coin": "SOL",
       "side": "BUY",
       "entry_price": 82.13,
-      "current_price": 82.5,
+      "current_price": 82.62,
       "size": 1.217582,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.5,
-      "pnl": 0.5
+      "pnl_pct": 0.6,
+      "pnl": 0.6
     },
     {
       "id": "XRP-fresh",
       "coin": "XRP",
       "side": "SELL",
       "entry_price": 1.3658,
-      "current_price": 1.3788,
+      "current_price": 1.3815,
       "size": 73.217162,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": -0.79,
-      "pnl": -0.79
+      "pnl_pct": -1.15,
+      "pnl": -1.15
     },
     {
       "id": "ADA-fresh",
       "coin": "ADA",
       "side": "BUY",
       "entry_price": 0.2659,
-      "current_price": 0.2698,
+      "current_price": 0.2695,
       "size": 376.081234,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 1.2,
-      "pnl": 1.2
+      "pnl_pct": 1.35,
+      "pnl": 1.35
     },
     {
       "id": "DOGE-fresh",
       "coin": "DOGE",
       "side": "BUY",
       "entry_price": 0.0928,
-      "current_price": 0.09364,
+      "current_price": 0.09374,
       "size": 1077.818495,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.75,
-      "pnl": 0.75
+      "pnl_pct": 1.01,
+      "pnl": 1.01
     },
     {
       "id": "AVAX-fresh",
@@ -88,8 +88,8 @@
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.93,
-      "pnl": 0.93
+      "pnl_pct": 1.28,
+      "pnl": 1.28
     },
     {
       "id": "DOT-fresh",
@@ -101,8 +101,8 @@
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 1.66,
-      "pnl": 1.66
+      "pnl_pct": 1.89,
+      "pnl": 1.89
     },
     {
       "id": "LINK-fresh",
@@ -114,8 +114,8 @@
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.71,
-      "pnl": 0.71
+      "pnl_pct": 1.06,
+      "pnl": 1.06
     },
     {
       "id": "NEAR-fresh",
@@ -127,21 +127,21 @@
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 1.61,
-      "pnl": 1.61
+      "pnl_pct": 1.91,
+      "pnl": 1.91
     },
     {
       "id": "FIL-fresh",
       "coin": "FIL",
       "side": "BUY",
       "entry_price": 0.903,
-      "current_price": 0.914,
+      "current_price": 0.913,
       "size": 110.741971,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.89,
-      "pnl": 0.89
+      "pnl_pct": 1.11,
+      "pnl": 1.11
     },
     {
       "id": "ATOM-fresh",
@@ -153,15 +153,15 @@
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.69,
-      "pnl": 0.69
+      "pnl_pct": 1.03,
+      "pnl": 1.03
     },
     {
       "id": "WIF-fresh",
       "coin": "WIF",
       "side": "BUY",
       "entry_price": 0.196,
-      "current_price": 0.197,
+      "current_price": 0.198,
       "size": 510.204082,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
@@ -174,26 +174,26 @@
       "coin": "HBAR",
       "side": "BUY",
       "entry_price": 0.0968,
-      "current_price": 0.0977,
+      "current_price": 0.09781,
       "size": 1032.631144,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 0.74,
-      "pnl": 0.74
+      "pnl_pct": 1.04,
+      "pnl": 1.04
     },
     {
       "id": "UNI-fresh",
       "coin": "UNI",
       "side": "BUY",
       "entry_price": 3.5,
-      "current_price": 3.55,
+      "current_price": 3.544,
       "size": 28.571429,
       "status": "OPEN",
       "opened_at": "2026-02-25T07:57:10.987345+00:00",
       "timestamp": "2026-02-25T07:57:10.987345+00:00",
-      "pnl_pct": 1.23,
-      "pnl": 1.23
+      "pnl_pct": 1.26,
+      "pnl": 1.26
     }
   ]
 }
