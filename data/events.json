@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "date": "2026-02-24",
+        "title": "Solana ETF Decision",
+        "description": "SEC decision on Solana ETF applications from multiple issuers expected this week.",
+        "category": "news",
+        "time": "14:00 UTC",
+        "link": "https://www.sec.gov"
+    },
+    {
+        "id": 2,
+        "date": "2026-02-25",
+        "title": "Jupiter Aggregator - New Pairs",
+        "description": "Jupiter adding 50+ new trading pairs including new meme coins and DeFi tokens.",
+        "category": "defi",
+        "time": "16:00 UTC",
+        "link": "https://jup.ag"
+    },
+    {
+        "id": 3,
+        "date": "2026-02-26",
+        "title": "Solana Mobile - Saga 2 Announcement",
+        "description": "Expected announcement of Saga 2 phone with improved specs and DePIN features.",
+        "category": "hardware",
+        "time": "12:00 UTC",
+        "link": "https://solanamobile.com"
+    },
+    {
+        "id": 4,
+        "date": "2026-02-27",
+        "title": "Raydium - AMM Upgrade",
+        "description": "Raydium launching new concentrated liquidity pools with better capital efficiency.",
+        "category": "defi",
+        "time": "14:00 UTC",
+        "link": "https://raydium.io"
+    },
+    {
+        "id": 5,
+        "date": "2026-02-28",
+        "title": "Marinade Finance - Liquid Staking V2",
+        "description": "Major upgrade to mSOL staking with auto-compounding and reduced fees.",
+        "category": "defi",
+        "time": "10:00 UTC",
+        "link": "https://marinade.finance"
+    },
+    {
+        "id": 6,
+        "date": "2026-03-01",
+        "title": "Solana Breaker - Monthly Report",
+        "description": "Monthly network stats: TPS, uptime, fees, and validator performance.",
+        "category": "governance",
+        "time": "00:00 UTC",
+        "link": "https://solana.com"
+    },
+    {
+        "id": 7,
+        "date": "2026-03-05",
+        "title": "Solana Ecosystem Hackathon",
+        "description": "Online hackathon focusing on new DeFi and NFT solutions on Solana.",
+        "category": "hardware",
+        "time": "17:00 UTC",
+        "link": "https://solana.com/hackathon"
+    },
+    {
+        "id": 8,
+        "date": "2026-03-10",
+        "title": "Metaplex NFT Standard Update",
+        "description": "Release of new Metaplex standard with improved metadata and royalty features.",
+        "category": "nft",
+        "time": "13:00 UTC",
+        "link": "https://metaplex.com"
+    },
+    {
+        "id": 9,
+        "date": "2026-03-15",
+        "title": "Solana Governance Proposal - Inflation Adjustment",
+        "description": "Vote on adjusting the Solana inflation rate to optimize staking rewards.",
+        "category": "governance",
+        "time": "18:00 UTC",
+        "link": "https://solana.com/governance"
+    },
+    {
+        "id": 10,
+        "date": "2026-03-20",
+        "title": "Serum DEX - UI Overhaul",
+        "description": "Launch of redesigned Serum DEX interface with improved trading tools.",
+        "category": "defi",
+        "time": "11:00 UTC",
+        "link": "https://projectserum.com"
+    },
+    {
+        "id": 11,
+        "date": "2026-03-25",
+        "title": "Solana Conference - Breakpoint 2026 Announcement",
+        "description": "Announcement of the location and dates for Breakpoint 2026.",
+        "category": "news",
+        "time": "15:00 UTC",
+        "link": "https://solana.com/breakpoint"
+    }
+]
