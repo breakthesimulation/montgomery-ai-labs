@@ -1,10 +1,24 @@
 {
-  "timestamp": "2026-02-25T08:15:30.340046",
+  "timestamp": "2026-02-25T08:45:28.231007",
   "signals": [
     {
       "coin": "SOL",
-      "rsi": 68.1,
-      "score": 58,
+      "rsi": 70.8,
+      "score": 65,
+      "action": "SELL",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "Overbought (RSI > 70)",
+        "Strong confluence: 2/3",
+        "MACD (bullish) conflicts with RSI"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:05.427475"
+    },
+    {
+      "coin": "UNI",
+      "rsi": 65.0,
+      "score": 55,
       "action": "SELL",
       "confidence": "MEDIUM",
       "reasons": [
@@ -12,11 +26,11 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:05.589358"
+      "timestamp": "2026-02-25T08:45:16.573506"
     },
     {
-      "coin": "FIL",
-      "rsi": 63.5,
+      "coin": "ADA",
+      "rsi": 63.4,
       "score": 53,
       "action": "SELL",
       "confidence": "MEDIUM",
@@ -25,12 +39,12 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:26.288818"
+      "timestamp": "2026-02-25T08:45:08.979913"
     },
     {
-      "coin": "UNI",
-      "rsi": 61.8,
-      "score": 51,
+      "coin": "LINK",
+      "rsi": 63.1,
+      "score": 53,
       "action": "SELL",
       "confidence": "MEDIUM",
       "reasons": [
@@ -38,11 +52,63 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:17.703020"
+      "timestamp": "2026-02-25T08:45:15.064753"
     },
     {
       "coin": "LTC",
-      "rsi": 61.0,
+      "rsi": 63.4,
+      "score": 53,
+      "action": "SELL",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "Near overbought (RSI > 60)",
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:19.092950"
+    },
+    {
+      "coin": "ETH",
+      "rsi": 62.3,
+      "score": 52,
+      "action": "SELL",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "Near overbought (RSI > 60)",
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:04.398353"
+    },
+    {
+      "coin": "AVAX",
+      "rsi": 62.2,
+      "score": 52,
+      "action": "SELL",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "Near overbought (RSI > 60)",
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:11.510142"
+    },
+    {
+      "coin": "FIL",
+      "rsi": 62.4,
+      "score": 52,
+      "action": "SELL",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "Near overbought (RSI > 60)",
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:24.157894"
+    },
+    {
+      "coin": "NEAR",
+      "rsi": 61.4,
       "score": 51,
       "action": "SELL",
       "confidence": "MEDIUM",
@@ -51,47 +117,50 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:20.226571"
+      "timestamp": "2026-02-25T08:45:20.105000"
     },
     {
       "coin": "BTC",
-      "rsi": 55.8,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
+      "rsi": 60.1,
+      "score": 50,
+      "action": "SELL",
+      "confidence": "MEDIUM",
       "reasons": [
+        "Near overbought (RSI > 60)",
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:03.549691"
-    },
-    {
-      "coin": "ETH",
-      "rsi": 57.5,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:04.565957"
+      "timestamp": "2026-02-25T08:45:03.378414"
     },
     {
       "coin": "BNB",
-      "rsi": 58.0,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
+      "rsi": 60.9,
+      "score": 50,
+      "action": "SELL",
+      "confidence": "MEDIUM",
       "reasons": [
+        "Near overbought (RSI > 60)",
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:06.614786"
+      "timestamp": "2026-02-25T08:45:06.939762"
+    },
+    {
+      "coin": "JUP",
+      "rsi": 60.7,
+      "score": 50,
+      "action": "SELL",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "Near overbought (RSI > 60)",
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:28.230977"
     },
     {
       "coin": "XRP",
-      "rsi": 53.5,
+      "rsi": 57.0,
       "score": 40,
       "action": "HOLD",
       "confidence": "LOW",
@@ -99,10 +168,46 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:07.644815"
+      "timestamp": "2026-02-25T08:45:07.959925"
     },
     {
-      "coin": "ADA",
+      "coin": "DOGE",
+      "rsi": 57.1,
+      "score": 40,
+      "action": "HOLD",
+      "confidence": "LOW",
+      "reasons": [
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:09.996827"
+    },
+    {
+      "coin": "DOT",
+      "rsi": 59.3,
+      "score": 40,
+      "action": "HOLD",
+      "confidence": "LOW",
+      "reasons": [
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:12.530345"
+    },
+    {
+      "coin": "ATOM",
+      "rsi": 46.1,
+      "score": 40,
+      "action": "HOLD",
+      "confidence": "LOW",
+      "reasons": [
+        "Strong confluence: 2/3"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:18.079562"
+    },
+    {
+      "coin": "APT",
       "rsi": 59.8,
       "score": 40,
       "action": "HOLD",
@@ -111,107 +216,23 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:08.658887"
-    },
-    {
-      "coin": "DOGE",
-      "rsi": 52.0,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:09.672082"
-    },
-    {
-      "coin": "AVAX",
-      "rsi": 58.2,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:11.179645"
-    },
-    {
-      "coin": "DOT",
-      "rsi": 51.7,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:12.195069"
-    },
-    {
-      "coin": "LINK",
-      "rsi": 58.5,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:15.701465"
-    },
-    {
-      "coin": "ATOM",
-      "rsi": 45.4,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:18.714800"
-    },
-    {
-      "coin": "NEAR",
-      "rsi": 57.7,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:21.733018"
-    },
-    {
-      "coin": "APT",
-      "rsi": 59.0,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:22.750536"
+      "timestamp": "2026-02-25T08:45:21.118779"
     },
     {
       "coin": "ARB",
-      "rsi": 52.2,
+      "rsi": 53.3,
       "score": 40,
       "action": "HOLD",
       "confidence": "LOW",
       "reasons": [
         "Strong confluence: 2/3"
       ],
-      "macd_signal": "bearish",
-      "timestamp": "2026-02-25T08:15:24.257785"
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:22.132525"
     },
     {
       "coin": "HBAR",
-      "rsi": 57.1,
+      "rsi": 59.4,
       "score": 40,
       "action": "HOLD",
       "confidence": "LOW",
@@ -219,11 +240,11 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:27.300534"
+      "timestamp": "2026-02-25T08:45:25.173569"
     },
     {
       "coin": "BONK",
-      "rsi": 52.8,
+      "rsi": 55.3,
       "score": 40,
       "action": "HOLD",
       "confidence": "LOW",
@@ -231,11 +252,11 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:28.313610"
+      "timestamp": "2026-02-25T08:45:26.190430"
     },
     {
       "coin": "WIF",
-      "rsi": 45.6,
+      "rsi": 48.2,
       "score": 40,
       "action": "HOLD",
       "confidence": "LOW",
@@ -243,19 +264,7 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:29.330001"
-    },
-    {
-      "coin": "JUP",
-      "rsi": 57.1,
-      "score": 40,
-      "action": "HOLD",
-      "confidence": "LOW",
-      "reasons": [
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:30.340029"
+      "timestamp": "2026-02-25T08:45:27.209376"
     },
     {
       "coin": "MATIC",
@@ -268,11 +277,11 @@
         "Low volume (LOW)"
       ],
       "macd_signal": "bearish",
-      "timestamp": "2026-02-25T08:15:13.209238"
+      "timestamp": "2026-02-25T08:45:14.043543"
     },
     {
       "coin": "OP",
-      "rsi": 46.4,
+      "rsi": 47.7,
       "score": 35,
       "action": "HOLD",
       "confidence": "LOW",
@@ -281,14 +290,28 @@
         "Low volume (LOW)"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:25.274905"
+      "timestamp": "2026-02-25T08:45:23.142739"
     }
   ],
   "top_3": [
     {
       "coin": "SOL",
-      "rsi": 68.1,
-      "score": 58,
+      "rsi": 70.8,
+      "score": 65,
+      "action": "SELL",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "Overbought (RSI > 70)",
+        "Strong confluence: 2/3",
+        "MACD (bullish) conflicts with RSI"
+      ],
+      "macd_signal": "bullish",
+      "timestamp": "2026-02-25T08:45:05.427475"
+    },
+    {
+      "coin": "UNI",
+      "rsi": 65.0,
+      "score": 55,
       "action": "SELL",
       "confidence": "MEDIUM",
       "reasons": [
@@ -296,11 +319,11 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:05.589358"
+      "timestamp": "2026-02-25T08:45:16.573506"
     },
     {
-      "coin": "FIL",
-      "rsi": 63.5,
+      "coin": "ADA",
+      "rsi": 63.4,
       "score": 53,
       "action": "SELL",
       "confidence": "MEDIUM",
@@ -309,20 +332,7 @@
         "Strong confluence: 2/3"
       ],
       "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:26.288818"
-    },
-    {
-      "coin": "UNI",
-      "rsi": 61.8,
-      "score": 51,
-      "action": "SELL",
-      "confidence": "MEDIUM",
-      "reasons": [
-        "Near overbought (RSI > 60)",
-        "Strong confluence: 2/3"
-      ],
-      "macd_signal": "bullish",
-      "timestamp": "2026-02-25T08:15:17.703020"
+      "timestamp": "2026-02-25T08:45:08.979913"
     }
   ]
 }
