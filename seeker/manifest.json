@@ -1,17 +1,15 @@
 {
-  "name": "Solana Seeker",
-  "short_name": "Seeker",
-  "description": "Your Solana news digest",
-  "start_url": "/seeker/index.html",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#0A84FF",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A84FF'/><text x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' text-anchor='middle' fill='white'>S</text></svg>",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    }
-  ]
+    "name": "Solana Seeker",
+    "short_name": "Solana Seeker",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#7bffb1",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }
