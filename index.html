@@ -3,110 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Montgomery AI | Trading System</title>
+  <title>Montgomery AI Labs</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #121217;
-      --bg-secondary: #1e1e24;
-      --accent: #7bffb1;
-      --text-primary: #ffffff;
-      --text-secondary: #d4d4d8;
-      --text-tertiary: #a1a1aa;
+      --bg-primary: #121217; /* Dark background */
+      --bg-secondary: #1e1e24; /* Card background */
+      --accent-green: #7bffb1; /* Green accent */
+      --accent-purple: #9945FF; /* Purple gradient */
+      --text-primary: #ffffff; /* Primary text color */
+      --text-secondary: #d4d4d8; /* Secondary text color */
+      --glass-bg: rgba(255, 255, 255, 0.05); /* Glassmorphism background */
+      --glass-border: rgba(255, 255, 255, 0.1); /* Glassmorphism border */
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       background: var(--bg-primary);
       color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      padding: 60px 20px;
+      font-family: 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
-    .container { max-width: 900px; margin: 0 auto; }
-    h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
-    h1 span { color: var(--accent); }
-    .subtitle { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 40px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, rgba(153, 69, 255, 0.1), rgba(123, 255, 177, 0.1)); /* Subtle gradient */
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Navigation Grid */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
     .card {
-      background: var(--bg-secondary);
-      border: 1px solid rgba(123,255,177,0.1);
-      border-radius: 12px;
-      padding: 24px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 30px;
       text-decoration: none;
       color: var(--text-primary);
-      transition: all 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      backdrop-filter: blur(10px); /* Glassmorphism blur */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     }
-    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--accent); }
-    .card p { color: var(--text-secondary); font-size: 0.9rem; }
-    .card .icon { font-size: 1.5rem; margin-bottom: 12px; }
-    footer { margin-top: 60px; color: var(--text-tertiary); font-size: 0.85rem; }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--accent-green);
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Ticker */
+    .ticker-container {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: #0a0a0f;
+    }
+
+    .ticker-container iframe {
+      border: none;
+      display: block;
+      width: 100%;
+      height: 52px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr; /* Stack cards on small screens */
+      }
+    }
   </style>
 </head>
-<div style="position:sticky;top:0;z-index:200;background:#0a0a0f;">
-    <iframe src="/ticker.html" width="100%" height="52" frameborder="0" scrolling="no" style="border:none;display:block;"></iframe>
-  </div>
 <body>
+
+  <div class="ticker-container">
+    <iframe src="/ticker.html" frameborder="0" scrolling="no"></iframe>
+  </div>
+
+  <div class="hero">
+    <h1>Montgomery AI Labs</h1>
+    <p>Algorithmic Trading Systems and AI Research</p>
+  </div>
+
   <div class="container">
-    <h1>Montgomery <span>AI</span></h1>
-    <p class="subtitle">Algorithmic Trading System</p>
-    
     <div class="grid">
       <a href="/dashboard.html" class="card">
-        <div class="icon">📈</div>
+        <span class="icon">📈</span>
         <h3>Dashboard</h3>
         <p>Live trading positions, P/L, and market data</p>
       </a>
-      
+
       <a href="/seeker/index.html" class="card">
-        <div class="icon">🔮</div>
+        <span class="icon">🔮</span>
         <h3>Solana Seeker</h3>
         <p>AI-curated news feed with digest summaries</p>
       </a>
-      
+
       <a href="/screener.html" class="card">
-        <div class="icon">🎯</div>
+        <span class="icon">🎯</span>
         <h3>Screener</h3>
         <p>Stock & crypto signals with RSI analysis</p>
       </a>
-      
+
       <a href="/positions.html" class="card">
-        <div class="icon">💼</div>
+        <span class="icon">💼</span>
         <h3>Positions</h3>
         <p>Current open positions and recent trades</p>
       </a>
-      
+
       <a href="/daily-report.html" class="card">
-      <div class="icon">📋</div>
-      <h3>Daily Report</h3>
-      <p>Today's trade summary, P/L, and signals</p>
-    </a>
+        <span class="icon">📋</span>
+        <h3>Daily Report</h3>
+        <p>Today's trade summary, P/L, and signals</p>
+      </a>
 
-    <a href="/calendar.html" class="card">
-      <div class="icon">📅</div>
-      <h3>Calendar</h3>
-      <p>Solana network events and upgrades</p>
-    </a>
+      <a href="/calendar.html" class="card">
+        <span class="icon">📅</span>
+        <h3>Calendar</h3>
+        <p>Solana network events and upgrades</p>
+      </a>
 
-    <a href="/heatmap.html</a>
-    <a href="/calendar.html">Calendar</a>" class="card">
-        <div class="icon">🗺</div>
+      <a href="/heatmap.html" class="card">
+        <span class="icon">🗺</span>
         <h3>Heatmap</h3>
         <p>24-hour signal history visualization</p>
       </a>
-      
+
       <a href="/status.html" class="card">
-        <div class="icon">🩺</div>
+        <span class="icon">🩺</span>
         <h3>System Status</h3>
         <p>API, signals, and pipeline health</p>
       </a>
     </div>
-    
-    <footer>
-      <p>Montgomery AI v0.1 | Last updated: <span id="ts">--</span></p>
-    </footer>
   </div>
-  <script>document.getElementById('ts').textContent = new Date().toLocaleString();</script>
+
+  <footer>
+    <p>Montgomery AI Labs v0.1</p>
+  </footer>
+
 </body>
 </html>
